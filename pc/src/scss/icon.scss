@@ -1,0 +1,182 @@
+/* include font icon */
+@font-face {
+  font-family: 'zkp';
+  src:  url('fonts/zkp.eot?bmbxi4');
+  src:  url('fonts/zkp.eot?bmbxi4#iefix') format('embedded-opentype'),
+  url('fonts/zkp.ttf?bmbxi4') format('truetype'),
+  url('fonts/zkp.woff?bmbxi4') format('woff'),
+  url('fonts/zkp.svg?bmbxi4#zkp') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'zkp' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-tips:before {
+  content: "\e92d";
+  color: #f8b62b;
+}
+.icon-news:before {
+  content: "\e92c";
+  color: #f8b62b;
+}
+.icon-e-account:before {
+  content: "\e929";
+}
+.icon-hx-step0:before {
+  content: "\e925";
+}
+.icon-hx-step1:before {
+  content: "\e926";
+}
+.icon-hx-step2:before {
+  content: "\e92b";
+}
+.icon-hx-step3:before {
+  content: "\e927";
+}
+.icon-hx-step4:before {
+  content: "\e928";
+}
+.icon-hx-step5:before {
+  content: "\e92a";
+}
+.icon-reject-o:before {
+  content: "\e923";
+}
+.icon-info-o:before {
+  content: "\e924";
+}
+.icon-refresh:before {
+  content: "\e91f";
+}
+.icon-user:before {
+  content: "\e91e";
+}
+.icon-phone:before {
+  content: "\e91d";
+}
+.icon-all-money:before {
+  content: "\e920";
+}
+.icon-pre-earn:before {
+  content: "\e921";
+}
+.icon-has-earn:before {
+  content: "\e922";
+}
+.icon-six:before {
+  content: "\e91c";
+}
+.icon-eye-open:before {
+  content: "\e91a";
+}
+.icon-eye-close:before {
+  content: "\e91b";
+}
+.icon-info:before {
+  content: "\e913";
+}
+.icon-help:before {
+  content: "\e914";
+}
+.icon-protect:before {
+  content: "\e916";
+}
+.icon-publish:before {
+  content: "\e919";
+}
+.icon-earn:before {
+  content: "\e911";
+}
+.icon-clock:before {
+  content: "\e912";
+}
+.icon-tip:before {
+  content: "\e915";
+}
+.icon-select:before {
+  content: "\e917";
+}
+.icon-service:before {
+  content: "\e918";
+}
+.icon-code:before {
+  content: "\e90d";
+}
+.icon-wechat:before {
+  content: "\e90e";
+}
+.icon-qq:before {
+  content: "\e90f";
+}
+.icon-link:before {
+  content: "\e910";
+}
+.icon-diamond:before {
+  content: "\e901";
+}
+.icon-call:before {
+  content: "\e902";
+}
+.icon-star:before {
+  content: "\e903";
+}
+.icon-gift:before {
+  content: "\e904";
+}
+.icon-cookie:before {
+  content: "\e905";
+}
+.icon-letter-love:before {
+  content: "\e906";
+}
+.icon-crown-o:before {
+  content: "\e907";
+}
+.icon-plan:before {
+  content: "\e908";
+}
+.icon-list-file:before {
+  content: "\e909";
+}
+.icon-list:before {
+  content: "\e90a";
+}
+.icon-book:before {
+  content: "\e90b";
+}
+.icon-checked:before {
+  content: "\e90c";
+}
+.icon-crown:before {
+  content: "\e900";
+}
+.icon-search:before {
+  content: "\f002";
+}
+.icon-angle-down:before {
+  content: "\f107";
+}
+.icon-angle-left:before {
+  content: "\f104";
+}
+.icon-angle-right:before {
+  content: "\f105";
+}
+.icon-num-phone:before {
+  content: "\e942";
+}

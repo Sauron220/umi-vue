@@ -1,0 +1,28 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.wrap{
+	width: 100%;
+	max-width: 6.4rem;
+	margin: 0 auto;
+	position: relative;
+}
+
+.top-banner{
+	display: block;
+	width: 100%;
+}
+
+.bottom-banner{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	display: block;
+}
+
+.img-content{
+	position: relative;
+}

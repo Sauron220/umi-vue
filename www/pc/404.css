@@ -1,0 +1,96 @@
+a{text-decoration: none;}
+body{
+  margin:0 auto;
+  background: url("/img/notice_bj.jpg") repeat-y center top;
+  min-height:100%;
+  height:auto !important;
+  height:100%;
+  overflow-x: hidden;
+
+}
+
+.centerImg{
+  width:1980px;
+  margin: 0 auto;
+}
+
+.content{
+  background: url("/img/notice_text_content.png") no-repeat;
+  width: 1000px;
+  margin: 0 auto;
+  height: 1096px;
+  position: relative;
+  top: 552px;
+  color: #333333;
+  padding: 100px;
+}
+.content p{
+  font-size: 18px;
+  color: #333333;
+  line-height: 46px;
+  margin: 0;
+}
+.content .content-text{
+  text-indent: 35px;
+}
+.text-line{
+  text-decoration: underline;
+}
+.table-content{
+  margin-top: 50px !important;
+  margin-bottom: 30px !important;
+}
+.table-text{
+  padding: 10px 20px;
+  font-size: 16px;
+}
+.text-grey{
+  background: #f2f2f2;
+}
+.text1{
+  width: 200px;
+  display: inline-block;
+  vertical-align: top;
+}
+.text2{
+  width: 200px;
+  display: inline-block;
+  vertical-align: top;
+}
+.text3{
+  width: 500px;
+  display: inline-block;
+  vertical-align: top;
+}
+.right-tip{
+  float: right;
+  margin-top: 30px;
+}
+.tem{
+  font-size: 14px !important;
+  color: #666666 !important;;
+}
+.notice-btn{
+  width: 526px;
+  margin: 0 auto;
+  margin-top: 312px;
+  text-align: center;
+}
+.btn{
+  width: 164px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: #d57e93;
+  background: #fff;
+  display: inline-block;
+  text-align: center;
+  font-size: 28px;
+  cursor: pointer;
+}
+.btn:hover{
+  color: #ffffff;
+  background: #d57e93;
+}
+.btn2{
+  margin-left: 100px;
+}

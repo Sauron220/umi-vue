@@ -1,0 +1,125 @@
+/* include font icon */
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?bmbxi43');
+  src:  url('fonts/icomoon.eot?bmbxi43#iefix') format('embedded-opentype'),
+  url('fonts/icomoon.ttf?bmbxi43') format('truetype'),
+  url('fonts/icomoon.woff?bmbxi43') format('woff'),
+  url('fonts/icomoon.svg?bmbxi43#zkp') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-homepage:before {
+  content: "\e919";
+  color: #999;
+}
+.icon-helpCenter:before {
+  content: "\e90d";
+  color: #ffbf00;
+}
+.icon-aboutZkp:before {
+  content: "\e90e";
+  color: #ffbf00;
+}
+.icon-transactionRecord:before {
+  content: "\e90f";
+  color: #307bf2;
+}
+.icon-contactService:before {
+  content: "\e910";
+  color: #ffbf00;
+}
+.icon-notice:before {
+  content: "\e911";
+  color: #ffbf00;
+}
+.icon-calc:before {
+  content: "\e912";
+  color: #ffbf00;
+}
+.icon-experience:before {
+  content: "\e913";
+  color: #ffbf00;
+}
+.icon-bankCard:before {
+  content: "\e914";
+  color: #307bf2;
+}
+.icon-myCoupon:before {
+  content: "\e915";
+  color: #307bf2;
+}
+.icon-myAsset:before {
+  content: "\e916";
+  color: #307bf2;
+}
+.icon-myRecommend:before {
+  content: "\e917";
+  color: #307bf2;
+}
+.icon-set:before {
+  content: "\e918";
+  color: #307bf2;
+}
+.icon-funnel01:before {
+  content: "\e904";
+}
+.icon-funnel06:before {
+  content: "\e908";
+}
+.icon-funnel04:before {
+  content: "\e909";
+}
+.icon-funnel02:before {
+  content: "\e90a";
+}
+.icon-funnel03:before {
+  content: "\e90b";
+}
+.icon-funnel05:before {
+  content: "\e90c";
+}
+.icon-discover:before {
+  content: "\e900";
+  color: #999;
+}
+.icon-discover-active:before {
+  content: "\e901";
+  color: #ffbf00;
+}
+.icon-invest:before {
+  content: "\e902";
+  color: #999;
+}
+.icon-invest-active:before {
+  content: "\e903";
+  color: #ffbf00;
+}
+.icon-homepage-active:before {
+  content: "\e905";
+  color: #ffbf00;
+}
+.icon-profile:before {
+  content: "\e906";
+  color: #999;
+}
+.icon-profile-active:before {
+  content: "\e907";
+  color: #ffbf00;
+}
