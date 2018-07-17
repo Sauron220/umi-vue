@@ -85,7 +85,7 @@ $border: #dbdbdb;
       }
     }
     .website-intro {
-      padding: 20px 0;
+      padding: 35px 0;
       display: block;
       overflow: hidden;
       &:hover, &:focus {
@@ -109,6 +109,18 @@ $border: #dbdbdb;
           float: left;
           margin-right: 20px;
           color: #f8b62b;
+        }
+        .website-intro-hed{
+          margin: 0;
+          padding: 0;
+          font-size: 16px;
+          line-height: 20px;
+        }
+        .website-intro-desc{
+          margin: 0;
+          padding: 0;
+          font-size: 12px;
+          line-height: 18px;
         }
       }
     }
@@ -321,6 +333,20 @@ $border: #dbdbdb;
     }
     .text-small {
       font-size: 14px;
+    }
+
+    .new-user-desc{
+      font-size: 12px;
+    }
+
+    .new-user-btn{
+      width: 150px;
+      height: 30px;
+      line-height: 30px;
+      margin: 0 auto;
+      background: rgb(241,90,36);
+      border-radius: 8px;
+      color: #fff;
     }
   }
   .section-title {

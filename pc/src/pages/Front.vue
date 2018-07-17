@@ -25,57 +25,117 @@
         </div>
       </div>
     </div>
-<div style="background-color:#fff;">
-    <div class="website-info" style="width: 1080px !important;margin: 0 auto;border-bottom: 1px solid #d9d9d9;">
-      <!--<div class="numbers">
-          <div class="title">信融通平臺</div>
-          <div class="service-date">平穩運營<span>{{webSiteInfo.operateDay}}</span>天</div>
-          <div class="service-date">累計投資金額<span>{{webSiteInfo.investmentAmount}}</span>元</div>
-          <div class="service-date">累計註冊人數達<span>{{$fmoneyFormat(webSiteInfo.investmentCount)}}</span>人</div>
-          <div class="service-date">累計賺取<span>{{webSiteInfo.income}}</span>元</div>
-      </div>-->
+    <div style="background-color:#fff;">
+      <div class="website-info" style="width: 1080px !important;margin: 0 auto;border-bottom: 1px solid #d9d9d9;">
+        <!--<div class="numbers">
+            <div class="title">信融通平臺</div>
+            <div class="service-date">平穩運營<span>{{webSiteInfo.operateDay}}</span>天</div>
+            <div class="service-date">累計投資金額<span>{{webSiteInfo.investmentAmount}}</span>元</div>
+            <div class="service-date">累計註冊人數達<span>{{$fmoneyFormat(webSiteInfo.investmentCount)}}</span>人</div>
+            <div class="service-date">累計賺取<span>{{webSiteInfo.income}}</span>元</div>
+        </div>-->
 
-      <a class="website-intro">
-        <div class="info info1"><img src="/static/img/select-01.png">嚴格甄選 優質產品</div>
-        <div class="info info2"><img src="/static/img/select-02.png">六層風控 安全保障</div>
-        <div class="info info3"><img src="/static/img/select-03.png">貼心服務 便捷流程</div>
-        <!--<div class="info info1"><i class="icon icon-select"></i>嚴格甄選 優質產品</div>-->
-        <!--<div class="info info2"><i class="icon icon-six"></i>六層風控 安全保障</div>
-        <div class="info info3"><i class="icon icon-service"></i>貼心服務 便捷流程</div>-->
-      </a>
-    </div>
-    <div class="info-notice" style="width: 1080px !important;margin: 0 auto;">
-      <div class="pull-left title">
-        <img src="/static/img/gonggao.png">
-        <!--<span>平臺公告</span>-->
+        <a class="website-intro">
+          <div class="info info1">
+            <img src="/static/img/select-01.png">
+            <p class="website-intro-hed">嚴格甄選 優質產品</p>
+            <p class="website-intro-desc">交易資金通過民生銀行流轉</p>
+            <p class="website-intro-desc">平台無法觸碰資金</p>
+          </div>
+          <div class="info info2">
+            <img src="/static/img/select-02.png">
+            <p class="website-intro-hed">六層風控 安全保障</p>
+            <p class="website-intro-desc">借款人資質經三重審核</p>
+            <p class="website-intro-desc">逾期率保持行業低水平</p>
+          </div>
+          <div class="info info3">
+            <img src="/static/img/select-03.png">
+            <p class="website-intro-hed">貼心服務 便捷流程</p>
+            <p class="website-intro-desc">累計出借人數791,343</p>
+            <p class="website-intro-desc">累計出借人賺取495,342萬元</p>
+          </div>
+          <!--<div class="info info1"><i class="icon icon-select"></i>嚴格甄選 優質產品</div>-->
+          <!--<div class="info info2"><i class="icon icon-six"></i>六層風控 安全保障</div>
+          <div class="info info3"><i class="icon icon-service"></i>貼心服務 便捷流程</div>-->
+        </a>
       </div>
-      <div class="notice-content">
-        <ul class="list-unstyled" style="position: relative; margin-left: 0px;" id="newsLoad3">
-          <li>
-            <a :href="'/notice/'+notice.newsId" target="_blank">{{notice.newsTitle}}</a>
-            <span class="" style="padding-left: 20px; color: #999;">{{notice.newsTime}}</span>
-          </li>
-        </ul>
-      </div>
-      <div class="gongg">
-        <a class="pull-right text-muted more img-bg" href="/notice-list" target="_blank"></a>
-        <a class="pull-right text-muted more" href="/notice-list" target="_blank" style="padding-right:10px;">更多公告</a>
-        <!--<img src="/static/img/more_1.png" style="width: auto;height: 16px;position: absolute;top:0px;">-->
+      <div class="info-notice" style="width: 1080px !important;margin: 0 auto;">
+        <div class="pull-left title">
+          <img src="/static/img/gonggao.png">
+          <!--<span>平臺公告</span>-->
+        </div>
+        <div class="notice-content">
+          <ul class="list-unstyled" style="position: relative; margin-left: 0px;" id="newsLoad3">
+            <li>
+              <a :href="'/notice/'+notice.newsId" target="_blank">{{notice.newsTitle}}</a>
+              <span class="" style="padding-left: 20px; color: #999;">{{notice.newsTime}}</span>
+            </li>
+          </ul>
+        </div>
+        <div class="gongg">
+          <a class="pull-right text-muted more img-bg" href="/notice-list" target="_blank"></a>
+          <a class="pull-right text-muted more" href="/notice-list" target="_blank" style="padding-right:10px;">更多公告</a>
+          <!--<img src="/static/img/more_1.png" style="width: auto;height: 16px;position: absolute;top:0px;">-->
 
+        </div>
       </div>
     </div>
-</div>
     <div class="container">
 
       <div class="section-space"></div>
       <div class="section-space"></div>
+
+      <h4 class="section-title">新手專區
+        <div class="section-title-text">
+          新手出借指南
+        </div>
+        <div class="gongg" style="display: inline;">
+          <a class="pull-right text-muted more img-bg" href="/product-list/30/11/1" target="_blank"
+             style="top: -4px;margin-left:8px;"></a>
+          <a class="pull-right text-muted more" href="/product-list/30/11/1" target="_blank">查看更多</a>
+        </div>
+      </h4>
+
+      <div class="product-area product-box" >
+        <div class="content" style="height: 189px;">
+          <div class="product-month xrt-row" style="border: none;height: 189px;">
+            <div class="col-xs-4">
+              <div class="">
+                <img src="/static/img/select-03.png">
+                <p class="new-user-desc">注冊領獎金</p>
+              </div>
+              <div class="new-user-btn text-small">注冊領取新手獎金</div>
+            </div>
+            <div class="col-xs-4">
+              <div class="">
+                <img src="/static/img/select-03.png">
+                <p class="new-user-desc">風險測評</p>
+              </div>
+              <div class="new-user-btn text-small">完成測評十積分</div>
+            </div>
+            <div class="col-xs-4" style="border: none">
+              <div class="">
+                <img src="/static/img/select-03.png">
+                <p class="new-user-desc">新手專享</p>
+              </div>
+              <div class="new-user-btn text-small">完成新手專享十積分</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-space clearfix"></div>
+      <div class="section-space clearfix"></div>
+
+
       <h4 class="section-title">壹桶金
         <div class="section-title-text">
           新手投資 專享通道
         </div>
         <div class="gongg" style="display: inline;">
-        <a class="pull-right text-muted more img-bg" href="/product-list/30/11/1" target="_blank" style="top: -4px;margin-left:8px;"></a>
-        <a class="pull-right text-muted more" href="/product-list/30/11/1" target="_blank">查看更多</a>
+          <a class="pull-right text-muted more img-bg" href="/product-list/30/11/1" target="_blank"
+             style="top: -4px;margin-left:8px;"></a>
+          <a class="pull-right text-muted more" href="/product-list/30/11/1" target="_blank">查看更多</a>
         </div>
       </h4>
 
@@ -85,7 +145,8 @@
             <div class="col-xs-3">
               <div class="text-danger default-rate">
                 <span class="num">{{$fmoney(formatNum(products[30].defaultRate || 0, 100), 1)}}</span>%
-                <span v-if="products[30].rewardRate">+{{$fmoney(formatNum(products[30].rewardRate || 0, 100), 1)}}%</span>
+                <span
+                  v-if="products[30].rewardRate">+{{$fmoney(formatNum(products[30].rewardRate || 0, 100), 1)}}%</span>
               </div>
               <p class="text-muted text-small">預期年化收益</p>
             </div>
@@ -180,8 +241,9 @@
           定期投資 分散投標
         </div>
         <div class="gongg" style="display: inline;">
-        <a class="pull-right text-muted more img-bg" href="/product-list/7/11/1" target="_blank" style="top: -4px;margin-left:8px;"></a>
-        <a class="pull-right text-muted more" href="/product-list/7/11/1" target="_blank">查看更多</a>
+          <a class="pull-right text-muted more img-bg" href="/product-list/7/11/1" target="_blank"
+             style="top: -4px;margin-left:8px;"></a>
+          <a class="pull-right text-muted more" href="/product-list/7/11/1" target="_blank">查看更多</a>
         </div>
       </h4>
       <div class="product-area product-box">
@@ -228,8 +290,9 @@
           定期投資 分散投標
         </div>
         <div class="gongg" style="display: inline;">
-          <a class="pull-right text-muted more img-bg" href="/product-list/30/11/1" target="_blank" style="top: -4px;margin-left:8px;"></a>
-        <a class="pull-right text-muted more" href="/product-list/8/11/1" target="_blank">查看更多</a>
+          <a class="pull-right text-muted more img-bg" href="/product-list/30/11/1" target="_blank"
+             style="top: -4px;margin-left:8px;"></a>
+          <a class="pull-right text-muted more" href="/product-list/8/11/1" target="_blank">查看更多</a>
         </div>
       </h4>
       <div class="product-area product-box">
@@ -276,8 +339,9 @@
           定期投資 分散投標
         </div>
         <div class="gongg" style="display: inline;">
-          <a class="pull-right text-muted more img-bg" href="/product-list/30/11/1" target="_blank" style="top: -4px;margin-left:8px;"></a>
-        <a class="pull-right text-muted more" href="/product-list/9/11/1" target="_blank">查看更多</a>
+          <a class="pull-right text-muted more img-bg" href="/product-list/30/11/1" target="_blank"
+             style="top: -4px;margin-left:8px;"></a>
+          <a class="pull-right text-muted more" href="/product-list/9/11/1" target="_blank">查看更多</a>
         </div>
       </h4>
       <div class="product-area product-box">
@@ -321,8 +385,9 @@
           自主投資 期限靈活
         </div>
         <div class="gongg" style="display: inline;">
-          <a class="pull-right text-muted more img-bg" href="/product-list/30/11/1" target="_blank" style="top: -4px;margin-left:8px;"></a>
-        <a class="pull-right text-muted more" href="/product-list/0/11/1" target="_blank">查看更多</a>
+          <a class="pull-right text-muted more img-bg" href="/product-list/30/11/1" target="_blank"
+             style="top: -4px;margin-left:8px;"></a>
+          <a class="pull-right text-muted more" href="/product-list/0/11/1" target="_blank">查看更多</a>
         </div>
       </h4>
       <div class="product-result" v-if="productList.length > 0">
