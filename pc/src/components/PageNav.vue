@@ -20,16 +20,16 @@
               <i class="icon-help icon-location"></i>幫助中心
             </a>
           </li>-->
-          <!-- <li>
-             <a href="/securityGuarantee" target="_blank">
-               <i class="icon-protect icon-location"></i>安全保障
-             </a>
-           </li>
-           <li>
-             <a href="/infoDisclosure" target="_blank">
-               <i class="icon-publish icon-location"></i>資訊披露
-             </a>
-           </li>-->
+         <!-- <li>
+            <a href="/securityGuarantee" target="_blank">
+              <i class="icon-protect icon-location"></i>安全保障
+            </a>
+          </li>
+          <li>
+            <a href="/infoDisclosure" target="_blank">
+              <i class="icon-publish icon-location"></i>資訊披露
+            </a>
+          </li>-->
         </ul>
         <ul class="pull-right list-inline top-links">
           <li>
@@ -65,16 +65,16 @@
             <img class="img-responsive" src="../assets/images/logo.png">
           </a>
           <!--<<a :href="mevsUrl+'anniversary.html'" class="logo-tip" target="_blank">-->
-          <!--<img src="../assets/images/logo-tip.png" class="logo-tip.png">-->
+              <!--<img src="../assets/images/logo-tip.png" class="logo-tip.png">-->
           <!--</a>-->
         </div>
         <ul class="list-inline pull-right page-nav">
           <li>
             <a href="/" :class="{'active':$route.fullPath == '/'}">首頁</a>
           </li>
-          <!-- <li>
-             <a href="/product-list" :class="{'active':$route.fullPath == '/product-list'}">定期理財</a>
-           </li>-->
+         <!-- <li>
+            <a href="/product-list" :class="{'active':$route.fullPath == '/product-list'}">定期理財</a>
+          </li>-->
           <li>
             <a href="/product-list/30/11/1" :class="{'active':$route.fullPath == '/product-list/30/11/1'}">壹桶金</a>
           </li>
@@ -93,17 +93,17 @@
           <li>
             <a href="/product-list/9/11/1" :class="{'active':$route.fullPath == '/product-list/9/11/1'}">我要借款/還款</a>
           </li>
-          <!-- <li class="relative product-link">
-             <router-link to="/product-list">定期理財<i class="icon icon-angle-down"></i></router-link>
-             <ul class="list-unstyled product-link-dropdown">
-               <li><a href="/product-list">定期理財<i class="icon icon-angle-down"></i></a></li>
-               <li><a href="/product-list/30/11/1">壹桶金</a></li>
-               <li><a href="/product-list/7/11/1">聚寶計劃</a></li>
-               <li><a href="/product-list/8/11/1">分期投</a></li>
-               <li><a href="/product-list/9/11/1">月月盈</a></li>
-               &lt;!&ndash;<li><a href="/product-list/10/11/1">年年余</a></li>&ndash;&gt;
-             </ul>
-           </li>-->
+         <!-- <li class="relative product-link">
+            <router-link to="/product-list">定期理財<i class="icon icon-angle-down"></i></router-link>
+            <ul class="list-unstyled product-link-dropdown">
+              <li><a href="/product-list">定期理財<i class="icon icon-angle-down"></i></a></li>
+              <li><a href="/product-list/30/11/1">壹桶金</a></li>
+              <li><a href="/product-list/7/11/1">聚寶計劃</a></li>
+              <li><a href="/product-list/8/11/1">分期投</a></li>
+              <li><a href="/product-list/9/11/1">月月盈</a></li>
+              &lt;!&ndash;<li><a href="/product-list/10/11/1">年年余</a></li>&ndash;&gt;
+            </ul>
+          </li>-->
           <!--
             <li>
                 <a href="/parent-child/plan-content" :class="{'active':$route.fullPath.indexOf('parent-child') > -1}">親子計劃</a>
@@ -118,8 +118,8 @@
             >我的賬戶</router-link>
           </li>-->
           <li>
-            <a v-if="!userInfo.loginResult" class="resister-link page-nav-login" href="/register">註冊/</a>
-            <a v-if="!userInfo.loginResult" class="page-nav-login" :href="loginUrl">登錄</a>
+            <a v-if="!userInfo.loginResult" class="nav-color resister-link" href="/register">註冊/</a>
+            <a v-if="!userInfo.loginResult" class="nav-color login-page" :href="loginUrl">登錄</a>
           </li>
         </ul>
       </div>

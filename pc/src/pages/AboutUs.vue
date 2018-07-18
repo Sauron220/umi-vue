@@ -1,9 +1,9 @@
 <template>
   <div class="hello aboutUs-content" v-TDK="TDK">
     <!--<div class="about-top-img"></div>-->
-    <img src="../assets/images/about_01.png" width="100%;">
+    <!--<img src="../assets/images/about_01.png" width="100%;">
     <img src="../assets/images/about_02.png" width="100%;">
-    <img src="../assets/images/about_03.png" width="100%;">
+    <img src="../assets/images/about_03.png" width="100%;">-->
 
     <!--<div class="special-cont">
       <div class="about-title">什麽是聚寶盆</div>
@@ -89,6 +89,51 @@
       </div>
       <br>
     </div>-->
+    <div class="head-section" style="background: #fff;width: 1200px;margin:0 auto;margin-top: 20px;">
+      <div class="about-top-head" style="width: 950px;margin: 0 auto;padding-top: 20px;">
+        <img src="../assets/images/about_01.png" alt="" style="width: 950px;">
+      </div>
+      <div class="about-area">
+        <div class="about-f">
+          <div class="about-img">
+            <img src="/static/img/shezhi.png" alt="">
+          </div>
+          <div class="about-desc">
+            <p class="desc-text-t">2018</p>
+            <p class="desc-text-b">成立時間</p>
+          </div>
+        </div>
+        <!--<div class="about-divd"></div>-->
+        <div class="about-f about-m">
+          <div class="about-img">
+            <img src="/static/img/shezhi.png" alt="">
+          </div>
+          <div class="about-desc">
+            <p class="desc-text-t">台北</p>
+            <p class="desc-text-b">總部</p>
+          </div>
+        </div>
+        <!--<div class="about-divd"></div>-->
+        <div class="about-f">
+          <div class="about-img">
+            <img src="/static/img/shezhi.png" alt="">
+          </div>
+          <div class="about-desc">
+            <p class="desc-text-t">fundbowl.tw</p>
+            <p class="desc-text-b">官方網站</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="desc-txt">聚寶盆Fundbowl，是Fund資金和Bowl碗盆的合體字，將資金放在需求和供給的碗盆裡，透過市場的供給和需求滾動出更多機會與組合。</div>
+
+
+    </div>
+
+
+
+
+
   </div>
 </template>
 <script>

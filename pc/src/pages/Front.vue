@@ -15,7 +15,7 @@
       <div class="index-slider-box">
         <div class='swiper-container'>
           <div class='swiper-wrapper'>
-            <div class="swiper-slide" v-for="item in banners">
+            <div class="swiper-slide front-banner" v-for="item in banners" :key='item.resLink'>
               <a :href="item.resLink || 'javascript:;'" target="_blank">
                 <img :src="item.resUri" alt="">
               </a>
@@ -35,29 +35,29 @@
             <div class="service-date">累計賺取<span>{{webSiteInfo.income}}</span>元</div>
         </div>-->
 
-        <a class="website-intro">
+        <div class="website-intro">
           <div class="info info1">
-            <img src="/static/img/select-01.png">
-            <p class="website-intro-hed">嚴格甄選 優質產品</p>
-            <p class="website-intro-desc">交易資金通過民生銀行流轉</p>
-            <p class="website-intro-desc">平台無法觸碰資金</p>
+            <img src="/static/img/tuijian.png">
+            <p class="info-top">嚴格甄選 優質產品</p>
+            <p class="info-desc">交易資金通過民生銀行流轉 </p>
+            <p class="info-desc">平台無法觸碰資金 </p>
           </div>
           <div class="info info2">
-            <img src="/static/img/select-02.png">
-            <p class="website-intro-hed">六層風控 安全保障</p>
-            <p class="website-intro-desc">借款人資質經三重審核</p>
-            <p class="website-intro-desc">逾期率保持行業低水平</p>
+            <img src="/static/img/newUser.png">
+            <p class="info-top">六層風控 安全保障</p>
+            <p class="info-desc">借款人資質經三重審核</p>
+            <p class="info-desc">逾期率保持行業低水平</p>
           </div>
           <div class="info info3">
-            <img src="/static/img/select-03.png">
-            <p class="website-intro-hed">貼心服務 便捷流程</p>
-            <p class="website-intro-desc">累計出借人數791,343</p>
-            <p class="website-intro-desc">累計出借人賺取495,342萬元</p>
+            <img src="/static/img/shezhi.png">
+            <p class="info-top">貼心服務 便捷流程</p>
+            <p class="info-desc">累計出借人數791,343</p>
+            <p class="info-desc">累計出借人賺取495,342萬元</p>
           </div>
           <!--<div class="info info1"><i class="icon icon-select"></i>嚴格甄選 優質產品</div>-->
           <!--<div class="info info2"><i class="icon icon-six"></i>六層風控 安全保障</div>
           <div class="info info3"><i class="icon icon-service"></i>貼心服務 便捷流程</div>-->
-        </a>
+        </div>
       </div>
       <div class="info-notice" style="width: 1080px !important;margin: 0 auto;">
         <div class="pull-left title">
@@ -90,35 +90,35 @@
           新手出借指南
         </div>
         <div class="gongg" style="display: inline;">
-          <a class="pull-right text-muted more img-bg" href="/product-list/30/11/1" target="_blank"
+          <a class="pull-right text-muted more img-bg" href="/product-list/7/11/1" target="_blank"
              style="top: -4px;margin-left:8px;"></a>
-          <a class="pull-right text-muted more" href="/product-list/30/11/1" target="_blank">查看更多</a>
+          <a class="pull-right text-muted more" href="/product-list/7/11/1" target="_blank">查看更多</a>
         </div>
       </h4>
 
-      <div class="product-area product-box" >
-        <div class="content" style="height: 189px;">
-          <div class="product-month xrt-row" style="border: none;height: 189px;">
+      <div class="product-area product-box front-new-user-box">
+        <div class="content">
+          <div class="product-month xrt-row xrt-row-new-user" style="border: none;">
             <div class="col-xs-4">
-              <div class="">
-                <img src="/static/img/select-03.png">
-                <p class="new-user-desc">注冊領獎金</p>
+              <div class="front-new-user">
+                <img src="/static/img/select-03.png" alt="">
               </div>
-              <div class="new-user-btn text-small">注冊領取新手獎金</div>
+              <p>注冊領獎金</p>
+              <div class="front-new-user-reg new-user-active">注冊領取新手獎金</div>
             </div>
             <div class="col-xs-4">
-              <div class="">
-                <img src="/static/img/select-03.png">
-                <p class="new-user-desc">風險測評</p>
+              <div class="front-new-user">
+                <img src="/static/img/select-03.png" alt="">
               </div>
-              <div class="new-user-btn text-small">完成測評十積分</div>
+              <p>風險評測</p>
+              <div class="front-new-user-reg">完成評測拿十積分</div>
             </div>
             <div class="col-xs-4" style="border: none">
-              <div class="">
-                <img src="/static/img/select-03.png">
-                <p class="new-user-desc">新手專享</p>
+              <div class="front-new-user">
+                <img src="/static/img/select-03.png" alt="">
               </div>
-              <div class="new-user-btn text-small">完成新手專享十積分</div>
+              <p>新手專享</p>
+              <div class="front-new-user-reg">新手出售專享10%</div>
             </div>
           </div>
         </div>
@@ -126,7 +126,6 @@
 
       <div class="section-space clearfix"></div>
       <div class="section-space clearfix"></div>
-
 
       <h4 class="section-title">壹桶金
         <div class="section-title-text">
@@ -380,7 +379,7 @@
       </div>
       <div class="section-space clearfix"></div>
       <div class="section-space"></div>
-      <h4 class="section-title" v-if="productList.length > 0">優質散標
+      <h4 class="section-title" >債權/散標
         <div class="section-title-text">
           自主投資 期限靈活
         </div>
@@ -390,7 +389,7 @@
           <a class="pull-right text-muted more" href="/product-list/0/11/1" target="_blank">查看更多</a>
         </div>
       </h4>
-      <div class="product-result" v-if="productList.length > 0">
+      <div class="product-result" >
         <ul class="list-unstyled">
           <li class="list-bar list-title">
             <div class="list1">年利率</div>
@@ -401,7 +400,7 @@
             <div class="list6">操作</div>
           </li>
           <li class="list-bar product-bar" v-for="(item,ind) in productList" v-if="ind < 6"
-              :class="{'product-bar-high':ind%2 == 0}">
+              :class="{'product-bar-high':ind%2 == 0}" :key='item.prdCode'>
             <a :href="'/premium/' + item.prdCode" target="_blank">
               <div class="list1 list-color"><span>{{$fmoney(formatNum(item.defaultRate || 0, 100), 1)}}</span>%</div>
               <div class="list1 list-color" v-if="item.rewardRate">+{{$fmoney(formatNum(item.rewardRate || 0, 100),
@@ -485,6 +484,7 @@
         pageSize: 5,
         resModule: 4
       }).then((res) => {
+        res.body.respInfo.list.dataList.push({resUri:'/static/img/friend.png'});
         self.banners = res.body.respInfo.list.dataList;
         self.$nextTick(function () {
           self.mySwipe = new Swipe('.swiper-container', {

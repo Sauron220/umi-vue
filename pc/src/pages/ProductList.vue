@@ -3,7 +3,9 @@
     <div class="container">
       <ol class="breadcrumb">
         <span>您現在的位置：</span>
-        <li><router-link to="/">首頁</router-link></li>
+        <li>
+          <router-link to="/">首頁</router-link>
+        </li>
         <li class="active">定期理財</li>
       </ol>
       <!--<div>產品id：{{$route.params.id}}</div>-->
@@ -86,7 +88,7 @@
           </tr>
           </thead>
           <tbody class="data-list">
-          <tr class="history-list-data"  v-for="item in productList">
+          <tr class="history-list-data" v-for="item in productList">
             <td class="rate"> {{productRate(item.defaultRate, item.rewardRate)}}</td>
             <td class="name">{{item.prdName}}</td>
             <td class="time">{{item.prdPeriod}}天</td>
@@ -108,19 +110,19 @@
             </td>
           </tr>
           <!--<tr class="history-list-data">-->
-            <!--<td class="rate">9.60<span>%</span></td>-->
-            <!--<td class="name">资金周转</td>-->
-            <!--<td class="time">36个月</td>-->
-            <!--<td class="money"><span>45,600.00</span>元</td>-->
-            <!--<td class="progress" data-percent="100">-->
-              <!--<div class="percentage-text">100%</div>-->
-              <!--<div class="outer"><span class="inner" style="width: 120px;"></span></div>-->
-            <!--</td>-->
-            <!--<td class="action">-->
+          <!--<td class="rate">9.60<span>%</span></td>-->
+          <!--<td class="name">资金周转</td>-->
+          <!--<td class="time">36个月</td>-->
+          <!--<td class="money"><span>45,600.00</span>元</td>-->
+          <!--<td class="progress" data-percent="100">-->
+          <!--<div class="percentage-text">100%</div>-->
+          <!--<div class="outer"><span class="inner" style="width: 120px;"></span></div>-->
+          <!--</td>-->
+          <!--<td class="action">-->
 
-              <!--<a class="disabled" href="https://www.renrendai.com/loan-2588594.html" target="_blank" onclick="return false">已满标</a>-->
+          <!--<a class="disabled" href="https://www.renrendai.com/loan-2588594.html" target="_blank" onclick="return false">已满标</a>-->
 
-            <!--</td>-->
+          <!--</td>-->
           <!--</tr>-->
           </tbody>
         </table>
@@ -133,55 +135,55 @@
       <div v-if="!productList.length" style="margin:50px;text-align: center;">
         <img src="../assets/images/no_data.png">
       </div>
-    <!-- <div class="product-result">
-        <ul class="list-unstyled" id="productList">
-          <li class="product-bar" v-for="item in productList">
-            <h4 class="title"><a :href="productUrl(item.prdType) + item.prdCode" target="_blank">{{item.prdName}}</a>
-            </h4>
-            <div class="modular ell t1">
-              <div class="text-info">預期年化收益</div>
-              <p>
-                                <span class="font-red">
-                                    {{productRate(item.defaultRate, item.rewardRate)}}
-                                </span>
-              </p>
-            </div>
-            <div class="modular ell t2">
-              <div class="text-info">借款期限</div>
-              <p><span>{{item.prdPeriod}}</span>天</p>
-            </div>
-            <div class="modular ell t3">
-              <div class="text-info">起投金額</div>
-              <p><span>{{$fmoneyFormat(item.minInvAmt || 0)}}</span>元</p>
-            </div>
-            <div class="modular ell t4 clearfix">
-              <div class="text-info">產品金額</div>
-              <p><span>{{$fmoneyFormat(item.prdAmount)}}</span>元</p>
-            </div>
-            <div class="modular ell t5">
-              <div class="progress pro_out" v-if="productActive(item.status)">
-                <div class="progress-bar pro_inner" :style="{'width':item.colPercent+'%'}"></div>
-                <i>{{item.colPercent}}%</i>
+      <!-- <div class="product-result">
+          <ul class="list-unstyled" id="productList">
+            <li class="product-bar" v-for="item in productList">
+              <h4 class="title"><a :href="productUrl(item.prdType) + item.prdCode" target="_blank">{{item.prdName}}</a>
+              </h4>
+              <div class="modular ell t1">
+                <div class="text-info">預期年化收益</div>
+                <p>
+                                  <span class="font-red">
+                                      {{productRate(item.defaultRate, item.rewardRate)}}
+                                  </span>
+                </p>
               </div>
-              <a :href="productUrl(item.prdType) + item.prdCode" target="_blank"
-                 class="btn  btn-block"
-                 :class="{'btn-gray':!productActive(item.status),
-                                        'btn-warning':productActive(item.status),
-                                        'gray':item.status=='12'}">
-                {{buttonText(item.status)}}
-              </a>
-            </div>
-          </li>
-        </ul>
-        <vPagination v-if="productList.length>0 && productListInfo.totalPage>1"
-                     :totalPage="productListInfo.totalPage"
-                     :currentPage="$route.params.pageAt"
-                     :withOutPageAtUrl="'/product-list/'+$route.params.prdType+'/'+$route.params.prdStatus+'/'">
-        </vPagination>
-        <br>
-        <br>
-        <br>
-      </div>-->
+              <div class="modular ell t2">
+                <div class="text-info">借款期限</div>
+                <p><span>{{item.prdPeriod}}</span>天</p>
+              </div>
+              <div class="modular ell t3">
+                <div class="text-info">起投金額</div>
+                <p><span>{{$fmoneyFormat(item.minInvAmt || 0)}}</span>元</p>
+              </div>
+              <div class="modular ell t4 clearfix">
+                <div class="text-info">產品金額</div>
+                <p><span>{{$fmoneyFormat(item.prdAmount)}}</span>元</p>
+              </div>
+              <div class="modular ell t5">
+                <div class="progress pro_out" v-if="productActive(item.status)">
+                  <div class="progress-bar pro_inner" :style="{'width':item.colPercent+'%'}"></div>
+                  <i>{{item.colPercent}}%</i>
+                </div>
+                <a :href="productUrl(item.prdType) + item.prdCode" target="_blank"
+                   class="btn  btn-block"
+                   :class="{'btn-gray':!productActive(item.status),
+                                          'btn-warning':productActive(item.status),
+                                          'gray':item.status=='12'}">
+                  {{buttonText(item.status)}}
+                </a>
+              </div>
+            </li>
+          </ul>
+          <vPagination v-if="productList.length>0 && productListInfo.totalPage>1"
+                       :totalPage="productListInfo.totalPage"
+                       :currentPage="$route.params.pageAt"
+                       :withOutPageAtUrl="'/product-list/'+$route.params.prdType+'/'+$route.params.prdStatus+'/'">
+          </vPagination>
+          <br>
+          <br>
+          <br>
+        </div>-->
     </div>
   </div>
 </template>
@@ -192,29 +194,29 @@
 
   export default {
     name: 'ProductList',
-    data () {
+    data() {
       return {
         msg: 'Welcome to Your Vue.js App',
         productListRequest: null,
         productListInfo: {
-          totalPage:0
+          totalPage: 0
         },
         productList: [],
-        TDK:{
-          title:'個人理財_網上理財_理財產品',
-          keyWords:'p2p理財平臺,理財產品排行,個人投資理財,聚寶計劃,分期投,月月盈',
-          description:'聚寶盆理財平臺，靈活理財，14天-365天理財產品任選，現旗下有壹桶金、聚寶計劃、分期投、月月盈、尊享計劃等方式進行投資獲得穩定收益，新手註冊，即領998元紅包！',
+        TDK: {
+          title: '個人理財_網上理財_理財產品',
+          keyWords: 'p2p理財平臺,理財產品排行,個人投資理財,聚寶計劃,分期投,月月盈',
+          description: '聚寶盆理財平臺，靈活理財，14天-365天理財產品任選，現旗下有壹桶金、聚寶計劃、分期投、月月盈、尊享計劃等方式進行投資獲得穩定收益，新手註冊，即領998元紅包！',
         }
       }
     },
-    created () {
+    created() {
       let params = this.$route.params
       this.getProductList(params.prdType, params.prdStatus, params.pageAt);
     },
     components: {
       vPagination: vPagination
     },
-    beforeRouteUpdate (to, from, next){
+    beforeRouteUpdate(to, from, next) {
       let params = to.params;
       this.productListInfo.totalPage = 0;
       this.getProductList(params.prdType, params.prdStatus, params.pageAt, function () {
@@ -222,8 +224,8 @@
       });
     },
     methods: {
-      productRate:Tool.productRate,
-      getProductList(prdType, prdStatus, pageAt, callback){
+      productRate: Tool.productRate,
+      getProductList(prdType, prdStatus, pageAt, callback) {
         if (prdType == 0) {
           prdType = ''
         }
@@ -237,7 +239,7 @@
           status: prdStatus,
           pageIndex: pageAt
         }, {
-          before(request){
+          before(request) {
             if (self.productListRequest) {
               self.productListRequest.abort();
             }
@@ -250,14 +252,14 @@
             callback && callback();
           })
       },
-      productActive(status){
+      productActive(status) {
         if (status == '14' || status == '16' || status == '20' || status == '30') {
           return false
         } else {
           return true
         }
       },
-      buttonText(status){
+      buttonText(status) {
         switch (status) {
           case '11':
             return '立即加入';
