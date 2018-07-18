@@ -1,13 +1,15 @@
 <template>
   <div class="helpCenter-content" v-TDK="TDK">
-    <div class="search_content">
+    <!--<div class="search_content">
       <div class="wrap clearfix">
         <h1>幫助中心</h1>
         <input type="text" placeholder="輸入問題" id="searchText">
         <img src="../assets/images/icon_search.jpg" id="searchBtn" @click="search">
       </div>
-    </div>
+    </div>-->
+    <div class="help-content">
 
+    </div>
     <div class="clearfix help-box help">
       <div class="scrollWrap">
         <a href="#1" class="help_list">登錄註冊</a>
