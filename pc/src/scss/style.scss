@@ -288,6 +288,7 @@ $border: #dbdbdb;
 
       }
       .front-new-user-reg{
+        display: inline-block;
         margin: 0 auto;
         width: 206px;
         height: 48px;
@@ -296,6 +297,12 @@ $border: #dbdbdb;
         color: #fff;
         border-radius: 8px;
         font-size: 16px;
+      }
+      .front-new-novice-reg{
+        width: 172px;
+        height: 42px;
+        line-height: 42px;
+        margin-top: 20px;
       }
       .new-user-active{
         background: #f05a23;
@@ -362,6 +369,10 @@ $border: #dbdbdb;
   .front-new-user-box{
     height: 175px;
   }
+  .front-new-novice-box{
+    height: 245px;
+  }
+
   .section-title {
     font-size: 18px;
     margin: 0 0 16px;

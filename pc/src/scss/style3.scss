@@ -1071,7 +1071,7 @@ text-align: center;
   }
 }
 
-.front {
+.front,.noviceArea {
   .info img {
     float: left;
     margin-top: -5px;
@@ -1384,6 +1384,15 @@ text-align: center;
     .xrt-row-new-user{
       height: 172px;
     }
+    .xrt-row-new-novice{
+      height: 245px;
+    }
+    .product-noviceArea-desc{
+      font-size: 14px;
+      text-align: left;
+      width: 215px;
+      margin: 0 auto;
+    }
     .row {
       margin: 0;
       .xrt-btn {
@@ -1523,6 +1532,101 @@ text-align: center;
 .imgLod{
   background:#000 url("../assets/images/img-loding.gif") center center no-repeat;
   opacity: .5;
+}
+.noviceArea-parper{
+  background: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  .noviceArea-tit{
+    padding-right: 20px;
+    border-right: 1px solid #ccc;
+  }
+  .noviceArea-desc{
+    padding-left: 20px;
+  }
+}
+.noviceArea-video{
+  background: #fff;
+  padding: 30px;
+}
+
+.riskAssessment{
+  background: #fff;
+  width: 1080px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  .risk-container{
+    padding-bottom: 20px;
+    .risk-head{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid #ccc;
+      .risk-head-skip{
+        color: #3c64a0;
+        cursor: pointer;
+      }
+    }
+    .risk-question{
+      padding: 0 20px;
+      margin-bottom: 20px;
+      .risk-queston-tip{
+        background: #fefaf4;
+        color: #e29646;
+        margin: 15px 0;
+      }
+    }
+    .risk-radio-question{
+      list-style: none;
+      border-bottom: 1px solid #ccc;
+      li{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 15px 0;
+      }
+      .select-img{
+        position: absolute;
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+        background: url('../../static/img/blank-radio.png');
+        background-size: 100% 100%;
+      }
+      .select-active-img{
+        background: url('../../static/img/radio-checked2.png');
+        background-size: 100% 100%;
+      }
+      input[type=radio] {
+        opacity: 0;
+        position: absolute;
+        z-index: 20;
+        width: 22px;
+        height: 22px;
+        margin: 0;
+      }
+      .desc-answer{
+        margin-left: 35px;
+      }
+    }
+    .risk-question .risk-radio-question:last-child{
+      border: none;
+    }
+    .submit-btn{
+      width: 160px;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 5px;
+      text-align: center;
+      background: #f15a24;
+      margin: 0 auto;
+      color: #fff;
+    }
+  }
 }
 
 

@@ -670,7 +670,6 @@
     name: 'HelpCenter',
     data () {
       return {
-        msg: 'Welcome to Your Vue.js App',
         TDK:{
           title:'聚寶盆會員幫助中心',
           keyWords:'聚寶盆收益,聚寶盆收費標準,聚寶盆利息,聚寶盆提領',

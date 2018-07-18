@@ -73,6 +73,8 @@ import ChangeCardFail from '@/pages/ChangeCardFail'
 import ChangeCardSuccess from '@/pages/ChangeCardSuccess'
 import ChangePayPwd from '@/pages/ChangePayPwd'
 import SetPayPwd from '@/pages/SetPayPwd'
+import NoviceArea from '@/pages/NoviceArea'
+import RiskAssessment from '@/pages/RiskAssessment'
 
 
 Vue.use(Router)
@@ -839,6 +841,26 @@ var appRouter =  new Router({
       name: 'SetPayPwd',
       components: {
         content:SetPayPwd,
+        PageNav: PageNav,
+        PageFooter: PageFooter,
+        // RightFloat: RightFloat,
+      }
+    },
+    {
+      path: '/noviceArea',
+      name: 'NoviceArea',
+      components: {
+        content:NoviceArea,
+        PageNav: PageNav,
+        PageFooter: PageFooter,
+        // RightFloat: RightFloat,
+      }
+    },
+    {
+      path: '/riskAssessment',
+      name: 'RiskAssessment',
+      components: {
+        content:RiskAssessment,
         PageNav: PageNav,
         PageFooter: PageFooter,
         // RightFloat: RightFloat,

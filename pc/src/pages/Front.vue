@@ -90,9 +90,9 @@
           新手出借指南
         </div>
         <div class="gongg" style="display: inline;">
-          <a class="pull-right text-muted more img-bg" href="/product-list/7/11/1" target="_blank"
+          <a class="pull-right text-muted more img-bg" href="/noviceArea" target="_blank"
              style="top: -4px;margin-left:8px;"></a>
-          <a class="pull-right text-muted more" href="/product-list/7/11/1" target="_blank">查看更多</a>
+          <a class="pull-right text-muted more" href="/noviceArea" target="_blank">查看更多</a>
         </div>
       </h4>
 
@@ -104,7 +104,7 @@
                 <img src="/static/img/select-03.png" alt="">
               </div>
               <p>注冊領獎金</p>
-              <div class="front-new-user-reg new-user-active">注冊領取新手獎金</div>
+              <a class="front-new-user-reg new-user-active" href="/register">注冊領取新手獎金</a>
             </div>
             <div class="col-xs-4">
               <div class="front-new-user">
@@ -484,7 +484,6 @@
         pageSize: 5,
         resModule: 4
       }).then((res) => {
-        res.body.respInfo.list.dataList.push({resUri:'/static/img/friend.png'});
         self.banners = res.body.respInfo.list.dataList;
         self.$nextTick(function () {
           self.mySwipe = new Swipe('.swiper-container', {
