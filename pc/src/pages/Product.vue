@@ -4,117 +4,117 @@
     <div class="section-space"></div>
 
     <!--<div class="product-info"> </div>-->
-      <div class="container product-intro-box product-intro clearfix">
-        <ol class="breadcrumb" style="background: #f8f8f8;padding-bottom: 30px;margin-bottom: 0px;">
-          <span>您現在的位置：</span>
-          <li>
-            <router-link to="/">首頁</router-link>
-          </li>
-          <li>
-            <router-link to="/product-list">定期理財</router-link>
-          </li>
-          <li v-if="productDetail.prdType">
-            <router-link
-              :to="{ name: 'ProductList', params: { prdType:productDetail.prdType,prdStatus:0,pageAt:1 }}">
-              {{getTypeName(productDetail.prdType)}}
-            </router-link>
-          </li>
-          <li class="active">產品詳情</li>
-        </ol>
-        <h1 class="product-name">
-          <span class="title">{{productDetail.prdName}}</span>
-        </h1>
-        <div class="left-info">
+    <div class="container product-intro-box product-intro clearfix">
+      <ol class="breadcrumb" style="background: #f8f8f8;padding-bottom: 30px;margin-bottom: 0px;">
+        <span>您現在的位置：</span>
+        <li>
+          <router-link to="/">首頁</router-link>
+        </li>
+        <li>
+          <router-link to="/product-list">定期理財</router-link>
+        </li>
+        <li v-if="productDetail.prdType">
+          <router-link
+            :to="{ name: 'ProductList', params: { prdType:productDetail.prdType,prdStatus:0,pageAt:1 }}">
+            {{getTypeName(productDetail.prdType)}}
+          </router-link>
+        </li>
+        <li class="active">產品詳情</li>
+      </ol>
+      <h1 class="product-name">
+        <span class="title">{{productDetail.prdName}}</span>
+      </h1>
+      <div class="left-info">
 
-          <div class="clearfix"></div>
-          <div class="top clearfix">
-            <div class="item profit">
-              <div class="num">
-                <span>{{productRate(productDetail.defaultRate, productDetail.rewardRate)}}</span>
-              </div>
-              <i>預期年化收益</i>
+        <div class="clearfix"></div>
+        <div class="top clearfix">
+          <div class="item profit">
+            <div class="num">
+              <span>{{productRate(productDetail.defaultRate, productDetail.rewardRate)}}</span>
             </div>
-            <div class="item term">
-              <div class="num">
-                <span>{{productDetail.prdPeriod}}</span>天
-              </div>
-              <i>借款期限</i>
+            <i>預期年化收益</i>
+          </div>
+          <div class="item term">
+            <div class="num">
+              <span>{{productDetail.prdPeriod}}</span>天
             </div>
-            <div class="item all">
-              <div class="num">
-                <span>{{$fmoney(productDetail.prdAmount)}}</span>元
-              </div>
-              <i>產品金額</i>
+            <i>借款期限</i>
+          </div>
+          <div class="item all">
+            <div class="num">
+              <span>{{$fmoney(productDetail.prdAmount)}}</span>元
+            </div>
+            <i>產品金額</i>
+          </div>
+        </div>
+        <div class="bottom clearfix">
+          <div class="intro-group">
+            <div class="intro-text">收益方式</div>
+            <span>{{repType(productDetail.repType)}}</span>
+          </div>
+          <div class="intro-group">
+            <div class="intro-text">起投金額</div>
+            <div class="intro-content">
+              <span>{{$fmoneyFormat(productDetail.minInvAmt)}}</span>元
             </div>
           </div>
-          <div class="bottom clearfix">
-            <div class="intro-group">
-              <div class="intro-text">收益方式</div>
-              <span>{{repType(productDetail.repType)}}</span>
-            </div>
-            <div class="intro-group">
-              <div class="intro-text">起投金額</div>
+          <div class="intro-group intro-group-time" id="countdown">
+            <div v-if="productDetail.status == 11">
+              <div class="intro-text">剩余時間</div>
               <div class="intro-content">
-                <span>{{$fmoneyFormat(productDetail.minInvAmt)}}</span>元
+                <span class="ell">{{showLeftTime}}</span>
               </div>
             </div>
-            <div class="intro-group intro-group-time" id="countdown">
-              <div v-if="productDetail.status == 11">
-                <div class="intro-text">剩余時間</div>
-                <div class="intro-content">
-                  <span class="ell">{{showLeftTime}}</span>
-                </div>
-              </div>
 
-              <div v-if="productDetail.status == 12">
-                <div class="intro-text" style="width:90px;">距離開始時間</div>
-                <div class="intro-content">
-                  <span class="ell">{{showBeginTime}}</span>
-                </div>
+            <div v-if="productDetail.status == 12">
+              <div class="intro-text" style="width:90px;">距離開始時間</div>
+              <div class="intro-content">
+                <span class="ell">{{showBeginTime}}</span>
               </div>
             </div>
-            <div class="intro-group" v-if="productDetail.status == 11 || productDetail.status == 12">
-              <div class="intro-text">剩余金額</div>
-              <div class="intro-content">
-                <span>{{$fmoneyFormat(productDetail.remainAmount)}}元</span>
-              </div>
+          </div>
+          <div class="intro-group" v-if="productDetail.status == 11 || productDetail.status == 12">
+            <div class="intro-text">剩余金額</div>
+            <div class="intro-content">
+              <span>{{$fmoneyFormat(productDetail.remainAmount)}}元</span>
             </div>
-            <div class="intro-group intro-group-progress"
-                 v-if="productDetail.status == 11 || productDetail.status == 12">
-              <div class="intro-text">加入進度</div>
-              <div class="intro-content">
-                <div class="progress">
-                  <div class="progress-bar progress-bar-warning"
-                       :style="{'width':productDetail.colPercent+'%'}"></div>
-                </div>
-                <i id="colPercent">{{productDetail.colPercent}}%</i>
+          </div>
+          <div class="intro-group intro-group-progress"
+               v-if="productDetail.status == 11 || productDetail.status == 12">
+            <div class="intro-text">加入進度</div>
+            <div class="intro-content">
+              <div class="progress">
+                <div class="progress-bar progress-bar-warning"
+                     :style="{'width':productDetail.colPercent+'%'}"></div>
               </div>
+              <i id="colPercent">{{productDetail.colPercent}}%</i>
             </div>
           </div>
         </div>
-        <div class="pay-status">
-          <div class="pay-info" v-if="productDetail.status == 11 || productDetail.status == 12">
-            <form action="" method="post" id="payForm" submit="investRule" novalidate="">
-              <div class="balance clearfix">
-                <i class="pull-left">賬戶餘額</i>
-                <div class="account-info" v-if="userInfo.loginResult">
-                  <span class="pull-left" style="color:#f8b62b;">{{$fmoney(accountInfo.balanceAmount)}}元</span>
-                  <a class="charge pull-right" href="/recharge" v-if="custInfo.tpStatus==1 && custInfo.payPwdOK"
-                     target="_blank">儲值</a>
-                  <a class="charge pull-right" href="javascript:;" v-if="custInfo.tpStatus!=1 || !custInfo.payPwdOK"
-                     @click="linkToRealName();">儲值</a>
-                </div>
-                <div class="account-info" v-if="!userInfo.loginResult">
-                  <span class="pull-left" style="color:#f8b62b;"><a :href="loginUrl">登錄</a>後可見</span>
-                </div>
+      </div>
+      <div class="pay-status">
+        <div class="pay-info" v-if="productDetail.status == 11 || productDetail.status == 12">
+          <form action="" method="post" id="payForm" submit="investRule" novalidate="">
+            <div class="balance clearfix">
+              <i class="pull-left">賬戶餘額</i>
+              <div class="account-info" v-if="userInfo.loginResult">
+                <span class="pull-left" style="color:#f8b62b;">{{$fmoney(accountInfo.balanceAmount)}}元</span>
+                <a class="charge pull-right" href="/recharge" v-if="custInfo.tpStatus==1 && custInfo.payPwdOK"
+                   target="_blank">儲值</a>
+                <a class="charge pull-right" href="javascript:;" v-if="custInfo.tpStatus!=1 || !custInfo.payPwdOK"
+                   @click="linkToRealName();">儲值</a>
               </div>
-              <div class="amount-money">
-                <div class="input-box">
-                  <input class="form-control" type="text" name="invest"
-                         maxlength="10"
-                         v-model="invest"
-                         :placeholder="inputPlaceholder"
-                         v-validate="{rules:{required:true,
+              <div class="account-info" v-if="!userInfo.loginResult">
+                <span class="pull-left" style="color:#f8b62b;"><a :href="loginUrl">登錄</a>後可見</span>
+              </div>
+            </div>
+            <div class="amount-money">
+              <div class="input-box">
+                <input class="form-control" type="text" name="invest"
+                       maxlength="10"
+                       v-model="invest"
+                       :placeholder="inputPlaceholder"
+                       v-validate="{rules:{required:true,
                                            investRule:[
                                              productDetail.minInvAmt,
                                              productDetail.maxInvAmt,
@@ -122,42 +122,42 @@
                                              accountInfo.balanceAmount,
                                              invest
                                            ]}}"
-                         :readonly="productDetail.minInvAmt>productDetail.remainAmount || !userInfo.loginResult || productDetail.status == 12">
-                </div>
-                <div class="all-in text-center" @click="allIn">全額加入</div>
-                <span class="input-text">元</span>
-                <i class="p-error" v-if="errors.first('invest') && userInfo.loginResult">{{errors.first('invest')}}</i>
+                       :readonly="productDetail.minInvAmt>productDetail.remainAmount || !userInfo.loginResult || productDetail.status == 12">
               </div>
-              <div class="excepted-earn">
-                預期收益<span>{{calcPreEarn(invest, productDetail.rate, productDetail.prdPeriod)}}</span>元
-              </div>
-              <a :href="userInfo.loginResult ? 'javascript:;':loginUrl" class="btn btn-warning btn-block"
-                 v-if="productDetail.status == 11"
-                 @click="investComfirm()">立即加入</a>
-              <a :href="userInfo.loginResult ? 'javascript:;':loginUrl"
-                 class="btn btn-warning btn-block disabled"
-                 v-if="productDetail.status != 11">即將開始</a>
-            </form>
-          </div>
-          <div class="other-status text-center" v-if="productDetail.status == 20">  <!-- 還款中 -->
-            <img src="../assets/images/private_status_1.png">
-            <p>退出時間 <span data-prd="dueDate">{{productDetail.dueDate}}</span></p>
-          </div>
-          <div class="other-status text-center" v-if="productDetail.status == 16">  <!-- 停止 -->
-            <img src="../assets/images/private_status_2.png">
-          </div>
-          <div class="other-status text-center" v-if="productDetail.status == 30">  <!-- 已還款 -->
-            <img src="../assets/images/private_status_3.png">
-            <p>退出時間 <span data-prd="dueDate">{{productDetail.dueDate}}</span></p>
-          </div>
-          <div class="other-status text-center" v-if="productDetail.status == 14">  <!-- 已滿額 -->
-            <img src="../assets/images/private_status_4.png">
-          </div>
-          <div class="other-status text-center" v-if="productDetail.status == 0">  <!-- 已下架 -->
-            <img src="../assets/images/private_status_5.png">
-          </div>
+              <div class="all-in text-center" @click="allIn">全額加入</div>
+              <span class="input-text">元</span>
+              <i class="p-error" v-if="errors.first('invest') && userInfo.loginResult">{{errors.first('invest')}}</i>
+            </div>
+            <div class="excepted-earn">
+              預期收益<span>{{calcPreEarn(invest, productDetail.rate, productDetail.prdPeriod)}}</span>元
+            </div>
+            <a :href="userInfo.loginResult ? 'javascript:;':loginUrl" class="btn btn-warning btn-block"
+               v-if="productDetail.status == 11"
+               @click="investComfirm()">立即加入</a>
+            <a :href="userInfo.loginResult ? 'javascript:;':loginUrl"
+               class="btn btn-warning btn-block disabled"
+               v-if="productDetail.status != 11">即將開始</a>
+          </form>
+        </div>
+        <div class="other-status text-center" v-if="productDetail.status == 20">  <!-- 還款中 -->
+          <img src="../assets/images/private_status_1.png">
+          <p>退出時間 <span data-prd="dueDate">{{productDetail.dueDate}}</span></p>
+        </div>
+        <div class="other-status text-center" v-if="productDetail.status == 16">  <!-- 停止 -->
+          <img src="../assets/images/private_status_2.png">
+        </div>
+        <div class="other-status text-center" v-if="productDetail.status == 30">  <!-- 已還款 -->
+          <img src="../assets/images/private_status_3.png">
+          <p>退出時間 <span data-prd="dueDate">{{productDetail.dueDate}}</span></p>
+        </div>
+        <div class="other-status text-center" v-if="productDetail.status == 14">  <!-- 已滿額 -->
+          <img src="../assets/images/private_status_4.png">
+        </div>
+        <div class="other-status text-center" v-if="productDetail.status == 0">  <!-- 已下架 -->
+          <img src="../assets/images/private_status_5.png">
         </div>
       </div>
+    </div>
 
     <div class="section-space"></div>
     <div class="container" style="background-color: #f8f8f8;">
@@ -305,9 +305,9 @@
               <div class="intro-group">
                 <div class="intro-text">服務協議</div>
                 <div class="intro-content">
-                                    <span>
-                                        <a class="link" href="javascript:;" @click="goAgreement">查看服務協議</a>
-                                    </span>
+                  <span>
+                    <a class="link" href="javascript:;" @click="goAgreement">查看服務協議</a>
+                  </span>
                 </div>
               </div>
             </div>
@@ -646,9 +646,9 @@
 
         var self = this;
 
-        self.$validator.validateAll({'payPwd':self.payPwd}).then((result) => {
+        self.$validator.validateAll({'payPwd': self.payPwd}).then((result) => {
           if (result) {
-            self.buyHandle('/product/'+self.productDetail.prdCode);
+            self.buyHandle('/product/' + self.productDetail.prdCode);
             if (self.coupon && self.coupon != 0) {
               let url = '/buy?prdCode=' + self.$route.params.prdCode + '&relAmount=' + self.invest + '&cpnNum=' + self.coupon.cpnNum + '&payPwd=' + self.payPwd
               window.open(url, '_blank');
@@ -660,8 +660,6 @@
             }
           }
         });
-
-
 
 
       },

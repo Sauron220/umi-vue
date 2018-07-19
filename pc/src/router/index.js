@@ -75,6 +75,8 @@ import ChangePayPwd from '@/pages/ChangePayPwd'
 import SetPayPwd from '@/pages/SetPayPwd'
 import NoviceArea from '@/pages/NoviceArea'
 import RiskAssessment from '@/pages/RiskAssessment'
+import BucketGold from '@/pages/BucketGold'
+import PlanProgress from '@/components/PlanProgress'
 
 
 Vue.use(Router)
@@ -865,6 +867,23 @@ var appRouter =  new Router({
         PageFooter: PageFooter,
         // RightFloat: RightFloat,
       }
+    },
+    {
+      path: '/bucketGold',
+      name: 'BucketGold',
+      components: {
+        content:BucketGold,
+        PageNav: PageNav,
+        PageFooter: PageFooter,
+        // RightFloat: RightFloat,
+      },
+      children:[
+        {
+          path:'/',
+          name:'PlanProgress',
+          component:PlanProgress
+        }
+      ]
     },
   ]
 })

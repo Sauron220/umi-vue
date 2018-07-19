@@ -76,7 +76,8 @@
             <a href="/product-list" :class="{'active':$route.fullPath == '/product-list'}">定期理財</a>
           </li>-->
           <li>
-            <a href="/product-list/30/11/1" :class="{'active':$route.fullPath == '/product-list/30/11/1'}">壹桶金</a>
+            <!--<a href="/product-list/30/11/1" :class="{'active':$route.fullPath == '/product-list/30/11/1'}">壹桶金</a>-->
+            <a href="/bucketGold" :class="{'active':$route.fullPath == '/bucketGold'}">壹桶金</a>
           </li>
           <li>
             <a href="/product-list/7/11/1" :class="{'active':$route.fullPath == '/product-list/7/11/1'}">聚寶計劃</a>

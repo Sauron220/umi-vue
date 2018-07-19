@@ -95,8 +95,40 @@
           <a class="pull-right text-muted more" href="/noviceArea" target="_blank">查看更多</a>
         </div>
       </h4>
+      <!--<h4 class="section-title">聚寶進階</h4>-->
 
-      <div class="product-area product-box front-new-user-box">
+      <div class="product-area product-box front-new-novice-box">
+        <div class="content">
+          <div class="product-month xrt-row xrt-row-new-novice" style="border: none;">
+            <div class="col-xs-4">
+              <div class="front-new-user">
+                <img src="/static/img/select-03.png" alt="">
+              </div>
+              <p>1000元見面禮</p>
+              <p class="product-noviceArea-desc">註冊即獲得總值1000元現金券,可用於抵扣相應面值的出借金額。 </p>
+              <a class="front-new-user-reg new-user-active front-new-novice-reg" href="/register">注冊領取</a>
+            </div>
+            <div class="col-xs-4">
+              <div class="front-new-user">
+                <img src="/static/img/select-03.png" alt="">
+              </div>
+              <p>測評送積分</p>
+              <p class="product-noviceArea-desc">完成風險測評，享受安心出借，還可額外獲得十積分。 </p>
+              <a class="front-new-user-reg new-user-active front-new-novice-reg" href="/riskAssessment">完成評測</a>
+            </div>
+            <div class="col-xs-4" style="border: none">
+              <div class="front-new-user">
+                <img src="/static/img/select-03.png" alt="">
+              </div>
+              <p>拿第一桶金</p>
+              <p class="product-noviceArea-desc">首次出借新手專享項目，期待年 回報率達10%，額外15積分贈送。 </p>
+              <a class="front-new-user-reg new-user-active front-new-novice-reg" href="/product-list/30/11/1">完成出借</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--<div class="product-area product-box front-new-user-box">
         <div class="content">
           <div class="product-month xrt-row xrt-row-new-user" style="border: none;">
             <div class="col-xs-4">
@@ -122,7 +154,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>-->
 
       <div class="section-space clearfix"></div>
       <div class="section-space clearfix"></div>
@@ -245,9 +277,9 @@
           <a class="pull-right text-muted more" href="/product-list/7/11/1" target="_blank">查看更多</a>
         </div>
       </h4>
-      <div class="product-area product-box">
-        <div class="content">
-          <div class="product-month xrt-row" style="border: none;">
+      <div class="product-area product-box" style="background: none;">
+        <div class="plan-container">
+          <!--<div class="product-month xrt-row" style="border: none;">
             <div class="col-xs-3">
               <div class="text-danger default-rate">
                 <span class="num">{{$fmoney(formatNum(products[7].defaultRate || 0, 100), 1)}}</span>%
@@ -263,7 +295,7 @@
             </div>
             <div class="progress-area col-xs-6">
               <div class="progress-box pull-left">
-                <!--<div class="text-warning">{{products[7].minInvAmt}}元起投</div>-->
+                &lt;!&ndash;<div class="text-warning">{{products[7].minInvAmt}}元起投</div>&ndash;&gt;
                 <div class="progress">
                   <div class="progress-bar progress-bar-warning"
                        :style="{'width':products[7].colPercent+'%'}"></div>
@@ -275,6 +307,54 @@
                  :class="{'gray':!(products[7].status == 11 || products[7].status == 12)}">
                 {{products[7].status == 11 || products[7].status == 12 ? '立即加入' : '查看詳情'}}
               </a>
+            </div>
+          </div>-->
+          <div class="plan-case-item">
+            <div class="plan-case-item-t">
+              <div class="plan-case-item-t-l">
+                <p class="rate">4.8%</p>
+                <p class="desc">预期年化收益</p>
+              </div>
+              <div class="plan-case-item-t-m"></div>
+              <div class="plan-case-item-t-r">
+                <p class="date">三个月</p>
+                <p class="desc">借款期限</p>
+              </div>
+            </div>
+            <div class="plan-case-item-b" @click="toDetail(products[7].prdCode)">
+              {{products[7].status == 11 || products[7].status == 12 ? '立即加入' : '查看詳情'}}
+            </div>
+          </div>
+          <div class="plan-case-item">
+            <div class="plan-case-item-t">
+              <div class="plan-case-item-t-l">
+                <p class="rate">4.8%</p>
+                <p class="desc">预期年化收益</p>
+              </div>
+              <div class="plan-case-item-t-m"></div>
+              <div class="plan-case-item-t-r">
+                <p class="date">三个月</p>
+                <p class="desc">借款期限</p>
+              </div>
+            </div>
+            <div class="plan-case-item-b">
+              查看详情
+            </div>
+          </div>
+          <div class="plan-case-item">
+            <div class="plan-case-item-t">
+              <div class="plan-case-item-t-l">
+                <p class="rate">4.8%</p>
+                <p class="desc">预期年化收益</p>
+              </div>
+              <div class="plan-case-item-t-m"></div>
+              <div class="plan-case-item-t-r">
+                <p class="date">三个月</p>
+                <p class="desc">借款期限</p>
+              </div>
+            </div>
+            <div class="plan-case-item-b">
+              查看详情
             </div>
           </div>
         </div>
@@ -568,6 +648,11 @@
         var divEl = document.createElement('div')
         divEl.innerHTML = str;
         return divEl.innerText.substring(0, 48)
+      },
+      toDetail(code) {
+        const _proCode = code;
+        console.log(code)
+        _proCode && this.$router.push({name: 'Product', params: {prdCode: _proCode}});
       }
     }
   }
