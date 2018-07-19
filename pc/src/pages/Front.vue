@@ -106,7 +106,7 @@
               </div>
               <p>1000元見面禮</p>
               <p class="product-noviceArea-desc">註冊即獲得總值1000元現金券,可用於抵扣相應面值的出借金額。 </p>
-              <a class="front-new-user-reg new-user-active front-new-novice-reg" href="/register">注冊領取</a>
+              <a class="front-new-user-reg new-user-active front-new-novice-reg" href="/register">註冊領取</a>
             </div>
             <div class="col-xs-4">
               <div class="front-new-user">

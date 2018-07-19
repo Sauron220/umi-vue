@@ -78,6 +78,9 @@ import RiskAssessment from '@/pages/RiskAssessment'
 import BucketGold from '@/pages/BucketGold'
 import PlanProgress from '@/components/PlanProgress'
 import CustTable from '@/components/CustTable'
+import CustTableTwo from '@/components/CustTableTwo'
+import PlannedPerformance from '@/components/PlannedPerformance'
+import CommonProblems from '@/components/CommonProblems'
 
 
 Vue.use(Router)
@@ -888,6 +891,21 @@ var appRouter =  new Router({
           path:'/custTable/:id',
           name:'CustTable',
           component:CustTable
+        },
+        {
+          path:'/custTableTwo/:id',
+          name:'CustTableTwo',
+          component:CustTableTwo
+        },
+        {
+          path:'/plannedPerformance',
+          name:'PlannedPerformance',
+          component:PlannedPerformance
+        },
+        {
+          path:'/commonProblems',
+          name:'CommonProblems',
+          component:CommonProblems
         },
       ]
     },

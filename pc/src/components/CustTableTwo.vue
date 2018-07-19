@@ -1,31 +1,31 @@
 <template>
   <div class="product-list table-p">
-    <div class="desc-info">加入總人次277 人，加入總金額2,380,000 元</div>
+    <div class="desc-info">溫馨提示：該列表僅代表該期計劃可能出借標的，實際出借後可在我的賬戶-該期計劃詳情頁面查詢實際投標情況</div>
     <div class="table">
       <table class="t-caption">
         <thead>
           <tr>
             <th class="rate regular-rate">序號</th>
-            <th class="name c-name">出借人</th>
-            <th class="time c-time">加入金额</th>
-            <th class="money c-money">来源</th>
-            <th class="progress c-progress">加入时间</th>
+            <th class="name c-name">借款說明</th>
+            <th class="time c-time">借款金額</th>
+            <th class="money c-money">借款期限</th>
+            <th class="progress c-progress">操作</th>
           </tr>
         </thead>
         <tbody class="data-list">
           <tr class="history-list-data">
-            <td class="rate">1</td>
-            <td class="name c-name">W***8</td>
+            <td class="rate">1232434</td>
+            <td class="name c-name">台北市林小姐</td>
             <td class="time c-time"><span>{{$fmoneyFormat(10000)}}</span>元</td>
-            <td class="money c-money"><img src="" alt=""></td>
-            <td>2018年06月28日03:08</td>
+            <td class="money c-money">36個月</td>
+            <td><a href="#">查看詳情</a></td>
           </tr>
           <tr class="history-list-data">
-            <td class="rate">1</td>
-            <td class="name c-name">W***8</td>
+            <td class="rate">1232434</td>
+            <td class="name c-name">台北市林小姐</td>
             <td class="time c-time"><span>{{$fmoneyFormat(10000)}}</span>元</td>
-            <td class="money c-money"><img src="" alt=""></td>
-            <td>2018年06月28日03:08</td>
+            <td class="money c-money">36個月</td>
+            <td><a href="#">查看詳情</a></td>
           </tr>
         </tbody>
       </table>
@@ -39,7 +39,7 @@
 <script>
   import Pagination from './Pagination'
   export default {
-    name: "CustTable",
+    name: "CustTableTwo",
     components:{
       Pagination
     },

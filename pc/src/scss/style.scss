@@ -690,17 +690,29 @@ $border: #dbdbdb;
         .name {
           width: 325px;
         }
+        .c-name{
+          width: 215px;
+        }
         .time {
           width: 100px;
         }
+        .c-time {
+          width: 325px;
+        }
         .money {
           width: 170px;
+        }
+        .c-money{
+          width: 90px;
         }
         .progress {
           width: 165px;
           background-color: transparent;
           webkit-box-shadow: none;
            box-shadow: none;
+        }
+        .c-progress{
+          width: 274px;
         }
         .action {
           width: 175px;
@@ -725,6 +737,9 @@ $border: #dbdbdb;
         .history-list-data {
           &:nth-child(odd) {
             background: #fafafa;
+          }
+          a{
+            color: #f15a24;
           }
 
          /* &:hover{
@@ -802,7 +817,13 @@ $border: #dbdbdb;
       border-spacing: 0;
     }
   }
-
+  .desc-info{
+    padding: 20px;
+    color: #999999;
+  }
+}
+.table-p{
+  //padding-bottom: 10px;
 }
 
 /** 产品详情 */

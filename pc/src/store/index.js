@@ -28,6 +28,8 @@ const store = new Vuex.Store({
     nameUrl2:'',
     nameUrl3:'',
     urlIndex:'',
+    currentPage:'',
+    currentPageTwo:''
   },
   mutations,
   getters(){

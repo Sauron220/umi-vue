@@ -1926,6 +1926,7 @@ text-align: center;
         border-bottom: 1px solid #ccc;
         div{
           position: relative;
+          cursor: pointer;
         }
         .active-select{
           &::after {
@@ -1970,6 +1971,70 @@ text-align: center;
         list-style: none;
         padding: 0;
       }
+    }
+  }
+}
+
+.planned-performance{
+  width: 1080px;
+  margin: 0 auto;
+  background: #f2f2f2;
+  .planned-performance-info{
+    padding: 20px;
+  }
+  .planned-performance-con{
+    background: #fff;
+    padding: 20px;
+    .top-con,.bottom-con{
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 20px;
+      border-bottom: 1px solid #ccc;
+      p{
+        text-align: center;
+      }
+      .divider{
+        width: 1px;
+        height: 50px;
+        background: #ccc;
+      }
+      .desc{
+        font-weight: bold;
+        font-size: 16px;
+      }
+    }
+    .bottom-con{
+      border: none;
+      justify-content: flex-start;
+      .divider{
+        margin-left: 25px;
+      }
+      .planned-performance-con-item{
+        padding: 0 48px;
+      }
+      .planned-performance-con-item:last-child{
+        padding: 0 105px;
+      }
+    }
+  }
+}
+
+.common-problems{
+  width: 1080px;
+  margin: 0 auto;
+  padding: 20px;
+  .question-item{
+    padding: 20px;
+    .question-item-tit{
+      font-size: 18px;
+    }
+    .question-item-ans{
+      color: #b3b3b3;
+      line-height: 28px;
+    }
+    &:last-child{
+      border-top: 1px solid #ccc;
     }
   }
 }

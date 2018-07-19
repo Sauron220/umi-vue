@@ -38,6 +38,12 @@ let mutations = {
   seturlIndex(state,urlIndex){
     state.urlIndex = urlIndex
   },
+  setCurrentPage(state, current) {
+    state.currentPage = current;
+  },
+  setCurrentTwoPage(state, current) {
+    state.currentPageTwo = current;
+  }
 }
 
 export default mutations
