@@ -81,11 +81,11 @@
       </div>
       <div class="desc-answer-warp">
         <div class="desc-answer-hed">
-          <div class="" :class="{'active-select': flag==1}" @click="flag = 1">計劃進度</div>
-          <div class="" :class="{'active-select': flag==2}" @click="flag = 2">加入記錄</div>
-          <div class="" :class="{'active-select': flag==3}" @click="flag = 3">借款信息</div>
-          <div class="" :class="{'active-select': flag==4}" @click="flag = 4">計劃表現</div>
-          <div class="" :class="{'active-select': flag==5}" @click="flag = 5">常見問題</div>
+          <div class="" :class="{'active-select': flag==1}" @click="toNext(1)">計劃進度</div>
+          <div class="" :class="{'active-select': flag==2}" @click="toNext(2)">加入記錄</div>
+          <div class="" :class="{'active-select': flag==3}" @click="toNext(3)">借款信息</div>
+          <div class="" :class="{'active-select': flag==4}" @click="toNext(4)">計劃表現</div>
+          <div class="" :class="{'active-select': flag==5}" @click="toNext(5)">常見問題</div>
         </div>
         <div class="view-warp">
           <router-view></router-view>
@@ -108,7 +108,27 @@
 
     },
     methods:{
+      toNext(id) {
+        const _that = this;
+        switch(id)
+        {
+          case 1:
+            _that.flag = 1;
+            this.$router.push({path:'/bucketGold'});
+            break;
+          case 2:
+            _that.flag = 2;
+            this.$router.push({path:'/custTable/'+id});
+            break;
+          case 3:
+            _that.flag = 3;
+            this.$router.push({path:'/custTable/'+id});
+            break;
+          default:
 
+        }
+
+      }
     }
   }
 </script>

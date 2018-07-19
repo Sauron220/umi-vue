@@ -77,6 +77,7 @@ import NoviceArea from '@/pages/NoviceArea'
 import RiskAssessment from '@/pages/RiskAssessment'
 import BucketGold from '@/pages/BucketGold'
 import PlanProgress from '@/components/PlanProgress'
+import CustTable from '@/components/CustTable'
 
 
 Vue.use(Router)
@@ -882,7 +883,12 @@ var appRouter =  new Router({
           path:'/',
           name:'PlanProgress',
           component:PlanProgress
-        }
+        },
+        {
+          path:'/custTable/:id',
+          name:'CustTable',
+          component:CustTable
+        },
       ]
     },
   ]
