@@ -40,6 +40,11 @@
             :to="{ name: 'ProductList', params: { prdType: 9,prdStatus:$route.params.prdStatus,pageAt:1 }}">
             月月盈
           </router-link>
+          <router-link
+            :class="{'active':$route.params.prdType == 10}"
+            :to="{ name: 'ProductList', params: { prdType: 10,prdStatus:$route.params.prdStatus,pageAt:1 }}">
+            散標
+          </router-link>
           <!--<router-link
                   :class="{'active':$route.params.prdType == 10}"
                   :to="{ name: 'ProductList', params: { prdType: 10,prdStatus:$route.params.prdStatus,pageAt:1 }}">

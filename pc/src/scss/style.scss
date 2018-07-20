@@ -690,6 +690,9 @@ $border: #dbdbdb;
         .name {
           width: 325px;
         }
+        .c-rate{
+          width: 321px;
+        }
         .c-name{
           width: 215px;
         }
@@ -705,6 +708,12 @@ $border: #dbdbdb;
         .c-money{
           width: 90px;
         }
+        .c-pon{
+          cursor: pointer;
+        }
+        .d-money{
+          width: 250px;
+        }
         .progress {
           width: 165px;
           background-color: transparent;
@@ -713,6 +722,9 @@ $border: #dbdbdb;
         }
         .c-progress{
           width: 274px;
+        }
+        .handle-c{
+          width: 300px;
         }
         .action {
           width: 175px;

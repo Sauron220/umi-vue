@@ -105,7 +105,7 @@
       }
     },
     created() {
-      localStorage.getItem('flag') ? this.flag = localStorage.getItem('flag') : this.flag = 1;
+      this.$router.replace({path:'/bucketGold'});
     },
     methods:{
       toNext(id) {
@@ -115,27 +115,27 @@
           case 1:
             _that.flag = 1;
             localStorage.setItem('flag', 1);
-            this.$router.push({path:'/bucketGold'});
+            this.$router.replace({path:'/bucketGold'});
             break;
           case 2:
             _that.flag = 2;
             localStorage.setItem('flag', 2);
-            this.$router.push({path:'/custTable/'+id});
+            this.$router.replace({path:'/custTable/'+id});
             break;
           case 3:
             _that.flag = 3;
             localStorage.setItem('flag', 3);
-            this.$router.push({path:'/custTableTwo/'+id});
+            this.$router.replace({path:'/custTableTwo/'+id});
             break;
           case 4:
             _that.flag = 4;
             localStorage.setItem('flag', 4);
-            this.$router.push({path:'/plannedPerformance'});
+            this.$router.replace({path:'/plannedPerformance'});
             break;
           case 5:
             _that.flag = 5;
             localStorage.setItem('flag', 5);
-            this.$router.push({path:'/commonProblems'});
+            this.$router.replace({path:'/commonProblems'});
             break;
           default:
         }

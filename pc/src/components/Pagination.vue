@@ -34,7 +34,7 @@
         this.current--;
         if (this.$route.name == 'CustTableTwo') {
           this.$store.commit('setCurrentTwoPage', self.current)
-        } else {
+        } else if (this.$route.name == 'CustTable') {
           this.$store.commit('setCurrentPage', self.current)
         }
       },
@@ -44,7 +44,7 @@
         this.current++;
         if (this.$route.name == 'CustTableTwo') {
           this.$store.commit('setCurrentTwoPage', self.current)
-        } else {
+        } else if (this.$route.name == 'CustTable') {
           this.$store.commit('setCurrentPage', self.current)
         }
       },
@@ -55,7 +55,7 @@
           self.current = index;
           if (this.$route.name == 'CustTableTwo') {
             this.$store.commit('setCurrentTwoPage', self.current)
-          } else {
+          } else if (this.$route.name == 'CustTable') {
             this.$store.commit('setCurrentPage', self.current)
           }
         }

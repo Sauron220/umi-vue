@@ -76,11 +76,17 @@ import SetPayPwd from '@/pages/SetPayPwd'
 import NoviceArea from '@/pages/NoviceArea'
 import RiskAssessment from '@/pages/RiskAssessment'
 import BucketGold from '@/pages/BucketGold'
+import JubaoPlan from '@/pages/JubaoPlan'
+import Borrowing from '@/pages/Borrowing'
+import AccountNew from '@/pages/AccountNew'
+import MyAssetsNew from '@/pages/MyAssetsNew'
+import BucketGoldTable from '@/components/BucketGoldTable'
 import PlanProgress from '@/components/PlanProgress'
 import CustTable from '@/components/CustTable'
 import CustTableTwo from '@/components/CustTableTwo'
 import PlannedPerformance from '@/components/PlannedPerformance'
 import CommonProblems from '@/components/CommonProblems'
+import HistoryTable from '@/components/HistoryTable'
 
 
 Vue.use(Router)
@@ -873,6 +879,40 @@ var appRouter =  new Router({
       }
     },
     {
+      path: '/borrowing',
+      name: 'Borrowing',
+      components: {
+        content:Borrowing,
+        PageNav: PageNav,
+        PageFooter: PageFooter,
+        // RightFloat: RightFloat,
+      }
+    },
+    {
+      path: '/accountNew',
+      name: 'AccountNew',
+      components: {
+        content:AccountNew,
+        PageNav: PageNav,
+        PageFooter: PageFooter,
+        // RightFloat: RightFloat,
+      },
+      children:[
+        {
+          path:'/',
+          name:'MyAssetsNew',
+          component:MyAssetsNew,
+          children:[
+            {
+              path:'/',
+              name:'BucketGoldTable',
+              component:BucketGoldTable
+            }
+          ]
+        }
+      ]
+    },
+    {
       path: '/bucketGold',
       name: 'BucketGold',
       components: {
@@ -906,6 +946,23 @@ var appRouter =  new Router({
           path:'/commonProblems',
           name:'CommonProblems',
           component:CommonProblems
+        },
+      ]
+    },
+    {
+      path: '/jubaoPlan',
+      name: 'JubaoPlan',
+      components: {
+        content:JubaoPlan,
+        PageNav: PageNav,
+        PageFooter: PageFooter,
+        // RightFloat: RightFloat,
+      },
+      children:[
+        {
+          path:'/',
+          name:'HistoryTable',
+          component:HistoryTable
         },
       ]
     },

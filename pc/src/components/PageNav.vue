@@ -80,7 +80,8 @@
             <a href="/bucketGold" :class="{'active':$route.fullPath == '/bucketGold'}">壹桶金</a>
           </li>
           <li>
-            <a href="/product-list/7/11/1" :class="{'active':$route.fullPath == '/product-list/7/11/1'}">聚寶計劃</a>
+            <!--<a href="/product-list/7/11/1" :class="{'active':$route.fullPath == '/product-list/7/11/1'}">聚寶計劃</a>-->
+            <a href="/jubaoPlan" :class="{'active':$route.fullPath == '/jubaoPlan'}">聚寶計劃</a>
           </li>
           <li>
             <a href="/product-list/8/11/1" :class="{'active':$route.fullPath == '/product-list/8/11/1'}">分期投</a>
@@ -89,10 +90,10 @@
             <a href="/product-list/9/11/1" :class="{'active':$route.fullPath == '/product-list/9/11/1'}">月月盈</a>
           </li>
           <li>
-            <a href="/product-list/9/11/1" :class="{'active':$route.fullPath == '/product-list/9/11/1'}">債權/散標</a>
+            <a href="/product-list/10/11/1" :class="{'active':$route.fullPath == '/product-list/10/11/1'}">債權/散標</a>
           </li>
           <li>
-            <a href="/product-list/9/11/1" :class="{'active':$route.fullPath == '/product-list/9/11/1'}">我要借款/還款</a>
+            <a href="/borrowing" :class="{'active':$route.fullPath == '/borrowing'}">我要借款/還款</a>
           </li>
          <!-- <li class="relative product-link">
             <router-link to="/product-list">定期理財<i class="icon icon-angle-down"></i></router-link>
@@ -113,11 +114,13 @@
                 <router-link :to="{ name: 'Private', params: { prdCode:lastVipPrd}}" target="_blank">尊享計劃<span
                         class="special-crown"></span></router-link>
             </li>-->
-          <!--<li>
-            <router-link to="/accountOverview"
-                         :class="{'active':/(\/myAssets\/)|(\/transactionRecord\/)|(\/set)|(\/myBankcard)|(\/myCoupon)|(\/ProfileExperience)|(\/myRecommend)|(\/transactionDetails)|(\/changePwd)|(\/recharge)|(\/withdraw)/g.test($route.fullPath)}"
-            >我的賬戶</router-link>
-          </li>-->
+          <li>
+            <router-link
+              to="/accountNew"
+              :class="{'active':/(\/myAssets\/)|(\/transactionRecord\/)|(\/set)|(\/myBankcard)|(\/myCoupon)|(\/ProfileExperience)|(\/myRecommend)|(\/transactionDetails)|(\/changePwd)|(\/recharge)|(\/withdraw)/g.test($route.fullPath)}"
+            >我的賬戶
+            </router-link>
+          </li>
           <li>
             <a v-if="!userInfo.loginResult" class="nav-color resister-link" href="/register">註冊/</a>
             <a v-if="!userInfo.loginResult" class="nav-color login-page" :href="loginUrl">登錄</a>
