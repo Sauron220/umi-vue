@@ -26,6 +26,22 @@
     methods:{
       toNext(v) {
         this.flag = v;
+        switch (v) {
+          case 1:
+            this.$router.replace({name: 'BucketGoldTable'});
+            break;
+          case 2:
+            this.$router.replace({name: 'Coupon'});
+            break;
+          case 3:
+            this.$router.replace({name: 'Coupon'});
+            break;
+          case 4:
+            this.$router.replace({name: 'MineAccount'});
+            break;
+          default:
+        }
+
       }
     }
   }

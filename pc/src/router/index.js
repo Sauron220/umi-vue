@@ -80,6 +80,8 @@ import JubaoPlan from '@/pages/JubaoPlan'
 import Borrowing from '@/pages/Borrowing'
 import AccountNew from '@/pages/AccountNew'
 import MyAssetsNew from '@/pages/MyAssetsNew'
+import Coupon from '@/pages/Coupon'
+import MineAccount from '@/pages/MineAccount'
 import BucketGoldTable from '@/components/BucketGoldTable'
 import PlanProgress from '@/components/PlanProgress'
 import CustTable from '@/components/CustTable'
@@ -909,7 +911,17 @@ var appRouter =  new Router({
               component:BucketGoldTable
             }
           ]
-        }
+        },
+        {
+          path:'/coupon',
+          name:'Coupon',
+          component:Coupon,
+        },
+        {
+          path:'/mineAccount',
+          name:'MineAccount',
+          component:MineAccount,
+        },
       ]
     },
     {

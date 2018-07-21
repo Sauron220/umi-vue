@@ -50,10 +50,10 @@
           </li>
           <li v-if="userInfo.loginResult">
             <span class="text-warning">{{userInfo.usrName}}</span>
-          </li>
+          </li>-->
           <li v-if="userInfo.loginResult">
             <a href="javascript:;" @click="logOut">[安全退出]</a>
-          </li>-->
+          </li>
         </ul>
       </div>
     </div>

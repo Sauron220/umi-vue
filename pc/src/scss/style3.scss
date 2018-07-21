@@ -2450,3 +2450,317 @@ text-align: center;
   }
 }
 
+.coupon-warp{
+  width: 1080px;
+
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 20px;
+  .coupon-nav-warp{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: #fff;
+    padding: 20px 0;
+    width: 1080px;
+    border-bottom: 1px solid #ccc;
+    .coupon-nav-item{
+      position: relative;
+      background: #fff;
+      cursor: pointer;
+    }
+    .active-select{
+      &::after {
+        content: '';
+        position: absolute;
+        border-bottom: #1F5EB7;
+        width: 100%;
+        transform: scaleX(1);
+        height: 4px;
+        left: 0;
+        bottom: -20px;
+        background-color: #1F5EB7;
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+      }
+    }
+  }
+}
+.coupon-con-conm{
+  width: 1080px;
+}
+.warp-con-cou{
+  .cou-top{
+    background: #fff;
+  }
+  .btn-cou{
+    padding: 10px 28px;
+    float: right;
+    margin-bottom: 20px;
+    margin-right: 30px;
+    background: #d16359;
+    color: #fff;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 20px;
+    &:active{
+      opacity: 0.5;
+      transition: all 0.3ms ease;
+      user-select: none;
+    }
+  }
+}
+.mine-invite-warp{
+  width: 1080px;
+  margin: 0 auto;
+  background: #fff;
+  .mine-invite-hed{
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+  }
+  .mine-invite-num{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .mine-invite-num-item{
+      text-align: center;
+      padding: 60px 80px;
+      .invite-tit{
+        font-size: 24px;
+      }
+      .invite-desc{
+        font-size: 14px;
+        color: #c2c2c2;
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+.coupon-unused-warp{
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 1080px;
+  flex-wrap: wrap;
+  padding: 20px 0;
+  .unused-item{
+    border: 10px solid #d16359;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 28%;
+    margin: 0 28px;
+    margin-bottom: 30px;
+    .unused-tp-num{
+      color: #d16359;
+      padding: 10px;
+      border-radius: 15px;
+      .num{
+        font-size: 28px;
+        margin-right: 10px;
+      }
+    }
+    .unused-bt-desc{
+      background: #d16359;
+      color: #fff;
+      flex: 1;
+      padding: 10px;
+      ul{
+        padding: 0;
+        list-style: none;
+        font-size: 12px;
+        li{
+          margin: 10px 0;
+        }
+        li::before{
+          content: '\2022';
+          color: #fff;
+          font-size: 1em;
+          margin-right: 0.2em;
+        }
+
+      }
+    }
+  }
+
+}
+.mine-invite-warp{
+  margin-top: 20px;
+}
+
+.invite-gift{
+  margin-top: 20px;
+  background: #fff;
+  .invite-gift-tit{
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+  }
+  .invite-gift-con{
+    .invite-gift-con-t{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 40px;
+      border-bottom: 1px solid #ccc;
+      .invite-gift-con-t-item{
+        text-align: center;
+        height: 200px;
+        margin: 80px;
+        margin-bottom: 0;
+        .invite-gift-con-t-item-h{
+          color: #d16359;
+          .it-f{
+            font-size: 26px;
+          }
+          .it-l{
+            font-size: 28px;
+            font-weight: bolder;
+          }
+        }
+        .invite-gift-con-t-item-d{
+          margin-top: 30px;
+        }
+      }
+    }
+    .invite-gift-con-b{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: 30px;
+      .invite-gift-con-b-link{
+        display: flex;
+        justify-content: center;
+        input{
+          width: 600px;
+          font-size: 12px;
+          outline: none;
+          border: none;
+        }
+        .btn-link-copy{
+          margin-left: 20px;
+        }
+        .btn-link-copy{
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #7e9ac4;
+        }
+      }
+      .fenxiang-warp{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        margin-top: 50px;
+        .fenxiang-warp-item{
+          .desc{
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+.invite-gift-info{
+  margin-top: 60px;
+  .blank-info{
+    text-align: center;
+    color: #808080;
+    height: 80px;
+    line-height: 80px;
+  }
+}
+
+.mine-account{
+  .nav-tp{
+    width: 1080px;
+    background: #fff;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+    .nav-item{
+      cursor: pointer;
+      position: relative;
+    }
+    .active-select{
+      &::after {
+        content: '';
+        position: absolute;
+        border-bottom: #1F5EB7;
+        width: 100%;
+        transform: scaleX(1);
+        height: 4px;
+        left: 0;
+        bottom: -20px;
+        background-color: #1F5EB7;
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+      }
+    }
+  }
+}
+
+.mine-set-warp{
+  width: 1080px;
+  margin: 0 auto;
+  background: #fff;
+  .mine-img-warp{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 30px;
+    .user-info-warp{
+      margin-left: 18px;
+      p{
+        margin: 0;
+      }
+      .user-name{
+        font-size: 18px;
+      }
+      .user-lev{
+        margin-top: 8px;
+        span{
+          color: #ef7939;
+        }
+      }
+    }
+  }
+  .user-lit-info{
+    width: 1080px;
+    list-style: none;
+    padding: 0;
+    .user-info-item{
+      width: 1080px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #f2f2f2;
+      padding: 20px 40px;
+      .tit{
+        width: 240px;
+        .tit-h{
+          font-size: 18px;
+        }
+        .tit-t{
+          color: #b3b3b3;
+          font-size: 14px;
+        }
+      }
+      .desc{
+        width: 150px;
+        color: #b3b3b3;
+      }
+      .action{
+        color: #3c64a0;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
