@@ -89,6 +89,7 @@ import CustTableTwo from '@/components/CustTableTwo'
 import PlannedPerformance from '@/components/PlannedPerformance'
 import CommonProblems from '@/components/CommonProblems'
 import HistoryTable from '@/components/HistoryTable'
+import ReturnInquiry from '@/components/ReturnInquiry'
 
 
 Vue.use(Router)
@@ -885,6 +886,16 @@ var appRouter =  new Router({
       name: 'Borrowing',
       components: {
         content:Borrowing,
+        PageNav: PageNav,
+        PageFooter: PageFooter,
+        // RightFloat: RightFloat,
+      }
+    },
+    {
+      path: '/returnInquiry',
+      name: 'ReturnInquiry',
+      components: {
+        content:ReturnInquiry,
         PageNav: PageNav,
         PageFooter: PageFooter,
         // RightFloat: RightFloat,

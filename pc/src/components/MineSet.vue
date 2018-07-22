@@ -55,7 +55,7 @@
           186****8306
         </div>
         <div class="action">
-          修改
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修改
         </div>
       </li>
       <li class="user-info-item">
@@ -87,7 +87,7 @@
           您尚未進行測評
         </div>
         <div class="action">
-          去評測
+          &nbsp;&nbsp;&nbsp;去評測
         </div>
       </li>
       <li class="user-info-item">

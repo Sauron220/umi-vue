@@ -38,8 +38,8 @@
           聚寶盆資產
         </div>
         <div class="draw-hed-fin">
-          <div class="tit">銀行卡</div>
-          <div class="tit">囘帳查詢</div>
+          <div class="tit" @click="toPage({name: 'MineAccount',query:{comp:'AddBankCard'}})">銀行卡</div>
+          <div class="tit" @click="toPage({name: 'ReturnInquiry'})">囘帳查詢</div>
           <div class="tit">月賬單</div>
           <div class="tit">交易紀錄</div>
         </div>
@@ -211,6 +211,9 @@
     methods:{
       toNextPage(v) {
         this.flag = v;
+      },
+      toPage(v) {
+        this.$router.push(v)
       }
     }
   }
