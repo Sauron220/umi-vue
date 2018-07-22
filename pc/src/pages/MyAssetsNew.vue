@@ -7,7 +7,7 @@
     <div class="total-money-warp">
       <div class="total-money-con">
         <div class="num">
-          <span>0.00</span>元
+          <span>{{personalAcc.totalProperties}}</span>元
         </div>
         <div class="txt">
           聚寶盆總資產
@@ -16,18 +16,18 @@
       <div class="divider-myass"></div>
       <div class="total-money-con">
         <div class="num">
-          <span>0.00</span>元
+          <span>{{ personalAcc.balanceAmount }}</span>元
         </div>
         <div class="txt">
-          聚寶盆總資產
+          賬戶餘額
         </div>
       </div>
       <div class="divider-myass"></div>
       <div class="total-money-con final">
-        <div class="num">
+        <div class="num" @click="linkToRealName(1)">
           儲值
         </div>
-        <div class="txt">
+        <div class="txt" @click="linkToRealName(2)">
           提款
         </div>
       </div>
@@ -103,6 +103,8 @@
       return {
         personalAcc:{},
         flag:1,
+        custInfo: {},
+        bankCardList:[]
       }
     },
     created() {
@@ -207,6 +209,8 @@
         }
 
       });
+      this.isRealUser();
+      this.fetchBankList();
     },
     methods:{
       toNextPage(v) {
@@ -214,6 +218,57 @@
       },
       toPage(v) {
         this.$router.push(v)
+      },
+      isRealUser() {
+        // 判斷用戶是否實名&儲值提領按鈕
+        const self = this;
+        self.$http.post('/pbap-web/action/customer/query/custAuthInfo', {}).then((res) => {
+          self.custInfo = res.body.respInfo.custInfo;
+          self.tpStatus = self.custInfo.tpStatus;
+          self.activateStatus = self.custInfo.activateStatus;
+          self.mobileStatus = self.custInfo.mobileStatus;
+        });
+      },
+      linkToRealName(type) {
+        let self = this;
+        if (self.custInfo.tpStatus == 1) {
+          if (!self.custInfo.payPwdOK) {
+            this.$store.commit('setModal', {
+              type: 'confirm',
+              msg: '為了您的資金安全，請先設置支付密碼',
+              confirmUrl: '/setPayPwd',
+              confirmText: "立即設置"
+            })
+            this.$store.commit('showModal')
+          } else if (self.bankCardList.length == 0) {
+            this.$store.commit('setModal', {
+              type: 'confirm',
+              msg: '為了您的資金安全，請先綁定銀行資料',
+              confirmUrl: '/changeBankCard',
+              confirmText: "綁定銀行資料"
+            })
+            this.$store.commit('showModal')
+          } else if (type == 1) {
+            self.$router.push({path:'/recharge'});
+          } else if (type == 2) {
+            self.$router.push({path:'/withdraw'});
+          }
+        } else {
+          this.$store.commit('setModal', {
+            type: 'confirm',
+            msg: '為了您的資金安全，請先完成實名認證',
+            confirmUrl: '/openAccount',
+            confirmText: "立即實名"
+          })
+          this.$store.commit('showModal')
+        }
+      },
+      fetchBankList () {
+        // get用戶資產資訊
+        const self = this;
+        self.$http.get('/pbap-web/action/bankcard/query/bankcardList').then((res) => {
+          self.bankCardList = res.body.respInfo.bankCardList || [];
+        })
       }
     }
   }
