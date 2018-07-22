@@ -36,6 +36,8 @@
           this.$store.commit('setCurrentTwoPage', self.current)
         } else if (this.$route.name == 'CustTable') {
           this.$store.commit('setCurrentPage', self.current)
+        } else {
+          this.$store.commit('setCurrentComPage', self.current)
         }
       },
       nextPage () {
@@ -46,6 +48,8 @@
           this.$store.commit('setCurrentTwoPage', self.current)
         } else if (this.$route.name == 'CustTable') {
           this.$store.commit('setCurrentPage', self.current)
+        }else {
+          this.$store.commit('setCurrentComPage', self.current)
         }
       },
       goPage (index) {
@@ -57,6 +61,8 @@
             this.$store.commit('setCurrentTwoPage', self.current)
           } else if (this.$route.name == 'CustTable') {
             this.$store.commit('setCurrentPage', self.current)
+          }else {
+            this.$store.commit('setCurrentComPage', self.current)
           }
         }
       }

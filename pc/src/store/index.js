@@ -29,7 +29,8 @@ const store = new Vuex.Store({
     nameUrl3:'',
     urlIndex:'',
     currentPage:'',
-    currentPageTwo:''
+    currentPageTwo:'',
+    currentComPage:''
   },
   mutations,
   getters(){

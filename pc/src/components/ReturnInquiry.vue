@@ -6,8 +6,8 @@
       <span>全部待收本息：0.00元</span>
     </div>
     <div class="inquiry-con-warp">
-      <div class="type" :class="{'active-select': flag == 1}">待收回款</div>
-      <div class="type" :class="{'active-select': flag == 2}">已收回款</div>
+      <div class="type" @click="selectType(1)" :class="{'active-select': flag == 1}">待收回款</div>
+      <div class="type" @click="selectType(2)" :class="{'active-select': flag == 2}">已收回款</div>
     </div>
     <div class="date-select-warp">
       <div class="select-date">
@@ -41,6 +41,9 @@
     methods: {
       disabledDate(time) {
         return time < this.timeStart
+      },
+      selectType(v) {
+        this.flag = v;
       }
     }
   }

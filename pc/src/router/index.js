@@ -82,6 +82,7 @@ import AccountNew from '@/pages/AccountNew'
 import MyAssetsNew from '@/pages/MyAssetsNew'
 import Coupon from '@/pages/Coupon'
 import MineAccount from '@/pages/MineAccount'
+import TransactionRecordNew from '@/pages/TransactionRecordNew'
 import BucketGoldTable from '@/components/BucketGoldTable'
 import PlanProgress from '@/components/PlanProgress'
 import CustTable from '@/components/CustTable'
@@ -90,6 +91,7 @@ import PlannedPerformance from '@/components/PlannedPerformance'
 import CommonProblems from '@/components/CommonProblems'
 import HistoryTable from '@/components/HistoryTable'
 import ReturnInquiry from '@/components/ReturnInquiry'
+import MonthlyBill from '@/components/MonthlyBill'
 
 
 Vue.use(Router)
@@ -896,6 +898,26 @@ var appRouter =  new Router({
       name: 'ReturnInquiry',
       components: {
         content:ReturnInquiry,
+        PageNav: PageNav,
+        PageFooter: PageFooter,
+        // RightFloat: RightFloat,
+      }
+    },
+    {
+      path: '/monthlyBill',
+      name: 'MonthlyBill',
+      components: {
+        content:MonthlyBill,
+        PageNav: PageNav,
+        PageFooter: PageFooter,
+        // RightFloat: RightFloat,
+      }
+    },
+    {
+      path: '/transactionRecordNew',
+      name: 'TransactionRecordNew',
+      components: {
+        content:TransactionRecordNew,
         PageNav: PageNav,
         PageFooter: PageFooter,
         // RightFloat: RightFloat,

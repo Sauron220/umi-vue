@@ -43,6 +43,9 @@ let mutations = {
   },
   setCurrentTwoPage(state, current) {
     state.currentPageTwo = current;
+  },
+  setCurrentComPage(state, current) {
+    state.currentComPage = current;
   }
 }
 

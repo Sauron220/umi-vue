@@ -3,29 +3,32 @@
     <div class="container link-info">
       <div class="row" style="margin-left:0px">
         <div class="friend-link" style="padding-top:14px;">
-          <div class="pull-left" style="color:#fff;">友情連結：</div>
+          <div class="pull-left" style="color: #da7825;">友情連結：</div>
           <div id="pull-left">
             <!-- <a target="_blank">百度</a>
              <a target="_blank">百度</a>
              <a target="_blank">百度</a>
              <a target="_blank">百度</a>-->
-            <a v-for="item in friendLink" :href="item.coopUrl" target="_blank">{{item.coopName}}</a>
+            <a v-for="item in friendLink" :href="item.coopUrl" style="border:none;color: #da7825;" target="_blank">{{item.coopName}}</a>
           </div>
         </div>
         <div class="link-info">
           <ul class="list-inline pull-left bottom-links">
-            <li>
-              <a href="/aboutUs" target="_blank"><i class="icon-info icon-location"></i>關於聚寶盆</a>
+            <li style="color:#da7825 ">
+              客戶服務：
             </li>
-            <li><a href="/helpCenter" target="_blank"><i
-              class="icon-help icon-location"></i>幫助中心
-            </a></li>
+            <li>
+              <a href="/aboutUs" target="_blank">關於聚寶盆</a>
+            </li>
+            <li>
+              <a href="/helpCenter" target="_blank">幫助中心</a>
+            </li>
           </ul>
           <!--<div class="clearfix"></div>-->
 
         </div>
           <div class="clearfix"></div>
-        <div style="border-top:1px solid #5d5d5d;padding-top:40px;">
+        <div style="border-top:1px solid #e6e6e6;padding-top:40px;">
           <div class="service" style="margin-left:0;">
             <h4>客服熱線</h4><span>02-8780-6767</span>
             <div class="service-time">服務時間:9:00-18:00節假日除外</div>
@@ -51,7 +54,7 @@
 
           <div class="service" style="margin-left:136px;">
             <h4>辦公地址</h4><span>台北市信義區忠孝東路五段68號21樓</span>
-            <div class="service-time" style="color:#fff;">21F.,No.68,Sec.5,Zhongxiao E.Rd.,Xinyi Dist.,Taipei City 110,Taiwan(R.O.C)</div>
+            <div class="service-time">21F.,No.68,Sec.5,Zhongxiao E.Rd.,Xinyi Dist.,Taipei City 110,Taiwan(R.O.C)</div>
 
           </div>
         </div>
@@ -82,7 +85,7 @@
       <p class="foot_ba">
 
       </p>
-      <p class="foot_ba" style="border-top:1px solid #5d5d5d;margin-top:20px;padding-top:20px;">理財有風險，投資需謹慎</p>
+      <p class="foot_ba" style="border-top:1px solid #e6e6e6;margin-top:20px;padding-top:20px;">理財有風險，投資需謹慎</p>
 
     </div>
 
@@ -94,14 +97,39 @@
     name: 'PageFooter',
     data() {
       return {
-        friendLink: {}
+        friendLink: [
+          {
+            coopName:'壹桶金',
+            coopUrl:'/bucketGold'
+          },
+          {
+            coopName:'聚寶計畫',
+            coopUrl:'/jubaoPlan'
+          },
+          {
+            coopName:'分期投',
+            coopUrl:'/product-list/8/11/1'
+          },
+          {
+            coopName:'月月盈',
+            coopUrl:'/product-list/9/11/1'
+          },
+          {
+            coopName:'債權/散標',
+            coopUrl:'/product-list/10/11/1'
+          },
+          {
+            coopName:'我要借款/還款',
+            coopUrl:'/borrowing'
+          },
+        ]
       }
     },
     created() {
       var self = this;
       // 友情連結
       self.$http.post('/pbap-web/action/cooperators/query/cooperators/2', {}).then((res) => {
-        self.friendLink = res.body.respInfo.coopList;
+        // self.friendLink = res.body.respInfo.coopList;
       })
     }
   }
