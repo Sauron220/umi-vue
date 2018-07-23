@@ -2,7 +2,7 @@
   <div class="myassets-new">
     <div class="myassets-new-info">
       <div class="desc-txt">開通銀行卡資金存管賬戶，保障您的資金安全。 </div>
-      <div class="btn" @click="toRealAuth">立即開啟銀行資金管理</div>
+      <div class="btn">立即開啟銀行資金管理</div>
     </div>
     <div class="total-money-warp">
       <div class="total-money-con">
@@ -59,22 +59,22 @@
             <div class="tit-desc">纍計回報</div>
           </div>
           <div class="tit-hed">
-            <div class="tit-desc tit-he-tit">壹桶金</div>
+            <div class="tit-desc">壹桶金</div>
             <div class="tit-desc">0.00元</div>
             <div class="tit-desc-c">0.00元</div>
           </div>
           <div class="tit-hed">
-            <div class="tit-desc tit-he-tis">聚寶計畫</div>
+            <div class="tit-desc">聚寶計畫</div>
             <div class="tit-desc">0.00元</div>
             <div class="tit-desc-c">0.00元</div>
           </div>
           <div class="tit-hed">
-            <div class="tit-desc tit-he-tic">分期投 </div>
+            <div class="tit-desc">分期投 </div>
             <div class="tit-desc">0.00元</div>
             <div class="tit-desc-c">0.00元</div>
           </div>
           <div class="tit-hed">
-            <div class="tit-desc tit-he-tif">月月盈</div>
+            <div class="tit-desc">月月盈</div>
             <div class="tit-desc">0.00元</div>
             <div class="tit-desc-c">0.00元</div>
           </div>
@@ -185,7 +185,7 @@
                 allowPointSelect: true,
                 cursor: 'pointer',
                 size: 240,
-                innerSize: '180',
+                innerSize: '220',
                 colors: ["#307bf2", "#f28379", "#f2ba49"],
                 dataLabels: {
                   enabled: false
@@ -197,11 +197,9 @@
               type: 'pie',
               name: 'Account overview',
               data: [
-                /*['可用餘額', self.personalAcc.balanceRate],
+                ['可用餘額', self.personalAcc.balanceRate],
                 ['凍結餘額', self.personalAcc.frozenRate],
-                ['待收益金額', self.personalAcc.benifitRate],*/
-                ['壹桶金', 20],
-                ['聚寶計畫', 10],
+                ['待收益金額', self.personalAcc.benifitRate],
 
               ]
             }]
@@ -267,9 +265,6 @@
         self.$http.get('/pbap-web/action/bankcard/query/bankcardList').then((res) => {
           self.bankCardList = res.body.respInfo.bankCardList || [];
         })
-      },
-      toRealAuth() {
-        this.$router.push({name: 'RealNameAuth'});
       }
     }
   }

@@ -3095,7 +3095,7 @@ $border: #dbdbdb;
     padding-top: 20px;
   }
   .about-area{
-    margin-top: 50px;
+    margin-top: 20px;
     display: flex;
     justify-content: space-around;
     padding: 0 155px;
@@ -3107,21 +3107,13 @@ $border: #dbdbdb;
       padding: 0 20px;
       .about-img{
         margin-right: 20px;
-        width:45px;
-      }
-      .first{
-        width: 65px;
-        height: 70px;
-      }
-      .second{
-        width: 45px;
       }
       .about-desc{
         .desc-text-t{
           font-size: 18px;
         }
         .desc-text-b{
-          font-size: 14px;
+          font-size: 12px;
           color: #b3b3b3;
         }
       }
@@ -3166,15 +3158,6 @@ $border: #dbdbdb;
       flex-direction: column;
       .features-sec-img{
         margin-bottom: 20px;
-      }
-      .features-sec-img-1{
-        width: 60px;
-      }
-      .features-sec-img-2{
-        width: 90px;
-      }
-      .features-sec-img-3{
-        width: 90px;
       }
       .features-sec-tit{
         font-size: 18px;
