@@ -115,7 +115,7 @@
       }
     },
     created() {
-
+      this.getTradeList('IV', '1')
     },
     methods: {
       selectType(v) {

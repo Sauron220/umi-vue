@@ -7,7 +7,7 @@
     <div class="total-money-warp">
       <div class="total-money-con">
         <div class="num">
-          <span>{{personalAcc.totalProperties}}</span>元
+          <span>0.00</span>元
         </div>
         <div class="txt">
           聚寶盆總資產
@@ -16,18 +16,18 @@
       <div class="divider-myass"></div>
       <div class="total-money-con">
         <div class="num">
-          <span>{{ personalAcc.balanceAmount }}</span>元
+          <span>0.00</span>元
         </div>
         <div class="txt">
-          賬戶餘額
+          聚寶盆總資產
         </div>
       </div>
       <div class="divider-myass"></div>
       <div class="total-money-con final">
-        <div class="num" @click="linkToRealName(1)">
+        <div class="num">
           儲值
         </div>
-        <div class="txt" @click="linkToRealName(2)">
+        <div class="txt">
           提款
         </div>
       </div>
@@ -103,8 +103,6 @@
       return {
         personalAcc:{},
         flag:1,
-        custInfo: {},
-        bankCardList:[]
       }
     },
     created() {
@@ -211,8 +209,6 @@
         }
 
       });
-      this.isRealUser();
-      this.fetchBankList();
     },
     methods:{
       toNextPage(v) {

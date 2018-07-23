@@ -8,7 +8,7 @@
         <!--<li><router-link to="/set">賬戶安全</router-link></li>-->
         <li class="active">實名認證</li>
       </ol>
-      <!--<leftMenu></leftMenu>-->
+      <leftMenu></leftMenu>
       <div class="pull-left right_content">
         <ul class="top-title-line list-inline">
           <li class="top-line1 top-orange">實名認證</li>

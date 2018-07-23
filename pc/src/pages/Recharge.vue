@@ -4,12 +4,11 @@
       <ol class="breadcrumb">
         <span>您現在的位置：</span>
         <li>
-          <!--<router-link to="/accountOverview">我的賬戶</router-link>-->
-          <router-link to="/accountNew">我的賬戶</router-link>
+          <router-link to="/accountOverview">我的賬戶</router-link>
         </li>
         <li class="active">儲值</li>
       </ol>
-      <!--<leftMenu></leftMenu>-->
+      <leftMenu></leftMenu>
       <div class="pull-left right_content">
         <ul class="top-title-line list-inline">
           <li class="top-line1 top-orange"><span class="active">儲值</span></li>
