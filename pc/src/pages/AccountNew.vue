@@ -62,9 +62,11 @@
           case 4:
             this.$router.replace({name: 'MineAccount'});
             break;
+          case 5:
+            this.$router.replace({name: 'MyBankcard'});
+            break;
           default:
         }
-
       }
     }
   }
