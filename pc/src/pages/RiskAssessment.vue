@@ -3,7 +3,7 @@
     <div class="risk-container">
       <div class="risk-head">
         <span>風險評測</span>
-        <span class="risk-head-skip">跳過測評，默認保守型</span>
+        <span class="risk-head-skip" @click="skipRisk">跳過測評，默認保守型</span>
       </div>
       <div class="risk-question">
         <div class="risk-queston-tip">
@@ -136,7 +136,9 @@
 
     },
     methods:{
-
+      skipRisk() {
+        this.$router.go(-1);
+      }
     }
   }
 </script>
