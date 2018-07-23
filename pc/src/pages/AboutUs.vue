@@ -90,13 +90,13 @@
       <br>
     </div>-->
     <div class="head-section">
-      <div class="about-top-head" style="width: 950px;margin: 0 auto;padding-top: 20px;">
-        <img src="../assets/images/about_01.png" alt="" style="width: 950px;">
+      <div class="about-top-head" style="width: 950px;margin: 0 auto;padding-top: 50px;">
+        <img src="/static/img/about-us.png" alt="" style="width: 950px;">
       </div>
       <div class="about-area">
         <div class="about-f">
-          <div class="about-img">
-            <img src="/static/img/shezhi.png" alt="">
+          <div class="about-img first">
+            <img src="/static/img/time-ICON-01.svg" alt="">
           </div>
           <div class="about-desc">
             <p class="desc-text-t">2018</p>
@@ -105,8 +105,8 @@
         </div>
         <!--<div class="about-divd"></div>-->
         <div class="about-f about-m">
-          <div class="about-img">
-            <img src="/static/img/shezhi.png" alt="">
+          <div class="about-img second">
+            <img src="/static/img/address-ICON-02.svg" alt="">
           </div>
           <div class="about-desc">
             <p class="desc-text-t">台北</p>
@@ -115,8 +115,8 @@
         </div>
         <!--<div class="about-divd"></div>-->
         <div class="about-f">
-          <div class="about-img">
-            <img src="/static/img/shezhi.png" alt="">
+          <div class="about-img second">
+            <img src="/static/img/internet-ICON-03.svg" alt="">
           </div>
           <div class="about-desc">
             <p class="desc-text-t">fundbowl.tw</p>
@@ -140,17 +140,17 @@
       <h4 class="about-title-hed feature-tit">聚寶盆產品特色</h4>
       <div class="features">
         <div class="features-sec">
-          <img class="features-sec-img" src="/static/img/tuijian.png" alt="">
+          <img class="features-sec-img features-sec-img-1" src="/static/img/risk-ICON-04.svg" alt="">
           <p class="features-sec-tit">風控更專業</p>
           <p class="features-sec-des">資金管理，專人層層把關</p>
         </div>
         <div class="features-sec">
-          <img class="features-sec-img" src="/static/img/tuijian.png" alt="">
+          <img class="features-sec-img features-sec-img-2" src="/static/img/fensan-ICON-05.svg" alt="">
           <p class="features-sec-tit">投資更分散</p>
           <p class="features-sec-des">避免雞蛋放同一籃子</p>
         </div>
         <div class="features-sec">
-          <img class="features-sec-img" src="/static/img/tuijian.png" alt="">
+          <img class="features-sec-img features-sec-img-3" src="/static/img/linhuo-ICON-06.svg" alt="">
           <p class="features-sec-tit">周轉更靈活</p>
           <p class="features-sec-des">投資期限隨心組合</p>
         </div>

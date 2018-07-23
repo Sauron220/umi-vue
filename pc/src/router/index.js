@@ -751,18 +751,18 @@ var appRouter =  new Router({
         // RightFloat: RightFloat,
       }
     },
-/*    {
-      path: '/product/:id',
-      name: 'ProductListTest',
-      components: {
-        content:ProductList,
-        PageNav: PageNav,
-        PageFooter: PageFooter,
-        // RightFloat: RightFloat,
-      },
-      redirect: to => {
-      }
-    },*/
+    /*    {
+          path: '/product/:id',
+          name: 'ProductListTest',
+          components: {
+            content:ProductList,
+            PageNav: PageNav,
+            PageFooter: PageFooter,
+            // RightFloat: RightFloat,
+          },
+          redirect: to => {
+          }
+        },*/
     {
       path: '/changePwd',
       name: 'ChangePwd',

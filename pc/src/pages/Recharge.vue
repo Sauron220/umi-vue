@@ -4,11 +4,12 @@
       <ol class="breadcrumb">
         <span>您現在的位置：</span>
         <li>
-          <router-link to="/accountOverview">我的賬戶</router-link>
+          <!--<router-link to="/accountOverview">我的賬戶</router-link>-->
+          <router-link to="/accountNew">我的賬戶</router-link>
         </li>
         <li class="active">儲值</li>
       </ol>
-      <leftMenu></leftMenu>
+      <!--<leftMenu></leftMenu>-->
       <div class="pull-left right_content">
         <ul class="top-title-line list-inline">
           <li class="top-line1 top-orange"><span class="active">儲值</span></li>
@@ -68,9 +69,9 @@
                </div>
              </div>-->
             <button type="button" class="btn btn-warning" @click="recharge()">立即儲值</button>
-          <!--  <p>
-              遇到問題？請撥打客服電話<span>400-600-9976</span>或關註微信公眾號<span>“上海聚寶盆”</span>留言提問
-            </p>-->
+            <!--  <p>
+                遇到問題？請撥打客服電話<span>400-600-9976</span>或關註微信公眾號<span>“上海聚寶盆”</span>留言提問
+              </p>-->
           </div>
         </form>
         <div class="rechar-after" v-if="!rechargeBefore">

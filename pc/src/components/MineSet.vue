@@ -19,10 +19,13 @@
             銀行合作資金存管
           </p>
         </div>
-        <div class="desc">
+        <div class="desc" v-if = "custInfo.activateStatus != 1">
           未開通
         </div>
-        <div class="action">
+        <div class="desc" v-else>
+          已開通
+        </div>
+        <div class="action" @click="toAccount" v-if = "custInfo.activateStatus != 1">
           立即開通
         </div>
       </li>
@@ -35,11 +38,17 @@
             賬戶更安全出借更放心
           </p>
         </div>
-        <div class="desc">
+        <div class="desc" v-if="custInfo.idcardStatus != 3">
           未認證
         </div>
-        <div class="action">
+        <div class="desc" v-else>
+          已認證
+        </div>
+        <div class="action" @click="toNextSet" v-if="custInfo.idcardStatus != 3">
           立即認證
+        </div>
+        <div class="action" v-else>
+          已實名
         </div>
       </li>
       <li class="user-info-item">
@@ -52,7 +61,7 @@
           </p>
         </div>
         <div class="desc">
-          186****8306
+          {{custInfo.cusMobile}}
         </div>
         <div class="action">
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修改
@@ -86,7 +95,7 @@
         <div class="desc">
           您尚未進行測評
         </div>
-        <div class="action">
+        <div class="action" @click="toRisk">
           &nbsp;&nbsp;&nbsp;去評測
         </div>
       </li>
@@ -115,14 +124,33 @@
     name: "MineSet",
     data(){
       return {
-
+        custInfo:{},
       }
     },
     created(){
-
+      var self = this;
+      self.$http.post('/pbap-web/action/customer/query/custAuthInfo', {}).then((res) => {
+        self.custInfo = res.body.respInfo.custInfo;
+        console.log('realName',self.custInfo)
+        if (self.custInfo.idcardStatus != 3) {
+          self.isOpen = '/openAccount';
+        } else if (self.custInfo.idcardStatus == 3) {
+          if(self.custInfo.activateStatus != 1){
+            self.isOpen = '/activateAccount';
+          }
+        }
+      });
     },
     methods:{
-
+      toAccount() {
+        this.$router.push({path: '/activateAccount'});
+      },
+      toNextSet() {
+        this.$router.push({path: '/openAccount'});
+      },
+      toRisk() {
+        this.$router.push({name: 'RiskAssessment'});
+      }
     }
   }
 </script>

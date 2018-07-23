@@ -23,6 +23,29 @@
         flag: 1,
       }
     },
+    watch:{
+      $route() {
+        const self = this;
+        switch (this.$route.name) {
+          case 'BucketGoldTable':
+            self.flag = 1;
+            break;
+          case 'Coupon':
+            self.flag = 2;
+            break;
+          case 'MineAccount':
+            self.flag = 4;
+            break;
+          case 'MyBankcard':
+            self.flag = 5;
+            break;
+          default:
+        }
+      }
+    },
+    created() {
+
+    },
     methods:{
       toNext(v) {
         this.flag = v;
