@@ -18,7 +18,7 @@
           </li>
         </ul>
       </div>
-      <div class="submit-btn">提&nbsp;&nbsp;&nbsp;交</div>
+      <div class="submit-btn" @click="changeRisk">提&nbsp;&nbsp;&nbsp;交</div>
     </div>
   </div>
 </template>
@@ -129,15 +129,53 @@
               {key: 4, value: '超過40%'},
             ]
           },
-        ]
-      }
+        ],
+        myCode:'',
+        flag: false,
+    }
     },
     created() {
-
+      const self = this;
+      this.$http.post('/pbap-web/action/customer/query/custAuthInfo', {}).then((res) => {
+        self.myCode = res.body.respInfo.custInfo.cusCode;
+      });
     },
     methods:{
       skipRisk() {
         this.$router.go(-1);
+      },
+      changeRisk() {
+        const self = this;
+        let isStringArr = [];
+        isStringArr = this.questions.filter((val, index, arr) => {
+          if (self.checkType(val.model) != 'number') {
+            return val;
+          }
+        });
+        if (!isStringArr.length) {
+          console.log(self.myCode)
+          self.$http.post('/pbap-web/action/customer/upt/riskTest', {
+            cusCode: self.myCode
+          }).then((val) => {
+            self.$store.commit('setModal', {
+              type: 'alert',
+              msg: '已完成评测！',
+              confirmText: '我知道了'
+            });
+            self.$store.commit('showModal');
+            self.$router.go(-1);
+          })
+        } else {
+          self.$store.commit('setModal', {
+            type: 'alert',
+            msg: '请完成所有选项！',
+            confirmText: '我知道了'
+          });
+          self.$store.commit('showModal');
+        }
+      },
+      checkType(val) {
+        return Object.prototype.toString.call(val).toLowerCase().match(/\s\w+/)[0].trim();
       }
     }
   }

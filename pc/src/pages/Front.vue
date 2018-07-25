@@ -102,7 +102,7 @@
           <div class="product-month xrt-row xrt-row-new-novice" style="border: none;">
             <div class="col-xs-4">
               <div class="front-new-user">
-                <img src="/static/img/select-03.png" alt="">
+                <img src="/static/img/people.png" alt="" style="width: 70px;">
               </div>
               <p>1000元見面禮</p>
               <p class="product-noviceArea-desc">註冊即獲得總值1000元現金券,可用於抵扣相應面值的出借金額。 </p>
@@ -110,19 +110,19 @@
             </div>
             <div class="col-xs-4">
               <div class="front-new-user">
-                <img src="/static/img/select-03.png" alt="">
+                <img src="/static/img/note.png" alt="" style="width: 70px;">
               </div>
               <p>測評送積分</p>
               <p class="product-noviceArea-desc">完成風險測評，享受安心出借，還可額外獲得十積分。 </p>
-              <a class="front-new-user-reg new-user-active front-new-novice-reg" href="/riskAssessment">完成評測</a>
+              <a @click="toRisk" class="front-new-user-reg new-user-active front-new-novice-reg" href="javascript:;">完成評測</a>
             </div>
             <div class="col-xs-4" style="border: none">
               <div class="front-new-user">
-                <img src="/static/img/select-03.png" alt="">
+                <img src="/static/img/hand.png" alt="" style="width: 70px;">
               </div>
               <p>拿第一桶金</p>
               <p class="product-noviceArea-desc">首次出借新手專享項目，期待年 回報率達10%，額外15積分贈送。 </p>
-              <a class="front-new-user-reg new-user-active front-new-novice-reg" href="/product-list/30/11/1">完成出借</a>
+              <div class="front-new-user-reg new-user-active front-new-novice-reg" @click="toBucketDeatil" style="cursor: pointer;">完成出借</div>
             </div>
           </div>
         </div>
@@ -539,6 +539,7 @@
         inAd: false,
         adData: {},
         productList: {},
+        riskTest: ''
       }
     },
     components: {},
@@ -615,7 +616,7 @@
       self.$http.post('/pbap-web/action/cooperators/query/cooperators/1', {}).then((res) => {
         self.coupers = res.body.respInfo.coopList;
       })*/
-
+      // this.getCurrentInfoMes();
     },
     mounted() {
       var self = this
@@ -653,6 +654,30 @@
         const _proCode = code;
         console.log(code)
         _proCode && this.$router.push({name: 'Product', params: {prdCode: _proCode}});
+      },
+      getCurrentInfoMes () {
+        const self = this;
+        this.$http.post('/pbap-web/action/customer/query/custAuthInfo',{}).then((res) => {
+          self.riskTest = res.body.respInfo.custInfo.riskTest;
+          self.$store.commit('setCurrentUserInfo', res.body.respInfo.custInfo)
+          if (self.riskTest == 0) {
+            this.$store.commit('setModal', {
+              type: 'alert',
+              msg: '已完成评测',
+              confirmText: '我知道了'
+            });
+            this.$store.commit('showModal');
+          } else if (self.riskTest == 1) {
+            self.$router.push({path:'riskAssessment'});
+          }
+        })
+      },
+      toRisk() {
+        this.getCurrentInfoMes()
+      },
+      toBucketDeatil() {
+        localStorage.setItem('proCode', this.products[30].prdCode);
+        this.$router.push({path: 'bucketGold'});
       }
     }
   }

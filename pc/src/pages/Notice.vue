@@ -1,5 +1,5 @@
 <template>
-  <div class="news" v-TDK="noticeDetail">
+  <div class="news" style="background: #fff;" v-TDK="noticeDetail">
     <div class="section-space"></div>
     <div class="container">
       <ol class="breadcrumb">

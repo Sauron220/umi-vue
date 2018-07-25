@@ -1,5 +1,8 @@
 <template>
   <div class="bucketGlod">
+    <div class="bucket-img-warp">
+      <img src="/static/img/newPeople.png" alt="" width="100%;">
+    </div>
     <div class="section-space clearfix"></div>
     <div class="section-space clearfix"></div>
     <div class="content-warp">
@@ -133,7 +136,7 @@
       <div class="section-space clearfix"></div>
       <div class="section-space clearfix"></div>
       <div class="histy-table-warp">
-        <h4 class="section-title">歷史期數與利息回</h4>
+        <h4 class="section-title">歷史期數與利息回报</h4>
         <div class="histy-table-con">
 
         </div>

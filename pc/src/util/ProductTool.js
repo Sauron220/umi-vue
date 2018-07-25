@@ -225,13 +225,13 @@ export default {
       return tempNum.substring(0,tempNum.lastIndexOf('.')+3);
     }
   },
-  getInvestRecord(obj){
+  getInvestRecord(obj, prdCode){
     var self = this;
     self.invData.totalPage=0;
     self.$http.post('/pbap-web/action/investment/query/invList', {
       pageIndex: obj.index,
       pageSize: 10,
-      prdCode: self.$route.params.prdCode
+      prdCode: self.$route.params.prdCode || prdCode
     }).then((res) => {
       self.invData = res.body.respInfo.invList;
   });

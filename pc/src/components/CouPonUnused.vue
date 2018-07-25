@@ -1,60 +1,29 @@
 <template>
   <div class="warp-con-cou">
     <div class="cou-top">
-      <div class="btn-cou">兌換優惠券</div>
+      <div class="btn-cou" style="background: #ccc;">兌換優惠券</div>
       <div class="coupon-unused-warp">
-        <div class="unused-item">
+        <div class="unused-item" v-for="(item, index) in couponList">
           <div class="unused-tp-num">
-            <span class="num">400</span>元現金券
+            <p v-if="item.cpnType*1 == 3">
+              <span class="num">{{$fmoneyFormat(item.cpnInfo)}}</span>元{{item.cpnType*1 == 3?'體驗金':'加息券'}}
+            </p>
+            <p v-else>
+              <span class="num">{{$formatNum(item.cpnInfo, 100)}}</span>%{{item.cpnType*1 == 3?'體驗金':'加息券'}}
+            </p>
           </div>
           <div class="unused-bt-desc">
             <ul>
-              <li>新人專享</li>
-              <li>優選計劃、U計劃(鎖定期12月/24月/36月)</li>
-              <li>2018年06月16日- 2018年07月31日</li>
-              <li>最低出借金額: 150,000 元</li>
+              <li>來源：{{item.cpnOrigin}}</li>
+              <li>適用產品:{{item.cpnProName}}</li>
+              <li>{{item.beginTime}}-{{item.endTime}}</li>
+              <li>最低出借金額: {{$fmoneyFormat(item.cpnProps)}}元</li>
             </ul>
           </div>
         </div>
-        <div class="unused-item">
-          <div class="unused-tp-num">
-            <span class="num">150</span>元現金券
-          </div>
-          <div class="unused-bt-desc">
-            <ul>
-              <li>新人專享</li>
-              <li>優選計劃、U計劃(鎖定期12月/24月/36月)</li>
-              <li>2018年06月16日- 2018年07月31日</li>
-              <li>最低出借金額: 150,000 元</li>
-            </ul>
-          </div>
-        </div>
-        <div class="unused-item">
-          <div class="unused-tp-num">
-            <span class="num">60</span>元現金券
-          </div>
-          <div class="unused-bt-desc">
-            <ul>
-              <li>新人專享</li>
-              <li>優選計劃、U計劃(鎖定期12月/24月/36月)</li>
-              <li>2018年06月16日- 2018年07月31日</li>
-              <li>最低出借金額: 150,000 元</li>
-            </ul>
-          </div>
-        </div>
-        <div class="unused-item">
-          <div class="unused-tp-num">
-            <span class="num">20</span>元現金券
-          </div>
-          <div class="unused-bt-desc">
-            <ul>
-              <li>新人專享</li>
-              <li>優選計劃、U計劃(鎖定期12月/24月/36月)</li>
-              <li>2018年06月16日- 2018年07月31日</li>
-              <li>最低出借金額: 150,000 元</li>
-            </ul>
-          </div>
-        </div>
+      </div>
+      <div style="display: flex;align-items: center;justify-content: center;padding-bottom: 40px;" v-if="couponList.length==0">
+        <img src="../assets/images/no_data.png"  style="width: 70px;"> <span>暫時沒有優惠券呢！</span>
       </div>
     </div>
     <div class="mine-invite-warp">
@@ -174,14 +143,24 @@
 <script>
   export default {
     name: "CouPonUnused",
+    props:{
+      status: Number,
+    },
     data() {
       return {
         link: 'https://www.renrendai.com/pc/ppb/cv1/page/5954d9425fe3df4e55713071.html?utmsource=pc_mgm_01&inviteCode=1070rRmiDsqg0947',
         arrlen: 0,
+        couponListInfo:[],
+        couponList:[],
+      }
+    },
+    watch:{
+      status (newV, oldV) {
+        this.getCoupon(newV, 1);
       }
     },
     created() {
-
+      this.getCoupon(0, 1);
     },
     methods: {
       onCopy: function (e) {
@@ -197,7 +176,18 @@
           msg: '复制失败，请手动CTRL+C复制链接！',
         });
         this.$store.commit('showModal');
-      }
-    }
+      },
+      getCoupon(status, pageAt){
+        var self = this;
+        self.$http.post('/pbap-web/action/customer/query/myCoupon', {
+          pageIndex: pageAt,
+          pageSize: 9,
+          status: status
+        }).then((res) => {
+          self.couponListInfo = res.body.respInfo.couponInfo;
+          self.couponList = self.couponListInfo.dataList;
+        })
+      },
+    },
   }
 </script>

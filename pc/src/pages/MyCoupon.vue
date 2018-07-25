@@ -56,7 +56,7 @@
         <div id="noData" v-if="couponList.length==0">
           <img src="../assets/images/no_data.png"  style="width: 70px;"> <span>暫時沒有優惠券呢！</span>
         </div>
-        <vPagination v-if="couponList.length>0 && couponListInfo.totalPage>1"
+        <vPagination v-if="couponList.length >0 && couponListInfo.totalPage >1"
                      :totalPage="couponListInfo.totalPage"
                      :currentPage="$route.params.pageAt"
                      :withOutPageAtUrl="'/myCoupon/'+$route.params.couponStatus+'/'">

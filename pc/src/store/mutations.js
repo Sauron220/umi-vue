@@ -46,6 +46,9 @@ let mutations = {
   },
   setCurrentComPage(state, current) {
     state.currentComPage = current;
+  },
+  setCurrentUserInfo(state, info) {
+    state.currentUserInfo = info;
   }
 }
 

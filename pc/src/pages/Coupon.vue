@@ -6,7 +6,7 @@
       <div class="coupon-nav-item" @click="selectSatus(3)" :class="{'active-select': flag == 3}">已失效的優惠券</div>
     </div>
     <div class="coupon-con-conm">
-      <component :is="comp"></component>
+      <component :is="comp" :status="status"></component>
     </div>
   </div>
 </template>
@@ -22,6 +22,7 @@
       return {
         comp:'Unused',
         flag: 1,
+        status:0,
       }
     },
     methods:{
@@ -31,9 +32,11 @@
         switch (v) {
           case 1:
             self.comp = 'Unused';
+            self.status = 0;
             break;
           case 2:
-            self.comp = 'Used';
+            self.comp = 'Unused';
+            self.status = 1;
             break;
           default:
         }

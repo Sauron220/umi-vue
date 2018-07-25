@@ -2795,10 +2795,13 @@ $border: #dbdbdb;
 
 /** 新闻列表*/
 .news-list {
+  background: #fff;
+  border-top:1px solid #ccc ;
   h1.title {
     font-size: 24px;
   }
   .news {
+    background: #fff;
     margin-top: 20px;
     li {
       a {
@@ -2823,6 +2826,8 @@ $border: #dbdbdb;
 
 /** 新闻详情*/
 .news {
+  border-top: 1px solid #ccc;
+  background: #fff;
   h1.title {
     height: 60px;
     line-height: 60px;

@@ -1,5 +1,5 @@
 <template>
-  <div class="bucketGlod">
+  <div class="bucketGlod product-detail" v-TDK="TDK">
     <div class="nav-bar-tit">
       <router-link to="/">聚寶盆首頁></router-link>
       <router-link to="/bucketGold">壹桶金></router-link>
@@ -19,33 +19,67 @@
         <div class="bucket-top-con">
           <div class="bucket-top-con-lf">
             <div class="rate">
-              <p class="rate-num"><span>8.0</span><span>%+0.8%</span></p>
+              <p class="rate-num"><span>{{productRate(productDetail.defaultRate, productDetail.rewardRate)}}</span><span></span></p>
               <p class="desc">預期年化收益</p>
               <div class="bottom-img"><img src="static/img/tuijian.png" alt=""><span>銀行存管</span></div>
             </div>
             <div class="divider-line"></div>
             <div class="date">
-              <p class="date-num">30 <span>天</span></p>
+              <p class="date-num">{{productDetail.prdPeriod}} <span>天</span></p>
               <p class="desc">借款期限</p>
               <div class="bottom-img second"><img src="static/img/tuijian.png" alt=""><span>合規排名位居前列</span></div>
             </div>
             <div class="divider-line"></div>
             <div class="money">
-              <p class="money-num">200000 <span>元</span></p>
+              <p class="money-num">{{$fmoney(productDetail.prdAmount)}} <span>元</span></p>
               <p class="desc">計劃金額</p>
               <div class="bottom-img"><img src="static/img/tuijian.png" alt=""><span>穩健運營</span></div>
             </div>
           </div>
-          <div class="bucket-top-con-ri">
-            <p>賬戶余額登<router-link to="/register">錄後</router-link>可見</p>
-            <div class="money-warp">
-              <input type="text" placeholder="輸入加入金額，為1,0000元的整倍數" v-model="money"/><span>元</span>
-            </div>
-            <div class="desc">
-              <span class="desc-lf">剩餘金額17,620,000 元 </span>
-              <span class="desc-ri"> 加入上限10,000 元</span>
-            </div>
-            <div class="bucket-top-btn">加入</div>
+          <div class="bucket-top-con-ri product-intro">
+            <form action="" method="post" id="payForm" submit="investRule" novalidate="" style="width: 300px;">
+              <div class="balance clearfix pay-info" style="line-height: 30px">
+                <i class="pull-left">賬戶餘額</i>
+                <div class="account-info" v-if="userInfo.loginResult">
+                  <span class="pull-left" style="color:#f8b62b;">{{$fmoney(accountInfo.balanceAmount)}}元</span>
+                  <a class="charge pull-right" href="/recharge" v-if="custInfo.tpStatus==1 && custInfo.payPwdOK"
+                     target="_blank">儲值</a>
+                  <a class="charge pull-right" href="javascript:;" v-if="custInfo.tpStatus!=1 || !custInfo.payPwdOK"
+                     @click="linkToRealName();">儲值</a>
+                </div>
+                <div class="account-info" v-if="!userInfo.loginResult">
+                  <span class="pull-left"><a :href="loginUrl" style="color:#f8b62b;">登錄</a>後可見</span>
+                </div>
+              </div>
+              <div class="money-warp" style="margin-top: 15px;">
+                <input  type="text" name="invest"
+                       maxlength="10"
+                       v-model="invest"
+                       :placeholder="inputPlaceholder"
+                       v-validate="{ rules: { required: true,
+                                           investRule: [
+                                             productDetail.minInvAmt,
+                                             productDetail.maxInvAmt,
+                                             productDetail.remainAmount,
+                                             accountInfo.balanceAmount,
+                                             invest
+                                           ]}}"
+                       :readonly="productDetail.minInvAmt > productDetail.remainAmount || !userInfo.loginResult || productDetail.status == 12">
+                <span>元</span>
+                <i class="p-error" style="color: #307bf2" v-if="errors.first('invest') && userInfo.loginResult">{{errors.first('invest')}}</i>
+              </div>
+              <div class="desc" v-if="!userInfo.loginResult">
+                <span class="desc-lf">剩餘金額17,620,000 元 </span>
+                <span class="desc-ri"> 加入上限10,000 元</span>
+              </div>
+              <div class="bucket-top-btn"
+                   v-if="productDetail.status == 11"
+                   @click="investComfirm">加入</div>
+              <a
+                :href="userInfo.loginResult ? 'javascript:;':loginUrl"
+                class="bucket-top-btn" style="display: inline-block"
+                v-else>加入</a>
+            </form>
           </div>
         </div>
       </div>
@@ -58,7 +92,7 @@
           <div class="plan-warp-con-lf">
             <div class="date-start">
               <p>開始加入</p>
-              <p>06月28日03:00</p>
+              <p>{{productDetail.valueDate}}</p>
             </div>
             <div class="line-path"></div>
             <div class="bg-progess">1~2天起息</div>
@@ -67,11 +101,11 @@
             <div class="date-start">
               <div>
                 <p>進入鎖定日期</p>
-                <p>06月28日03:00</p>
+                <p>{{productDetail.colFinishDate}}</p>
               </div>
               <div>
                 <p>到期退出</p>
-                <p>06月28日03:00</p>
+                <p>{{productDetail.dueDate}}</p>
               </div>
             </div>
             <div class="line-path"></div>
@@ -91,56 +125,270 @@
           <router-view></router-view>
         </div>
       </div>
+
+      <!-- 購買 -->
+      <div class="buy-confirm" v-if="buyConfirm">
+        <div class="modal-backdrop fade in"></div>
+        <div class="modal-dialog">
+          <div class="modal-header">
+            <h4 class="modal-title text-center">加入確認
+              <a href="javascript:;" class="close" @click="buyConfirm = !buyConfirm">×</a>
+            </h4>
+          </div>
+          <div class="modal-body form-horizontal">
+            <div class="form-group">
+              <label class="col-xs-4 control-label">產品名稱</label>
+              <div class="col-xs-8">
+                <div class="form-control-static ell">{{productDetail.prdName}}</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-xs-4 control-label">預期年化</label>
+              <div class="col-xs-8">
+                <div class="form-control-static text-warning">
+                  {{productRateSimple(productDetail.defaultRate, productDetail.rewardRate)}}
+                  <span class="text-danger" v-if="coupon && coupon.cpnInfo && coupon!=0">
+                                    {{'+' + $fmoney($formatNum(coupon.cpnInfo, 100)) + '%'}}
+                                </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-xs-4 control-label">借款期限</label>
+              <div class="col-xs-8">
+                <div class="form-control-static"><span>{{productDetail.prdPeriod}}</span>天</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-xs-4 control-label">加入金額</label>
+              <div class="col-xs-8">
+                <div class="form-control-static text-warning">{{$fmoney(invest)}}元</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-xs-4 control-label">優惠券</label>
+              <div class="col-xs-8">
+                <select v-model="coupon" class="form-control" name="" id="constellation">
+                  <option value="0">{{couponList.length == 0 ? '沒有合適加息券':'請選擇加息券'}}</option>
+                  <option v-for="item in couponList" :value="item" v-if="item.status==0">
+                    <span v-if="item.beginTime === '2017.02.14'">情人節</span>
+                    <span v-if="inTheArray(item.beginTime)">女王節</span>
+                    <span v-if="item.cpnInfo">{{'加息券 +' + $formatNum(item.cpnInfo, 100) + '%'}}</span>
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group" style="margin-bottom: 40px;">
+              <label class="col-xs-4 control-label">支付密碼</label>
+              <div class="col-xs-8">
+                <input type="password" v-if="!showPwd" v-model="payPwd" minlength="6" maxlength="20"
+                       autocomplete="new-password" placeholder="請輸入支付密碼" class="form-control"
+                       @focus="pwdTips=true" @blur="pwdTips=false"
+                       v-validate="{rules:{required:true,payPwd:true}}" name="payPwd">
+                <input type="text" v-if="showPwd" v-model="payPwd" minlength="6" maxlength="20"
+                       autocomplete="new-password" placeholder="請輸入支付密碼" class="form-control"
+                       @focus="pwdTips=true" @blur="pwdTips=false"
+                       v-validate="{rules:{required:true,payPwd:true}}" name="payPwd">
+                <span class="icon cipherText" :class="showPwd?'icon-eye-open':'icon-eye-close'"
+                      @click="showPwd = !showPwd" style="left: 235px;top: 5px;"></span>
+                <div class="sj-error" v-if="errors.first('payPwd')">
+                  <i class="p-error">{{errors.first('payPwd')}}</i>
+                </div>
+                <a class="forget-pay-pwd" href="/changePayPwd">忘記密碼</a>
+              </div>
+            </div>
+            <a class="btn btn-warning btn-block btn-lg submit" target="_blank"
+               @click="setBuyUrl()">立即加入</a>
+            <div class="col-xs-offset-1 col-xs-10">
+              <br>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+  import Tool from '../util/ProductTool.js'
+
   export default {
     name: "BucketGold",
     data() {
       return {
-        money:'',
-        flag:1,
+        money: '',
+        flag: 1,
+        custInfo: {},
+        tpStatus: '',
+        productDetail: {},
+        inputPlaceholder: '',
+        loginUrl: '',
+        invest: null,
+        coupon: 0,
+        couponText: '',
+        couponList: [],
+        payPwd: '',
+        showPwd: false,
+        buyConfirm: false,
+        invData: {},
+        TDK: {
+          title: '理財產品',
+          keyWords: '尊享計劃,p2p理財產品,個人理財產品,如何理財,年化收益率',
+          description: '聚寶盆-尊享計劃，是聚寶盆推出的壹款高端理財產品，預期年化收益高達12%！個人最好的理財產品之壹，聚寶盆幫您制定個人理財規劃，理財產品排行就選聚寶盆，6道風控審核保障，理財更安全！',
+        }
+      }
+    },
+    computed: {
+      userInfo() {
+        return this.$store.state.userInfo
+      },
+      accountInfo() {
+        return this.$store.state.accountInfo
       }
     },
     created() {
-      this.$router.replace({path:'/bucketGold'});
+      const self = this;
+      const _proCode = localStorage.getItem('proCode');
+      this.$router.replace({path: '/bucketGold'});
+
+
+      self.$http.post('/pbap-web/action/customer/query/custAuthInfo', {}).then((res) => {
+        self.custInfo = res.body.respInfo.custInfo;
+        self.tpStatus = res.body.respInfo.custInfo.tpStatus;
+      });
+
+      self.loginUrl = '/login?remark=' + location.pathname; // 設置登錄成功後的跳轉連結
+
+      self.getProductDetail(_proCode, function () {
+        self.setPlaceholder();
+        if (self.productDetail.remainAmount >= self.productDetail.minInvAmt) {
+          self.invest = self.productDetail.minInvAmt;
+        } else {
+          self.invest = self.productDetail.remainAmount;
+        }
+        self.getWelfareReminder(self.productDetail.prdType);
+        self.TDK.title = self.productDetail.prdName + '-' + self.TDK.title;
+      })
+      self.getInvestRecord(1, _proCode);
     },
-    methods:{
+    methods: {
       toNext(id) {
         const _that = this;
-        switch(id)
-        {
+        switch (id) {
           case 1:
             _that.flag = 1;
             localStorage.setItem('flag', 1);
-            this.$router.replace({path:'/bucketGold'});
+            this.$router.replace({path: '/bucketGold'});
             break;
           case 2:
             _that.flag = 2;
             localStorage.setItem('flag', 2);
-            this.$router.replace({path:'/custTable/'+id});
+            this.$router.replace({path: '/custTable/' + id});
             break;
           case 3:
             _that.flag = 3;
             localStorage.setItem('flag', 3);
-            this.$router.replace({path:'/custTableTwo/'+id});
+            this.$router.replace({path: '/custTableTwo/' + id});
             break;
           case 4:
             _that.flag = 4;
             localStorage.setItem('flag', 4);
-            this.$router.replace({path:'/plannedPerformance'});
+            this.$router.replace({path: '/plannedPerformance'});
             break;
           case 5:
             _that.flag = 5;
             localStorage.setItem('flag', 5);
-            this.$router.replace({path:'/commonProblems'});
+            this.$router.replace({path: '/commonProblems'});
             break;
           default:
         }
-
-      }
-    }
+      },
+      setPlaceholder() {
+        var self = this;
+        self.inputPlaceholder = '至少投資' + self.$fmoneyFormat(self.productDetail.minInvAmt) + '元'
+      },
+      investComfirm() {
+        var self = this;
+        if (self.userInfo.loginResult) {  //登錄情況
+          self.$http.post('/pbap-web/action/customer/query/custAuthInfo', {}).then((res) => {
+            self.tpStatus = res.body.respInfo.custInfo.tpStatus;
+            self.activateStatus = res.body.respInfo.custInfo.activateStatus;
+            console.log('self.tpStatus=', self.tpStatus);
+            if (self.tpStatus == 1) {
+              if (!self.custInfo.payPwdOK) {
+                this.$store.commit('setModal', {
+                  type: 'confirm',
+                  msg: '為了您的資金安全，請先設置支付密碼',
+                  confirmUrl: '/setPayPwd',
+                  confirmText: "立即設置"
+                })
+                this.$store.commit('showModal')
+              } else {
+                self.$validator.validateAll().then((result) => {
+                  if (result) {
+                    self.buyConfirm = !self.buyConfirm;
+                    self.getCooper();
+                    self.getWelfareReminder(self.productDetail.prdType);
+                  }
+                });
+              }
+            } else if (self.tpStatus == 0) {
+              this.$store.commit('setModal', {
+                type: 'confirm',
+                msg: '為了您的資金安全，請先完成實名認證',
+                confirmUrl: '/openAccount',
+                confirmText: "立即實名"
+              })
+              this.$store.commit('showModal')
+            }
+          });
+        }
+      },
+      setBuyUrl() {
+        var self = this;
+        self.$validator.validateAll({'payPwd': self.payPwd}).then((result) => {
+          if (result) {
+            self.buyHandle('/product/' + self.productDetail.prdCode);
+            if (self.coupon && self.coupon != 0) {
+              let url = '/buy?prdCode=' + self.$route.params.prdCode + '&relAmount=' + self.invest + '&cpnNum=' + self.coupon.cpnNum + '&payPwd=' + self.payPwd
+              window.open(url, '_blank');
+            } else {
+              let url = '/buy?prdCode=' + self.$route.params.prdCode + '&relAmount=' + self.invest + '&payPwd=' + self.payPwd
+              window.open(url, '_blank');
+            }
+          }
+        });
+      },
+      getInvestRecord: Tool.getInvestRecord,
+      getTimeLeft: Tool.getTimeLeft,
+      productRate: Tool.productRate,
+      productRateSimple: Tool.productRateSimple,
+      getCooper: Tool.getCooper,
+      getProductDetail: Tool.getProductDetail,
+      getWelfareReminder: Tool.getWelfareReminder,
+    },
+    mounted() {
+      var self = this;
+      self.$validator.updateDictionary({
+        en: {
+          custom: {
+            invest: {
+              required() {
+                return '請輸入加入金額'
+              },
+              moreThan() {
+                return '最低加入金額為' + self.productDetail.minInvAmt + '元'
+              }
+            },
+            payPwd: {
+              required() {
+                return '請輸入支付密碼'
+              }
+            }
+          }
+        }
+      });
+    },
   }
 </script>

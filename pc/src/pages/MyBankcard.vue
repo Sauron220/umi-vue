@@ -1,14 +1,14 @@
 <template>
   <div id="PersonalCenter" class="myBankcard-content profile clearfix" v-TDK="TDK">
     <div class="container">
-      <ol class="breadcrumb">
+      <!--<ol class="breadcrumb">
         <span>您現在的位置：</span>
         <li>
-          <!--<router-link to="/accountOverview">我的賬戶</router-link>-->
+          &lt;!&ndash;<router-link to="/accountOverview">我的賬戶</router-link>&ndash;&gt;
           <router-link to="/accountNew">我的賬戶</router-link>
         </li>
         <li class="active">我的銀行資料</li>
-      </ol>
+      </ol>-->
       <!--<leftMenu></leftMenu>-->
       <div class="pull-left right_content">
         <ul class="top-title-line list-inline">

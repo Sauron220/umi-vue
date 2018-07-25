@@ -114,7 +114,7 @@
                 <router-link :to="{ name: 'Private', params: { prdCode:lastVipPrd}}" target="_blank">尊享計劃<span
                         class="special-crown"></span></router-link>
             </li>-->
-          <li>
+          <li v-if="userInfo.loginResult">
             <router-link
               to="/accountNew"
               :class="{'active':/(\/myAssets\/)|(\/transactionRecord\/)|(\/set)|(\/myBankcard)|(\/myCoupon)|(\/ProfileExperience)|(\/myRecommend)|(\/transactionDetails)|(\/changePwd)|(\/recharge)|(\/withdraw)/g.test($route.fullPath)}"
@@ -170,6 +170,7 @@
         self.mevsUrl = res.body.respInfo.mevs;
         self.$store.commit('setMEVSUrl', self.mevsUrl);
       });
+
     },
     methods: {
       logOut() {

@@ -955,6 +955,11 @@ var appRouter =  new Router({
           name:'MineAccount',
           component:MineAccount,
         },
+        {
+          path: '/mineBankcard',
+          name: 'MineBankcard',
+          component:MyBankcard,
+        },
       ]
     },
     {

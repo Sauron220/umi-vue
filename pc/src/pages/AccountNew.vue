@@ -4,7 +4,7 @@
       <div class="nav-con">
         <div class="nav-tit" @click="toNext(1)" :class="{'active': flag == 1}">我的資產</div>
         <div class="nav-tit" @click="toNext(2)" :class="{'active': flag == 2}">我的優惠卷</div>
-        <div class="nav-tit" @click="toNext(3)" :class="{'active': flag == 3}">消息中心(3)</div>
+        <div class="nav-tit" @click="toNext(3)" :class="{'active': flag == 3}">消息中心</div>
         <div class="nav-tit" @click="toNext(4)" :class="{'active': flag == 4}">帳號設置</div>
         <div class="nav-tit" @click="toNext(5)" :class="{'active': flag == 5}">我的銀行資料</div>
       </div>
@@ -33,10 +33,13 @@
           case 'Coupon':
             self.flag = 2;
             break;
+          case 'NoticeList':
+            self.flag = 3;
+            break;
           case 'MineAccount':
             self.flag = 4;
             break;
-          case 'MyBankcard':
+          case 'MineBankcard':
             self.flag = 5;
             break;
           default:
@@ -57,13 +60,13 @@
             this.$router.replace({name: 'Coupon'});
             break;
           case 3:
-            this.$router.replace({name: 'Coupon'});
+            this.$router.push({name: 'NoticeList'});
             break;
           case 4:
             this.$router.replace({name: 'MineAccount'});
             break;
           case 5:
-            this.$router.replace({name: 'MyBankcard'});
+            this.$router.replace({name: 'MineBankcard'});
             break;
           default:
         }
