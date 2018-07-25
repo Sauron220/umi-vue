@@ -196,8 +196,8 @@
                 </div>
               </div>
               <div class="pull-left progress-text">{{products[30].colPercent}}%</div>
-              <a class="btn btn-warning product-link set-margin" target="_blank"
-                 :href="products[30].prdCode?'/product/'+products[30].prdCode:'javascript:;'"
+              <a class="btn btn-warning product-link set-margin" target="_blank" @click="toBucketDeatil"
+                 href="javascript:;"
                  :class="{'gray':!(products[30].status == 11 || products[30].status == 12)}">
                 {{products[30].status == 11 || products[30].status == 12 ? '立即加入' : '查看詳情'}}
               </a>
@@ -309,52 +309,20 @@
               </a>
             </div>
           </div>-->
-          <div class="plan-case-item">
+          <div class="plan-case-item" v-for="(item, index) in juBaoArr" :key="index" v-if="index < 3">
             <div class="plan-case-item-t">
               <div class="plan-case-item-t-l">
-                <p class="rate">4.8%</p>
+                <p class="rate">{{item.defaultRate ? $fmoney(formatNum(item.defaultRate || 0, 100), 1) : '--'}}<span v-if="item.rewardRate">+{{$fmoney(formatNum(item.rewardRate || 0, 100), 1)}}%</span></p>
                 <p class="desc">预期年化收益</p>
               </div>
               <div class="plan-case-item-t-m"></div>
               <div class="plan-case-item-t-r">
-                <p class="date">三个月</p>
+                <p class="date">{{item.prdPeriod ? item.prdPeriod : '---'}}天</p>
                 <p class="desc">借款期限</p>
               </div>
             </div>
-            <div class="plan-case-item-b" @click="toDetail(products[7].prdCode)">
-              {{products[7].status == 11 || products[7].status == 12 ? '立即加入' : '查看詳情'}}
-            </div>
-          </div>
-          <div class="plan-case-item">
-            <div class="plan-case-item-t">
-              <div class="plan-case-item-t-l">
-                <p class="rate">4.8%</p>
-                <p class="desc">预期年化收益</p>
-              </div>
-              <div class="plan-case-item-t-m"></div>
-              <div class="plan-case-item-t-r">
-                <p class="date">三个月</p>
-                <p class="desc">借款期限</p>
-              </div>
-            </div>
-            <div class="plan-case-item-b">
-              查看详情
-            </div>
-          </div>
-          <div class="plan-case-item">
-            <div class="plan-case-item-t">
-              <div class="plan-case-item-t-l">
-                <p class="rate">4.8%</p>
-                <p class="desc">预期年化收益</p>
-              </div>
-              <div class="plan-case-item-t-m"></div>
-              <div class="plan-case-item-t-r">
-                <p class="date">三个月</p>
-                <p class="desc">借款期限</p>
-              </div>
-            </div>
-            <div class="plan-case-item-b">
-              查看详情
+            <div class="plan-case-item-b" @click="toDetail(item.prdCode)">
+              {{item.status == 11 || item.status == 12 ? '立即加入' : '查看詳情'}}
             </div>
           </div>
         </div>
@@ -481,7 +449,7 @@
           </li>
           <li class="list-bar product-bar" v-for="(item,ind) in productList" v-if="ind < 6"
               :class="{'product-bar-high':ind%2 == 0}" :key='item.prdCode'>
-            <a :href="'/premium/' + item.prdCode" target="_blank">
+            <a :href="'/product/' + item.prdCode" target="_blank">
               <div class="list1 list-color"><span>{{$fmoney(formatNum(item.defaultRate || 0, 100), 1)}}</span>%</div>
               <div class="list1 list-color" v-if="item.rewardRate">+{{$fmoney(formatNum(item.rewardRate || 0, 100),
                 1)}}%
@@ -539,7 +507,8 @@
         inAd: false,
         adData: {},
         productList: {},
-        riskTest: ''
+        riskTest: '',
+        juBaoArr:[],
       }
     },
     components: {},
@@ -591,8 +560,15 @@
         self.products[30] = res.body.respInfo.product || {};
         console.log(self.products[30])
       })
+      //聚宝计划
       self.$http.post('/pbap-web/action/product/query/lastHomePrd?7', {typeArr: [7], visibleTerm: 2}).then((res) => {
-        self.products[7] = res.body.respInfo.product[0] || {};
+        self.juBaoArr = res.body.respInfo.product || [];
+        if (res.body.respInfo.product.length < 3) {
+          let _len = res.body.respInfo.product.length;
+          for (let i = 0; i < 3-_len; i++) {
+            self.juBaoArr.push({});
+          }
+        }
       })
       self.$http.post('/pbap-web/action/product/query/lastHomePrd?8', {typeArr: [8], visibleTerm: 2}).then((res) => {
         self.products[8] = res.body.respInfo.product[0] || {};

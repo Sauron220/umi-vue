@@ -3,7 +3,7 @@
     <ul class="plan-list-warp">
       <li class="plan-list-item">
         <div class="tit">名稱</div>
-        <div class="tit-con">壹桶金-新1月-20180628期</div>
+        <div class="tit-con">{{productDetail.prdName}}</div>
       </li>
       <li class="plan-list-item odd">
         <div class="tit">計劃介紹</div>
@@ -12,7 +12,7 @@
       </li>
       <li class="plan-list-item odd">
         <div class="tit">投標範圍</div>
-        <div class="tit-con">機構擔保標、實地認證標等（詳見服務協議)</div>
+        <div class="tit-con">{{productDetail.prdArea}}</div>
       </li>
       <li class="plan-list-item odd">
         <div class="tit">利息處理方式及 期待年回報率</div>
@@ -50,15 +50,16 @@
       </li>
       <li class="plan-list-item odd">
         <div class="tit">提前退出方式</div>
-        <div class="tit-con">鎖定期內支持提前退出，詳情參見 <span>《U計劃服務協議》</span></div>
+        <div class="tit-con">鎖定期內支持提前退出，服務協議</span></div>
       </li>
       <li class="plan-list-item odd">
         <div class="tit">費用</div>
         <div class="tit-con">
           <ul>
-            <li>加入費用：0.0% 管理費用：參見《U計劃服務協議》</li>
+            <li>加入費用：0.0% </li>
+            <li>管理費用：參見服務協議 </li>
             <li>退出費用：0.0%</li>
-            <li>提前退出費用：加入金額x 2.0 %，詳情參見《U計劃服務協議》</li>
+            <li>提前退出費用：加入金額x 2.0 %，詳情參見服務協議</li>
           </ul>
         </div>
       </li>
@@ -71,7 +72,30 @@
 </template>
 
 <script>
+  import Tool from '../util/ProductTool.js'
   export default {
-    name: "PlanProgress"
+    name: "PlanProgress",
+    data () {
+      return {
+        productDetail:{},
+      }
+    },
+    created() {
+      const _proCode = localStorage.getItem('proCode');
+      const self = this;
+      self.getProductDetail(_proCode, function () {
+        self.setPlaceholder();
+        if (self.productDetail.remainAmount >= self.productDetail.minInvAmt) {
+          self.invest = self.productDetail.minInvAmt;
+        } else {
+          self.invest = self.productDetail.remainAmount;
+        }
+        self.getWelfareReminder(self.productDetail.prdType);
+        self.TDK.title = self.productDetail.prdName + '-' + self.TDK.title;
+      })
+    },
+    methods: {
+      getProductDetail: Tool.getProductDetail,
+    }
   }
 </script>

@@ -37,8 +37,8 @@
             </div>
           </div>
           <div class="bucket-top-con-ri product-intro">
-            <form action="" method="post" id="payForm" submit="investRule" novalidate="" style="width: 300px;">
-              <div class="balance clearfix pay-info" style="line-height: 30px">
+            <form v-if="productDetail.status == 11 || productDetail.status == 12" action="" method="post" id="payForm" submit="investRule" novalidate="" style="width: 300px;">
+              <div class="balance clearfix pay-info" style="line-height: 30px" >
                 <i class="pull-left">賬戶餘額</i>
                 <div class="account-info" v-if="userInfo.loginResult">
                   <span class="pull-left" style="color:#f8b62b;">{{$fmoney(accountInfo.balanceAmount)}}元</span>
@@ -80,13 +80,30 @@
                 class="bucket-top-btn" style="display: inline-block"
                 v-else>加入</a>
             </form>
+            <div class="other-status text-center" v-if="productDetail.status == 20">  <!-- 還款中 -->
+              <img src="../assets/images/private_status_1.png">
+              <p>退出時間 <span data-prd="dueDate">{{productDetail.dueDate}}</span></p>
+            </div>
+            <div class="other-status text-center" v-if="productDetail.status == 16">  <!-- 停止 -->
+              <img src="../assets/images/private_status_2.png">
+            </div>
+            <div class="other-status text-center" v-if="productDetail.status == 30">  <!-- 已還款 -->
+              <img src="../assets/images/private_status_3.png">
+              <p>退出時間 <span data-prd="dueDate">{{productDetail.dueDate}}</span></p>
+            </div>
+            <div class="other-status text-center" v-if="productDetail.status == 14">  <!-- 已滿額 -->
+              <img src="../assets/images/private_status_4.png">
+            </div>
+            <div class="other-status text-center" v-if="productDetail.status == 0">  <!-- 已下架 -->
+              <img src="../assets/images/private_status_5.png">
+            </div>
           </div>
         </div>
       </div>
       <div class="plan-warp">
         <div class="plan-warp-hed">
           <div>計畫進度</div>
-          <div class="jion-plan">如何加入壹桶金</div>
+          <div class="jion-plan" @click="toHelp">如何加入壹桶金</div>
         </div>
         <div class="plan-warp-con">
           <div class="plan-warp-con-lf">
@@ -360,6 +377,10 @@
           }
         });
       },
+      toHelp() {
+        this.$router.push({name: 'HelpCenter'});
+      },
+      productRate: Tool.productRate,
       getInvestRecord: Tool.getInvestRecord,
       getTimeLeft: Tool.getTimeLeft,
       productRate: Tool.productRate,

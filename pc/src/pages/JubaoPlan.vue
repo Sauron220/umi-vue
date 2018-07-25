@@ -18,52 +18,20 @@
       </h4>
       <div class="product-area product-box" style="background: none;">
         <div class="plan-container">
-          <div class="plan-case-item">
+          <div class="plan-case-item" v-for="(item, index) in products" :key="index" v-if="index < 3">
             <div class="plan-case-item-t">
               <div class="plan-case-item-t-l">
-                <p class="rate">4.8%</p>
+                <p class="rate">{{item.defaultRate ? $fmoney(formatNum(item.defaultRate || 0, 100), 1) : '--'}}<span v-if="item.rewardRate">+{{$fmoney(formatNum(item.rewardRate || 0, 100), 1)}}%</span></p>
                 <p class="desc">预期年化收益</p>
               </div>
               <div class="plan-case-item-t-m"></div>
               <div class="plan-case-item-t-r">
-                <p class="date">三个月</p>
+                <p class="date">{{item.prdPeriod ? item.prdPeriod : '---'}}天</p>
                 <p class="desc">借款期限</p>
               </div>
             </div>
-            <div class="plan-case-item-b" @click="toDetail(products[7].prdCode)">
-              {{products[7].status == 11 || products[7].status == 12 ? '立即加入' : '查看詳情'}}
-            </div>
-          </div>
-          <div class="plan-case-item">
-            <div class="plan-case-item-t">
-              <div class="plan-case-item-t-l">
-                <p class="rate">4.8%</p>
-                <p class="desc">预期年化收益</p>
-              </div>
-              <div class="plan-case-item-t-m"></div>
-              <div class="plan-case-item-t-r">
-                <p class="date">三个月</p>
-                <p class="desc">借款期限</p>
-              </div>
-            </div>
-            <div class="plan-case-item-b">
-              查看详情
-            </div>
-          </div>
-          <div class="plan-case-item">
-            <div class="plan-case-item-t">
-              <div class="plan-case-item-t-l">
-                <p class="rate">4.8%</p>
-                <p class="desc">预期年化收益</p>
-              </div>
-              <div class="plan-case-item-t-m"></div>
-              <div class="plan-case-item-t-r">
-                <p class="date">三个月</p>
-                <p class="desc">借款期限</p>
-              </div>
-            </div>
-            <div class="plan-case-item-b">
-              查看详情
+            <div class="plan-case-item-b" @click="toDetail(item.prdCode)">
+              {{item.status == 11 || item.status == 12 ? '立即加入' : '查看詳情'}}
             </div>
           </div>
         </div>
@@ -142,16 +110,7 @@
         </div>
       </div>
 
-
-
       <div class="desc-answer-warp">
-        <!--<div class="desc-answer-hed">
-          <div class="" :class="{'active-select': flag==1}" @click="toNext(1)">計劃進度</div>
-          <div class="" :class="{'active-select': flag==2}" @click="toNext(2)">加入記錄</div>
-          <div class="" :class="{'active-select': flag==3}" @click="toNext(3)">借款信息</div>
-          <div class="" :class="{'active-select': flag==4}" @click="toNext(4)">計劃表現</div>
-          <div class="" :class="{'active-select': flag==5}" @click="toNext(5)">常見問題</div>
-        </div>-->
         <div class="view-warp">
           <router-view></router-view>
         </div>
@@ -167,7 +126,7 @@
       return {
         money:'',
         flag:1,
-        products:{7:{status: 0}},
+        products:[],
         calcMoney:1000
       }
     },
@@ -175,7 +134,13 @@
       const self = this;
       localStorage.getItem('flag') ? this.flag = localStorage.getItem('flag') : this.flag = 1;
       self.$http.post('/pbap-web/action/product/query/lastHomePrd?7', {typeArr: [7], visibleTerm: 2}).then((res) => {
-        self.products[7] = res.body.respInfo.product[0] || {};
+        self.products = res.body.respInfo.product || {};
+        if (res.body.respInfo.product.length < 3) {
+          let _len = res.body.respInfo.product.length;
+          for (let i = 0; i < 3-_len; i++) {
+            self.products.push({});
+          }
+        }
       });
     },
     methods:{
@@ -183,7 +148,11 @@
         const _proCode = code;
         console.log(code)
         _proCode && this.$router.push({name: 'Product', params: {prdCode: _proCode}});
-      }
+      },
+      formatNum(val, cus) {
+        var self = this
+        return self.$formatNum(val, cus);
+      },
     }
   }
 </script>

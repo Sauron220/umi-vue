@@ -9,7 +9,7 @@
              <a target="_blank">百度</a>
              <a target="_blank">百度</a>
              <a target="_blank">百度</a>-->
-            <a v-for="item in friendLink" :href="item.coopUrl" style="border:none;color: #da7825;" target="_blank">{{item.coopName}}</a>
+            <a v-for="item in friendLink" :href="item.coopUrl" style="border:none;color: #b3b3b3;" target="_blank">{{item.coopName}}</a>
           </div>
         </div>
         <div class="link-info">
@@ -18,10 +18,10 @@
               客戶服務：
             </li>
             <li>
-              <a href="/aboutUs" target="_blank">關於聚寶盆</a>
+              <a href="/aboutUs" target="_blank" style="color: #b3b3b3;">關於聚寶盆</a>
             </li>
             <li>
-              <a href="/helpCenter" target="_blank">幫助中心</a>
+              <a href="/helpCenter" target="_blank" style="color: #b3b3b3;">幫助中心</a>
             </li>
           </ul>
           <!--<div class="clearfix"></div>-->
