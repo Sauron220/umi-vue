@@ -1,5 +1,5 @@
 <template>
-  <div class="mine-account">
+  <div class="mine-account" style="margin-top: 20px;">
     <div class="nav-tp">
       <div class="nav-item" @click="toPage(1, 'mineSet')" :class="{'active-select': flag == 1}">賬戶資料</div>
       <div class="nav-item" @click="toPage(2, 'AddBankCard')" :class="{'active-select': flag == 2}">我的銀行卡</div>

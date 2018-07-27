@@ -25,8 +25,8 @@
         <div class="desc" v-else>
           已開通
         </div>
-        <div class="action" @click="toAccount" v-if = "custInfo.activateStatus != 1">
-          立即開通
+        <div class="action" v-if = "custInfo.activateStatus != 1">
+          暂未开放
         </div>
       </li>
       <li class="user-info-item">
@@ -80,7 +80,7 @@
           未綁定
         </div>
         <div class="action">
-          立即綁定
+          暂未开放
         </div>
       </li>
       <li class="user-info-item">
@@ -112,7 +112,7 @@
           您尚未進行測評
         </div>
         <div class="action">
-          注銷賬戶
+          暂未开放
         </div>
       </li>
     </ul>

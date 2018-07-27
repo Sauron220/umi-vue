@@ -58,12 +58,14 @@
             <div class="tit-desc">持有資產</div>
             <div class="tit-desc">纍計回報</div>
           </div>
-          <div class="tit-hed">
-            <div class="tit-desc tit-he-tit">壹桶金</div>
-            <div class="tit-desc">0.00元</div>
-            <div class="tit-desc-c">0.00元</div>
+          <div class="tit-hed" v-for="(item, index) in proMonthList" :key="index">
+            <div class="tit-desc"
+                 :class="{'tit-he-tit':item.prdType == 7, 'tit-he-tis': item.prdType == 8,
+                 'tit-he-tic': item.prdType == 9, 'tit-he-tif': item.prdType == 10}">{{ item.prdType| proName}}</div>
+            <div class="tit-desc">{{$fmoney(item.trdAmount)}}元</div>
+            <div class="tit-desc-c">{{$fmoney(item.trdAmount)}}元</div>
           </div>
-          <div class="tit-hed">
+          <!--<div class="tit-hed">
             <div class="tit-desc tit-he-tis">聚寶計畫</div>
             <div class="tit-desc">0.00元</div>
             <div class="tit-desc-c">0.00元</div>
@@ -77,7 +79,7 @@
             <div class="tit-desc tit-he-tif">月月盈</div>
             <div class="tit-desc">0.00元</div>
             <div class="tit-desc-c">0.00元</div>
-          </div>
+          </div>-->
         </div>
       </div>
     </div>
@@ -103,12 +105,89 @@
       return {
         personalAcc:{},
         flag:1,
+        rateOne:'',
+        rateTwo:'',
+        rateThree:'',
+        rateFoure:'',
         custInfo: {},
-        bankCardList:[]
+        bankCardList:[],
+        proMonthList:[],
       }
     },
     created() {
       const self = this;
+
+      self.$http.post('/pbap-web/action/customer/query/cusProMonth', {
+        cusCode:'100020180517103450',
+        trdMonth:'201807'
+      }).then((res) => {
+        const _proMonthList = res.data.respInfo.proMonthList;
+        self.proMonthList = res.data.respInfo.proMonthList;
+
+        _proMonthList.map((val, index, arr) => {
+          console.log(val.prdType)
+          switch (val.prdType){
+            case '7':
+              self.rateOne = Math.floor(val.trdRate * 1000) / 100;
+              break;
+            case '8':
+              self.rateTwo = Math.floor(val.trdRate * 1000) / 100;
+              break;
+            case '9':
+              self.rateThree = Math.floor(val.trdRate * 1000) / 100;
+              break;
+            case '10':
+              self.rateFoure = Math.floor(val.trdRate * 1000) / 100;
+              break;
+            default:
+          }
+        })
+        self.myChart = Highcharts.chart('pie-overview', {
+          chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            width: 280,
+            height: 280,
+          },
+          title: {
+            text: ''
+          },
+          tooltip: {
+            pointFormat: ''
+          },
+          exporting: {
+            enabled: false
+          },
+          credits: {
+            enabled: false
+          },
+          plotOptions: {
+            pie: {
+              allowPointSelect: true,
+              cursor: 'pointer',
+              size: 240,
+              innerSize: '180',
+              colors: ["#f4ae3d", "#428aed", "#f7c748", '#1e5bc9'],
+              dataLabels: {
+                enabled: false
+              },
+            }
+          },
+          noData: {},
+          series: [{
+            type: 'pie',
+            name: 'Account overview',
+            data: [
+              ['壹桶金', self.rateOne],
+              ['聚寶計畫', self.rateTwo],
+              ['分期投', self.rateThree],
+              ['月月盈', self.rateFoure],
+            ]
+          }]
+        });
+      });
+
       self.$http.get('/pbap-web/action/customer/query/personalAccount').then((res) => {
         self.personalAcc = res.body.respInfo.personalAccView;
         self.personalAcc.balanceRate = Math.floor(self.personalAcc.balanceRate * 10000) / 100;
@@ -162,55 +241,8 @@
           });
         }
         else {
-          self.myChart = Highcharts.chart('pie-overview', {
-            chart: {
-              plotBackgroundColor: null,
-              plotBorderWidth: null,
-              plotShadow: false,
-              width: 280,
-              height: 280,
-            },
-            title: {
-              text: ''
-            },
-            tooltip: {
-              pointFormat: ''
-            },
-            exporting: {
-              enabled: false
-            },
-            credits: {
-              enabled: false
-            },
-            plotOptions: {
-              pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                size: 240,
-                innerSize: '180',
-                colors: ["#f4ae3d", "#428aed", "#f7c748", '#1e5bc9'],
-                dataLabels: {
-                  enabled: false
-                },
-              }
-            },
-            noData: {},
-            series: [{
-              type: 'pie',
-              name: 'Account overview',
-              data: [
-                /*['可用餘額', self.personalAcc.balanceRate],
-                ['凍結餘額', self.personalAcc.frozenRate],
-                ['待收益金額', self.personalAcc.benifitRate],*/
-                ['壹桶金', 20],
-                ['聚寶計畫', 30],
-                ['分期投', 20],
-                ['月月盈', 30],
-              ]
-            }]
-          });
-        }
 
+        }
       });
       this.isRealUser();
       this.fetchBankList();
@@ -275,6 +307,25 @@
       },
       toRealAuth() {
         this.$router.push({name: 'RealNameAuth'});
+      }
+    },
+    filters:{
+      proName(val) {
+        switch (val) {
+          case '7':
+            return '壹桶金';
+            break;
+          case '8':
+            return '聚寶計畫';
+            break;
+          case '9':
+            return '分期投';
+            break;
+          case '10':
+            return '月月盈';
+            break;
+          default:
+        }
       }
     }
   }

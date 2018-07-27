@@ -1,12 +1,12 @@
 <template>
   <div class="news-list" v-TDK="TDK">
     <div class="section-space"></div>
-    <div class="container">
-      <ol class="breadcrumb">
+    <div class="container" style="padding-bottom: 85px;">
+      <!--<ol class="breadcrumb">
         <span>您現在的位置：</span>
         <li><router-link to="/">首頁</router-link></li>
         <li class="active">平臺公告</li>
-      </ol>
+      </ol>-->
       <h1 class="title">平臺公告</h1>
       <ul class="list-unstyled news">
         <li v-for="item in noticeList">

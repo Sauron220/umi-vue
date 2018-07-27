@@ -81,7 +81,7 @@
       }
     },
     created() {
-      const _proCode = localStorage.getItem('proCode');
+      const _proCode = sessionStorage.getItem('proCode');
       const self = this;
       self.getProductDetail(_proCode, function () {
         self.setPlaceholder();

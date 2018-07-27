@@ -1689,7 +1689,10 @@ body {
     margin: 20px auto;
     a, span{
       color: #636363;
-      font-size: 16px;
+      font-size: 14px;
+    }
+    a:hover{
+      color: #d08f07;
     }
   }
   .content-warp{
@@ -2202,8 +2205,8 @@ body {
       border-radius: 80px;
       text-align: center;
       line-height: 80px;
-      border-color: #f15a24;
-      color: #f15a24;
+      border-color: #f7b52c;
+      color: #f7b52c;
       font-weight: bolder;
       font-size: 28px;
     }
@@ -2211,12 +2214,12 @@ body {
       width: 130px;
       border: 1px dashed transparent;
       background: linear-gradient(white,white) padding-box,
-      repeating-linear-gradient(-45deg,#f15a24 0, #f15a24 0.35em,white 0,white 0.75em);
+      repeating-linear-gradient(-45deg,#f7b52c 0, #f7b52c 0.35em,white 0,white 0.75em);
       transform: scaleY(0.3);
     }
     .jiantou{
       border: 20px solid transparent;
-      border-left: 30px solid #f15a24;
+      border-left: 30px solid #f7b52c;
       width: 0;
       height: 0px;
       border-right: 0px;

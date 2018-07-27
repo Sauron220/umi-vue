@@ -42,6 +42,9 @@
               <!--<i class="icon-help icon-location"></i>-->幫助中心
             </a>
           </li>
+          <li v-if="userInfo.loginResult">
+            <a href="javascript:;" @click="logOut">[安全退出]</a>
+          </li>
           <!--<li v-if="!userInfo.loginResult">
             <a class="resister-link" href="/register">立即註冊</a>
           </li>
@@ -51,9 +54,6 @@
           <li v-if="userInfo.loginResult">
             <span class="text-warning">{{userInfo.usrName}}</span>
           </li>-->
-          <li v-if="userInfo.loginResult">
-            <a href="javascript:;" @click="logOut">[安全退出]</a>
-          </li>
         </ul>
       </div>
     </div>
@@ -115,15 +115,16 @@
                         class="special-crown"></span></router-link>
             </li>-->
           <li v-if="userInfo.loginResult">
+            <img src="/static/img/tou.png" alt="" style="width: 40px;">
             <router-link
               to="/accountNew"
               :class="{'active':/(\/myAssets\/)|(\/transactionRecord\/)|(\/set)|(\/myBankcard)|(\/myCoupon)|(\/ProfileExperience)|(\/myRecommend)|(\/transactionDetails)|(\/changePwd)|(\/recharge)|(\/withdraw)/g.test($route.fullPath)}"
             >我的賬戶
             </router-link>
           </li>
-          <li>
-            <a v-if="!userInfo.loginResult" class="nav-color resister-link" href="/register">註冊/</a>
-            <a v-if="!userInfo.loginResult" class="nav-color login-page" :href="loginUrl">登錄</a>
+          <li v-if="!userInfo.loginResult">
+            <a  class="nav-color resister-link" href="/register">註冊/</a>
+            <a  class="nav-color login-page" :href="loginUrl">登錄</a>
           </li>
         </ul>
       </div>

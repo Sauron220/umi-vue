@@ -1,5 +1,5 @@
 <template>
-  <div class="login" v-TDK="TDK">
+  <div class="login" style="background: #fff;" v-TDK="TDK">
     <div class="content-form">
       <div class="top-cont">
         <a href="/">

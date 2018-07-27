@@ -960,6 +960,11 @@ var appRouter =  new Router({
           name: 'MineBankcard',
           component:MyBankcard,
         },
+        {
+          path: '/newIns/:pageAt',
+          name: 'NewsListIn',
+          component: NoticeList,
+        },
       ]
     },
     {

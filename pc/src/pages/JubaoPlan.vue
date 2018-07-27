@@ -81,21 +81,21 @@
                 <div class="progress">
                   <div class="progress-bar progress-bar-warning"></div>
                 </div>
-                <div class="cal-money">41.67元</div>
+                <div class="cal-money">{{marchMoney ? marchMoney : '--'}}元</div>
             </div>
             <div class="mon-mun">6個月</div>
             <div class="progress-c">
                 <div class="progress">
                   <div class="progress-bar progress-bar-warning"></div>
                 </div>
-                <div class="cal-money">140.15元</div>
+                <div class="cal-money">{{juneMoney ? juneMoney : '--'}}元</div>
             </div>
             <div class="mon-mun">12個月</div>
             <div class="progress-c">
                 <div class="progress">
                   <div class="progress-bar progress-bar-warning"></div>
                 </div>
-                <div class="cal-money">310.44元</div>
+                <div class="cal-money">{{decemberMoney ? decemberMoney : '--'}}元</div>
             </div>
           </div>
         </div>
@@ -130,9 +130,23 @@
         calcMoney:1000
       }
     },
+    computed: {
+      marchMoney: function () {
+        const self = this;
+        return self.$typingFormatAmountSimple((self.calcMoney*[1 + 4.8/100 * 3]));
+      },
+      juneMoney: function () {
+        const self = this;
+        return self.$typingFormatAmountSimple((self.calcMoney*[1 + 6/100 * 6]));
+      },
+      decemberMoney: function () {
+        const self = this;
+        return self.$typingFormatAmountSimple((self.calcMoney*[1 + 8/100 * 12]));
+      },
+    },
     created() {
       const self = this;
-      localStorage.getItem('flag') ? this.flag = localStorage.getItem('flag') : this.flag = 1;
+      sessionStorage.getItem('flag') ? this.flag = sessionStorage.getItem('flag') : this.flag = 1;
       self.$http.post('/pbap-web/action/product/query/lastHomePrd?7', {typeArr: [7], visibleTerm: 2}).then((res) => {
         self.products = res.body.respInfo.product || {};
         if (res.body.respInfo.product.length < 3) {

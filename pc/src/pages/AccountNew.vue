@@ -6,7 +6,7 @@
         <div class="nav-tit" @click="toNext(2)" :class="{'active': flag == 2}">我的優惠卷</div>
         <div class="nav-tit" @click="toNext(3)" :class="{'active': flag == 3}">消息中心</div>
         <div class="nav-tit" @click="toNext(4)" :class="{'active': flag == 4}">帳號設置</div>
-        <div class="nav-tit" @click="toNext(5)" :class="{'active': flag == 5}">我的銀行資料</div>
+        <!--<div class="nav-tit" @click="toNext(5)" :class="{'active': flag == 5}">我的銀行資料</div>-->
       </div>
     </div>
     <div class="page-view">
@@ -33,7 +33,7 @@
           case 'Coupon':
             self.flag = 2;
             break;
-          case 'NoticeList':
+          case 'NewsListIn':
             self.flag = 3;
             break;
           case 'MineAccount':
@@ -47,7 +47,25 @@
       }
     },
     created() {
-
+      const self = this;
+      switch (this.$route.name) {
+        case 'BucketGoldTable':
+          self.flag = 1;
+          break;
+        case 'Coupon':
+          self.flag = 2;
+          break;
+        case 'NewsListIn':
+          self.flag = 3;
+          break;
+        case 'MineAccount':
+          self.flag = 4;
+          break;
+        case 'MineBankcard':
+          self.flag = 5;
+          break;
+        default:
+      }
     },
     methods:{
       toNext(v) {
@@ -60,7 +78,7 @@
             this.$router.replace({name: 'Coupon'});
             break;
           case 3:
-            this.$router.push({name: 'NoticeList'});
+            this.$router.push({name: 'NewsListIn', params: {pageAt: 1}});
             break;
           case 4:
             this.$router.replace({name: 'MineAccount'});

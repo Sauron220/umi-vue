@@ -47,7 +47,7 @@
               </div>
               <p>拿第一桶金</p>
               <p class="product-noviceArea-desc">首次出借新手專享項目，期待年 回報率達10%，額外15積分贈送。 </p>
-              <a class="front-new-user-reg new-user-active front-new-novice-reg" href="/register">完成出借</a>
+              <a class="front-new-user-reg new-user-active front-new-novice-reg"  @click="toBucketDeatil" href="javascript:;">完成出借</a>
             </div>
           </div>
         </div>
@@ -86,6 +86,9 @@
     data() {
       return {
         banners:[],
+        products: {
+          30: {},
+        },
         TDK: {
           title:'聚寶盆新手專區',
           keyWords:'聚寶盆收益,聚寶盆收費標準,聚寶盆利息,聚寶盆提領',
@@ -112,7 +115,18 @@
           })
           self.mySwipe.resizeFix()
         })
+      });
+      // 首頁產品 新手
+      self.$http.post('/pbap-web/action/product/query/lastNewcomerPrd', {prdType: 30}).then((res) => {
+        self.products[30] = res.body.respInfo.product || {};
+        console.log(self.products[30])
       })
     },
+    methods: {
+      toBucketDeatil() {
+        localStorage.setItem('proCode', this.products[30].prdCode);
+        this.$router.push({path: 'bucketGold'});
+      }
+    }
   }
 </script>

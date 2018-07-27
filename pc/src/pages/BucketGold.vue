@@ -1,7 +1,8 @@
 <template>
-  <div class="bucketGlod product-detail" v-TDK="TDK">
+  <div class="bucketGlod product-detail" style="background: none;" v-TDK="TDK">
     <div class="nav-bar-tit">
-      <router-link to="/">聚寶盆首頁></router-link>
+      <span>您現在的位置:</span>
+      <router-link to="/">首頁></router-link>
       <router-link to="/bucketGold">壹桶金></router-link>
       <span>壹桶金-新1月-20180628期</span>
     </div>
@@ -266,7 +267,7 @@
     },
     created() {
       const self = this;
-      const _proCode = localStorage.getItem('proCode');
+      const _proCode = sessionStorage.getItem('proCode');
       this.$router.replace({path: '/bucketGold'});
 
 

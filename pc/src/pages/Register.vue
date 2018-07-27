@@ -1,5 +1,5 @@
 <template>
-  <div class="register" v-TDK="TDK">
+  <div class="register" style="background: #fff;" v-TDK="TDK">
     <div class="top-cont">
       <a href="/">
         <img src="../assets/images/logo.png" class="logo">

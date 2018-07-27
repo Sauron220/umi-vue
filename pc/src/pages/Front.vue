@@ -558,6 +558,7 @@
       // 首頁產品 新手
       self.$http.post('/pbap-web/action/product/query/lastNewcomerPrd', {prdType: 30}).then((res) => {
         self.products[30] = res.body.respInfo.product || {};
+        sessionStorage.setItem('proCode', this.products[30].prdCode);
         console.log(self.products[30])
       })
       //聚宝计划
@@ -652,7 +653,6 @@
         this.getCurrentInfoMes()
       },
       toBucketDeatil() {
-        localStorage.setItem('proCode', this.products[30].prdCode);
         this.$router.push({path: 'bucketGold'});
       }
     }
