@@ -111,6 +111,7 @@
 <script>
   import VueDatepickerLocal from 'vue-datepicker-local'
   import Highcharts from 'highcharts'
+
   export default {
     name: "MonthlyBill",
     components:{
@@ -226,7 +227,6 @@
               }]
             });
           }
-
         });
       }
     }

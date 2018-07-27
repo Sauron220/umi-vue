@@ -42,6 +42,23 @@
 
 <script>
   export default {
-    name: "planned-performance"
+    name: "planned-performance",
+    data() {
+      return {
+
+      }
+    },
+    created() {
+
+    },
+    methods: {
+      getPlan () {
+        this.$http.post('/pbap-web/action/product/query/planInfo', {
+          prdCode: sessionStorage.getItem('proCode')
+        }).then((res) => {
+          console.log(res)
+        })
+      }
+    }
   }
 </script>

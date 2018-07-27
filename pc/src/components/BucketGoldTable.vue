@@ -1,8 +1,8 @@
 <template>
   <div class="bucket-table product-list table-p">
     <div class="bucket-status-warp">
-      <div>持有中(0)</div>
-      <div>已退出(0)</div>
+      <div :class="{'active-select': status == '11'}" @click="changeType('11')">持有中({{totalCount}})</div>
+      <div :class="{'active-select': status == '88'}" @click="changeType('88')">已退出({{totalCount}})</div>
     </div>
     <div class="table">
       <table class="t-caption">
@@ -18,31 +18,78 @@
         </tr>
         </thead>
         <tbody class="data-list">
-        <tr class="history-list-data">
-          <td class="rate c-rate">聚寶計畫-3月-20180619期</td>
-          <td class="name c-name">W***8</td>
-          <td class="time c-time"><span>{{$fmoneyFormat(10000)}}</span>元</td>
-          <td class="money c-money"><img src="" alt=""></td>
-          <td>0元</td>
-          <td @click="toDeatil('0')"><div class="c-pon">立即加入</div></td>
-          <td>点击</td>
-        </tr>
-        <tr class="history-list-data">
-          <td class="rate c-rate">1</td>
-          <td class="name c-name">W***8</td>
-          <td class="time c-time"><span>{{$fmoneyFormat(10000)}}</span>元</td>
-          <td class="money c-money"><img src="" alt=""></td>
-          <td>0元</td>
-          <td @click="toDeatil('1')">已滿標</td>
+        <tr class="history-list-data" v-for="(item, index) in lists" :key="index">
+          <td class="rate c-rate">{{item.prdName}}</td>
+          <td class="name c-name">{{item.rate}}</td>
+          <td class="time c-time"><span>{{$fmoneyFormat(item.trdAmount)}}</span>元</td>
+          <td class="money c-money"><span>{{$fmoneyFormat(item.interest)}}</span>元</td>
+          <td>{{item.invCount}}</td>
+          <td><div class="c-pon">{{item.status}}</div></td>
+          <td @click="toDeatil('0')">点击</td>
         </tr>
         </tbody>
       </table>
+    </div>
+    <div class="pagiation">
+      <pagination :page-no="pageNo"></pagination>
     </div>
   </div>
 </template>
 
 <script>
+  import pagination from './Pagination'
   export default {
-    name: "BucketGoldTable"
+    name: "BucketGoldTable",
+    components: {
+      pagination
+    },
+    data() {
+      return {
+        myCode:'',
+        prdType: '7',
+        status: '11',
+        lists: [],
+        totalCount:'',
+        pageNo:1,
+        pageIndex: 1,
+        currentComPage: '',
+      }
+    },
+    watch: {
+      status(newV, oldV) {
+        this.getProductLists();
+      },
+      $store(newV, oldV) {
+        console.log('----',newV)
+      }
+    },
+    created() {
+      console.log(this)
+      const self = this;
+      this.$http.post('/pbap-web/action/customer/query/custAuthInfo', {}).then((res) => {
+        self.myCode = res.body.respInfo.custInfo.cusCode;
+      }).then(() => {
+        self.getProductLists();
+      });
+    },
+    methods: {
+      getProductLists() {
+        const self = this;
+        this.$http.post('/pbap-web/action/investment/query/investmentPrdList', {
+          cusCode: self.myCode,
+          prdType: self.prdType,
+          status: self.status,
+          pageIndex: self.currentComPage || 1,
+          pageSize: 2,
+        }).then((res) => {
+          self.lists = res.data.respInfo.investmentList.dataList;
+          self.totalCount = res.data.respInfo.investmentList.totalCount;
+          self.pageNo = res.data.respInfo.investmentList.totalPage;
+        })
+      },
+      changeType(val) {
+        this.status = val;
+      }
+    }
   }
 </script>

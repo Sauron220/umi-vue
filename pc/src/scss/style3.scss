@@ -2488,10 +2488,14 @@ body {
       margin: 0 10px;
       color: #b9b9b9;
       font-size: 18px;
+      cursor: pointer;
       &:first-child{
         padding: 0 10px;
         border-right: 1px solid #ccc;
       }
+    }
+    .active-select {
+      color: #3c64a0;
     }
   }
 }
@@ -3121,14 +3125,12 @@ body {
     }
   }
 }
-.bp-dropdown__btn{
-  background: none;
-  border: none;
-}
 .cus-menu {
-  color: #428aed;
-  .bp-dropdown__btn{
-    background: none;
-    border: none;
+  span{
+    color: #428aed;
   }
+}
+.bp-dropdown__btn{
+  background: none !important;
+  border: none !important;
 }

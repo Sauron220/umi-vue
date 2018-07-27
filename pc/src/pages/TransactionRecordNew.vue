@@ -14,7 +14,7 @@
         <dropdown :class="{'cus-menu': flag == 7}" :close-on-click="true">
           <template slot="btn">更多</template>
           <template slot="body">
-            <div class="">
+            <div class="" @click="selectDate(8)">
               2年
             </div>
           </template>
@@ -30,10 +30,10 @@
         <dropdown :class="{'cus-menu': type == 4}" :close-on-click="true">
           <template slot="btn">一桶金</template>
           <template slot="body">
-            <div class="">全部</div>
-            <div class="">進行中</div>
-            <div class="">還款中</div>
-            <div class="">已還款</div>
+            <div class="" :class="{'active-select': type == 4 && statusAr == 0}" @click="selectStatus('0')">全部</div>
+            <div class="" :class="{'active-select': type == 4 && statusAr == 1}" @click="selectStatus('1')">進行中</div>
+            <div class="" :class="{'active-select': type == 4 && statusAr == 2}" @click="selectStatus('2')">還款中</div>
+            <div class="" :class="{'active-select': type == 4 && statusAr == 3}" @click="selectStatus('3')">已還款</div>
           </template>
         </dropdown>
       </div>
@@ -41,10 +41,10 @@
         <dropdown :class="{'cus-menu': type == 5}" :close-on-click="true">
           <template slot="btn">聚寶計畫</template>
           <template slot="body">
-            <div class="">全部</div>
-            <div class="">進行中</div>
-            <div class="">還款中</div>
-            <div class="">已還款</div>
+            <div class="" :class="{'active-select': type == 5 && statusAr == 0}" @click="selectStatus('0')">全部</div>
+            <div class="" :class="{'active-select': type == 5 && statusAr == 1}" @click="selectStatus('1')">進行中</div>
+            <div class="" :class="{'active-select': type == 5 && statusAr == 2}" @click="selectStatus('2')">還款中</div>
+            <div class="" :class="{'active-select': type == 5 && statusAr == 3}" @click="selectStatus('3')">已還款</div>
           </template>
         </dropdown>
       </div>
@@ -52,10 +52,10 @@
         <dropdown  :class="{'cus-menu': type == 6}" :close-on-click="true">
           <template slot="btn">分期投</template>
           <template slot="body">
-            <div class="">全部</div>
-            <div class="">進行中</div>
-            <div class="">還款中</div>
-            <div class="">已還款</div>
+            <div class="" :class="{'active-select': type == 6 && statusAr == 0}" @click="selectStatus('0')">全部</div>
+            <div class="" :class="{'active-select': type == 6 && statusAr == 1}" @click="selectStatus('1')">進行中</div>
+            <div class="" :class="{'active-select': type == 6 && statusAr == 2}" @click="selectStatus('2')">還款中</div>
+            <div class="" :class="{'active-select': type == 6 && statusAr == 3}" @click="selectStatus('3')">已還款</div>
           </template>
         </dropdown>
       </div>
@@ -63,10 +63,10 @@
         <dropdown :class="{'cus-menu': type == 7}" :close-on-click="true">
           <template slot="btn">月月盈</template>
           <template slot="body">
-            <div class="">全部</div>
-            <div class="">進行中</div>
-            <div class="">還款中</div>
-            <div class="cus-menu">已還款</div>
+            <div class="" :class="{'active-select': type == 7 && statusAr == 0}" @click="selectStatus('0')">全部</div>
+            <div class="" :class="{'active-select': type == 7 && statusAr == 1}" @click="selectStatus('1')">進行中</div>
+            <div class="" :class="{'active-select': type == 7 && statusAr == 2}" @click="selectStatus('2')">還款中</div>
+            <div class="" :class="{'active-select': type == 7 && statusAr == 3}" @click="selectStatus('3')">已還款</div>
           </template>
         </dropdown>
       </div>
@@ -74,15 +74,15 @@
         <dropdown :class="{'cus-menu': type == 8}" :close-on-click="true">
           <template slot="btn">債權/散標</template>
           <template slot="body">
-            <div class="">全部</div>
-            <div class="">進行中</div>
-            <div class="">還款中</div>
-            <div class="">已還款</div>
+            <div class="" :class="{'active-select': type == 8 && statusAr == 0}" @click="selectStatus('0')">全部</div>
+            <div class="" :class="{'active-select': type == 8 && statusAr == 1}" @click="selectStatus('1')">進行中</div>
+            <div class="" :class="{'active-select': type == 8 && statusAr == 2}" @click="selectStatus('2')">還款中</div>
+            <div class="" :class="{'active-select': type == 8 && statusAr == 3}" @click="selectStatus('3')">已還款</div>
           </template>
         </dropdown>
       </div>
       <div class="item" @click="selectType(9)" :class="{'active-select': type == 9}">其它</div>
-      <div class="export-execl-btn">導出查詢結果</div>
+      <div class="export-execl-btn" @click="toExecl">導出查詢結果</div>
     </div>
     <!--<div class="record-list-warp">
       <component :is="RecordTabel"></component>
@@ -108,23 +108,30 @@
       return {
         flag: 1,
         type: 1,
-        currentPage:1,
         RecordTabel:'RecordTabel',
         tradeType:'IV',
         pageAt:"1",
+        statusAr:0
       }
     },
     created() {
-      this.getTradeList('IV', '1')
+
     },
     methods: {
       selectType(v) {
         this.type = v;
+        this.statusAr = 0;
       },
       selectDate(v) {
         this.flag = v;
       },
+      selectStatus(val){
+        this.statusAr = val;
+        console.log(val)
+      },
+      toExecl() {
 
+      }
     },
 
   }
