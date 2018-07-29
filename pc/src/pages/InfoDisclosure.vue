@@ -75,7 +75,7 @@
   }
 
   .id-high {
-    color: #f8b62b;
+    color: #f05a23;
   }
 
   .infoDis_content .infoDis_box {

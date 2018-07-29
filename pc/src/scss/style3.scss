@@ -79,7 +79,7 @@ body {
     margin: 14px 0 0 0;
     cursor: pointer;
     .log{
-      color: #f8b62b;
+      color: #f05a23;
     }
     .reg {
       color: #f34e3e;
@@ -138,7 +138,7 @@ body {
       font-size: 32px;
       cursor: pointer;
       transition: all .3s ease;
-      color: #f8b62b;
+      color: #f05a23;
     }
   }
   .piaochecked {
@@ -242,7 +242,7 @@ body {
 /*注册*/
 .register {
   .log {
-    color: #f8b62b;
+    color: #f05a23;
   }
   .form-content {
     width: 420px;
@@ -273,7 +273,7 @@ body {
     .refresh {
       width: 30px;
       float: left;
-      color: #f8b62b;
+      color: #f05a23;
       cursor: pointer;
       line-height: 34px;
       margin-top: 5px;
@@ -395,7 +395,7 @@ body {
       .refresh {
         width: 30px;
         float: left;
-        color: #f8b62b;
+        color: #f05a23;
         cursor: pointer;
         line-height: 34px;
         margin-top: 5px;
@@ -418,7 +418,7 @@ body {
         font-size: 32px;
         cursor: pointer;
         transition: all .3s ease;
-        color: #f8b62b;
+        color: #f05a23;
       }
     }
     .btn-find {
@@ -654,7 +654,7 @@ body {
 }*/
 
 .active {
-  color: #f8b62b;
+  color: #f05a23;
 }
 
 //激活
@@ -736,8 +736,8 @@ body {
     cursor: pointer;
   }
   .tab-hover {
-    color: #f8b62b;
-    border-top: 2px solid #f8b62b !important;
+    color: #f05a23;
+    border-top: 2px solid #f05a23 !important;
   }
   .tab-wy {
     border-left: none;
@@ -886,7 +886,7 @@ body {
     font-size: 30px;
   }
   .rechar-status{
-    color:#f8b62b;
+    color:#f05a23;
     margin-bottom: 60px;
   }
   div{
@@ -1291,7 +1291,7 @@ body {
         display: block;
         margin: 0 auto;
         line-height: 30px;
-        color: #f8b62b;
+        color: #f05a23;
         font-size: 24px;
         word-break: break-all;
         padding-bottom: 4px;
@@ -1316,8 +1316,8 @@ body {
         float: left;
       }
       .btn-info {
-        background: #f8b62b;
-        border: 1px solid #f8b62b;
+        background: #f05a23;
+        border: 1px solid #f05a23;
         color: #fff;
         min-width: 80px;
         margin-left: 12px;
@@ -1337,7 +1337,7 @@ body {
       text-align: center;
     }
     .light {
-      background: #f8b62b;
+      background: #f05a23;
       color: #fff;
     }
   }
@@ -1351,7 +1351,7 @@ body {
   height: 40px;
   cursor: pointer;
   transition: all .3s ease;
-  color: #f8b62b;
+  color: #f05a23;
   font-size: 24px !important;
 }
 
@@ -1403,7 +1403,7 @@ body {
         line-height: 40px;
       }
       .limit-btn {
-        color: #f8b62b;
+        color: #f05a23;
       }
     }
     .set-margin {
@@ -1440,7 +1440,7 @@ body {
         white-space: nowrap;
       }
       .list-color {
-        color: #459ed7;
+        color: #f05a23;
       }
       .list1 {
         width: 140px;
@@ -1507,7 +1507,7 @@ body {
   position: absolute;
   right: 14px;
   font-size: 12px;
-  color: #f8b62b;
+  color: #f05a23;
   top: 44px;
   text-decoration: underline;
 }
@@ -1516,7 +1516,7 @@ body {
   position: relative;
   left: 374px;
   font-size: 12px;
-  color: #f8b62b;
+  color: #f05a23;
   top: 16px;
   text-decoration: underline;
 }
@@ -1971,7 +1971,7 @@ body {
       position: relative;
     }
     a{
-      color:#f8b62b;
+      color:#f05a23;
       text-decoration: none !important;
     }
   }
@@ -2006,13 +2006,13 @@ body {
         }
       }
       .ri{
-        width: 510px;
+        //width: 510px;
         position: relative;
         .mon-mun{
           margin-top: 20px;
         }
         .progress-c{
-          width: 410px;
+          //width: 410px;
           display: flex;
           align-items: center;
           justify-content: flex-start;
@@ -2023,7 +2023,7 @@ body {
             margin-right: 30px;
           }
           .cal-money{
-            color: #f8b62b;
+            color: #f05a23;
             font-size: 18px;
           }
         }

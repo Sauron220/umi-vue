@@ -39,7 +39,7 @@
         </div>
         <div class="draw-hed-fin">
           <div class="tit" @click="toPage({name: 'MineAccount',query:{comp:'AddBankCard'}})">銀行卡</div>
-          <div class="tit" @click="toPage({name: 'ReturnInquiry'})">囘帳查詢</div>
+          <div class="tit" @click="toPage({name: 'ReturnInquiry'})">回帳查詢</div>
           <div class="tit" @click="toPage({name: 'MonthlyBill'})">月賬單</div>
           <div class="tit" @click="toPage({name: 'TransactionRecordNew'})">交易紀錄</div>
         </div>
@@ -85,10 +85,10 @@
     </div>
     <div class="total-product">
       <div class="product-list-nav">
-        <div class="nav-item" @click="toNextPage(1)" :class="{'active-item': flag == 1}">一桶金</div>
-        <div class="nav-item" @click="toNextPage(2)" :class="{'active-item': flag == 2}">聚寶計畫</div>
-        <div class="nav-item" @click="toNextPage(3)" :class="{'active-item': flag == 3}">分期投</div>
-        <div class="nav-item" @click="toNextPage(4)" :class="{'active-item': flag == 4}">月月盈</div>
+        <div class="nav-item" @click="toNextPage(1, '7')" :class="{'active-item': flag == 1}">一桶金</div>
+        <div class="nav-item" @click="toNextPage(2, '8')" :class="{'active-item': flag == 2}">聚寶計畫</div>
+        <div class="nav-item" @click="toNextPage(3, '9')" :class="{'active-item': flag == 3}">分期投</div>
+        <div class="nav-item" @click="toNextPage(4, '10')" :class="{'active-item': flag == 4}">月月盈</div>
       </div>
     </div>
     <div class="product-con-view">
@@ -248,8 +248,9 @@
       this.fetchBankList();
     },
     methods:{
-      toNextPage(v) {
+      toNextPage(v, code) {
         this.flag = v;
+        this.$store.commit('changeprdTypeCode', code);
       },
       toPage(v) {
         this.$router.push(v)
@@ -284,9 +285,9 @@
             })
             this.$store.commit('showModal')
           } else if (type == 1) {
-            self.$router.push({path:'/recharge'});
+            self.$router.push({path:'/recharges'});
           } else if (type == 2) {
-            self.$router.push({path:'/withdraw'});
+            self.$router.push({path:'/withdraws'});
           }
         } else {
           this.$store.commit('setModal', {

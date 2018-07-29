@@ -92,7 +92,7 @@
         })
       },
       toAddBank() {
-        this.$router.push({path:'/changeBankCard'});
+        this.$router.push({path:'/addBankCards'});
       },
     }
   }

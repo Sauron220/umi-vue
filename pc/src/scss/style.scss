@@ -1,4 +1,4 @@
-$base: #f8b62b;
+$base: #f05a23;
 $bg: #f8f8f8;
 $border: #dbdbdb;
 
@@ -12,13 +12,13 @@ $border: #dbdbdb;
   background: #f3f3f7;
 
   .btn-warning {
-    color: #f8b62b;
+    color: #f05a23;
     background-color: #fff;
     border-color: #f7ae12;
   }
   .btn-warning:hover{
     color:  #fff;
-    background-color: #f8b62b;
+    background-color: #f05a23;
     border-color:#f7ae12;
   }
   .gongg{
@@ -41,7 +41,7 @@ $border: #dbdbdb;
       position: relative;
     }
     a{
-      color:#f8b62b;
+      color:#f05a23;
       text-decoration: none !important;
     }
   }
@@ -128,7 +128,7 @@ $border: #dbdbdb;
           font-size: 40px;
           float: left;
           margin-right: 20px;
-          color: #f8b62b;
+          color: #f05a23;
         }
       }
     }
@@ -269,7 +269,7 @@ $border: #dbdbdb;
     }
     .product-month:hover .btn-warning {
       color: #fff !important;
-      background-color: #f8b62b !important;;
+      background-color: #f05a23 !important;;
       border-color: #f7ae12;
     }
     .product-month {
@@ -745,7 +745,7 @@ $border: #dbdbdb;
       tbody{
         .history-list-data:hover .btn-warning {
           color: #fff !important;
-          background-color: #f8b62b !important;;
+          background-color: #f05a23 !important;;
           border-color: #f7ae12;
         }
 
@@ -800,7 +800,7 @@ $border: #dbdbdb;
               top: -26px;
               .inner {
                 height: 100%;
-                background: #f8b62b;
+                background: #f05a23;
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -816,7 +816,7 @@ $border: #dbdbdb;
             border-right: 0;
             .btn-warning{
               width: 110px;
-              color: #f8b62b;
+              color: #f05a23;
               background-color: #fff;
               border-color: #f7ae12;
             }
@@ -1012,14 +1012,14 @@ $border: #dbdbdb;
           font-size: 14px;
           line-height: 40px;
           display: inline-block;
-          color:#f8b62b;
+          color:#f05a23;
           //border: 1px solid #fff;
           //border-radius: 0 3px 3px 0;
           float: left;
           cursor: pointer;
           &:hover {
-            //border-color: #f8b62b;
-            color: #f8b62b;
+            //border-color: #f05a23;
+            color: #f05a23;
           }
         }
         .input-text {
@@ -1551,7 +1551,7 @@ $border: #dbdbdb;
       color: #999999;
       &.light-bar {
         color: #000;
-        background: #f8b62b;
+        background: #f05a23;
       }
     }
     .amount-money {
@@ -1619,7 +1619,7 @@ $border: #dbdbdb;
       color: #eaeaea;
       &.light-bar {
         color: #fff;
-        background: #f8b62b;
+        background: #f05a23;
       }
     }
     .tab li {
@@ -2888,8 +2888,8 @@ $border: #dbdbdb;
       position: absolute;
       bottom: -2px;
       font-size: 18px;
-      color: #f8b62b;
-      border-bottom: 2px solid #f8b62b;
+      color: #f05a23;
+      border-bottom: 2px solid #f05a23;
     }
   }
   .form-horizontal {
@@ -3249,7 +3249,7 @@ $border: #dbdbdb;
       padding: 0 25px;
     }
     span:hover {
-      color: #f8b62b !important;
+      color: #f05a23 !important;
       background: #fff7eb;
     }
   }
@@ -3276,7 +3276,7 @@ $border: #dbdbdb;
     }
     .top {
       line-height: 50px;
-      color: #f8b62b;
+      color: #f05a23;
     }
   }
 
@@ -3360,7 +3360,7 @@ $border: #dbdbdb;
         vertical-align: top;
       }
       .icon.active {
-        color: #f8b62b;
+        color: #f05a23;
       }
     }
     .top2 {
@@ -3370,7 +3370,7 @@ $border: #dbdbdb;
         padding-bottom: 26px;
       }
       span {
-        color: #f8b62b;
+        color: #f05a23;
         font-size: 24px;
       }
     }
@@ -3547,15 +3547,15 @@ $border: #dbdbdb;
       white-space: nowrap;
     }
     .room1:hover {
-      color: #f8b62b;
+      color: #f05a23;
       cursor: pointer;
     }
     .room4 {
       margin-right: 1px;
-      color: #f8b62b;
+      color: #f05a23;
     }
     .room7 {
-      color: #f8b62b;
+      color: #f05a23;
       cursor: pointer;
     }
   }
@@ -3686,7 +3686,7 @@ $border: #dbdbdb;
       line-height: 50px;
       font-size: 14px;
       a {
-        color: #f8b62b;
+        color: #f05a23;
       }
       a:hover {
         text-decoration: underline;
@@ -3957,7 +3957,7 @@ $border: #dbdbdb;
       cursor: pointer;
     }
     .modify {
-      color: #f8b62b;
+      color: #f05a23;
       cursor: pointer;
     }
   }
@@ -4061,7 +4061,7 @@ $border: #dbdbdb;
     line-height: 200px;
     background: url(../assets/images/500.png) no-repeat 150px center;
     font-size: 24px;
-    color: #f8b62b;
+    color: #f05a23;
     margin: 100px auto 0;
     padding-left: 210px;
   }
@@ -4078,7 +4078,7 @@ $border: #dbdbdb;
     padding-right: 20px;
     cursor: pointer;
     a {
-      color: #f8b62b;
+      color: #f05a23;
     }
   }
 

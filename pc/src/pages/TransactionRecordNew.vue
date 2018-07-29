@@ -24,8 +24,8 @@
     <div class="tranaction-new-date-warp">
       <div class="tit">交易類型</div>
       <div class="item" @click="selectType(1)" :class="{'active-select': type == 1}">全部</div>
-      <div class="item" @click="selectType(2)" :class="{'active-select': type == 2}">儲值</div>
-      <div class="item" @click="selectType(3)" :class="{'active-select': type == 3}">提現</div>
+      <div class="item" @click="selectType(2, 'CO')" :class="{'active-select': type == 2}">儲值</div>
+      <div class="item" @click="selectType(3, 'WD')" :class="{'active-select': type == 3}">提現</div>
       <div class="item" @click="selectType(4)">
         <dropdown :class="{'cus-menu': type == 4}" :close-on-click="true">
           <template slot="btn">一桶金</template>
@@ -118,9 +118,10 @@
 
     },
     methods: {
-      selectType(v) {
+      selectType(v, type) {
+        this.type != v && (this.statusAr = 0);
         this.type = v;
-        this.statusAr = 0;
+        this.tradeType = type;
       },
       selectDate(v) {
         this.flag = v;

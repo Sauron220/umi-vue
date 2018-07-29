@@ -49,6 +49,9 @@ let mutations = {
   },
   setCurrentUserInfo(state, info) {
     state.currentUserInfo = info;
+  },
+  changeprdTypeCode (state, code) {
+    state.productType = code;
   }
 }
 

@@ -18,7 +18,7 @@ $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 $brand-primary:         darken(#307bf2, 6.5%) !default; // #337ab7
 $brand-success:         #5cb85c !default;
 $brand-info:            #5bc0de !default;
-$brand-warning:         #f8b62b !default;
+$brand-warning:         #f05a23 !default;
 $brand-danger:          #d9534f !default;
 
 
@@ -510,7 +510,7 @@ $state-info-text:                #31708f !default;
 $state-info-bg:                  #d9edf7 !default;
 $state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%) !default;
 
-$state-warning-text:             #f8b62b !default;
+$state-warning-text:             #f05a23 !default;
 $state-warning-bg:               #fcf8e3 !default;
 $state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 5%) !default;
 

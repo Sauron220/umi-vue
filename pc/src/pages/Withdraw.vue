@@ -1,12 +1,12 @@
 <template>
   <div id="PersonalCenter" class="rw-content profile clearfix" v-TDK="TDK">
     <div class="container">
-      <ol class="breadcrumb">
+     <!-- <ol class="breadcrumb">
         <span>您現在的位置：</span>
-        <!--<li><router-link to="/accountOverview">我的賬戶</router-link></li>-->
+        &lt;!&ndash;<li><router-link to="/accountOverview">我的賬戶</router-link></li>&ndash;&gt;
         <li><router-link to="/accountNew">我的賬戶</router-link></li>
         <li class="active">提領</li>
-      </ol>
+      </ol>-->
       <!--<leftMenu></leftMenu>-->
       <div class="pull-left right_content">
         <ul class="top-title-line list-inline">

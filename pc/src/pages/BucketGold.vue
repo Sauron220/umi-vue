@@ -10,7 +10,7 @@
       <div class="bucket-top">
         <div class="bucket-top-hed">
           <div class="bucket-top-hed-lf">
-            <span class="bucket-top-hed-lf-h">壹桶金 新手投資</span>
+            <span class="bucket-top-hed-lf-h">{{productDetail.prdName}}</span>
             <span class="bucket-top-hed-lf-d">使用红包，回报更高</span>
           </div>
           <div class="bucket-top-hed-ri">
@@ -42,14 +42,14 @@
               <div class="balance clearfix pay-info" style="line-height: 30px" >
                 <i class="pull-left">賬戶餘額</i>
                 <div class="account-info" v-if="userInfo.loginResult">
-                  <span class="pull-left" style="color:#f8b62b;">{{$fmoney(accountInfo.balanceAmount)}}元</span>
+                  <span class="pull-left" style="color:#f05a23;">{{$fmoney(accountInfo.balanceAmount)}}元</span>
                   <a class="charge pull-right" href="/recharge" v-if="custInfo.tpStatus==1 && custInfo.payPwdOK"
                      target="_blank">儲值</a>
                   <a class="charge pull-right" href="javascript:;" v-if="custInfo.tpStatus!=1 || !custInfo.payPwdOK"
                      @click="linkToRealName();">儲值</a>
                 </div>
                 <div class="account-info" v-if="!userInfo.loginResult">
-                  <span class="pull-left"><a :href="loginUrl" style="color:#f8b62b;">登錄</a>後可見</span>
+                  <span class="pull-left"><a :href="loginUrl" style="color:#f05a23;">登錄</a>後可見</span>
                 </div>
               </div>
               <div class="money-warp" style="margin-top: 15px;">
@@ -135,8 +135,8 @@
         <div class="desc-answer-hed">
           <div class="" :class="{'active-select': flag==1}" @click="toNext(1)">計劃進度</div>
           <div class="" :class="{'active-select': flag==2}" @click="toNext(2)">加入記錄</div>
-          <div class="" :class="{'active-select': flag==3}" @click="toNext(3)">借款信息</div>
-          <div class="" :class="{'active-select': flag==4}" @click="toNext(4)">計劃表現</div>
+          <!--<div class="" :class="{'active-select': flag==3}" @click="toNext(3)">借款信息</div>
+          <div class="" :class="{'active-select': flag==4}" @click="toNext(4)">計劃表現</div>-->
           <div class="" :class="{'active-select': flag==5}" @click="toNext(5)">常見問題</div>
         </div>
         <div class="view-warp">

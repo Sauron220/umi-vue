@@ -26,7 +26,7 @@
         <img src="../assets/images/no_data.png"  style="width: 70px;"> <span>暫時沒有優惠券呢！</span>
       </div>
     </div>
-    <div class="mine-invite-warp">
+    <!--<div class="mine-invite-warp">
       <div class="mine-invite-hed">
         <h4>我的邀請</h4>
       </div>
@@ -44,8 +44,8 @@
           <div class="invite-desc">獲得優惠券(張)</div>
         </div>
       </div>
-    </div>
-    <div class="invite-gift">
+    </div>-->
+    <!--<div class="invite-gift">
       <div class="invite-gift-tit">
         <h4>邀請出借有禮</h4>
       </div>
@@ -102,8 +102,8 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="invite-gift-info">
+    </div>-->
+    <!--<div class="invite-gift-info">
       <div class="invite-gift-info-t">
         <h4>獎勵詳情</h4>
       </div>
@@ -136,7 +136,7 @@
         </div>
       </div>
       <div class="blank-info">您還未邀請好友，趕快去邀請！</div>
-    </div>
+    </div>-->
   </div>
 </template>
 

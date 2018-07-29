@@ -253,7 +253,7 @@ i {
     vertical-align: top;
     margin-left: 30px;
     h4 {
-      color: #f8b62b;
+      color: #f05a23;
       margin: 0 5px 0 0;
       //line-height: 40px;
       font-size: 14px;
@@ -443,7 +443,7 @@ i {
         padding: 0 10px;
       }
       a:hover {
-        color: #f8b62b;
+        color: #f05a23;
       }
       span{
         position: relative;
@@ -453,9 +453,9 @@ i {
       }
     }
     .active{
-      color: #f8b62b;
+      color: #f05a23;
       background: transparent;
-      border-bottom: 2px solid #f8b62b;
+      border-bottom: 2px solid #f05a23;
       display: block;
     }
   }
@@ -484,11 +484,11 @@ i {
     }
     a:hover {
       color: #fff;
-      background: #f8b62b;
+      background: #f05a23;
     }
     .active {
       color: #fff;
-      background: #f8b62b;
+      background: #f05a23;
     }
   }
 }
@@ -496,7 +496,7 @@ i {
 .user {
   width: 200px;
   text-align: center;
-  background: #f8b62b;
+  background: #f05a23;
   padding-top: 30px;
   float: left;
   img {
@@ -509,7 +509,7 @@ i {
     font-size: 20px;
     line-height: 60px;
     color: #fff;
-    background: #f8b62b;
+    background: #f05a23;
   }
   .phone-num {
     height: 60px;
@@ -547,7 +547,7 @@ i {
     background: #fbbf60;
   }
   .active {
-    color: #f8b62b !important;
+    color: #f05a23 !important;
     background: #fff !important;
   }
 }

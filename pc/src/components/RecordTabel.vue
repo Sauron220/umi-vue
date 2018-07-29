@@ -7,7 +7,7 @@
             <th class="rate regular-rate" style="width: 240px;">交易時間</th>
             <th class="name c-name">交易類型</th>
             <th class="time c-time">交易金額</th>
-            <th class="money r-money">結餘</th>
+            <!--<th class="money r-money">結餘</th>-->
           </tr>
         </thead>
         <tbody class="data-list">
@@ -15,7 +15,7 @@
             <td class="rate">{{item.dateTime}}</td>
             <td class="name c-name">{{item.trdCode | getStatus}}</td>
             <td class="time c-time"><span>{{$fmoneyFormat(item.trdAmount)}}</span>元</td>
-            <td class="money c-money"></td>
+            <!--<td class="money c-money"></td>-->
           </tr>
         </tbody>
       </table>
@@ -48,6 +48,9 @@
     watch:{
       current(newV, oldV) {
         this.getTradeList(this.tradeType, newV);
+      },
+      tradeType(newV, oldV) {
+        this.getTradeList(newV, 1);
       }
     },
     computed:{
@@ -67,7 +70,7 @@
           trdCode: tradeType
         }).then((res) => {
           self.tradeListInfo = res.body.respInfo.tradeInfo;
-          self.pageNo = self.tradeListInfo.totalPage;
+          self.pageNo = self.tradeListInfo.totalPage || 1;
           self.tradeList = self.tradeListInfo.dataList || self.tradeList;
         });
       },

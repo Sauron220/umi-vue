@@ -449,7 +449,7 @@
           </li>
           <li class="list-bar product-bar" v-for="(item,ind) in productList" v-if="ind < 6"
               :class="{'product-bar-high':ind%2 == 0}" :key='item.prdCode'>
-            <a :href="'/product/' + item.prdCode" target="_blank">
+            <a  @click="toDetail(item.prdCode)" target="_blank">
               <div class="list1 list-color"><span>{{$fmoney(formatNum(item.defaultRate || 0, 100), 1)}}</span>%</div>
               <div class="list1 list-color" v-if="item.rewardRate">+{{$fmoney(formatNum(item.rewardRate || 0, 100),
                 1)}}%
@@ -629,22 +629,24 @@
       },
       toDetail(code) {
         const _proCode = code;
-        console.log(code)
-        _proCode && this.$router.push({name: 'Product', params: {prdCode: _proCode}});
+        sessionStorage.setItem('proCode', _proCode);
+        // _proCode && this.$router.push({name: 'Product', params: {prdCode: _proCode}});
+        _proCode && this.$router.push({path: 'bucketGold'});;
       },
       getCurrentInfoMes () {
         const self = this;
         this.$http.post('/pbap-web/action/customer/query/custAuthInfo',{}).then((res) => {
           self.riskTest = res.body.respInfo.custInfo.riskTest;
+          let riskTest = res.body.respInfo.custInfo.riskTest;
           self.$store.commit('setCurrentUserInfo', res.body.respInfo.custInfo)
-          if (self.riskTest == 0) {
+          if (riskTest == 1) {
             this.$store.commit('setModal', {
               type: 'alert',
               msg: '已完成评测',
               confirmText: '我知道了'
             });
             this.$store.commit('showModal');
-          } else if (self.riskTest == 1) {
+          } else if (riskTest == 0) {
             self.$router.push({path:'riskAssessment'});
           }
         })

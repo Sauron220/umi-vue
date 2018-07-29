@@ -50,7 +50,7 @@
       </li>
       <li class="plan-list-item odd">
         <div class="tit">提前退出方式</div>
-        <div class="tit-con">鎖定期內支持提前退出，服務協議</span></div>
+        <div class="tit-con">鎖定期內支持提前退出，詳情參見服務協議</div>
       </li>
       <li class="plan-list-item odd">
         <div class="tit">費用</div>
@@ -65,7 +65,7 @@
       </li>
       <li class="plan-list-item odd">
         <div class="tit">提前退出方式</div>
-        <div class="tit-con">【點擊查看】</div>
+        <div class="tit-con" style="color: #3c64a0;cursor: pointer;" @click="goAgreement">【點擊查看】</div>
       </li>
     </ul>
   </div>
@@ -96,6 +96,7 @@
     },
     methods: {
       getProductDetail: Tool.getProductDetail,
+      goAgreement: Tool.goAgreement,
     }
   }
 </script>

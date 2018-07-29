@@ -2,13 +2,13 @@
   <div class="bucket-table product-list table-p">
     <div class="bucket-status-warp">
       <div :class="{'active-select': status == '11'}" @click="changeType('11')">持有中({{totalCount}})</div>
-      <div :class="{'active-select': status == '88'}" @click="changeType('88')">已退出({{totalCount}})</div>
+      <div :class="{'active-select': status == '88'}" @click="changeType('88')">已退出({{totalCount1 ? totalCount1 : '--'}})</div>
     </div>
     <div class="table">
       <table class="t-caption">
         <thead>
         <tr>
-          <th class="rate c-rate regular-rate">一桶金計畫名稱</th>
+          <th class="rate c-rate regular-rate">{{prodName}}計畫名稱</th>
           <th class="name c-name">期待年會報率</th>
           <th class="time">出借金額</th>
           <th class="money">已獲回報</th>
@@ -50,21 +50,42 @@
         status: '11',
         lists: [],
         totalCount:'',
+        totalCount1:'',
         pageNo:1,
         pageIndex: 1,
-        currentComPage: '',
+        prodName:'一桶金',
       }
     },
     watch: {
       status(newV, oldV) {
         this.getProductLists();
       },
-      $store(newV, oldV) {
-        console.log('----',newV)
+      currentComPage(newV, oldV) {
+        this.getProductLists(newV)
+      },
+      productType(newV, oldV){
+        this.getProductLists()
+      }
+    },
+    computed: {
+      currentComPage() {
+        return this.$store.state.currentComPage;
+      },
+      productType() {
+        this.prdType = this.$store.state.productType;
+        if (this.prdType == '7') {
+          this.prodName = '一桶金';
+        } else if (this.prdType == '8') {
+          this.prodName = '聚寶';
+        } else if (this.prdType == '9') {
+          this.prodName = '分期投';
+        } else if (this.prdType == '10') {
+          this.prodName = '月月盈';
+        }
+        return this.$store.state.productType;
       }
     },
     created() {
-      console.log(this)
       const self = this;
       this.$http.post('/pbap-web/action/customer/query/custAuthInfo', {}).then((res) => {
         self.myCode = res.body.respInfo.custInfo.cusCode;
@@ -73,18 +94,22 @@
       });
     },
     methods: {
-      getProductLists() {
+      getProductLists(currentComPage) {
         const self = this;
         this.$http.post('/pbap-web/action/investment/query/investmentPrdList', {
           cusCode: self.myCode,
           prdType: self.prdType,
           status: self.status,
-          pageIndex: self.currentComPage || 1,
-          pageSize: 2,
+          pageIndex: currentComPage || 1,
+          pageSize: 10,
         }).then((res) => {
           self.lists = res.data.respInfo.investmentList.dataList;
-          self.totalCount = res.data.respInfo.investmentList.totalCount;
           self.pageNo = res.data.respInfo.investmentList.totalPage;
+          if (self.status == '11') {
+            self.totalCount = res.data.respInfo.investmentList.totalCount;
+          } else {
+            self.totalCount1 = res.data.respInfo.investmentList.totalCount;
+          }
         })
       },
       changeType(val) {

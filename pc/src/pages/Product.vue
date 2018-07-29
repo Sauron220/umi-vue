@@ -98,14 +98,14 @@
             <div class="balance clearfix">
               <i class="pull-left">賬戶餘額</i>
               <div class="account-info" v-if="userInfo.loginResult">
-                <span class="pull-left" style="color:#f8b62b;">{{$fmoney(accountInfo.balanceAmount)}}元</span>
+                <span class="pull-left" style="color:#f05a23;">{{$fmoney(accountInfo.balanceAmount)}}元</span>
                 <a class="charge pull-right" href="/recharge" v-if="custInfo.tpStatus==1 && custInfo.payPwdOK"
                    target="_blank">儲值</a>
                 <a class="charge pull-right" href="javascript:;" v-if="custInfo.tpStatus!=1 || !custInfo.payPwdOK"
                    @click="linkToRealName();">儲值</a>
               </div>
               <div class="account-info" v-if="!userInfo.loginResult">
-                <span class="pull-left" style="color:#f8b62b;"><a :href="loginUrl">登錄</a>後可見</span>
+                <span class="pull-left" style="color:#f05a23;"><a :href="loginUrl">登錄</a>後可見</span>
               </div>
             </div>
             <div class="amount-money">
