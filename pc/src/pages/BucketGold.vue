@@ -348,7 +348,7 @@
                 self.$validator.validateAll().then((result) => {
                   if (result) {
                     self.buyConfirm = !self.buyConfirm;
-                    self.getCooper();
+                    self.getCooper(self.proCode);
                     self.getWelfareReminder(self.productDetail.prdType);
                   }
                 });
@@ -367,14 +367,17 @@
       },
       setBuyUrl() {
         var self = this;
+        var _prdCode = self.productDetail.prdCode;
+        sessionStorage.setItem('proCode', _prdCode);
         self.$validator.validateAll({'payPwd': self.payPwd}).then((result) => {
           if (result) {
-            self.buyHandle('/product/' + self.productDetail.prdCode);
+            // self.buyHandle('/product/' + self.productDetail.prdCode);
+            self.buyHandle('/bucketGold');
             if (self.coupon && self.coupon != 0) {
-              let url = '/buy?prdCode=' + self.$route.params.prdCode + '&relAmount=' + self.invest + '&cpnNum=' + self.coupon.cpnNum + '&payPwd=' + self.payPwd
+              let url = '/buy?prdCode=' + self.proCode + '&relAmount=' + self.invest + '&cpnNum=' + self.coupon.cpnNum + '&payPwd=' + self.payPwd
               window.open(url, '_blank');
             } else {
-              let url = '/buy?prdCode=' + self.$route.params.prdCode + '&relAmount=' + self.invest + '&payPwd=' + self.payPwd
+              let url = '/buy?prdCode=' + self.proCode + '&relAmount=' + self.invest + '&payPwd=' + self.payPwd
               window.open(url, '_blank');
             }
           }
@@ -391,6 +394,8 @@
       getCooper: Tool.getCooper,
       getProductDetail: Tool.getProductDetail,
       getWelfareReminder: Tool.getWelfareReminder,
+      buyHandle: Tool.buyHandle,
+      inTheArray: Tool.inTheArray,
     },
     mounted() {
       var self = this;

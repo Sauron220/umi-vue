@@ -248,14 +248,14 @@ export default {
     window.open('/agreement/'+this.productDetail.prdCode+'/'+this.productDetail.trdNum,
       '_blank','height=768, width=1100,toolbar=no,scrollbars=yes,menubar=no,status=no')
   },
-  getCooper(){
+  getCooper(prdCode){
     var self = this;
     self.invData.totalPage=0;
     self.$http.post('/pbap-web/action/investment/query/coupon', {
       cpnProps: self.invest,
       pageIndex: 1,
       pageSize: 500,
-      prdCode: self.$route.params.prdCode,
+      prdCode: prdCode || self.$route.params.prdCode,
       status:0
     }).then((res) => {
       self.couponList = res.body.respInfo.cpnInfo.dataList;
