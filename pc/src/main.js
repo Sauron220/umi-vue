@@ -46,15 +46,17 @@ Vue.http.interceptors.push((request, next) => {
       },500)
     }
   }else{
-    clearTimeout(timer);
-    timer = setTimeout(function () {
-      store.commit('setModal',{
-        show:false,
-        type:'alert',
-        msg:'未知異常，請稍後重試。'
-      });
-      store.commit('showModal');
-    },500)
+    if(request.url.indexOf('exportTradeMonthList') == -1) {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        store.commit('setModal',{
+          show:false,
+          type:'alert',
+          msg:'未知異常，請稍後重試。'
+        });
+        store.commit('showModal');
+      },500)
+    }
   }
 })
 })

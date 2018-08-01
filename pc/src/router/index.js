@@ -980,6 +980,51 @@ var appRouter =  new Router({
           name: 'NewsListIn',
           component: NoticeList,
         },
+        {
+          path: '/notices/:newsId',
+          name: 'Notices',
+          component: Notice,
+        },
+        {
+          path: '/returnInquirys',
+          name: 'ReturnInquirys',
+          component:ReturnInquiry,
+        },
+        {
+          path: '/monthlyBills',
+          name: 'MonthlyBills',
+          component:MonthlyBill,
+        },
+        {
+          path: '/transactionRecordNews',
+          name: 'TransactionRecordNews',
+          component:TransactionRecordNew,
+        },
+        {
+          path: '/changePwds',
+          name: 'ChangePwds',
+          component:ChangePwd,
+        },
+        {
+          path: '/changePayPwds',
+          name: 'ChangePayPwds',
+          component:ChangePayPwd,
+        },
+        {
+          path: '/setPayPwds',
+          name: 'SetPayPwds',
+          component:SetPayPwd,
+        },
+        {
+          path: '/openAccounts',
+          name: 'OpenAccounts',
+          component:OpenAccount,
+        },
+        {
+          path: '/realNameAuths',
+          name: 'RealNameAuths',
+          component:RealNameAuth,
+        },
       ]
     },
     {

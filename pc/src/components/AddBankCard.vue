@@ -55,6 +55,8 @@
     </div>
 
     <vOpenFloat v-if="isOpen" :vOpenAccBl="vOpenAcc"></vOpenFloat>
+
+    <router-view></router-view>
   </div>
 </template>
 
@@ -88,7 +90,7 @@
         var self = this;
         self.floatModal = true;
         self.$http.post('/pbap-web/action/bankcard/delete').then((res) => {
-          location.href = '/changeBankCard';
+          this.$router.push({path:'/addBankCards'});
         })
       },
       toAddBank() {

@@ -10,7 +10,7 @@
       <h1 class="title">平臺公告</h1>
       <ul class="list-unstyled news">
         <li v-for="item in noticeList">
-          <router-link :to="{ name: 'Notice', params: {newsId : item.newsId}}" target="_blank">
+          <router-link :to="{ name: 'Notices', params: {newsId : item.newsId}}">
             <span class="title ell">{{ item.newsTitle }}</span>
             <span class="pull-right">{{ item.newsTime }}</span>
           </router-link>

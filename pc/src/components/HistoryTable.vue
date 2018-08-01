@@ -23,7 +23,8 @@
               <div class="outer"><span class="inner" :style="{'width':item.colPercent+'%'}"></span></div>
             </td>
             <td class="action">
-              <a :href="productUrl(item.prdType) + item.prdCode" target="_blank"
+              <!--:href="productUrl(item.prdType) + item.prdCode"-->
+              <a href="javascript:;" target="_blank" @click="toDetail(item.prdCode)"
                  class="btn"
                  :class="{'btn-gray':!productActive(item.status),
                           'btn-warning':productActive(item.status),
@@ -124,6 +125,10 @@
           default:
             return '立即加入'
         }
+      },
+      toDetail(proCode) {
+        sessionStorage.setItem('proCode', proCode);
+        this.$router.push('/bucketGold');
       }
     }
   }

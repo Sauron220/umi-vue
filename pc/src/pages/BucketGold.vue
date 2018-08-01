@@ -4,7 +4,7 @@
       <span>您現在的位置:</span>
       <router-link to="/">首頁></router-link>
       <router-link to="/bucketGold">壹桶金></router-link>
-      <span>壹桶金-新1月-20180628期</span>
+      <span>{{productDetail.prdName}}</span>
     </div>
     <div class="content-warp">
       <div class="bucket-top">
@@ -14,7 +14,7 @@
             <span class="bucket-top-hed-lf-d">使用红包，回报更高</span>
           </div>
           <div class="bucket-top-hed-ri">
-            壹桶金-新1月-20180628期協議範本
+            協議範本
           </div>
         </div>
         <div class="bucket-top-con">
@@ -104,7 +104,7 @@
       <div class="plan-warp">
         <div class="plan-warp-hed">
           <div>計畫進度</div>
-          <div class="jion-plan" @click="toHelp">如何加入壹桶金</div>
+          <div class="jion-plan" @click="toHelp">如何加入{{productDetail.prdName}}</div>
         </div>
         <div class="plan-warp-con">
           <div class="plan-warp-con-lf">
@@ -134,7 +134,7 @@
       <div class="desc-answer-warp">
         <div class="desc-answer-hed">
           <div class="" :class="{'active-select': flag==1}" @click="toNext(1)">計劃進度</div>
-          <div class="" :class="{'active-select': flag==2}" @click="toNext(2)">加入記錄</div>
+          <div class="" :class="{'active-select': flag==2}" @click="toNext(2, proCode)">加入記錄</div>
           <!--<div class="" :class="{'active-select': flag==3}" @click="toNext(3)">借款信息</div>
           <div class="" :class="{'active-select': flag==4}" @click="toNext(4)">計劃表現</div>-->
           <div class="" :class="{'active-select': flag==5}" @click="toNext(5)">常見問題</div>
@@ -237,6 +237,7 @@
       return {
         money: '',
         flag: 1,
+        proCode:'',
         custInfo: {},
         tpStatus: '',
         productDetail: {},
@@ -268,6 +269,7 @@
     created() {
       const self = this;
       const _proCode = sessionStorage.getItem('proCode');
+      self.proCode = _proCode;
       this.$router.replace({path: '/bucketGold'});
 
 
@@ -288,10 +290,10 @@
         self.getWelfareReminder(self.productDetail.prdType);
         self.TDK.title = self.productDetail.prdName + '-' + self.TDK.title;
       })
-      self.getInvestRecord(1, _proCode);
+      // self.getInvestRecord(1, _proCode);
     },
     methods: {
-      toNext(id) {
+      toNext(id, code) {
         const _that = this;
         switch (id) {
           case 1:
@@ -302,7 +304,7 @@
           case 2:
             _that.flag = 2;
             localStorage.setItem('flag', 2);
-            this.$router.replace({path: '/custTable/' + id});
+            this.$router.replace({path: '/custTable/' + code});
             break;
           case 3:
             _that.flag = 3;
@@ -317,7 +319,7 @@
           case 5:
             _that.flag = 5;
             localStorage.setItem('flag', 5);
-            this.$router.replace({path: '/commonProblems'});
+            this.$router.replace({path: '/commonProblems', query:{ proType: _that.productDetail.prdName }});
             break;
           default:
         }

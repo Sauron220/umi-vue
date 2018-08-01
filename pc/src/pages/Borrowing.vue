@@ -1,12 +1,12 @@
 <template>
     <div class="borrowing">
       <div class="borrowing-banner">
-        <img src="/static/img/friend.png" alt="">
+        <img src="/static/img/borrow-banner.png" alt="">
       </div>
       <div class="borrowing-nav-desc">
         <div class="borrowing-nav-desc-item">
           <div class="borrowing-nav-desc-item-img">
-            <img src="/static/img/tuijian.png" alt="">
+            <img src="/static/img/borrow-01.svg" alt="" style="width: 40px;">
           </div>
           <div class="borrowing-nav-desc-item-info">
             <p class="borrowing-tit">0.78%月費</p>
@@ -15,7 +15,7 @@
         </div>
         <div class="borrowing-nav-desc-item">
           <div class="borrowing-nav-desc-item-img">
-            <img src="/static/img/tuijian.png" alt="">
+            <img src="/static/img/borrow-02.svg" alt="" style="width: 40px;">
           </div>
           <div class="borrowing-nav-desc-item-info">
             <p class="borrowing-tit">0抵押</p>
@@ -24,7 +24,7 @@
         </div>
         <div class="borrowing-nav-desc-item">
           <div class="borrowing-nav-desc-item-img">
-            <img src="/static/img/tuijian.png" alt="">
+            <img src="/static/img/borrow-03.svg" alt="" style="width: 48px;">
           </div>
           <div class="borrowing-nav-desc-item-info">
             <p class="borrowing-tit">1小時到賬</p>
@@ -33,7 +33,7 @@
         </div>
         <div class="borrowing-nav-desc-item">
           <div class="borrowing-nav-desc-item-img">
-            <img src="/static/img/tuijian.png" alt="">
+            <img src="/static/img/borrow-04.svg" alt="" style="width: 40px;">
           </div>
           <div class="borrowing-nav-desc-item-info">
             <p class="borrowing-tit">20萬高額</p>

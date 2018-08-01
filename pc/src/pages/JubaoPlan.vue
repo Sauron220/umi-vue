@@ -160,8 +160,9 @@
     methods:{
       toDetail(code) {
         const _proCode = code;
-        console.log(code)
-        _proCode && this.$router.push({name: 'Product', params: {prdCode: _proCode}});
+        sessionStorage.setItem('proCode', _proCode);
+        // _proCode && this.$router.push({name: 'Product', params: {prdCode: _proCode}});
+        _proCode && this.$router.push({path: 'bucketGold'});
       },
       formatNum(val, cus) {
         var self = this

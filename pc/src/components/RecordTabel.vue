@@ -1,12 +1,12 @@
 <template>
-  <div class="product-list table-p">
-    <div class="table">
+  <div class="product-list table-p" style="background: #fff;padding-bottom: 10px;margin-bottom: 20px;">
+    <div class="table" v-if="tradeList.length">
       <table class="t-caption">
         <thead>
           <tr>
-            <th class="rate regular-rate" style="width: 240px;">交易時間</th>
-            <th class="name c-name">交易類型</th>
-            <th class="time c-time">交易金額</th>
+            <th class="rate regular-rate" style="width: 360px;">交易時間</th>
+            <th class="name c-name" style="width: 360px;">交易類型</th>
+            <th class="time c-time" style="width: 360px;">交易金額</th>
             <!--<th class="money r-money">結餘</th>-->
           </tr>
         </thead>
@@ -20,8 +20,16 @@
         </tbody>
       </table>
     </div>
-    <div class="pageInation">
+    <div class="pageInation" v-if="tradeList.length">
       <pagination :page-no="pageNo"></pagination>
+    </div>
+    <div class="media" v-if="tradeList.length == 0" style="width: 300px;margin: 100px auto;">
+      <div class="media-left">
+        <img src="../assets/images/no_data.png"  style="width: 70px;">
+      </div>
+      <div class="media-body" style="line-height: 32px;padding-top: 30px;padding-left: 20px;">
+        <p class="text-muted" style="font-size: 16px;">暫無交易記錄</p>
+      </div>
     </div>
   </div>
 </template>
@@ -33,6 +41,10 @@
     props:{
       tradeType: String,
       pageAt: String,
+      prdType: String,
+      prdNature: String,
+      startTime: String,
+      endTime: String,
     },
     components:{
       Pagination
@@ -47,10 +59,19 @@
     },
     watch:{
       current(newV, oldV) {
-        this.getTradeList(this.tradeType, newV);
+        newV && this.getTradeList(this.tradeType, newV, this.prdType, this.prdNature, this.startTime);
       },
       tradeType(newV, oldV) {
-        this.getTradeList(newV, 1);
+        newV && this.getTradeList(newV, 1, this.prdType, this.prdNature, this.startTime);
+      },
+      prdType(newV, oldV){
+        newV && this.getTradeList(this.tradeType, 1, newV, this.prdNature, this.startTime);
+      },
+      prdNature(newV, oldV){
+        newV && this.getTradeList(this.tradeType, 1, this.tradeType, newV, this.startTime);
+      },
+      startTime(newV, oldV) {
+        newV && this.getTradeList(this.tradeType, 1, this.tradeType, this.tradeType, newV);
       }
     },
     computed:{
@@ -59,15 +80,19 @@
       }
     },
     created(){
-      this.getTradeList(this.tradeType, this.pageAt)
+      this.getTradeList(this.tradeType, this.pageAt, this.prdType, this.prdNature, this.startTime)
     },
     methods: {
-      getTradeList(tradeType,pageAt){
+      getTradeList(tradeType, pageAt, prdType, prdNature, startTime){
         var self = this;
         self.$http.post('/pbap-web/action/trade/query/tradeRecordList', {
           pageIndex: pageAt,
           pageSize: 10,
-          trdCode: tradeType
+          trdCode: tradeType,
+          prdType: prdType,
+          prdNature: prdNature,
+          startTime: startTime,
+          endTime: self.endTime,
         }).then((res) => {
           self.tradeListInfo = res.body.respInfo.tradeInfo;
           self.pageNo = self.tradeListInfo.totalPage || 1;

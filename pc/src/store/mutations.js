@@ -52,6 +52,9 @@ let mutations = {
   },
   changeprdTypeCode (state, code) {
     state.productType = code;
+  },
+  isAddBankCard(state, flag) {
+    state.isAddBankCard = flag;
   }
 }
 

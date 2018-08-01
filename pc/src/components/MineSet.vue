@@ -5,7 +5,7 @@
         <img src="/static/img/tuijian.png" alt="">
       </div>
       <div class="user-info-warp">
-        <p class="user-name">WE68317889</p>
+        <p class="user-name">{{custInfo.realName ? custInfo.realName : custInfo.cusMobile}}</p>
         <p class="user-lev">安全等級: <span>低</span></p>
       </div>
     </div>
@@ -86,6 +86,38 @@
       <li class="user-info-item">
         <div class="tit">
           <p class="tit-h">
+            登录密码
+          </p>
+          <p class="tit-t">
+            保障帳戶安全，建議您定期更換密碼
+          </p>
+        </div>
+        <div class="desc">
+          已設置
+        </div>
+        <div class="action" @click="changeLoginPasswod">
+          修改
+        </div>
+      </li>
+      <li class="user-info-item">
+        <div class="tit">
+          <p class="tit-h">
+            支付密码
+          </p>
+          <p class="tit-t">
+            保障帳戶安全，建議您定期更換密碼
+          </p>
+        </div>
+        <div class="desc">
+          {{custInfo.payPwdOK ? '已設置' : '未設置'}}
+        </div>
+        <div class="action" @click="changePayPasswod">
+          {{custInfo.payPwdOK ? '修改' : '設置'}}
+        </div>
+      </li>
+      <li class="user-info-item">
+        <div class="tit">
+          <p class="tit-h">
             風險評測
           </p>
           <p class="tit-t">
@@ -146,10 +178,20 @@
         this.$router.push({path: '/activateAccount'});
       },
       toNextSet() {
-        this.$router.push({path: '/openAccount'});
+        this.$router.push({path: '/openAccounts'});
       },
       toRisk() {
         this.$router.push({name: 'RiskAssessment'});
+      },
+      changeLoginPasswod(){
+        this.$router.push('/changePwds')
+      },
+      changePayPasswod() {
+        if (!this.custInfo.payPwdOK) {
+          this.$router.push('/setPayPwds')
+        } else {
+          this.$router.push('/changePayPwds')
+        }
       }
     }
   }

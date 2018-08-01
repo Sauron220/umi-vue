@@ -240,9 +240,10 @@
         var self = this;
         self.$http.post('/pbap-web/action/product/query/prdList', {
           pageSize: 10,
-          prdType: prdType,
+          prdType: prdType != '10' ? prdType : null,
           status: prdStatus,
-          pageIndex: pageAt
+          pageIndex: pageAt,
+          prdNature: prdType == '10' ? 1 : null,
         }, {
           before(request) {
             if (self.productListRequest) {

@@ -272,7 +272,7 @@
               bankCode:this.bankCode
             }).then((res) => {
               if (res.body.errorInfo.errorCode == "0000") {
-                location.href = '/MyBankcard';
+                location.href = '/mineAccount?comp=AddBankCard';
               }else {
                 this.$store.commit('setModal',{
                   type:'alert',

@@ -449,7 +449,7 @@
           </li>
           <li class="list-bar product-bar" v-for="(item,ind) in productList" v-if="ind < 6"
               :class="{'product-bar-high':ind%2 == 0}" :key='item.prdCode'>
-            <a  @click="toDetail(item.prdCode)" target="_blank">
+            <a :href="'/product/' + item.prdCode" target="_blank">
               <div class="list1 list-color"><span>{{$fmoney(formatNum(item.defaultRate || 0, 100), 1)}}</span>%</div>
               <div class="list1 list-color" v-if="item.rewardRate">+{{$fmoney(formatNum(item.rewardRate || 0, 100),
                 1)}}%
@@ -631,7 +631,7 @@
         const _proCode = code;
         sessionStorage.setItem('proCode', _proCode);
         // _proCode && this.$router.push({name: 'Product', params: {prdCode: _proCode}});
-        _proCode && this.$router.push({path: 'bucketGold'});;
+        _proCode && this.$router.push({path: 'bucketGold'});
       },
       getCurrentInfoMes () {
         const self = this;

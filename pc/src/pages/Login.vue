@@ -129,10 +129,9 @@
                 let isLoginPage = toPage.indexOf('/login') == -1;  //是否是登錄
                 let isRegisterPage = toPage.indexOf('/register') == -1;  //是否是註冊
                 if(toPage && isLoginPage && isRegisterPage){
-                  location.href = location.origin + self.remark
-
+                  self.getCurrentInfoMes(location.origin + self.remark);
                 }else{
-                  location.href = '/'
+                  self.getCurrentInfoMes('/');
                 }
               }
             }, response => {
@@ -141,7 +140,16 @@
           }
         });
         return false;
-      }
+      },
+      getCurrentInfoMes (uri) {
+        const self = this;
+        this.$http.post('/pbap-web/action/customer/query/custAuthInfo',{}).then((res) => {
+          if (res.body.respInfo.custInfo) {
+            sessionStorage.setItem('currentUser', JSON.stringify(res.body.respInfo.custInfo));
+            location.href = uri;
+          }
+        })
+      },
     }
   }
 </script>

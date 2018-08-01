@@ -28,16 +28,25 @@
     },
     created(){
       const _comp = this.$route.query.comp;
+      const isAdd = this.$store.state.isAddBankCard;
       _comp ? this.comp = _comp : this.comp = 'mineSet';
       if (_comp == 'mineSet') {
         this.flag = 1;
       } else if (_comp) {
         this.flag = 2;
       }
+      if (isAdd == '2' && !_comp) {
+        this.flag = 2;
+        this.comp = 'AddBankCard'
+      } else if (!_comp) {
+        this.flag = 1;
+        this.comp = 'mineSet'
+      }
     },
     methods:{
       toPage(v, cop) {
         this.flag = v;
+        this.$store.commit('isAddBankCard',v);
         this.comp = cop;
       }
     }

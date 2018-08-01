@@ -1,7 +1,7 @@
 <template>
   <div id="PersonalCenter" class="rw-content changePwd-content profile clearfix">
     <div class="container">
-      <ol class="breadcrumb">
+      <!--<ol class="breadcrumb">
         <span>您現在的位置：</span>
         <li>
           <router-link to="/accountOverview">我的賬戶</router-link>
@@ -11,7 +11,7 @@
         </li>
         <li class="active">支付密碼</li>
       </ol>
-      <leftMenu></leftMenu>
+      <leftMenu></leftMenu>-->
       <div class="pull-left right_content">
         <ul class="top-title-line list-inline">
           <li class="top-line1 top-orange">支付密碼</li>

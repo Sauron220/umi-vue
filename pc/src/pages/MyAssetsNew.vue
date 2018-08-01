@@ -39,9 +39,9 @@
         </div>
         <div class="draw-hed-fin">
           <div class="tit" @click="toPage({name: 'MineAccount',query:{comp:'AddBankCard'}})">銀行卡</div>
-          <div class="tit" @click="toPage({name: 'ReturnInquiry'})">回帳查詢</div>
-          <div class="tit" @click="toPage({name: 'MonthlyBill'})">月賬單</div>
-          <div class="tit" @click="toPage({name: 'TransactionRecordNew'})">交易紀錄</div>
+          <div class="tit" @click="toPage({name: 'ReturnInquirys'})">回帳查詢</div>
+          <div class="tit" @click="toPage({name: 'MonthlyBills'})">月賬單</div>
+          <div class="tit" @click="toPage({name: 'TransactionRecordNews'})">交易紀錄</div>
         </div>
       </div>
       <div class="draw-con">
@@ -63,7 +63,7 @@
                  :class="{'tit-he-tit':item.prdType == 7, 'tit-he-tis': item.prdType == 8,
                  'tit-he-tic': item.prdType == 9, 'tit-he-tif': item.prdType == 10}">{{ item.prdType| proName}}</div>
             <div class="tit-desc">{{$fmoney(item.trdAmount)}}元</div>
-            <div class="tit-desc-c">{{$fmoney(item.trdAmount)}}元</div>
+            <div class="tit-desc-c">{{$fmoney(item.incomeAmount)}}元</div>
           </div>
           <!--<div class="tit-hed">
             <div class="tit-desc tit-he-tis">聚寶計畫</div>
@@ -116,16 +116,15 @@
     },
     created() {
       const self = this;
+      const cusCode = JSON.parse(sessionStorage.getItem("currentUser"))['cusCode'];
 
       self.$http.post('/pbap-web/action/customer/query/cusProMonth', {
-        cusCode:'100020180517103450',
-        trdMonth:'201807'
+        cusCode: cusCode,
       }).then((res) => {
         const _proMonthList = res.data.respInfo.proMonthList;
         self.proMonthList = res.data.respInfo.proMonthList;
 
         _proMonthList.map((val, index, arr) => {
-          console.log(val.prdType)
           switch (val.prdType){
             case '7':
               self.rateOne = Math.floor(val.trdRate * 1000) / 100;
@@ -240,9 +239,6 @@
             }]
           });
         }
-        else {
-
-        }
       });
       this.isRealUser();
       this.fetchBankList();
@@ -307,8 +303,8 @@
         })
       },
       toRealAuth() {
-        this.$router.push({name: 'RealNameAuth'});
-      }
+        this.$router.push({name: 'RealNameAuths'});
+      },
     },
     filters:{
       proName(val) {
