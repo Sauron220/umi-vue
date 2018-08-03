@@ -30,7 +30,7 @@
         <dropdown :class="{'cus-menu': type == 4}" :close-on-click="true">
           <template slot="btn">一桶金</template>
           <template slot="body">
-            <div class="" :class="{'active-select': type == 4 && statusAr == 0}" @click="selectStatus('0')">全部</div>
+            <div class="" :class="{'active-select': type == 4 && statusAr == 0}" @click="selectStatus('0', 0)">全部</div>
             <div class="" :class="{'active-select': type == 4 && statusAr == 1}" @click="selectStatus('1', 'IV')">投资</div>
             <div class="" :class="{'active-select': type == 4 && statusAr == 2}" @click="selectStatus('2', 'RP')">回款</div>
             <div class="" :class="{'active-select': type == 4 && statusAr == 3}" @click="selectStatus('3', 'RF')">退款</div>
@@ -41,7 +41,7 @@
         <dropdown :class="{'cus-menu': type == 5}" :close-on-click="true">
           <template slot="btn">聚寶計畫</template>
           <template slot="body">
-            <div class="" :class="{'active-select': type == 5 && statusAr == 0}" @click="selectStatus('0')">全部</div>
+            <div class="" :class="{'active-select': type == 5 && statusAr == 0}" @click="selectStatus('0', 0)">全部</div>
             <div class="" :class="{'active-select': type == 5 && statusAr == 1}" @click="selectStatus('1', 'IV')">投资</div>
             <div class="" :class="{'active-select': type == 5 && statusAr == 2}" @click="selectStatus('2', 'RP')">回款</div>
             <div class="" :class="{'active-select': type == 5 && statusAr == 3}" @click="selectStatus('3', 'RF')">退款</div>
@@ -52,7 +52,7 @@
         <dropdown  :class="{'cus-menu': type == 6}" :close-on-click="true">
           <template slot="btn">分期投</template>
           <template slot="body">
-            <div class="" :class="{'active-select': type == 6 && statusAr == 0}" @click="selectStatus('0')">全部</div>
+            <div class="" :class="{'active-select': type == 6 && statusAr == 0}" @click="selectStatus('0', 0)">全部</div>
             <div class="" :class="{'active-select': type == 6 && statusAr == 1}" @click="selectStatus('1', 'IV')">投资</div>
             <div class="" :class="{'active-select': type == 6 && statusAr == 2}" @click="selectStatus('2', 'RP')">回款</div>
             <div class="" :class="{'active-select': type == 6 && statusAr == 3}" @click="selectStatus('3', 'RF')">退款</div>
@@ -63,7 +63,7 @@
         <dropdown :class="{'cus-menu': type == 7}" :close-on-click="true">
           <template slot="btn">月月盈</template>
           <template slot="body">
-            <div class="" :class="{'active-select': type == 7 && statusAr == 0}" @click="selectStatus('0')">全部</div>
+            <div class="" :class="{'active-select': type == 7 && statusAr == 0}" @click="selectStatus('0', 0)">全部</div>
             <div class="" :class="{'active-select': type == 7 && statusAr == 1}" @click="selectStatus('1', 'IV')">投资</div>
             <div class="" :class="{'active-select': type == 7 && statusAr == 2}" @click="selectStatus('2', 'RP')">回款</div>
             <div class="" :class="{'active-select': type == 7 && statusAr == 3}" @click="selectStatus('3', 'RF')">退款</div>

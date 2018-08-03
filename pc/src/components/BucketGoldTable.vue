@@ -1,7 +1,7 @@
 <template>
   <div class="bucket-table product-list table-p" style="margin-bottom: 20px;padding-bottom: 20px;">
     <div class="bucket-status-warp">
-      <div :class="{'active-select': status == '11'}" @click="changeType('11')">持有中({{totalCount}})</div>
+      <div :class="{'active-select': status == '11'}" @click="changeType('11')">持有中({{totalCount ? totalCount : '--'}})</div>
       <div :class="{'active-select': status == '88'}" @click="changeType('88')">已退出({{totalCount1 ? totalCount1 : '--'}})</div>
     </div>
     <div class="table">
@@ -67,12 +67,18 @@
     },
     watch: {
       status(newV, oldV) {
+        this.status = newV;
         newV && this.getProductLists(this.prdType, newV, this.currentComPage);
       },
       currentComPage(newV, oldV) {
         newV && this.getProductLists(this.prdType, this.status, newV)
       },
       productType(newV, oldV){
+        this.prdType = newV;
+        if (newV) {
+          this.totalCount = 0;
+          this.totalCount1 = 0;
+        }
         newV && this.getProductLists(newV, this.status, this.currentComPage)
       }
     },
@@ -82,13 +88,13 @@
       },
       productType() {
         const _productType = this.$store.state.productType;
-        if (_productType == '7') {
+        if (_productType == '70') {
           this.prodName = '一桶金';
-        } else if (_productType == '8') {
+        } else if (_productType == '7') {
           this.prodName = '聚寶';
-        } else if (_productType == '9') {
+        } else if (_productType == '8') {
           this.prodName = '分期投';
-        } else if (_productType == '10') {
+        } else if (_productType == '9') {
           this.prodName = '月月盈';
         }
         return this.$store.state.productType;
@@ -107,7 +113,7 @@
         const self = this;
         this.$http.post('/pbap-web/action/investment/query/investmentPrdList', {
           cusCode: self.myCode,
-          prdType: prdType || self.prdType,
+          proType: prdType || self.prdType,
           status: status || self.status,
           pageIndex: currentComPage || 1,
           pageSize: 10,

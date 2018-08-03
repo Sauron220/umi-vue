@@ -85,7 +85,8 @@
       <p class="foot_ba">
 
       </p>
-      <p class="foot_ba" style="border-top:1px solid #e6e6e6;margin-top:20px;padding-top:20px;">理財有風險，投資需謹慎</p>
+      <p class="foot_ba" style="border-top:1px solid #e6e6e6;margin-top:20px;padding-top:20px;">聚寶盆為媒合投資及資金需求的線上平台，提供領先全球的金融支付技術及最安全透明的金融服務，期待與您</p>
+      <p class="foot_ba">共同創造出有信用的機會財富。理財有風險，投資需謹慎。投資前請詳閱風險管理資訊及會員條款相關內容。</p>
 
     </div>
 

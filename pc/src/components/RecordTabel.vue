@@ -62,16 +62,22 @@
         newV && this.getTradeList(this.tradeType, newV, this.prdType, this.prdNature, this.startTime);
       },
       tradeType(newV, oldV) {
+        this.tradeType = newV;
+        if(newV == 0) {
+          this.getTradeList(null, 1, this.prdType, this.prdNature, this.startTime);
+        }
         newV && this.getTradeList(newV, 1, this.prdType, this.prdNature, this.startTime);
       },
       prdType(newV, oldV){
+        this.prdType = newV;
         newV && this.getTradeList(this.tradeType, 1, newV, this.prdNature, this.startTime);
       },
       prdNature(newV, oldV){
-        newV && this.getTradeList(this.tradeType, 1, this.tradeType, newV, this.startTime);
+        this.prdNature = newV;
+        newV && this.getTradeList(this.tradeType, 1, this.prdType, newV, this.startTime);
       },
       startTime(newV, oldV) {
-        newV && this.getTradeList(this.tradeType, 1, this.tradeType, this.tradeType, newV);
+        newV && this.getTradeList(this.tradeType, 1, this.prdType, this.prdNature, newV);
       }
     },
     computed:{
@@ -85,7 +91,7 @@
     methods: {
       getTradeList(tradeType, pageAt, prdType, prdNature, startTime){
         var self = this;
-        self.$http.post('/pbap-web/action/trade/query/tradeRecordList', {
+        self.$http.post('/pbap-web/action/trade/query/tradeMonthList', {
           pageIndex: pageAt,
           pageSize: 10,
           trdCode: tradeType,

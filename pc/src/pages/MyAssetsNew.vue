@@ -60,10 +60,10 @@
           </div>
           <div class="tit-hed" v-for="(item, index) in proMonthList" :key="index">
             <div class="tit-desc"
-                 :class="{'tit-he-tit':item.prdType == 7, 'tit-he-tis': item.prdType == 8,
-                 'tit-he-tic': item.prdType == 9, 'tit-he-tif': item.prdType == 10}">{{ item.prdType| proName}}</div>
-            <div class="tit-desc">{{$fmoney(item.trdAmount)}}元</div>
-            <div class="tit-desc-c">{{$fmoney(item.incomeAmount)}}元</div>
+                 :class="{'tit-he-tit':item.prdType == 70, 'tit-he-tis': item.prdType == 7,
+                 'tit-he-tic': item.prdType == 8, 'tit-he-tif': item.prdType == 9}">{{ item.prdType| proName}}</div>
+            <div class="tit-desc">{{$fmoney(item.holdingTrade)}}元</div>
+            <div class="tit-desc-c">{{$fmoney(item.totalIncome)}}元</div>
           </div>
           <!--<div class="tit-hed">
             <div class="tit-desc tit-he-tis">聚寶計畫</div>
@@ -85,10 +85,10 @@
     </div>
     <div class="total-product">
       <div class="product-list-nav">
-        <div class="nav-item" @click="toNextPage(1, '7')" :class="{'active-item': flag == 1}">一桶金</div>
-        <div class="nav-item" @click="toNextPage(2, '8')" :class="{'active-item': flag == 2}">聚寶計畫</div>
-        <div class="nav-item" @click="toNextPage(3, '9')" :class="{'active-item': flag == 3}">分期投</div>
-        <div class="nav-item" @click="toNextPage(4, '10')" :class="{'active-item': flag == 4}">月月盈</div>
+        <div class="nav-item" @click="toNextPage(1, '70')" :class="{'active-item': flag == 1}">一桶金</div>
+        <div class="nav-item" @click="toNextPage(2, '7')" :class="{'active-item': flag == 2}">聚寶計畫</div>
+        <div class="nav-item" @click="toNextPage(3, '8')" :class="{'active-item': flag == 3}">分期投</div>
+        <div class="nav-item" @click="toNextPage(4, '9')" :class="{'active-item': flag == 4}">月月盈</div>
       </div>
     </div>
     <div class="product-con-view">
@@ -105,10 +105,10 @@
       return {
         personalAcc:{},
         flag:1,
-        rateOne:'',
-        rateTwo:'',
-        rateThree:'',
-        rateFoure:'',
+        rateOne:0,
+        rateTwo:0,
+        rateThree:0,
+        rateFoure:0,
         custInfo: {},
         bankCardList:[],
         proMonthList:[],
@@ -118,25 +118,25 @@
       const self = this;
       const cusCode = JSON.parse(sessionStorage.getItem("currentUser"))['cusCode'];
 
-      self.$http.post('/pbap-web/action/customer/query/cusProMonth', {
+      self.$http.post('/pbap-web/action/customer/query/tradeReport', {
         cusCode: cusCode,
       }).then((res) => {
-        const _proMonthList = res.data.respInfo.proMonthList;
-        self.proMonthList = res.data.respInfo.proMonthList;
+        const _proMonthList = res.data.respInfo.tradeList;
+        self.proMonthList = res.data.respInfo.tradeList;
 
         _proMonthList.map((val, index, arr) => {
           switch (val.prdType){
+            case '70':
+              self.rateOne = Math.floor(val.holdingRate * 1000) / 100;
+              break;
             case '7':
-              self.rateOne = Math.floor(val.trdRate * 1000) / 100;
+              self.rateTwo = Math.floor(val.holdingRate * 1000) / 100;
               break;
             case '8':
-              self.rateTwo = Math.floor(val.trdRate * 1000) / 100;
+              self.rateThree = Math.floor(val.holdingRate * 1000) / 100;
               break;
             case '9':
-              self.rateThree = Math.floor(val.trdRate * 1000) / 100;
-              break;
-            case '10':
-              self.rateFoure = Math.floor(val.trdRate * 1000) / 100;
+              self.rateFoure = Math.floor(val.holdingRate * 1000) / 100;
               break;
             default:
           }
@@ -268,7 +268,7 @@
             this.$store.commit('setModal', {
               type: 'confirm',
               msg: '為了您的資金安全，請先設置支付密碼',
-              confirmUrl: '/setPayPwd',
+              confirmUrl: '/setPayPwds',
               confirmText: "立即設置"
             })
             this.$store.commit('showModal')
@@ -276,7 +276,7 @@
             this.$store.commit('setModal', {
               type: 'confirm',
               msg: '為了您的資金安全，請先綁定銀行資料',
-              confirmUrl: '/changeBankCard',
+              confirmUrl: '/addBankCards',
               confirmText: "綁定銀行資料"
             })
             this.$store.commit('showModal')
@@ -309,16 +309,16 @@
     filters:{
       proName(val) {
         switch (val) {
-          case '7':
+          case '70':
             return '壹桶金';
             break;
-          case '8':
+          case '7':
             return '聚寶計畫';
             break;
-          case '9':
+          case '8':
             return '分期投';
             break;
-          case '10':
+          case '9':
             return '月月盈';
             break;
           default:

@@ -5,7 +5,7 @@
         <ul class="list-inline pull-left top-links">
           <li>
             <a href="/aboutUs" target="_blank">
-              <img src="/static/img/index-phone.png" style="position: relative;left: -2px;top: -2px;">客服電話：021-8780-6767
+              <img src="/static/img/index-phone.png" style="position: relative;left: -2px;top: -2px;">客服及申訴專線：021-8780-6767
               <!--<i class="icon-num-phone icon-location"></i>客服電話：021-8780-6767-->
             </a>
           </li>

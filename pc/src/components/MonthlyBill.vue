@@ -14,7 +14,7 @@
       <div class="bill-lf">
         <div class="bill-lf-top">
           <div class="bill-lf-top-t">本月已賺取金額</div>
-          <div class="bill-lf-top-d">您在聚寶盆累計利息回報 <span>0.00</span> 元</div>
+          <div class="bill-lf-top-d">您在聚寶盆累計利息回報 <span>{{$fmoney(totalIncomeAmount)}}</span> 元</div>
         </div>
         <div class="bill-lf-bot">
           <div class="bill-lf-bot-lf">
@@ -41,7 +41,7 @@
       <div class="bill-lf" style="border: none;">
         <div class="bill-lf-top">
           <div class="bill-lf-top-t">本月已出借金額</div>
-          <div class="bill-lf-top-d">您在聚寶盆累計出借 <span>0.00</span> 元</div>
+          <div class="bill-lf-top-d">您在聚寶盆累計出借 <span>{{$fmoney(totalTrdAmount)}}</span> 元</div>
         </div>
         <div class="bill-lf-bot">
           <div class="bill-lf-bot-lf">
@@ -75,7 +75,7 @@
         <p>{{$fmoney(totalWithdrawAmount)}}<span>元</span></p>
         <p>本月提現金額</p>
       </div>
-      <div class="bill-desc-info">您在人人貸累計充值{{$fmoney(totalTrdAmount)}} 元，累計提現{{$fmoney(totalIncomeAmount)}} 元 <a
+      <div class="bill-desc-info">您在人人貸累計充值{{$fmoney(totalRechargeAmount1)}} 元，累計提現{{$fmoney(totalWithdrawAmount1)}} 元 <a
         href="javascript:;" @click="toDetail">查看交易明細></a></div>
     </div>
     <div class="bill-list-info">
@@ -116,6 +116,8 @@
         totalTrdAmount: '',
         totalRechargeAmount: '',
         totalWithdrawAmount: '',
+        totalRechargeAmount1: '',
+        totalWithdrawAmount1: '',
         rateOne: 0,
         oRateOne: 0,
         rateTwo: 0,
@@ -141,7 +143,8 @@
       self.$http.post('/pbap-web/action/customer/query/cusProMonth', {
         cusCode: cusCode,
       }).then((res) => {
-        console.log(res)
+        self.totalRechargeAmount1 = res.data.respInfo.totalRechargeAmount;
+        self.totalWithdrawAmount1 = res.data.respInfo.totalWithdrawAmount;
       });
       this.currentMoth();
       this.getTotalInfo();
@@ -159,7 +162,7 @@
           self.totalIncomeAmount = res.data.respInfo.totalIncomeAmount;
           self.totalTrdAmount = res.data.respInfo.totalTrdAmount;
           self.totalRechargeAmount = res.data.respInfo.totalRechargeAmount;
-          self.totalWithdrawAmount = res.data.respInfo.totalRechargeAmount;
+          self.totalWithdrawAmount = res.data.respInfo.totalWithdrawAmount;
           if (_proMonthList.length == 0) {
             self.rateOne = 0;
             self.oRateOne = 0;
@@ -270,6 +273,9 @@
             break;
           case '9':
             return '月月盈';
+            break;
+          case '-':
+            return '散標';
             break;
           default:
         }

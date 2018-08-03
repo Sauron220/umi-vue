@@ -2,7 +2,7 @@
   <div class="mine-set-warp">
     <div class="mine-img-warp">
       <div class="img">
-        <img src="/static/img/tuijian.png" alt="">
+        <img src="/static/img/noLogin.svg" alt="" style="width: 80px;">
       </div>
       <div class="user-info-warp">
         <p class="user-name">{{custInfo.realName ? custInfo.realName : custInfo.cusMobile}}</p>
@@ -13,7 +13,7 @@
       <li class="user-info-item">
         <div class="tit">
           <p class="tit-h">
-            存管賬戶
+            銀行賬戶
           </p>
           <p class="tit-t">
             銀行合作資金存管
@@ -86,10 +86,10 @@
       <li class="user-info-item">
         <div class="tit">
           <p class="tit-h">
-            登录密码
+            登錄密碼
           </p>
           <p class="tit-t">
-            保障帳戶安全，建議您定期更換密碼
+            登錄賬戶時需要填寫密碼
           </p>
         </div>
         <div class="desc">
@@ -125,10 +125,13 @@
           </p>
         </div>
         <div class="desc">
-          您尚未進行測評
+          {{riskTest == 1 ? '已完成測評' : '您尚未進行測評'}}
         </div>
-        <div class="action" @click="toRisk">
-          &nbsp;&nbsp;&nbsp;去評測
+        <div class="action" @click="toRisk" v-if="riskTest != 1">
+          {{riskTest == 1 ? '已完成測評' : '去評測'}}
+        </div>
+        <div class="action" v-else>
+          {{riskTest == 1 ? '已完成' : '去評測'}}
         </div>
       </li>
       <li class="user-info-item">
@@ -157,10 +160,12 @@
     data(){
       return {
         custInfo:{},
+        riskTest:'',
       }
     },
     created(){
       var self = this;
+      this.riskTest = JSON.parse(sessionStorage.getItem('currentUser'))['riskTest'];
       self.$http.post('/pbap-web/action/customer/query/custAuthInfo', {}).then((res) => {
         self.custInfo = res.body.respInfo.custInfo;
         console.log('realName',self.custInfo)
