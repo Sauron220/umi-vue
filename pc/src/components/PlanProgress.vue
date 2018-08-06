@@ -50,16 +50,16 @@
       </li>
       <li class="plan-list-item odd">
         <div class="tit">提前退出方式</div>
-        <div class="tit-con">鎖定期內支持提前退出，詳情參見服務協議</div>
+        <div class="tit-con">鎖定期內支持提前退出，詳情參見 <a href="javascript:" style="color:rgb(60, 100, 160)">服務協議</a></div>
       </li>
       <li class="plan-list-item odd">
         <div class="tit">費用</div>
         <div class="tit-con">
           <ul>
-            <li>加入費用：0.0% </li>
-            <li>管理費用：參見服務協議 </li>
-            <li>退出費用：0.0%</li>
-            <li>提前退出費用：加入金額x 2.0 %，詳情參見服務協議</li>
+            <li>加入費用：<span class="tit-con-rate">0.0% </span></li>
+            <li>管理費用：參見<a href="javascript:" style="color:rgb(60, 100, 160)">服務協議</a> </li>
+            <li>退出費用：<span class="tit-con-rate">0.0%</span></li>
+            <li>提前退出費用：加入金額x <span class="tit-con-rate">2.0 %</span>，詳情參見<a href="javascript:" style="color:rgb(60, 100, 160)">服務協議</a></li>
           </ul>
         </div>
       </li>

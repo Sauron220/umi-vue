@@ -202,6 +202,54 @@
           <div class="content">
             <ol class="list-unstyled">
               <li>
+                <span class="pull-left">姓名:{{dispersion.borName}}</span>
+                <span class="pull-right">已審核<i class="icon-checked"></i></span>
+              </li>
+              <li>
+                <span class="pull-left">性别:{{dispersion.borGender}}</span>
+                <span class="pull-right">已審核<i class="icon-checked"></i></span>
+              </li>
+              <li>
+                <span class="pull-left">籍贯:{{dispersion.borOrigin}}</span>
+                <span class="pull-right">已審核<i class="icon-checked"></i></span>
+              </li>
+              <li>
+                <span class="pull-left">年齡（歲）:{{dispersion.borAge}}</span>
+                <span class="pull-right">已審核<i class="icon-checked"></i></span>
+              </li>
+              <li>
+                <span class="pull-left">學曆 :{{dispersion.borEducation}}</span>
+                <span class="pull-right">已審核<i class="icon-checked"></i></span>
+              </li>
+              <li>
+                <span class="pull-left">婚否 :{{dispersion.borMaritalStatus}}</span>
+                <span class="pull-right">已審核<i class="icon-checked"></i></span>
+              </li>
+              <li>
+                <span class="pull-left">月收入（元） :{{dispersion.borIncome}}</span>
+                <span class="pull-right">已審核<i class="icon-checked"></i></span>
+              </li>
+              <li>
+                <span class="pull-left">公司行業:{{dispersion.borBizArea}}</span>
+                <span class="pull-right">已審核<i class="icon-checked"></i></span>
+              </li>
+              <li>
+                <span class="pull-left">公司規模（人）:{{dispersion.borCorporateSize}}</span>
+                <span class="pull-right">已審核<i class="icon-checked"></i></span>
+              </li>
+              <li>
+                <span class="pull-left">公司職務:{{dispersion.borPosition}}</span>
+                <span class="pull-right">已審核<i class="icon-checked"></i></span>
+              </li>
+              <li>
+                <span class="pull-left">工作城市:{{dispersion.borJobsite}}</span>
+                <span class="pull-right">已審核<i class="icon-checked"></i></span>
+              </li>
+              <li>
+                <span class="pull-left">工作年限（年）:{{dispersion.borWorkingMonths}}</span>
+                <span class="pull-right">已審核<i class="icon-checked"></i></span>
+              </li>
+              <!--<li>
                 <span class="pull-left">公司工商資訊</span>
                 <span class="pull-right">已審核<i class="icon-checked"></i></span>
               </li>
@@ -224,7 +272,7 @@
               <li>
                 <span class="pull-left">經營場所實地認證</span>
                 <span class="pull-right">已審核<i class="icon-checked"></i></span>
-              </li>
+              </li>-->
             </ol>
             <div class="section-space"></div>
             <div class="check-detail" v-show="imageList.length>0">
@@ -493,7 +541,8 @@
           title: '理財產品',
           keyWords: '尊享計劃,p2p理財產品,個人理財產品,如何理財,年化收益率',
           description: '聚寶盆-尊享計劃，是聚寶盆推出的壹款高端理財產品，預期年化收益高達12%！個人最好的理財產品之壹，聚寶盆幫您制定個人理財規劃，理財產品排行就選聚寶盆，6道風控審核保障，理財更安全！',
-        }
+        },
+        dispersion:{},
       }
     },
     components: {
@@ -524,6 +573,7 @@
         self.setDwipe(self);
       })
       self.getInvestRecord(1);
+      this.fetchDispersion();
     },
     computed: {
       userInfo() {
@@ -688,6 +738,14 @@
           })
           this.$store.commit('showModal')
         }
+      },
+      fetchDispersion() {
+        const self = this;
+        self.$http.post('/pbap-web/action/product/query/dispersion', {
+          prdCode: self.$route.params.prdCode
+        }).then((res) => {
+          self.dispersion = res.data.respInfo.product;
+        })
       }
     }
   }

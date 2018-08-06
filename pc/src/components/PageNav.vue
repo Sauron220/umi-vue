@@ -5,7 +5,7 @@
         <ul class="list-inline pull-left top-links">
           <li>
             <a href="/aboutUs" target="_blank">
-              <img src="/static/img/index-phone.png" style="position: relative;left: -2px;top: -2px;">客服及申訴專線：021-8780-6767
+              <img src="/static/img/phone.svg" style="position: relative;left: -2px;top: -2px;width: 14px;">客服及申訴專線：021-8780-6767
               <!--<i class="icon-num-phone icon-location"></i>客服電話：021-8780-6767-->
             </a>
           </li>
@@ -77,11 +77,11 @@
           </li>-->
           <li>
             <!--<a href="/product-list/30/11/1" :class="{'active':$route.fullPath == '/product-list/30/11/1'}">壹桶金</a>-->
-            <a href="/bucketGold" :class="{'active':$route.fullPath == '/bucketGold'}">壹桶金</a>
+            <a @click="fetchNewProduct" href="javascript:;" :class="{'active':$route.fullPath == '/bucketGold' && isOne}">壹桶金</a>
           </li>
           <li>
             <!--<a href="/product-list/7/11/1" :class="{'active':$route.fullPath == '/product-list/7/11/1'}">聚寶計劃</a>-->
-            <a href="/jubaoPlan" :class="{'active':$route.fullPath == '/jubaoPlan'}">聚寶計劃</a>
+            <a href="/jubaoPlan" :class="{'active':$route.fullPath == '/jubaoPlan'}">聚寶計畫</a>
           </li>
           <li>
             <a href="/product-list/8/11/1" :class="{'active':$route.fullPath == '/product-list/8/11/1'}">分期投</a>
@@ -124,7 +124,7 @@
           </li>
           <li v-if="!userInfo.loginResult">
             <a  class="nav-color resister-link" href="/register">註冊/</a>
-            <a  class="nav-color login-page" :href="loginUrl">登錄</a>
+            <a  class="nav-color login-page" :href="loginUrl">登入</a>
           </li>
         </ul>
       </div>
@@ -146,6 +146,11 @@
         lastVipPrd: '0',
         mevsUrl: '',
         loginUrl: '',
+      }
+    },
+    computed:{
+      isOne () {
+        return this.$store.state.prdName == '壹桶金'
       }
     },
     created: function () {
@@ -178,6 +183,13 @@
         var self = this;
         self.$http.post('/pbap-web/action/user/query/logout', {}).then((res) => {
           location.href = '/'
+        })
+      },
+      fetchNewProduct () {
+        const self = this;
+        self.$http.post('/pbap-web/action/product/query/lastNewcomerPrd', {prdType: 30}).then((res) => {
+          sessionStorage.setItem('proCode', res.body.respInfo.product.prdCode);
+          location.href='/bucketGold';
         })
       }
     }

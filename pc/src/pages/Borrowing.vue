@@ -27,8 +27,8 @@
             <img src="/static/img/borrow-03.svg" alt="" style="width: 48px;">
           </div>
           <div class="borrowing-nav-desc-item-info">
-            <p class="borrowing-tit">1小時到賬</p>
-            <p class="borrowing-desc">最快一小時到賬</p>
+            <p class="borrowing-tit">1小時到帳</p>
+            <p class="borrowing-desc">到帳最快1小時</p>
           </div>
         </div>
         <div class="borrowing-nav-desc-item">
@@ -45,7 +45,7 @@
         <div class="jiantou"></div>
       </div>
       <div class="borrowing-htit">
-        3步申請, 最快1小時到賬, 不耽誤你用錢！
+        3步申請, 最快1小時到帳, 不耽誤你用錢！
       </div>
       <div class="setp-warp">
         <div class="circle">1</div>
@@ -60,7 +60,7 @@
       </div>
       <div class="text-warp">
         <div class="lf-txt">申請額度</div>
-        <div class="md-txt">激活額度</div>
+        <div class="md-txt">開通額度</div>
         <div class="ri-txt">提現</div>
       </div>
     </div>

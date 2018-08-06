@@ -82,6 +82,7 @@ import AccountNew from '@/pages/AccountNew'
 import MyAssetsNew from '@/pages/MyAssetsNew'
 import Coupon from '@/pages/Coupon'
 import MineAccount from '@/pages/MineAccount'
+import ProtocalText from '@/pages/ProtocalText'
 import TransactionRecordNew from '@/pages/TransactionRecordNew'
 import BucketGoldTable from '@/components/BucketGoldTable'
 import PlanProgress from '@/components/PlanProgress'
@@ -324,6 +325,16 @@ var appRouter =  new Router({
       name: 'HelpCenter',
       components: {
         content:HelpCenter,
+        PageNav: PageNav,
+        PageFooter: PageFooter,
+        // RightFloat: RightFloat,
+      }
+    },
+    {
+      path: '/protocalText',
+      name: 'ProtocalText',
+      components: {
+        content:ProtocalText,
         PageNav: PageNav,
         PageFooter: PageFooter,
         // RightFloat: RightFloat,

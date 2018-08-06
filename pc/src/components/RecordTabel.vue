@@ -1,6 +1,6 @@
 <template>
   <div class="product-list table-p" style="background: #fff;padding-bottom: 10px;margin-bottom: 20px;">
-    <div class="table" v-if="tradeList.length">
+    <div class="table">
       <table class="t-caption">
         <thead>
           <tr>
@@ -10,7 +10,7 @@
             <!--<th class="money r-money">結餘</th>-->
           </tr>
         </thead>
-        <tbody class="data-list">
+        <tbody class="data-list" v-if="tradeList.length">
           <tr class="history-list-data" v-for="(item, index) in tradeList" :key="index">
             <td class="rate">{{item.dateTime}}</td>
             <td class="name c-name">{{item.trdCode | getStatus}}</td>
@@ -25,10 +25,10 @@
     </div>
     <div class="media" v-if="tradeList.length == 0" style="width: 300px;margin: 100px auto;">
       <div class="media-left">
-        <img src="../assets/images/no_data.png"  style="width: 70px;">
+        <!--<img src="../assets/images/no_data.png"  style="width: 70px;">-->
       </div>
       <div class="media-body" style="line-height: 32px;padding-top: 30px;padding-left: 20px;">
-        <p class="text-muted" style="font-size: 16px;">暫無交易記錄</p>
+        <p class="text-muted" style="font-size: 16px;">沒有數據</p>
       </div>
     </div>
   </div>

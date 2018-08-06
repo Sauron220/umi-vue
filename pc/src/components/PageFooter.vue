@@ -30,12 +30,12 @@
           <div class="clearfix"></div>
         <div style="border-top:1px solid #e6e6e6;padding-top:40px;">
           <div class="service" style="margin-left:0;">
-            <h4>客服熱線</h4><span>02-8780-6767</span>
+            <h4>客服及申訴專線</h4><span>02-8780-6767</span>
             <div class="service-time">服務時間:9:00-18:00節假日除外</div>
 
           </div>
         <div class="service">
-          <h4>客服信箱</h4><span>service@fundbowl.tw</span>
+          <h4>客服及申訴信箱</h4><span>service@fundbowl.tw</span>
         </div>
 
 
@@ -54,7 +54,7 @@
 
           <div class="service" style="margin-left:136px;">
             <h4>辦公地址</h4><span>台北市信義區忠孝東路五段68號21樓</span>
-            <div class="service-time">21F.,No.68,Sec.5,Zhongxiao E.Rd.,Xinyi Dist.,Taipei City 110,Taiwan(R.O.C)</div>
+            <div class="service-time">21F.,No.68,Sec.5,Zhongxiao E.Rd.,Xinyi Dist.,Taipei City 110,Taiwan (R.O.C)</div>
 
           </div>
         </div>

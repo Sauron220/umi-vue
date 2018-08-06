@@ -102,7 +102,7 @@
       <li class="user-info-item">
         <div class="tit">
           <p class="tit-h">
-            支付密码
+            支付密碼
           </p>
           <p class="tit-t">
             保障帳戶安全，建議您定期更換密碼

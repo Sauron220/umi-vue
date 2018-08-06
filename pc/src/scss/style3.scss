@@ -1389,7 +1389,7 @@ body {
     }
     .product-noviceArea-desc{
       font-size: 14px;
-      text-align: left;
+      text-align: center;
       width: 215px;
       margin: 0 auto;
     }
@@ -1417,7 +1417,7 @@ body {
       height: 60px;
       line-height: 60px;
       color: #777676;
-      font-size: 16px;
+      font-size: 14px;
       background: #fff;
     }
     .product-bar {
@@ -1425,7 +1425,7 @@ body {
       height: 50px;
       line-height: 50px;
       color: #323232;
-      font-size: 16px;
+      font-size: 14px;
       background: #fff;
     }
     .product-bar-high {
@@ -1447,7 +1447,7 @@ body {
         padding-left: 20px;
         //border-right: 1px solid #f2f2f2;
         span {
-          font-size: 24px;
+          font-size: 14px;
         }
       }
       .list2 {
@@ -1462,7 +1462,7 @@ body {
         //padding-right: 20px;
         //border-right: 1px solid #f2f2f2;
         span {
-          font-size: 24px;
+          font-size: 14px;
         }
       }
       .list4 {
@@ -1583,6 +1583,7 @@ body {
     .risk-radio-question{
       list-style: none;
       border-bottom: 1px solid #ccc;
+      padding: 0;
       li{
         display: flex;
         align-items: center;
@@ -1615,6 +1616,12 @@ body {
     }
     .risk-question .risk-radio-question:last-child{
       border: none;
+    }
+    .risk-question-h{
+      color: #333333;
+    }
+    .risk-question-s{
+      color: #999999;
     }
     .submit-btn{
       width: 160px;
@@ -1727,22 +1734,25 @@ body {
       .bucket-top-con{
         width: 100%;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: flex-start;
         background: #fff;
         height: 200px;
         border-top:1px solid #f2f2f2;
         .bucket-top-con-lf{
-          width: 60%;
+          width: 66%;
           height: 100%;
-          border-right: 1px solid #f2f2f2;
           display: flex;
           align-items: center;
           justify-content: space-around;
+          flex: 2;
+          padding-top: 65px;
+          height: 65px;
           .divider-line{
             width: 1px;
             background: #ccc;
-            height: 80px;
+            height: 65px;
+            transform: scaleX(0.5);
           }
           p{
             text-align: center;
@@ -1766,10 +1776,12 @@ body {
           .desc{
             color: #b3b3b3;
             font-size: 12px;
-            margin-top: 20px;
+            //margin-top: 20px;
+            text-align: left;
           }
           .rate,.date,.money{
             position: relative;
+            height: 65px;
           }
           .bottom-img{
             display: flex;
@@ -1777,7 +1789,7 @@ body {
             justify-content: flex-start;
             width: 200px;
             position: absolute;
-            bottom: -40px;
+            bottom: -65px;
             height: 30px;
             img{
               width: 18px;
@@ -1793,14 +1805,16 @@ body {
           }
         }
         .bucket-top-con-ri{
-          width: 40%;
+          width: 34%;
           height: 100%;
           display: flex;
           flex-direction: column;
           align-items: flex-start;
           justify-content: flex-start;
           padding-left: 82px;
-          padding-top: 10px;
+          padding-top: 20px;
+          flex: 1;
+          border-left: 1px solid #ccc;
           p{
             color: #808080;
             a{
@@ -1929,11 +1943,13 @@ body {
         padding: 20px;
         font-size: 16px;
         border-bottom: 1px solid #ccc;
+        color: #999;
         div{
           position: relative;
           cursor: pointer;
         }
         .active-select{
+          color: #2C66AB;
           &::after {
             content: '';
             position: absolute;
@@ -2049,6 +2065,10 @@ body {
   background: #fff;
   .plan-list-warp{
     list-style: none;
+    padding-right: 40px;
+  }
+  li:nth-child(even){
+    background: #fafafa;
   }
   .plan-list-item{
     width: 100%;
@@ -2063,6 +2083,9 @@ body {
     }
     .tit-con{
       width: 800px;
+      .tit-con-rate{
+        color: #ff6600;
+      }
       ul{
         list-style: none;
         padding: 0;
@@ -2159,6 +2182,7 @@ body {
       }
       .borrowing-nav-desc-item-info{
         color: #fff;
+        width: 130px;
         .borrowing-tit{
           font-size: 24px;
         }
@@ -2425,8 +2449,18 @@ body {
               left: 5px;
             }
           }
+          .tit-he-tib{
+            position: relative;
+            &:before{
+              font-size: 16px;
+              content:"•";
+              color: #eb2323;
+              position: absolute;
+              left: 5px;
+            }
+          }
           .tit-desc{
-            width: 120px;
+            width: 128px;
             padding: 0 20px;
           }
           .tit-desc-c{
@@ -2484,6 +2518,7 @@ body {
     align-items: center;
     justify-content: flex-start;
     padding: 20px;
+    background: #fafafa;
     div{
       margin: 0 10px;
       color: #b9b9b9;
@@ -2630,9 +2665,13 @@ body {
           font-size: 1em;
           margin-right: 0.2em;
         }
-
       }
     }
+  }
+  .un{
+    background: #ccc !important;
+    color: #fff !important;
+    border-color: #ccc;
   }
 
 }
@@ -2743,11 +2782,13 @@ body {
     justify-content: space-around;
     border-bottom: 1px solid #ccc;
     padding: 20px 0;
+    color: #999;
     .nav-item{
       cursor: pointer;
       position: relative;
     }
     .active-select{
+      color: #2C66AB;
       &::after {
         content: '';
         position: absolute;
@@ -2819,6 +2860,8 @@ body {
       .action{
         color: #3c64a0;
         cursor: pointer;
+        width: 120px;
+        text-align: right;
       }
     }
   }
@@ -2867,6 +2910,7 @@ body {
     align-items: center;
     padding: 20px;
     border-bottom: 1px solid #ccc;
+    color: #999;
     .type{
       margin: 0 10px;
       cursor: pointer;
@@ -2877,7 +2921,7 @@ body {
       }
     }
     .active-select{
-      color: #3c64a0;
+      color: #2C66AB;
     }
   }
   .date-select-warp{
@@ -2886,6 +2930,16 @@ body {
     justify-content: space-between;
     padding: 20px;
   }
+  .cust-bor{
+    //background: #ccc;
+    border: none;
+    outline: none;
+    padding: 0;
+    text-align: center;
+    background: #f2f2f2;
+    width: 100px;
+    margin: 0 10px;
+  }
   .none-data{
     text-align: center;
     height: 100px;
@@ -2893,9 +2947,7 @@ body {
     color: #999999;
   }
 }
-.datepicker>input{
-  border: none;
-}
+
 .datepicker{
   input{
     border: none;
@@ -2903,9 +2955,17 @@ body {
     //width: 100px;
     padding: 0;
     text-align: center;
+    background: #f2f2f2;
+    width: 100px;
+    margin: 0 10px;
+    &:before{
+      background: none !important;
+    }
   }
   .bill-rang{
     color: #3c64a0;
+    background: none;
+    border: none;
   }
 }
 
@@ -3136,4 +3196,41 @@ body {
 .bp-dropdown__btn{
   background: none !important;
   border: none !important;
+}
+.protocal{
+  width: 1080px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 20px 0;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  .protocal-header{
+    text-align: center;
+    font-size: 28px;
+  }
+  .prtocal-warp{
+    ul>li{
+      list-style: none;
+      padding: 0 20px;
+    }
+    .main-user{
+      line-height: 28px;
+      .tit{
+        font-size: 18px;
+      }
+    }
+    .desc-divid{
+      margin: 20px 0;
+      font-size: 16px;
+    }
+    .pro-header{
+      font-size: 20px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .pro-list-item{
+      line-height: 26px;
+      font-size: 16px;
+    }
+  }
 }

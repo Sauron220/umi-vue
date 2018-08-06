@@ -3,8 +3,8 @@
     <div class="cou-top">
       <div class="btn-cou" style="background: #ccc;">兌換優惠券</div>
       <div class="coupon-unused-warp">
-        <div class="unused-item" v-for="(item, index) in couponList">
-          <div class="unused-tp-num">
+        <div class="unused-item" :class="{'un': unSatus != 0}" v-for="(item, index) in couponList">
+          <div class="unused-tp-num" :class="{'un': unSatus != 0}">
             <p v-if="item.cpnType*1 == 3">
               <span class="num">{{$fmoneyFormat(item.cpnInfo)}}</span>元{{item.cpnType*1 == 3?'體驗金':'加息券'}}
             </p>
@@ -12,7 +12,7 @@
               <span class="num">{{$formatNum(item.cpnInfo, 100)}}</span>%{{item.cpnType*1 == 3?'體驗金':'加息券'}}
             </p>
           </div>
-          <div class="unused-bt-desc">
+          <div class="unused-bt-desc" :class="{'un': unSatus != 0}">
             <ul>
               <li>來源：{{item.cpnOrigin}}</li>
               <li>適用產品:{{item.cpnProName}}</li>
@@ -154,13 +154,18 @@
         couponList:[],
       }
     },
+    created(){
+      this.getCoupon(0, 1)
+    },
     watch:{
-      status (newV, oldV) {
-        this.getCoupon(newV, 1);
+      unSatus(newV, oldV) {
+        this.getCoupon(newV, 1)
       }
     },
-    created() {
-      this.getCoupon(0, 1);
+    computed:{
+      unSatus() {
+        return this.$store.state.unUsedStatus;
+      }
     },
     methods: {
       onCopy: function (e) {

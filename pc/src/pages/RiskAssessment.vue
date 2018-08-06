@@ -10,8 +10,8 @@
           <p><img src="static/img/gonggao.png" alt="">本問卷調查表旨在協助投資人瞭解自身的投資狀況，主要包括投資偏好、風險承受能力及風險認知能力等方面，可以向投資人提供一些衡量自身風險屬性的指標。</p>
         </div>
         <ul class="risk-radio-question" v-for="(val, index) in questions" :key="index">
-          <li>{{val.question}}</li>
-          <li v-for="(v, i) in val.answer" :key="i">
+          <li class="risk-question-h">{{val.question}}</li>
+          <li class="risk-question-s" v-for="(v, i) in val.answer" :key="i">
             <i class="select-img" :class="{ 'select-active-img':val.model == v.key }"></i>
             <input type="radio" :value="v.key" v-model="val.model">
             <span class="desc-answer" style="margin-left: 35px;">{{v.value}}</span>

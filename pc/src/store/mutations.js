@@ -55,6 +55,12 @@ let mutations = {
   },
   isAddBankCard(state, flag) {
     state.isAddBankCard = flag;
+  },
+  setUnusedStatus(state, flag) {
+    state.unUsedStatus = flag;
+  },
+  setPrdName(state, name) {
+    state.prdName = name;
   }
 }
 

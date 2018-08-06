@@ -127,15 +127,14 @@
 
       <div class="desc-txt">聚寶盆Fundbowl，是Fund資金和Bowl碗盆的合體字，將資金放在需求和供給的碗盆裡，透過市場的供給和需求滾動出更多機會與組合。</div>
       <h4 class="about-title-hed">關於聚寶盆</h4>
-      <p class="about-title-desc">聚寶盆由一群具有金融科技專業背景的企業所成立，我們宗旨在為台灣打造有信用的互利金融平台，提供領先全球的金融支付技術、最安
-        全透明和有信用的互利金融服務。</p>
+      <p class="about-title-desc">聚寶盆由一群具有金融科技專業背景的企業所成立，我們宗旨在為台灣打造有信用的互利金融平台，提供領先全球的金融支付技術、最安全透明和有信用的互利金融服務。</p>
     </div>
 
     <div class="head-section second-section">
       <h4 class="about-title-hed feature-tit">為什麼要選擇聚寶盆</h4>
       <p class="about-title-desc">聚寶盆為台灣第一間有第三方銀行擔保的P2P Lending互利金融平台，
-        透過銀行存管模式，保障資金安全；第三方銀行信用監管；擁有專業 的風險控管團隊及專業法律團隊；
-        堅持小額分散的原則。我們提供最安全的投資平台，將市場需求和供給串接起來，雙方在聚寶盆裡找到 彼此，
+        透過銀行存管模式，保障資金安全；第三方銀行信用監管；擁有專業的風險控管團隊及專業法律團隊；
+        堅持小額分散的原則。我們提供最安全的投資平台，將市場需求和供給串接起來，雙方在聚寶盆裡找到彼此，
         共同創造出有信用的機會財富。</p>
       <h4 class="about-title-hed feature-tit">聚寶盆產品特色</h4>
       <div class="features">
@@ -156,7 +155,7 @@
         </div>
       </div>
       <h4 class="about-title-hed feature-tit">聚寶盆願景</h4>
-      <p class="about-title-desc">聚寶盆代表的不再只是P2P Lending(個人對個人借貸），我們將打造出領先台灣市場的FinTech，將金融科技全新提升為互利銀行(P2P Banking)金融服務。我們致力於促使台灣金融科技的發展和創新、為用戶創造利潤，一起實現夢想</p>
+      <p class="about-title-desc">聚寶盆代表的不再只是P2P Lending(個人對個人借貸），我們將打造出領先台灣市場的FinTech，將金融科技全新提升為互利銀行(P2P Banking)金融服務。我們致力於促使台灣金融科技的發展和創新、為用戶創造利潤，一起實現夢想。</p>
     </div>
 
   </div>

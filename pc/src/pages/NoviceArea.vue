@@ -38,15 +38,15 @@
                 <img src="/static/img/note.png" alt="" style="width: 70px;">
               </div>
               <p>測評送積分</p>
-              <p class="product-noviceArea-desc">完成風險測評，享受安心出借，還可額外獲得10積分。</p>
+              <p class="product-noviceArea-desc">完成風險測評，享受安心出借。</p>
               <a class="front-new-user-reg new-user-active front-new-novice-reg" href="/riskAssessment">完成評測</a>
             </div>
             <div class="col-xs-4" style="border: none">
               <div class="front-new-user">
                 <img src="/static/img/hand.png" alt="" style="width: 70px;">
               </div>
-              <p>拿第一桶金</p>
-              <p class="product-noviceArea-desc">首次出借新手專享項目，期待年回報率達10%，額外15積分贈送。</p>
+              <p>拿第壹桶金</p>
+              <p class="product-noviceArea-desc">首次出借新手專享項目，期待年回報率達6% 。</p>
               <a class="front-new-user-reg new-user-active front-new-novice-reg"  @click="toBucketDeatil" href="javascript:;">完成出借</a>
             </div>
           </div>

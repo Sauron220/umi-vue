@@ -25,10 +25,7 @@
             <td class="action">
               <!--:href="productUrl(item.prdType) + item.prdCode"-->
               <a href="javascript:;" target="_blank" @click="toDetail(item.prdCode)"
-                 class="btn"
-                 :class="{'btn-gray':!productActive(item.status),
-                          'btn-warning':productActive(item.status),
-                          'gray':item.status=='12'}">
+                 class="" style="color: #333;">
                 {{buttonText(item.status)}}
               </a>
             </td>

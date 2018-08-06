@@ -3,17 +3,18 @@
     <div class="nav-bar-tit">
       <span>您現在的位置:</span>
       <router-link to="/">首頁></router-link>
-      <router-link to="/bucketGold">壹桶金></router-link>
+      <router-link to="" v-if="productDetail.prdName && productDetail.prdName.indexOf('聚寶計劃') == -1">{{productDetail.prdName && productDetail.prdName.substr(0,3)}}></router-link>
+      <router-link to="" v-else>{{productDetail.prdName && productDetail.prdName.substr(0,4)}}></router-link>
       <span>{{productDetail.prdName}}</span>
     </div>
     <div class="content-warp">
       <div class="bucket-top">
         <div class="bucket-top-hed">
           <div class="bucket-top-hed-lf">
-            <span class="bucket-top-hed-lf-h">{{productDetail.prdName}}</span>
+            <span class="bucket-top-hed-lf-h">{{productDetail.prdName}} 新手投資</span>
             <span class="bucket-top-hed-lf-d">使用红包，回报更高</span>
           </div>
-          <div class="bucket-top-hed-ri">
+          <div class="bucket-top-hed-ri" @click="toProtocal">
             協議範本
           </div>
         </div>
@@ -110,7 +111,8 @@
           <div class="plan-warp-con-lf">
             <div class="date-start">
               <p>開始加入</p>
-              <p>{{productDetail.valueDate}}</p>
+              <p v-if="productDetail.valueDate" style="color: #999;">{{moment(productDetail.valueDate).format('YYYY年MM月DD日')}}</p>
+              <p style="visibility: hidden;" v-else>隐藏</p>
             </div>
             <div class="line-path"></div>
             <div class="bg-progess">1~2天起息</div>
@@ -119,11 +121,13 @@
             <div class="date-start">
               <div>
                 <p>進入鎖定日期</p>
-                <p>{{productDetail.colFinishDate}}</p>
+                <p v-if="productDetail.colFinishDate" style="color: #999;">{{moment(productDetail.colFinishDate).format('YYYY年MM月DD日')}}</p>
+                <p style="visibility: hidden;" v-else>隐藏</p>
               </div>
-              <div>
+              <div style="text-align: right;">
                 <p>到期退出</p>
-                <p>{{productDetail.dueDate}}</p>
+                <p v-if="productDetail.dueDate" style="color: #999;">{{moment(productDetail.dueDate).format('YYYY年MM月DD日')}}</p>
+                <p style="visibility: hidden;" v-else>隐藏</p>
               </div>
             </div>
             <div class="line-path"></div>
@@ -230,6 +234,7 @@
 
 <script>
   import Tool from '../util/ProductTool.js'
+  import moment from 'moment'
 
   export default {
     name: "BucketGold",
@@ -289,10 +294,12 @@
         }
         self.getWelfareReminder(self.productDetail.prdType);
         self.TDK.title = self.productDetail.prdName + '-' + self.TDK.title;
+        self.$store.commit('setPrdName', self.productDetail.prdName);
       })
       // self.getInvestRecord(1, _proCode);
     },
     methods: {
+      moment,
       toNext(id, code) {
         const _that = this;
         switch (id) {
@@ -385,6 +392,9 @@
       },
       toHelp() {
         this.$router.push({name: 'HelpCenter'});
+      },
+      toProtocal() {
+        this.$router.push({name: 'ProtocalText'});
       },
       productRate: Tool.productRate,
       getInvestRecord: Tool.getInvestRecord,

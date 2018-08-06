@@ -34,6 +34,8 @@ const store = new Vuex.Store({
     currentUserInfo:{},
     productType:'',
     isAddBankCard:'',
+    unUsedStatus:'',
+    prdName:'',
   },
   mutations,
   getters(){

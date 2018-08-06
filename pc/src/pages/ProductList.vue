@@ -103,8 +103,9 @@
               <div class="outer"><span class="inner" :style="{'width':item.colPercent+'%'}"></span></div>
             </td>
             <td class="action">
-              <a :href="productUrl(item.prdType) + item.prdCode" target="_blank"
-                 class="btn"
+              <!--:href="productUrl(item.prdType) + item.prdCode"-->
+              <a href="javascript:;" target="_blank"
+                 class="btn" @click="toDetail(item.prdType, item.prdCode)"
                  :class="{'btn-gray':!productActive(item.status),
                                         'btn-warning':productActive(item.status),
                                         'gray':item.status=='12'}">
@@ -287,6 +288,16 @@
             break;
           default:
             return '立即加入'
+        }
+      },
+      toDetail(prdType, prdCode) {
+        sessionStorage.setItem('proCode', prdCode);
+        if (prdType == '40') {
+          this.$router.push({name: 'Private', params: {prdCode: prdCode}})
+        } else if (prdType == '70') {
+          this.$router.push({name: 'Experience', params: {prdCode: prdCode}})
+        } else {
+          this.$router.push('/bucketGold');
         }
       }
     }

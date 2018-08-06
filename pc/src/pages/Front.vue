@@ -43,13 +43,13 @@
             <p class="info-desc">平台無法觸碰資金 </p>
           </div>
           <div class="info info2">
-            <img src="/static/img/newUser.png">
+            <img src="/static/img/shezhi.png">
             <p class="info-top">六層風控 安全保障</p>
             <p class="info-desc">借款人資質經三重審核</p>
             <p class="info-desc">逾期率保持行業低水平</p>
           </div>
           <div class="info info3">
-            <img src="/static/img/shezhi.png">
+            <img src="/static/img/newUser.png">
             <p class="info-top">貼心服務 便捷流程</p>
             <p class="info-desc">累計出借人數791,343</p>
             <p class="info-desc">累計出借人賺取495,342萬元</p>
@@ -105,7 +105,7 @@
                 <img src="/static/img/people.png" alt="" style="width: 70px;">
               </div>
               <p>1000元見面禮</p>
-              <p class="product-noviceArea-desc">註冊即獲得總值1000元現金券,可用於抵扣相應面值的出借金額。 </p>
+              <p class="product-noviceArea-desc">註冊即獲得總值1000元現金券，可用於抵扣相應面值的出借金額。 </p>
               <a class="front-new-user-reg new-user-active front-new-novice-reg" href="/register">註冊領取</a>
             </div>
             <div class="col-xs-4">
@@ -113,15 +113,16 @@
                 <img src="/static/img/note.png" alt="" style="width: 70px;">
               </div>
               <p>測評送積分</p>
-              <p class="product-noviceArea-desc">完成風險測評，享受安心出借，還可額外獲得十積分。 </p>
+              <p class="product-noviceArea-desc">完成風險測評，享受安心出借。</p>
+              <p class="product-noviceArea-desc" style="visibility: hidden;">完成風險測評，享受安心出借。 </p>
               <a @click="toRisk" class="front-new-user-reg new-user-active front-new-novice-reg" href="javascript:;">完成評測</a>
             </div>
             <div class="col-xs-4" style="border: none">
               <div class="front-new-user">
                 <img src="/static/img/hand.png" alt="" style="width: 70px;">
               </div>
-              <p>拿第一桶金</p>
-              <p class="product-noviceArea-desc">首次出借新手專享項目，期待年 回報率達10%，額外15積分贈送。 </p>
+              <p>拿第壹桶金</p>
+              <p class="product-noviceArea-desc">首次出借新手專享項目，期待年回報率達6% 。</p>
               <div class="front-new-user-reg new-user-active front-new-novice-reg" @click="toBucketDeatil" style="cursor: pointer;">完成出借</div>
             </div>
           </div>
@@ -159,9 +160,9 @@
       <div class="section-space clearfix"></div>
       <div class="section-space clearfix"></div>
 
-      <h4 class="section-title">壹桶金
+      <h4 class="section-title">壹桶金 新手投資
         <div class="section-title-text">
-          新手投資 專享通道
+          專享通道
         </div>
         <div class="gongg" style="display: inline;">
           <a class="pull-right text-muted more img-bg" href="/product-list/30/11/1" target="_blank"
@@ -269,7 +270,7 @@
 
       <h4 class="section-title">聚寶計劃
         <div class="section-title-text">
-          定期投資 分散投標
+          循環出借 分散投標
         </div>
         <div class="gongg" style="display: inline;">
           <a class="pull-right text-muted more img-bg" href="/product-list/7/11/1" target="_blank"
@@ -444,7 +445,7 @@
             <div class="list2">借款標題</div>
             <div class="list3">期限</div>
             <div class="list4">金額</div>
-            <div class="list5">募集進度</div>
+            <div class="list5">投標進度</div>
             <div class="list6">操作</div>
           </li>
           <li class="list-bar product-bar" v-for="(item,ind) in productList" v-if="ind < 6"

@@ -28,10 +28,10 @@
       <div class="item" @click="selectType(3, 'WD', null)" :class="{'active-select': type == 3}">提現</div>
       <div class="item" @click="selectType(4, null, '70')">
         <dropdown :class="{'cus-menu': type == 4}" :close-on-click="true">
-          <template slot="btn">一桶金</template>
+          <template slot="btn">壹桶金</template>
           <template slot="body">
             <div class="" :class="{'active-select': type == 4 && statusAr == 0}" @click="selectStatus('0', 0)">全部</div>
-            <div class="" :class="{'active-select': type == 4 && statusAr == 1}" @click="selectStatus('1', 'IV')">投资</div>
+            <div class="" :class="{'active-select': type == 4 && statusAr == 1}" @click="selectStatus('1', 'IV')">投資</div>
             <div class="" :class="{'active-select': type == 4 && statusAr == 2}" @click="selectStatus('2', 'RP')">回款</div>
             <div class="" :class="{'active-select': type == 4 && statusAr == 3}" @click="selectStatus('3', 'RF')">退款</div>
           </template>
@@ -42,7 +42,7 @@
           <template slot="btn">聚寶計畫</template>
           <template slot="body">
             <div class="" :class="{'active-select': type == 5 && statusAr == 0}" @click="selectStatus('0', 0)">全部</div>
-            <div class="" :class="{'active-select': type == 5 && statusAr == 1}" @click="selectStatus('1', 'IV')">投资</div>
+            <div class="" :class="{'active-select': type == 5 && statusAr == 1}" @click="selectStatus('1', 'IV')">投資</div>
             <div class="" :class="{'active-select': type == 5 && statusAr == 2}" @click="selectStatus('2', 'RP')">回款</div>
             <div class="" :class="{'active-select': type == 5 && statusAr == 3}" @click="selectStatus('3', 'RF')">退款</div>
           </template>
@@ -53,7 +53,7 @@
           <template slot="btn">分期投</template>
           <template slot="body">
             <div class="" :class="{'active-select': type == 6 && statusAr == 0}" @click="selectStatus('0', 0)">全部</div>
-            <div class="" :class="{'active-select': type == 6 && statusAr == 1}" @click="selectStatus('1', 'IV')">投资</div>
+            <div class="" :class="{'active-select': type == 6 && statusAr == 1}" @click="selectStatus('1', 'IV')">投資</div>
             <div class="" :class="{'active-select': type == 6 && statusAr == 2}" @click="selectStatus('2', 'RP')">回款</div>
             <div class="" :class="{'active-select': type == 6 && statusAr == 3}" @click="selectStatus('3', 'RF')">退款</div>
           </template>
@@ -64,7 +64,7 @@
           <template slot="btn">月月盈</template>
           <template slot="body">
             <div class="" :class="{'active-select': type == 7 && statusAr == 0}" @click="selectStatus('0', 0)">全部</div>
-            <div class="" :class="{'active-select': type == 7 && statusAr == 1}" @click="selectStatus('1', 'IV')">投资</div>
+            <div class="" :class="{'active-select': type == 7 && statusAr == 1}" @click="selectStatus('1', 'IV')">投資</div>
             <div class="" :class="{'active-select': type == 7 && statusAr == 2}" @click="selectStatus('2', 'RP')">回款</div>
             <div class="" :class="{'active-select': type == 7 && statusAr == 3}" @click="selectStatus('3', 'RF')">退款</div>
           </template>
@@ -75,7 +75,7 @@
           <template slot="btn">債權/散標</template>
           <template slot="body">
             <div class="" :class="{'active-select': type == 8 && statusAr == 0}" @click="selectStatus('0')">全部</div>
-            <div class="" :class="{'active-select': type == 8 && statusAr == 1}" @click="selectStatus('1', 'IV')">投资</div>
+            <div class="" :class="{'active-select': type == 8 && statusAr == 1}" @click="selectStatus('1', 'IV')">投資</div>
             <div class="" :class="{'active-select': type == 8 && statusAr == 2}" @click="selectStatus('2', 'RP')">回款</div>
             <div class="" :class="{'active-select': type == 8 && statusAr == 3}" @click="selectStatus('3', 'RF')">退款</div>
           </template>
@@ -117,14 +117,14 @@
         tradeType:'CO',
         prdNature:null,
         startTime:'',
-        endTime:moment().format('YYYYMMDD'),
+        endTime:moment().format('YYYY-MM-DD'),
         prdType:'',
         pageAt:"1",
         statusAr:0
       }
     },
     created() {
-      this.startTime = moment().subtract(1, 'months').format('YYYYMMDD');
+      this.startTime = moment().subtract(1, 'months').format('YYYY-MM-DD');
     },
     methods: {
       selectType(v, type, prdType, prdNature) {
@@ -139,19 +139,19 @@
         this.flag = v;
         switch (v) {
           case 2:
-            self.startTime = moment().subtract(1, 'months').format('YYYYMMDD');
+            self.startTime = moment().subtract(1, 'months').format('YYYY-MM-DD');
             break;
           case 3:
-            self.startTime = moment().subtract(3, 'months').format('YYYYMMDD');
+            self.startTime = moment().subtract(3, 'months').format('YYYY-MM-DD');
             break;
           case 4:
-            self.startTime = moment().subtract(6, 'months').format('YYYYMMDD');
+            self.startTime = moment().subtract(6, 'months').format('YYYY-MM-DD');
             break;
           case 5:
-            self.startTime = moment().subtract(12, 'months').format('YYYYMMDD');
+            self.startTime = moment().subtract(12, 'months').format('YYYY-MM-DD');
             break;
           case 7:
-            self.startTime = moment().subtract(24, 'months').format('YYYYMMDD');
+            self.startTime = moment().subtract(24, 'months').format('YYYY-MM-DD');
             break;
           default:
         }
@@ -162,7 +162,8 @@
       },
       toExecl() {
         const self = this;
-        self.$http.get('/pbap-web/action/trade/download/exportTradeMonthList',{responseType: 'arraybuffer'}, {
+        self.$http.get('/pbap-web/action/trade/download/exportTradeMonthList',{
+          responseType: 'arraybuffer',
           params:{
             trdCode: self.tradeType,
             prdType: self.prdType,

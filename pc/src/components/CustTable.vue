@@ -14,7 +14,7 @@
         </thead>
         <tbody class="data-list">
         <tr class="history-list-data" v-for="(item, index) in invData" :key="index">
-          <td class="rate">{{index + 1}}</td>
+          <td class="rate" style="color: #000;">{{index + 1}}</td>
           <td class="name c-name">{{item.realName}}</td>
           <td class="time c-time"><span>{{$fmoney(item.trdAmount)}}</span>元</td>
           <td class="money c-money">{{item.remark}}</td>

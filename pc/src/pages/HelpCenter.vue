@@ -12,8 +12,8 @@
     </div>
     <div class="clearfix help-box help">
       <div class="scrollWrap">
-        <a href="#1" class="help_list">登錄註冊</a>
-        <a href="#2" class="help_list">賬戶密碼</a>
+        <a href="#1" class="help_list">登入註冊</a>
+        <a href="#2" class="help_list">帳戶密碼</a>
         <a href="#3" class="help_list" id="realNameAuth">開帳戶</a>
         <a href="#4" class="help_list">綁銀行卡</a>
         <a href="#5" class="help_list" id="recharge">儲值</a>
@@ -110,26 +110,26 @@
         <div class="help_inner">
           <div class="help_bar">
             <div class="top clearfix">
-              <span>1、進行實名認證後，能解綁或重新認證嗎？</span>
+              <span>1、進行實名認證後，能解除綁定或重新認證嗎？</span>
 
             </div>
-            <div class="bottom">用戶在網站不可以進行解綁操作，如需解綁請聯繫客服（02-8780-6767）。</div>
+            <div class="bottom">用戶在網站不可以進行解綁操作，如需解除綁定請聯繫客服（02-8780-6767）。</div>
           </div>
           <div class="help_bar">
             <div class="top clearfix">
-              <span>2、一個手機號能綁定幾個聚寶盆賬戶？</span>
+              <span>2、一個手機號能解除綁定幾個聚寶盆帳戶？</span>
 
             </div>
-            <div class="bottom">一個手機號只能綁定一個聚寶盆賬戶。
+            <div class="bottom">一個手機號只能解除綁定一個聚寶盆帳戶。
             </div>
           </div>
           <div class="help_bar">
             <div class="top clearfix">
-              <span>3、如何修改綁定手機號？</span>
+              <span>3、如何修改解除綁定手機號？</span>
 
             </div>
             <div class="bottom">
-              出於安全性考慮，用戶暫不可修改註冊時綁定的手機號。
+              出於安全性考慮，用戶暫不可修改註冊時綁定的手機號碼。
             </div>
           </div>
          <!-- <div class="help_bar">
@@ -169,7 +169,7 @@
 
             </div>
             <div class="bottom">
-              用戶不限制綁定銀行卡的數量，如需新增銀行卡，可在我的銀行資料頁面進行添加。
+              每個用戶只能綁定一張有效的銀行資料，可在我的銀行資料頁面進行換綁銀行資料。
             </div>
           </div>
           <div class="help_bar">
@@ -285,17 +285,17 @@
         <div class="help_inner">
           <div class="help_bar">
             <div class="top clearfix">
-              <span>1、申請提領後，多久能到賬？</span>
+              <span>1、申請提領後，多久能到帳？</span>
 
             </div>
-            <div class="bottom">根據銀行提供的路由通道不同，實際到賬時間各不相同，最快即時到賬。</div>
+            <div class="bottom">根據銀行提供的通路不同，實際到帳時間各不相同，最快即時到帳。</div>
           </div>
           <div class="help_bar">
             <div class="top clearfix">
               <span>2、提領會不會扣手續費？</span>
 
             </div>
-            <div class="bottom">為了回饋廣大用戶對聚寶盆的支持和信任，目前用戶儲值暫不需要支付提領費用。</div>
+            <div class="bottom">為了回饋廣大用戶對聚寶盆的支持和信任，目前用戶提領暫不需要支付提領費用。</div>
           </div>
           <div class="help_bar">
             <div class="top clearfix">
@@ -318,7 +318,7 @@
 
             </div>
             <div class="bottom">
-              提領後，聚寶盆交易記錄顯示 「銀行處理中」，並且銀行資料內餘額未增加。這是因為不同的提領路由通道到賬時間各不相同，最快即時到賬，如隔天還未到賬可聯繫客服查詢解決。
+              提領後，聚寶盆交易記錄顯示 「銀行處理中」，並且銀行資料內餘額未增加。這是因為不同的提領路由通道到帳時間各不相同，最快即時到帳，如隔天還未到帳可聯繫客服查詢解決。
             </div>
           </div>
         </div>
@@ -374,11 +374,11 @@
             </div>
             <div class="bottom">
               <ul>
-                <li>1.加息券支持購買指定產品時抵用；</li>
-                <li>2.加息券需在有效期內使用，過期作廢；</li>
-                <li>3.每筆支付只能使用一張加息券；</li>
-                <li>4.加息券使用時需要滿足起用金額；</li>
-                <li>5.已失效的加息券無法使用。。</li>
+                <li>加息券支持購買指定產品時抵用；</li>
+                <li>加息券需在有效期內使用，過期作廢；</li>
+                <li>每筆支付只能使用一張加息券；</li>
+                <li>加息券使用時需要滿足起用金額；</li>
+                <li>已失效的加息券無法使用。。</li>
               </ul>
             </div>
           </div>
@@ -401,12 +401,12 @@
             <div class="bottom">
               <span>用戶按照以下步驟進行投資：</span>
               <ul>
-                <li>1.在平台上進行註冊；</li>
-                <li>2.完成實名認證，設置支付密碼，綁定銀行資料操作；</li>
-                <li>3.帳戶儲值；</li>
-                <li>4.瀏覽產品列表，選擇自己感興趣的理財產品；</li>
-                <li>5.用戶根據所選擇的理財產品所適用的服務協議規定的要求，完成預估；</li>
-                <li>6.確認投資，投資成功。</li>
+                <li>在平台上進行註冊；</li>
+                <li>完成實名認證，設置支付密碼，綁定銀行資料操作；</li>
+                <li>帳戶儲值；</li>
+                <li>瀏覽產品列表，選擇自己感興趣的理財產品；</li>
+                <li>用戶根據所選擇的理財產品所適用的服務協議規定的要求，完成預估；</li>
+                <li>確認投資，投資成功。</li>
               </ul>
             </div>
           </div>
@@ -509,7 +509,7 @@
               <span>1、聚寶盆的理財產品有哪些？</span>
 
             </div>
-            <div class="bottom">聚寶盆的理財產品分別有：一桶金、聚寶計劃、分期投、月月盈以及聚寶盆不時推出的其他理財產品</div>
+            <div class="bottom">聚寶盆的理財產品分別有：壹桶金、聚寶計劃、分期投、月月盈以及聚寶盆不時推出的其他理財產品</div>
           </div>
          <!-- <div class="help_bar">
             <div class="top clearfix">
