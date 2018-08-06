@@ -111,7 +111,7 @@
           <div class="plan-warp-con-lf">
             <div class="date-start">
               <p>開始加入</p>
-              <p v-if="productDetail.valueDate" style="color: #999;">{{moment(productDetail.valueDate).format('YYYY年MM月DD日')}}</p>
+              <p v-if="productDetail.colBeginDate" style="color: #999;">{{moment(productDetail.colBeginDate).format('YYYY年MM月DD日')}}</p>
               <p style="visibility: hidden;" v-else>隐藏</p>
             </div>
             <div class="line-path"></div>
@@ -121,7 +121,7 @@
             <div class="date-start">
               <div>
                 <p>進入鎖定日期</p>
-                <p v-if="productDetail.colFinishDate" style="color: #999;">{{moment(productDetail.colFinishDate).format('YYYY年MM月DD日')}}</p>
+                <p v-if="productDetail.colEndDate" style="color: #999;">{{moment(productDetail.colEndDate).format('YYYY年MM月DD日')}}</p>
                 <p style="visibility: hidden;" v-else>隐藏</p>
               </div>
               <div style="text-align: right;">
@@ -131,7 +131,7 @@
               </div>
             </div>
             <div class="line-path"></div>
-            <div class="bg-progess">1個月持續計息</div>
+            <div class="bg-progess">{{productDetail.prdPeriod}}天持續計息</div>
           </div>
         </div>
       </div>

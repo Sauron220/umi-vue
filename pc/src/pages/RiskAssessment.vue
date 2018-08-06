@@ -7,7 +7,7 @@
       </div>
       <div class="risk-question">
         <div class="risk-queston-tip">
-          <p><img src="static/img/gonggao.png" alt="">本問卷調查表旨在協助投資人瞭解自身的投資狀況，主要包括投資偏好、風險承受能力及風險認知能力等方面，可以向投資人提供一些衡量自身風險屬性的指標。</p>
+          <p><img src="static/img/tips.png" alt="">本問卷調查表旨在協助投資人瞭解自身的投資狀況，主要包括投資偏好、風險承受能力及風險認知能力等方面，可以向投資人提供一些衡量自身風險屬性的指標。</p>
         </div>
         <ul class="risk-radio-question" v-for="(val, index) in questions" :key="index">
           <li class="risk-question-h">{{val.question}}</li>

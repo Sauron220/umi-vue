@@ -104,11 +104,8 @@
             </td>
             <td class="action">
               <!--:href="productUrl(item.prdType) + item.prdCode"-->
-              <a href="javascript:;" target="_blank"
-                 class="btn" @click="toDetail(item.prdType, item.prdCode)"
-                 :class="{'btn-gray':!productActive(item.status),
-                                        'btn-warning':productActive(item.status),
-                                        'gray':item.status=='12'}">
+              <a href="javascript:;" target="_blank" style="color: #333;"
+                 @click="toDetail(item.prdType, item.prdCode)">
                 {{buttonText(item.status)}}
               </a>
               <!--<a class="disabled" href="https://www.renrendai.com/loan-2588596.html" target="_blank" onclick="return false">已满标</a>-->
