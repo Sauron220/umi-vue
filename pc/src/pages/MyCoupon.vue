@@ -3,7 +3,7 @@
     <div class="container">
       <ol class="breadcrumb">
         <span>您現在的位置：</span>
-        <li><router-link to="/accountOverview">我的賬戶</router-link></li>
+        <li><router-link to="/accountOverview">我的帳戶</router-link></li>
         <li class="active">我的優惠券</li>
       </ol>
       <leftMenu></leftMenu>

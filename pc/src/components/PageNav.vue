@@ -5,7 +5,7 @@
         <ul class="list-inline pull-left top-links">
           <li>
             <a href="/aboutUs" target="_blank">
-              <img src="/static/img/phone.svg" style="position: relative;left: -2px;top: -2px;width: 14px;">客服及申訴專線：021-8780-6767
+              <img src="/static/img/phone.svg" style="position: relative;left: -2px;top: -2px;width: 14px;">客服及申訴專線：02-8780-6767
               <!--<i class="icon-num-phone icon-location"></i>客服電話：021-8780-6767-->
             </a>
           </li>
@@ -81,19 +81,19 @@
           </li>
           <li>
             <!--<a href="/product-list/7/11/1" :class="{'active':$route.fullPath == '/product-list/7/11/1'}">聚寶計劃</a>-->
-            <a href="/jubaoPlan" :class="{'active':$route.fullPath == '/jubaoPlan'}">聚寶計畫</a>
+            <a href="/jubaoPlan" :class="{'active':$route.fullPath == '/jubaoPlan' || isJu}">聚寶計畫</a>
           </li>
           <li>
-            <a href="/product-list/8/11/1" :class="{'active':$route.fullPath == '/product-list/8/11/1'}">分期投</a>
+            <a href="/product-list/8/11/1" :class="{'active':$route.fullPath == '/product-list/8/11/1' || isFen}">分期投</a>
           </li>
           <li>
-            <a href="/product-list/9/11/1" :class="{'active':$route.fullPath == '/product-list/9/11/1'}">月月盈</a>
+            <a href="/product-list/9/11/1" :class="{'active':$route.fullPath == '/product-list/9/11/1' || isYue}">月月盈</a>
           </li>
           <li>
-            <a href="/product-list/10/11/1" :class="{'active':$route.fullPath == '/product-list/10/11/1'}">債權/散標</a>
+            <a href="/product-list/10/11/1" :class="{'active':$route.fullPath == '/product-list/10/11/1' || isJai}">債權/散標</a>
           </li>
           <li>
-            <a href="/borrowing" :class="{'active':$route.fullPath == '/borrowing'}">我要借款/還款</a>
+            <a href="/borrowingInput" :class="{'active':$route.fullPath == '/borrowingInput'}">我要借款/還款</a>
           </li>
          <!-- <li class="relative product-link">
             <router-link to="/product-list">定期理財<i class="icon icon-angle-down"></i></router-link>
@@ -119,7 +119,7 @@
             <router-link
               to="/accountNew"
               :class="{'active':/(\/myAssets\/)|(\/transactionRecord\/)|(\/set)|(\/myBankcard)|(\/myCoupon)|(\/ProfileExperience)|(\/myRecommend)|(\/transactionDetails)|(\/changePwd)|(\/recharge)|(\/withdraw)/g.test($route.fullPath)}"
-            >我的賬戶
+            >我的帳戶
             </router-link>
           </li>
           <li v-if="!userInfo.loginResult">
@@ -150,8 +150,20 @@
     },
     computed:{
       isOne () {
-        return this.$store.state.prdName == '壹桶金'
-      }
+        return this.$store.state.prdName.indexOf('壹桶金') != -1;
+      },
+      isJu () {
+        return this.$store.state.prdName.indexOf('聚寶計劃') != -1;
+      },
+      isFen () {
+        return this.$store.state.prdName.indexOf('分期投') != -1;
+      },
+      isYue () {
+        return this.$store.state.prdName.indexOf('月月盈') != -1;
+      },
+      isJai () {
+        return this.$store.state.prdName.indexOf('債權') != -1;
+      },
     },
     created: function () {
       var self = this;
@@ -184,6 +196,7 @@
         self.$http.post('/pbap-web/action/user/query/logout', {}).then((res) => {
           location.href = '/'
         })
+        sessionStorage.removeItem('currentUser');
       },
       fetchNewProduct () {
         const self = this;

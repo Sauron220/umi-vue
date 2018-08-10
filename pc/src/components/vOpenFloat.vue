@@ -11,12 +11,12 @@
           <img class="oppen-img" src="../assets/images/sh-bank.jpg">
           <div class="oppen-account" v-if="vOpenAccBl">
             <div class="oppen-text1">聚寶盆攜手上海銀行保障您的資金安全</div>
-            <div class="oppen-text2">請您開通上海銀行資金存管賬戶<a class="viewDetails" target="_blank" href="http://event.zhongkejf.com/depositoryIntroduce.html">查看詳情 >></a>
+            <div class="oppen-text2">請您開通上海銀行資金存管帳戶<a class="viewDetails" target="_blank" href="http://event.zhongkejf.com/depositoryIntroduce.html">查看詳情 >></a>
             </div>
           </div>
           <div class="activate-account" v-if="!vOpenAccBl">
-            <div class="oppen-text1">您的賬戶已升級為上海銀行資金存管賬戶</div>
-            <div class="oppen-text2">請您激活上海銀行資金存管賬戶<a class="viewDetails" target="_blank" href="http://event.zhongkejf.com/depositoryIntroduce.html">查看詳情 >></a>
+            <div class="oppen-text1">您的帳戶已升級為上海銀行資金存管帳戶</div>
+            <div class="oppen-text2">請您激活上海銀行資金存管帳戶<a class="viewDetails" target="_blank" href="http://event.zhongkejf.com/depositoryIntroduce.html">查看詳情 >></a>
             </div>
           </div>
         </div>

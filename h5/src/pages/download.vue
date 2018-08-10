@@ -1,28 +1,28 @@
 <template>
   <div class="download">
     <div class='swiper-container'>
-      <div class='swiper-wrapper' style="height: 150px;">
+      <div class='swiper-wrapper' style="height: 210px;">
         <a :href="item.resLink || 'javascript:;'" class="swiper-slide" v-for="(item, index) in banners" :key="index">
-          <img class="img-responsive" :src="item.resUri" alt="" style="height: 150px;">
+          <img class="img-responsive" :src="item.resUri" alt="" style="height: 210px;">
         </a>
       </div>
       <div class="pagination"></div>
     </div>
     <div class="dec-info-warp">
       <div class="dec-info-warp-item">
-        <img src="/static/img/tuijian.png" alt="" class="img-bg">
-        <p>嚴格甄選</p>
+        <img src="/static/img/newUser.png" alt="" class="img-bg" style="width: 0.9rem;">
         <p>優質產品</p>
+        <p>服務多元</p>
       </div>
       <div class="dec-info-warp-item">
-        <img src="/static/img/shezhi.png" alt="" class="img-bg">
-        <p>六層風控</p>
+        <img src="/static/img/shezhi.png" alt="" class="img-bg" style="width: 0.95rem;">
+        <p>多重風控</p>
         <p>安全保障</p>
       </div>
       <div class="dec-info-warp-item">
-        <img src="/static/img/newUser.png" alt="" class="img-bg">
-        <p>貼心服務</p>
-        <p>便捷流程</p>
+        <img src="/static/img/tuijian.png" alt="" class="img-bg" style="width: 0.76rem;">
+        <p>一鍵投資</p>
+        <p>操作簡單</p>
       </div>
     </div>
     <div class="space-divid"></div>
@@ -32,12 +32,12 @@
       </div>
       <div class="tuijian-list-item">
         <div class="tuijian-list-item-lf">
-          <div class="rate-info">{{productRate(productInfo.defaultRate)}}</div>
+          <div class="rate-info" >{{productRate(productInfo.defaultRate)}}</div>
           <div class="rate-desc">預期年化收益</div>
         </div>
         <div class="tuijian-list-item-ri">
           <div class="rate-product">壹桶金-新手專享</div>
-          <div class="rate-desc">募集期{{productInfo.prdPeriod}}天 <span> 限投一次</span></div>
+          <div class="rate-desc cus-date" style="display: flex;align-items: center;">鎖定期{{productInfo.prdPeriod}}天 <span> 限投一次</span></div>
         </div>
       </div>
       <div class="tuijian-list-item" v-for="(item, index) in LastHomePrdList" :key="index">
@@ -47,7 +47,7 @@
         </div>
         <div class="tuijian-list-item-ri">
           <div class="rate-product">{{item.prdName}}</div>
-          <div class="rate-desc">募集期{{item.prdPeriod}}天</div>
+          <div class="rate-desc cus-date">鎖定期{{item.prdPeriod}}天</div>
         </div>
       </div>
     </div>

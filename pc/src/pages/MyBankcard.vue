@@ -4,8 +4,8 @@
       <!--<ol class="breadcrumb">
         <span>您現在的位置：</span>
         <li>
-          &lt;!&ndash;<router-link to="/accountOverview">我的賬戶</router-link>&ndash;&gt;
-          <router-link to="/accountNew">我的賬戶</router-link>
+          &lt;!&ndash;<router-link to="/accountOverview">我的帳戶</router-link>&ndash;&gt;
+          <router-link to="/accountNew">我的帳戶</router-link>
         </li>
         <li class="active">我的銀行資料</li>
       </ol>-->
@@ -57,7 +57,7 @@
             </div>
           </div>-->
         </div>
-        <!--<div class="not-card" v-if="bankCardList.length==0">您暫未綁定銀行資料，請在儲值時進行綁卡！</div>-->
+        <!--<div class="not-card" v-if="bankCardList.length==0">您暫未綁定銀行資料，請在匯款時進行綁卡！</div>-->
 
       </div>
     </div>

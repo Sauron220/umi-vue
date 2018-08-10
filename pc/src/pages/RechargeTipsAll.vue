@@ -1,7 +1,7 @@
 <template>
   <div class="tips-warp">
-    <h1 class="text-center">匯付天下儲值限額壹覽表</h1>
-    <p class="text-right">*實時限額數據以匯付天下儲值頁面為準</p>
+    <h1 class="text-center">匯付天下匯款限額壹覽表</h1>
+    <p class="text-right">*實時限額數據以匯付天下匯款頁面為準</p>
     <hr>
     <br>
     <table class="table table-bordered table-tips" id="bankTip">

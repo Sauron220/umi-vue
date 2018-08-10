@@ -37,22 +37,22 @@
 
         <div class="website-intro">
           <div class="info info1">
-            <img src="/static/img/tuijian.png">
-            <p class="info-top">嚴格甄選 優質產品</p>
-            <p class="info-desc">交易資金通過民生銀行流轉 </p>
-            <p class="info-desc">平台無法觸碰資金 </p>
+            <img src="/static/img/newUser.png">
+            <p class="info-top">優選產品 服務多元</p>
+            <p class="info-desc">提供多種投資理財服務， </p>
+            <p class="info-desc">產品豐富、期限多樣 </p>
           </div>
-          <div class="info info2">
+          <div class="info info2" style="padding-right: 20px;padding-left: 30px;">
             <img src="/static/img/shezhi.png">
-            <p class="info-top">六層風控 安全保障</p>
+            <p class="info-top">多重風控 安全保障</p>
+            <p class="info-desc">產品層層篩選，保證用戶資金安全</p>
             <p class="info-desc">借款人資質經三重審核</p>
-            <p class="info-desc">逾期率保持行業低水平</p>
           </div>
           <div class="info info3">
-            <img src="/static/img/newUser.png">
-            <p class="info-top">貼心服務 便捷流程</p>
-            <p class="info-desc">累計出借人數791,343</p>
-            <p class="info-desc">累計出借人賺取495,342萬元</p>
+            <img src="/static/img/tuijian.png">
+            <p class="info-top">一鍵投資 操作簡單</p>
+            <p class="info-desc">7×24小時在線下單</p>
+            <p class="info-desc">資金不放假，回款有規劃</p>
           </div>
           <!--<div class="info info1"><i class="icon icon-select"></i>嚴格甄選 優質產品</div>-->
           <!--<div class="info info2"><i class="icon icon-six"></i>六層風控 安全保障</div>
@@ -104,9 +104,10 @@
               <div class="front-new-user">
                 <img src="/static/img/people.png" alt="" style="width: 70px;">
               </div>
-              <p>1000元見面禮</p>
-              <p class="product-noviceArea-desc">註冊即獲得總值1000元現金券，可用於抵扣相應面值的出借金額。 </p>
-              <a class="front-new-user-reg new-user-active front-new-novice-reg" href="/register">註冊領取</a>
+              <p>註冊領1%加息券見面禮</p>
+              <p class="product-noviceArea-desc" style="text-align: left;">註冊即可領取1%加息券，可為您獲取更高的投資回報。 </p>
+              <a class="front-new-user-reg new-user-active front-new-novice-reg" style="background: #f2f2f2;" v-if="isloging" href="javascript:;">已經領取</a>
+              <a class="front-new-user-reg new-user-active front-new-novice-reg" v-else @click="isLogin" href="javascript:;">註冊領取</a>
             </div>
             <div class="col-xs-4">
               <div class="front-new-user">
@@ -122,7 +123,7 @@
                 <img src="/static/img/hand.png" alt="" style="width: 70px;">
               </div>
               <p>拿第壹桶金</p>
-              <p class="product-noviceArea-desc">首次出借新手專享項目，期待年回報率達6% 。</p>
+              <p class="product-noviceArea-desc" style="text-align: left;">首次出借新手專享項目，期待年回報率達6% 。</p>
               <div class="front-new-user-reg new-user-active front-new-novice-reg" @click="toBucketDeatil" style="cursor: pointer;">完成出借</div>
             </div>
           </div>
@@ -196,7 +197,7 @@
                        :style="{'width':products[30].colPercent+'%'}"></div>
                 </div>
               </div>
-              <div class="pull-left progress-text">{{products[30].colPercent}}%</div>
+              <div class="pull-left progress-text" style="width: 40px;">{{products[30].colPercent}}%</div>
               <a class="btn btn-warning product-link set-margin" target="_blank" @click="toBucketDeatil"
                  href="javascript:;"
                  :class="{'gray':!(products[30].status == 11 || products[30].status == 12)}">
@@ -278,7 +279,7 @@
           <a class="pull-right text-muted more" href="/product-list/7/11/1" target="_blank">查看更多</a>
         </div>
       </h4>
-      <div class="product-area product-box" style="background: none;">
+      <div class="product-area product-box front-bg">
         <div class="plan-container">
           <!--<div class="product-month xrt-row" style="border: none;">
             <div class="col-xs-3">
@@ -313,8 +314,8 @@
           <div class="plan-case-item" v-for="(item, index) in juBaoArr" :key="index" v-if="index < 3">
             <div class="plan-case-item-t">
               <div class="plan-case-item-t-l">
-                <p class="rate">{{item.defaultRate ? $fmoney(formatNum(item.defaultRate || 0, 100), 1) : '--'}}<span v-if="item.rewardRate">+{{$fmoney(formatNum(item.rewardRate || 0, 100), 1)}}%</span></p>
-                <p class="desc">预期年化收益</p>
+                <p class="rate">{{item.defaultRate ? $fmoney(formatNum(item.defaultRate || 0, 100), 1) : '--'}}%<span v-if="item.rewardRate">+{{$fmoney(formatNum(item.rewardRate || 0, 100), 1)}}%</span></p>
+                <p class="desc">預期年化收益</p>
               </div>
               <div class="plan-case-item-t-m"></div>
               <div class="plan-case-item-t-r">
@@ -367,9 +368,9 @@
                        :style="{'width':products[8].colPercent+'%'}"></div>
                 </div>
               </div>
-              <div class="pull-left progress-text">{{products[8].colPercent}}%</div>
-              <a class="btn btn-warning product-link set-margin" target="_blank"
-                 :href="products[8].prdCode?'/product/'+products[8].prdCode:'javascript:;'"
+              <div class="pull-left progress-text" style="width: 40px;">{{products[8].colPercent}}%</div>
+              <a class="btn btn-warning product-link set-margin" target="_blank" @click="toDetail(products[8].prdCode)"
+                 href="javascript:;"
                  :class="{'gray':!(products[8].status == 11 || products[8].status == 12)}">
                 {{products[8].status == 11 || products[8].status == 12 ? '立即加入' : '查看詳情'}}
               </a>
@@ -416,9 +417,9 @@
                        :style="{'width':products[9].colPercent+'%'}"></div>
                 </div>
               </div>
-              <div class="pull-left progress-text">{{products[9].colPercent}}%</div>
+              <div class="pull-left progress-text" style="width: 40px;">{{products[9].colPercent}}%</div>
               <a class="btn btn-warning product-link set-margin" target="_blank"
-                 :href="products[9].prdCode?'/product/'+products[9].prdCode:'javascript:;'"
+                 href="javascript:;" @click="toDetail(products[9].prdCode)"
                  :class="{'gray':!(products[9].status == 11 || products[9].status == 12)}">
                 {{products[9].status == 11 || products[9].status == 12 ? '立即加入' : '查看詳情'}}
               </a>
@@ -433,9 +434,9 @@
           自主投資 期限靈活
         </div>
         <div class="gongg" style="display: inline;">
-          <a class="pull-right text-muted more img-bg" href="/product-list/30/11/1" target="_blank"
+          <a class="pull-right text-muted more img-bg" href="/product-list/10/11/1" target="_blank"
              style="top: -4px;margin-left:8px;"></a>
-          <a class="pull-right text-muted more" href="/product-list/0/11/1" target="_blank">查看更多</a>
+          <a class="pull-right text-muted more" href="/product-list/10/11/1" target="_blank">查看更多</a>
         </div>
       </h4>
       <div class="product-result" >
@@ -563,27 +564,34 @@
         console.log(self.products[30])
       })
       //聚宝计划
-      self.$http.post('/pbap-web/action/product/query/lastHomePrd?7', {typeArr: [7], visibleTerm: 2}).then((res) => {
-        self.juBaoArr = res.body.respInfo.product || [];
-        if (res.body.respInfo.product.length < 3) {
-          let _len = res.body.respInfo.product.length;
+      self.$http.post('/pbap-web/action/product/query/prdList', {
+        pageSize:3,
+        prdType:"7",
+        status:"11",
+        pageIndex:"1",
+      }).then((res) => {
+        self.juBaoArr = res.body.respInfo.prdList.dataList || {};
+        if (res.body.respInfo.prdList.dataList.length < 3) {
+          let _len = res.body.respInfo.prdList.dataList.length;
           for (let i = 0; i < 3-_len; i++) {
             self.juBaoArr.push({});
           }
         }
-      })
+      });
       self.$http.post('/pbap-web/action/product/query/lastHomePrd?8', {typeArr: [8], visibleTerm: 2}).then((res) => {
         self.products[8] = res.body.respInfo.product[0] || {};
       })
       self.$http.post('/pbap-web/action/product/query/lastHomePrd?9', {typeArr: [9], visibleTerm: 2}).then((res) => {
         self.products[9] = res.body.respInfo.product[0] || {};
       })
-      self.$http.post('/pbap-web/action/product/query/lastHomePrd', {
-        typeArr: [1],
-        visibleTerm: 2,
+      self.$http.post('/pbap-web/action/product/query/prdList', {
+        pageSize: 4,
+        prdType: null,
+        status: 11,
+        pageIndex: 1,
         prdNature: 1
       }).then((res) => {
-        self.productList = res.body.respInfo.product || {};
+        self.productList = res.body.respInfo.prdList.dataList || {};
       })
 
       /*// 新聞
@@ -609,6 +617,11 @@
         })
         self.couperSlider.resizeFix()
       })*/
+    },
+    computed:{
+      isloging() {
+        return sessionStorage.getItem('currentUser') && JSON.parse(sessionStorage.getItem('currentUser'))['cusMobile'] != null ? true : false;
+      }
     },
     methods: {
       couperSliderPre() {
@@ -657,6 +670,19 @@
       },
       toBucketDeatil() {
         this.$router.push({path: 'bucketGold'});
+      },
+      isLogin(){
+        const _isLogin = JSON.parse(sessionStorage.getItem('currentUser'))['cusMobile'];
+        if (_isLogin) {
+          this.$store.commit('setModal', {
+            type: 'alert',
+            msg: '已登入',
+            confirmText: '我知道了'
+          });
+          this.$store.commit('showModal');
+        } else {
+          this.$router.push('/register')
+        }
       }
     }
   }

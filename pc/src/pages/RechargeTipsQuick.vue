@@ -1,6 +1,6 @@
 <template>
   <div class="tips-warp">
-    <h1 class="text-center">上海銀行儲值限額壹覽表</h1>
+    <h1 class="text-center">上海銀行匯款限額壹覽表</h1>
     <p class="text-right">*本表數據為非實時數據，僅供參考</p>
     <hr>
     <br>

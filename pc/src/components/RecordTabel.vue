@@ -1,12 +1,12 @@
 <template>
-  <div class="product-list table-p" style="background: #fff;padding-bottom: 10px;margin-bottom: 20px;">
+  <div class="product-list table-p" style="background: #fff;padding-bottom: 10px;margin-bottom: 20px;padding-left: 30px;padding-right: 30px;">
     <div class="table">
       <table class="t-caption">
         <thead>
           <tr>
-            <th class="rate regular-rate" style="width: 360px;">交易時間</th>
-            <th class="name c-name" style="width: 360px;">交易類型</th>
-            <th class="time c-time" style="width: 360px;">交易金額</th>
+            <th class="rate regular-rate" style="width: 360px;background: #fafafa;">交易時間</th>
+            <th class="name c-name" style="width: 360px;background: #fafafa;">交易類型</th>
+            <th class="time c-time" style="width: 360px;background: #fafafa;">交易金額</th>
             <!--<th class="money r-money">結餘</th>-->
           </tr>
         </thead>
@@ -110,7 +110,7 @@
       getStatus(dType){
         let tType;
         if (dType == "CO") {
-          tType = "儲值";
+          tType = "匯款";
         } else if (dType == "WD") {
           tType = "提領"
         } else if (dType == "IV") {

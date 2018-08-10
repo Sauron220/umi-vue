@@ -6,7 +6,7 @@
       </div>
       <div class="col-md-9 col-xs-3">
         <h1>恭喜您提領申請成功！</h1>
-        <p>實際到賬時間以銀行到賬時間為準</p>
+        <p>實際到帳時間以銀行到帳時間為準</p>
       </div>
     </div>
     <div class="bottom-info">

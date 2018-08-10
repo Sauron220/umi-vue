@@ -3,9 +3,9 @@
     <div class="container">
       <!--<ol class="breadcrumb">
         <span>您現在的位置：</span>
-        &lt;!&ndash;<li><router-link to="/accountOverview">我的賬戶</router-link></li>&ndash;&gt;
-        <li><router-link to="/accountNew">我的賬戶</router-link></li>
-        &lt;!&ndash;<li><router-link to="/set">賬戶安全</router-link></li>&ndash;&gt;
+        &lt;!&ndash;<li><router-link to="/accountOverview">我的帳戶</router-link></li>&ndash;&gt;
+        <li><router-link to="/accountNew">我的帳戶</router-link></li>
+        &lt;!&ndash;<li><router-link to="/set">帳戶安全</router-link></li>&ndash;&gt;
         <li class="active">實名認證</li>
       </ol>-->
       <!--<leftMenu></leftMenu>-->

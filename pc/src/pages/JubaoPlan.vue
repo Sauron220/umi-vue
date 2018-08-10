@@ -16,13 +16,13 @@
           <a class="pull-right text-muted more" style="font-size: 12px" href="/product-list/7/11/1" target="_blank">查看更多</a>
         </div>
       </h4>
-      <div class="product-area product-box" style="background: none;">
+      <div class="product-area product-box">
         <div class="plan-container">
           <div class="plan-case-item" v-for="(item, index) in products" :key="index" v-if="index < 3">
             <div class="plan-case-item-t">
               <div class="plan-case-item-t-l">
-                <p class="rate">{{item.defaultRate ? $fmoney(formatNum(item.defaultRate || 0, 100), 1) : '--'}}<span v-if="item.rewardRate">+{{$fmoney(formatNum(item.rewardRate || 0, 100), 1)}}%</span></p>
-                <p class="desc">预期年化收益</p>
+                <p class="rate">{{item.defaultRate ? $fmoney(formatNum(item.defaultRate || 0, 100), 1) : '--'}}%<span v-if="item.rewardRate">+{{$fmoney(formatNum(item.rewardRate || 0, 100), 1)}}%</span></p>
+                <p class="desc">預期年化收益</p>
               </div>
               <div class="plan-case-item-t-m"></div>
               <div class="plan-case-item-t-r">
@@ -147,10 +147,15 @@
     created() {
       const self = this;
       sessionStorage.getItem('flag') ? this.flag = sessionStorage.getItem('flag') : this.flag = 1;
-      self.$http.post('/pbap-web/action/product/query/lastHomePrd?7', {typeArr: [7], visibleTerm: 2}).then((res) => {
-        self.products = res.body.respInfo.product || {};
-        if (res.body.respInfo.product.length < 3) {
-          let _len = res.body.respInfo.product.length;
+      self.$http.post('/pbap-web/action/product/query/prdList', {
+        pageSize:3,
+        prdType:"7",
+        status:"11",
+        pageIndex:"1",
+      }).then((res) => {
+        self.products = res.body.respInfo.prdList.dataList || {};
+        if (res.body.respInfo.prdList.dataList.length < 3) {
+          let _len = res.body.respInfo.prdList.dataList.length;
           for (let i = 0; i < 3-_len; i++) {
             self.products.push({});
           }

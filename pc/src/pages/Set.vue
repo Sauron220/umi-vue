@@ -3,22 +3,22 @@
     <div class="container">
       <ol class="breadcrumb">
         <span>您現在的位置：</span>
-        <li><router-link to="/accountOverview">我的賬戶</router-link></li>
-        <li class="active">賬戶安全</li>
+        <li><router-link to="/accountOverview">我的帳戶</router-link></li>
+        <li class="active">帳戶安全</li>
       </ol>
       <leftMenu></leftMenu>
       <div class="pull-left right_content">
         <ul class="top-title-line list-inline">
           <li class="top-line1 top-orange">
-            <span class="active">賬戶安全</span>
+            <span class="active">帳戶安全</span>
           </li>
         </ul>
 
         <!--<div class="bar clearfix">
-          <h1>銀行存管賬戶</h1>
+          <h1>銀行存管帳戶</h1>
           <h2 class="no-set" v-if="custInfo.activateStatus != 1">未開通</h2>
           <h2 class="set" v-if="custInfo.activateStatus == 1">已開通</h2>
-          <p>為了您的資金安全，必須開通上海銀行存管賬戶，才能投資</p>
+          <p>為了您的資金安全，必須開通上海銀行存管帳戶，才能投資</p>
           <span v-if="custInfo.activateStatus != 1">
           <router-link class="go-real" :to="isOpen">開戶</router-link>
         </span>

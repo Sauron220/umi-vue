@@ -2,7 +2,7 @@
   <div class="month-bill-warp">
     <div class="month-bill-hed">
       <div class="bill-hed-lf">
-        <h4 class="bill-hed-lf-t">月度賬單</h4>
+        <h4 class="bill-hed-lf-t">月度帳單</h4>
         <h4 class="bill-hed-lf-d">*所有數據截至{{dates | fomatDate}}</h4>
       </div>
       <div class="bill-hed-ri">
@@ -24,14 +24,14 @@
             </div>
             <ul class="bill-list">
               <li
-                :class="{'bill-1': index+1 == 1,'bill-2': index+1 == 2,'bill-3': index+1 == 3,'bill-4': index+4 == 4}"
-                v-for="(item, index) in proMonthList" :key="index">{{ item.prdType |
-                proName}}{{$fmoney(item.incomeAmount)}}元
+                :class="{'bill-1': item.prdType == '70','bill-2': item.prdType == '7','bill-3': item.prdType == '8','bill-4': item.prdType == '9', 'bill-5': item.prdType == '-'}"
+                v-for="(item, index) in proMonthList" :key="index">{{ item.prdType | proName}}{{$fmoney(item.incomeAmount)}}元
               </li>
               <li class="bill-1" v-if="!proMonthList.length">壹桶金0.00元</li>
               <li class="bill-2" v-if="!proMonthList.length">聚寶計畫0.00元</li>
               <li class="bill-3" v-if="!proMonthList.length">分期頭0.00元</li>
               <li class="bill-4" v-if="!proMonthList.length">月月盈0.00元</li>
+              <li class="bill-5" v-if="!proMonthList.length">散標0.00元</li>
             </ul>
           </div>
           <div class="bill-lf-bot-ri">
@@ -51,7 +51,7 @@
             </div>
             <ul class="bill-list">
               <li
-                :class="{'bill-1': index+1 == 1,'bill-2': index+1 == 2,'bill-3': index+1 == 3,'bill-4': index+4 == 4}"
+                :class="{'bill-1': item.prdType == '70','bill-2': item.prdType == '7','bill-3': item.prdType == '8','bill-4': item.prdType == '9', 'bill-5': item.prdType == '-'}"
                 v-for="(item, index) in proMonthList" :key="index">{{ item.prdType |
                 proName}}{{$fmoney(item.trdAmount)}}元
               </li>
@@ -59,6 +59,7 @@
               <li class="bill-2" v-if="!proMonthList.length">聚寶計畫0.00元</li>
               <li class="bill-3" v-if="!proMonthList.length">分期頭0.00元</li>
               <li class="bill-4" v-if="!proMonthList.length">月月盈0.00元</li>
+              <li class="bill-5" v-if="!proMonthList.length">散標0.00元</li>
             </ul>
           </div>
           <div class="bill-lf-bot-ri">
@@ -70,7 +71,7 @@
     <div class="bill-fot">
       <div class="bill-fot-c">
         <p>{{$fmoney(totalRechargeAmount)}} <span>元</span></p>
-        <p>本月儲值金額</p>
+        <p>本月匯款金額</p>
       </div>
       <div class="bill-fot-t">
         <p>{{$fmoney(totalWithdrawAmount)}}<span>元</span></p>
@@ -238,7 +239,13 @@
               cursor: 'pointer',
               size: 180,
               innerSize: '100',
-              colors: self.proMonthList.length != 0 ? ["#f4ae3d", "#428aed", "#f7c748", '#1e5bc9', '#eb2323'] : ["#d9d9d9"],
+              colors: self.proMonthList.length != 0 ? [
+                (self.rateOne || self.oRateOne) && "#f4ae3d",
+                (self.rateTwo || self.oRateTwo) && "#f7c748",
+                (self.rateThree || self.oRateThree) && "#428aed",
+                (self.rateFoure || self.oRateFoure) && '#1e5bc9',
+                (self.rateFive || self.oRateFive) && '#eb2323']
+                : ["#d9d9d9"],
               dataLabels: {
                 enabled: false
               },

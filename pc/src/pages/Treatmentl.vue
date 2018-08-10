@@ -5,9 +5,9 @@
         <img  src="../assets/images/500.png">
       </div>
       <div class="col-md-9 col-xs-3">
-        <h1>儲值處理中！</h1>
-        <p>您可以在個人中心的交易記錄中查看儲值結果</p>
-        <a :href="'/transactionDetails/'+ $route.query.tradeCode +'/CO'" type="button" class="btn btn-warning btn-recharge">查看儲值結果</a>
+        <h1>匯款處理中！</h1>
+        <p>您可以在個人中心的交易記錄中查看匯款結果</p>
+        <a :href="'/transactionDetails/'+ $route.query.tradeCode +'/CO'" type="button" class="btn btn-warning btn-recharge">查看匯款結果</a>
       </div>
     </div>
     <div class="bottom-info">
@@ -23,7 +23,7 @@
       return {
         msg: 'Welcome to Your Vue.js App',
         TDK:{
-          title:'儲值處理中',
+          title:'匯款處理中',
         }
       }
     },

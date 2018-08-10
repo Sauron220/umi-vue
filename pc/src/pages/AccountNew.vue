@@ -3,7 +3,7 @@
     <div class="nav-head">
       <div class="nav-con">
         <div class="nav-tit" @click="toNext(1)" :class="{'active': flag == 1}">我的資產</div>
-        <div class="nav-tit" @click="toNext(2)" :class="{'active': flag == 2}">我的優惠卷</div>
+        <div class="nav-tit" @click="toNext(2)" :class="{'active': flag == 2}">我的優惠券</div>
         <div class="nav-tit" @click="toNext(3)" :class="{'active': flag == 3}">消息中心</div>
         <div class="nav-tit" @click="toNext(4)" :class="{'active': flag == 4}">帳號設置</div>
         <!--<div class="nav-tit" @click="toNext(5)" :class="{'active': flag == 5}">我的銀行資料</div>-->

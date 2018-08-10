@@ -3,8 +3,8 @@
     <div class="container">
       <!--<ol class="breadcrumb">
         <span>您現在的位置：</span>
-        <li><router-link to="/accountOverview">我的賬戶</router-link></li>
-        <li><router-link to="/set">賬戶安全</router-link></li>
+        <li><router-link to="/accountOverview">我的帳戶</router-link></li>
+        <li><router-link to="/set">帳戶安全</router-link></li>
         <li class="active">修改密碼</li>
       </ol>
       <leftMenu></leftMenu>-->
@@ -106,13 +106,15 @@
           "usrPwd" : self.pwd,
           "newUsrPwd" : self.pwdNew
         }).then(response => {
-          self.$store.commit('setModal',{
-            show:false,
-            type:'alert',
-            msg:'登錄密碼修改成功',
-            confirmUrl:'/set'
-          });
-          self.$store.commit('showModal');
+          if (response.body.errorInfo.errorCode == '0000') {
+            self.$store.commit('setModal',{
+              show:false,
+              type:'alert',
+              msg:'登錄密碼修改成功',
+              confirmUrl:'/mineAccount'
+            });
+            self.$store.commit('showModal');
+          }
         });
       }
     }

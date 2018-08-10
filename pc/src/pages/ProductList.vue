@@ -89,7 +89,7 @@
             <th class="time">期限</th>
             <th class="money">金額</th>
             <th class="progress">進度</th>
-            <th class="action"><img src="/static/img/reset-list.png" style="margin-right:10px;">重置</th>
+            <th class="action">操作</th>
           </tr>
           </thead>
           <tbody class="data-list">
@@ -288,13 +288,19 @@
         }
       },
       toDetail(prdType, prdCode) {
+        const _prdType = this.$route.params.prdType;
         sessionStorage.setItem('proCode', prdCode);
         if (prdType == '40') {
           this.$router.push({name: 'Private', params: {prdCode: prdCode}})
         } else if (prdType == '70') {
           this.$router.push({name: 'Experience', params: {prdCode: prdCode}})
         } else {
-          this.$router.push('/bucketGold');
+          if (_prdType == '10') {
+            this.$router.push({name: 'Product', params:{prdCode: prdCode}})
+          } else {
+            this.$router.push('/bucketGold');
+          }
+
         }
       }
     }

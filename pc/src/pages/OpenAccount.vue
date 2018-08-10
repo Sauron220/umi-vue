@@ -5,10 +5,10 @@
       <!--<ol class="breadcrumb">
         <span>您現在的位置：</span>
         <li>
-          <router-link to="/accountOverview">我的賬戶</router-link>
+          <router-link to="/accountOverview">我的帳戶</router-link>
         </li>
         <li>
-          <router-link to="/set">賬戶安全</router-link>
+          <router-link to="/set">帳戶安全</router-link>
         </li>
         <li class="active">實名認證</li>
       </ol>
@@ -140,7 +140,7 @@
             show: false,
             type: 'alert',
             msg: '實名認證申請成功',
-            confirmUrl: '/set'
+            confirmUrl: '/mineAccount'
           });
           self.$store.commit('showModal');
         }, res => {

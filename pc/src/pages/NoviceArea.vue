@@ -30,8 +30,8 @@
                 <img src="/static/img/people.png" alt="" style="width: 70px;">
               </div>
               <p>1000元見面禮</p>
-              <p class="product-noviceArea-desc">註冊即獲得總值1000元現金券，可用於抵扣相應面值的出借金額。</p>
-              <a class="front-new-user-reg new-user-active front-new-novice-reg" href="/register">注冊領取</a>
+              <p class="product-noviceArea-desc" style="text-align: left;">註冊即獲得總值1000元現金券，可用於抵扣相應面值的出借金額。</p>
+              <a class="front-new-user-reg new-user-active front-new-novice-reg" @click="isLogin" href="javascript:;">注冊領取</a>
             </div>
             <div class="col-xs-4">
               <div class="front-new-user">
@@ -46,7 +46,7 @@
                 <img src="/static/img/hand.png" alt="" style="width: 70px;">
               </div>
               <p>拿第壹桶金</p>
-              <p class="product-noviceArea-desc">首次出借新手專享項目，期待年回報率達6% 。</p>
+              <p class="product-noviceArea-desc" style="text-align: left;">首次出借新手專享項目，期待年回報率達6% 。</p>
               <a class="front-new-user-reg new-user-active front-new-novice-reg"  @click="toBucketDeatil" href="javascript:;">完成出借</a>
             </div>
           </div>
@@ -92,7 +92,7 @@
         TDK: {
           title:'聚寶盆新手專區',
           keyWords:'聚寶盆收益,聚寶盆收費標準,聚寶盆利息,聚寶盆提領',
-          description:'聚寶盆會員幫助中心幫您解決登錄註冊、賬戶資訊、儲值提領、產品介紹等壹系列問題‘，有問題找幫助中心，希望給您的預訂疑問提供幫助! 服務熱線 02-8780-6767 。',
+          description:'聚寶盆會員幫助中心幫您解決登錄註冊、帳戶資訊、匯款提領、產品介紹等壹系列問題‘，有問題找幫助中心，希望給您的預訂疑問提供幫助! 服務熱線 02-8780-6767 。',
         }
       }
     },
@@ -104,7 +104,6 @@
         pageSize: 5,
         resModule: 4
       }).then((res) => {
-        res.body.respInfo.list.dataList.push({resUri:'/static/img/friend.png'});
         self.banners = res.body.respInfo.list.dataList;
         self.$nextTick(function () {
           self.mySwipe = new Swipe('.swiper-container', {
@@ -126,7 +125,20 @@
       toBucketDeatil() {
         localStorage.setItem('proCode', this.products[30].prdCode);
         this.$router.push({path: 'bucketGold'});
-      }
+      },
+      isLogin(){
+        const _isLogin = JSON.parse(sessionStorage.getItem('currentUser'))['cusMobile'];
+        if (_isLogin) {
+          this.$store.commit('setModal', {
+            type: 'alert',
+            msg: '已登入',
+            confirmText: '我知道了'
+          });
+          this.$store.commit('showModal');
+        } else {
+          this.$router.push('/register')
+        }
+      },
     }
   }
 </script>

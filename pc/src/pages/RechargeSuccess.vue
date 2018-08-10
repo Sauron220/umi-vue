@@ -6,7 +6,7 @@
       </div>
       <div class="col-md-9 col-xs-3">
         <br><br>
-        <h1>恭喜您儲值成功！</h1>
+        <h1>恭喜您匯款成功！</h1>
       </div>
     </div>
    <div class="bottom-info">
@@ -22,7 +22,7 @@
       return {
         msg: 'Welcome to Your Vue.js App',
         TDK:{
-          title:'儲值成功',
+          title:'匯款成功',
         }
       }
     },

@@ -4,7 +4,7 @@
       <!--<ol class="breadcrumb">
         <span>您現在的位置：</span>
         <li>
-          <router-link to="/accountOverview">我的賬戶</router-link>
+          <router-link to="/accountOverview">我的帳戶</router-link>
         </li>
         <li class="active">添加銀行資料</li>
       </ol>
@@ -18,7 +18,7 @@
             <!-- <form action="" method="post" submit="account" novalidate
                    id="openForm" v-if="firstShow">
                  <img class="bank-line" src="../assets/images/bank-line-01.jpg">
-                 <div class="bank-tip"><span style="color: #ff0000;">溫馨提示：</span>當前銀行資料必須七天內無快捷儲值交易方可換綁。</div>
+                 <div class="bank-tip"><span style="color: #ff0000;">溫馨提示：</span>當前銀行資料必須七天內無快捷匯款交易方可換綁。</div>
                  <div class="form_bar clearfix">
                      <span class="input-label">當前銀行資料</span> <label class="form_lab"
                                                                    id="oldCardNum">{{bankCardInfo.cardNumShort}}</label>
@@ -63,7 +63,7 @@
                                                              name="newCardNum" maxlength="20"
                                                              v-validate="{rules:{required:true,bankCardNum:true}}">
                 <i class="p-error">{{errors.first('newCardNum')}}</i>
-                <!--<div class="pro-tip">僅支持借記卡，不支持信用卡和存折，此卡用於快捷儲值和提領</div>-->
+                <!--<div class="pro-tip">僅支持借記卡，不支持信用卡和存折，此卡用於快捷匯款和提領</div>-->
               </div>
               <div class="form_bar clearfix">
                 <span class="input-label">開戶銀行</span>

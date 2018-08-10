@@ -10,8 +10,9 @@
         <form action="" onsubmit="return false">
           <div class="form-content">
             <router-link class="login-res" to="/login" style="border-right:1px solid #e9e9e9;">登錄</router-link><router-link class="login-res" to="/register">註冊</router-link>
-            <div class="form-bar form-group">
-              <input v-model="phone" placeholder="請輸入手機號碼" class="form-control"
+            <div class="form-bar form-group input-group">
+              <div class="input-group-addon bgColor-b" >台灣 +886</div>
+              <input v-model="phone" placeholder="請輸入手機號碼" class="form-control bgColor-b"
                      autocomplete="off" maxlength="10"
                      v-validate="{rules:{required:true,digits:10,phoneNum:true}}" type="text"
                      name="phone">
@@ -19,10 +20,10 @@
             </div>
             <div class="form-bar">
               <input type="password" v-if="!showPwd" v-model="pwd" minlength="6" maxlength="20"
-                     placeholder="請輸入登錄密碼" class="form-control"
+                     placeholder="請輸入登錄密碼" class="form-control bgColor-b"
                      v-validate="{rules:{required:true,pwd:true}}" name="pwd">
               <input type="text" v-if="showPwd" v-model="pwd" minlength="6" maxlength="20"
-                     placeholder="請輸入登錄密碼" class="form-control"
+                     placeholder="請輸入登錄密碼" class="form-control bgColor-b"
                      v-validate="{rules:{required:true,pwd:true}}" name="pwd">
               <span class="icon cipherText" :class="showPwd?'icon-eye-open':'icon-eye-close'"
                     @click="showPwd = !showPwd" style="left:328px;"></span>
@@ -40,8 +41,8 @@
       </div>
       <div class="slider">
         <div class="background">
-          <div class="bannerLoad">
-            <img src="../assets/images/form_banner2.png">
+          <div class="bannerLoad" style="height: 528px;">
+            <img src="../assets/images/form_banner2.png" style="height: 528px;">
           </div>
         </div>
       </div>
@@ -87,7 +88,7 @@
         remark:'',
         TDK:{
           title:'會員登錄-聚寶盆',
-          keyWords:'會員登陸,理財賬戶,個人投資理財,聚寶盆',
+          keyWords:'會員登陸,理財帳戶,個人投資理財,聚寶盆',
           description:'歡迎登陸聚寶盆理財平臺！理財選聚寶盆，6道風控審核保障，理財更安全！',
         }
       }

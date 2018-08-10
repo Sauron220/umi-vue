@@ -3,7 +3,7 @@
     <div class="container">
       <ol class="breadcrumb">
         <span>您現在的位置：</span>
-        <li><router-link to="/accountOverview">我的賬戶</router-link></li>
+        <li><router-link to="/accountOverview">我的帳戶</router-link></li>
         <li class="active">體驗金</li>
       </ol>
       <leftMenu></leftMenu>
@@ -170,7 +170,7 @@
       this.getRecord(this.$route.params.pageAt);
       this.getExperInfo();
 
-      // 判斷用戶是否實名&儲值提領按鈕
+      // 判斷用戶是否實名&匯款提領按鈕
       self.$http.post('/pbap-web/action/customer/query/custAuthInfo', {}).then((res) => {
         self.custInfo = res.body.respInfo.custInfo;
       });
@@ -226,7 +226,7 @@
                 if(res.body.errorInfo.errorCode == '0000'){
                   self.$store.commit('setModal', {
                     type: 'alert',
-                    msg: '領取成功，請關註您的賬戶餘額！',
+                    msg: '領取成功，請關註您的帳戶餘額！',
                     confirmUrl:'/ProfileExperience/coupon/0/1'
                   });
                   self.$store.commit('showModal');

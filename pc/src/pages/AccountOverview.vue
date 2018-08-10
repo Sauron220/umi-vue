@@ -6,7 +6,7 @@
         <li>
           <router-link to="/">首頁</router-link>
         </li>
-        <li class="active">我的賬戶</li>
+        <li class="active">我的帳戶</li>
       </ol>
       <leftMenu></leftMenu>
       <div class="pull-left right_content">
@@ -23,9 +23,9 @@
           </div>
           <div class="col-md-4 top3">
             <a href="javascript:;" @click="linkToRealName()" v-if="custInfo.tpStatus!=1 || !custInfo.payPwdOK"
-               class="btn btn-warning btn-recharge">儲值</a>
+               class="btn btn-warning btn-recharge">匯款</a>
             <a href="/recharge" v-if="custInfo.tpStatus==1 && custInfo.payPwdOK"
-               class="btn btn-warning btn-recharge">儲值</a>
+               class="btn btn-warning btn-recharge">匯款</a>
             <a :href="linkTo" @click="linkToRealName()"
                v-if="custInfo.tpStatus!=1 || !custInfo.payPwdOK || bankCardList.length==0"
                class="btn btn-warning btn-withdrawals">提領</a>
@@ -99,9 +99,9 @@
         linkTo: 'javascript:void(0)',
         bankCardList: [],
         TDK: {
-          title: '賬戶總覽-聚寶盆',
-          keyWords: '賬戶總覽,理財賬戶,聚寶盆',
-          description: '歡迎進入聚寶盆會員中心,在這裏您可以制定個人理財規劃，投資聚寶計劃、分期投、月月盈、尊享計劃等，可以進行儲值、體現等操作。',
+          title: '帳戶總覽-聚寶盆',
+          keyWords: '帳戶總覽,理財帳戶,聚寶盆',
+          description: '歡迎進入聚寶盆會員中心,在這裏您可以制定個人理財規劃，投資聚寶計劃、分期投、月月盈、尊享計劃等，可以進行匯款、體現等操作。',
         }
       }
     },
@@ -216,7 +216,7 @@
         }
 
       });
-      // 判斷用戶是否實名&儲值提領按鈕
+      // 判斷用戶是否實名&匯款提領按鈕
       self.$http.post('/pbap-web/action/customer/query/custAuthInfo', {}).then((res) => {
         self.custInfo = res.body.respInfo.custInfo;
         self.tpStatus = self.custInfo.tpStatus;
@@ -233,17 +233,17 @@
               /* self.isOpen = true;
                self.vOpenAcc = false;
                self.isActive = false;
-               self.titleStr = '點擊激活上海銀行存管賬戶';
+               self.titleStr = '點擊激活上海銀行存管帳戶';
                self.openLink = '/tpAccount';*/
             } else {
               /*self.isActive = true;
-              self.titleStr = '已開通上海銀行存管賬戶';*/
+              self.titleStr = '已開通上海銀行存管帳戶';*/
             }
 //          } else if (self.tpStatus == 0) {
 //            self.isOpen = true;
 //            self.vOpenAcc = true;
 //            self.isActive = false;
-//            self.titleStr = '點擊開通上海銀行存管賬戶';
+//            self.titleStr = '點擊開通上海銀行存管帳戶';
 //            self.openLink = '/openAccount';
 
           }

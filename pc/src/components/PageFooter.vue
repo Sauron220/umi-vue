@@ -9,7 +9,7 @@
              <a target="_blank">百度</a>
              <a target="_blank">百度</a>
              <a target="_blank">百度</a>-->
-            <a v-for="item in friendLink" :href="item.coopUrl" style="border:none;color: #b3b3b3;" target="_blank">{{item.coopName}}</a>
+            <a v-for="item in friendLink" :href="item.coopUrl" style="border:none;color: #b3b3b3;font-size: 14px;" target="_blank">{{item.coopName}}</a>
           </div>
         </div>
         <div class="link-info">
@@ -18,17 +18,17 @@
               客戶服務：
             </li>
             <li>
-              <a href="/aboutUs" target="_blank" style="color: #b3b3b3;">關於聚寶盆</a>
+              <a href="/aboutUs" target="_blank" style="color: #b3b3b3;font-size: 14px;">關於聚寶盆</a>
             </li>
             <li>
-              <a href="/helpCenter" target="_blank" style="color: #b3b3b3;">幫助中心</a>
+              <a href="/helpCenter" target="_blank" style="color: #b3b3b3;font-size: 14px;">幫助中心</a>
             </li>
           </ul>
           <!--<div class="clearfix"></div>-->
 
         </div>
           <div class="clearfix"></div>
-        <div style="border-top:1px solid #e6e6e6;padding-top:40px;">
+        <div style="border-top:1px solid #e6e6e6;padding-top:30px;">
           <div class="service" style="margin-left:0;">
             <h4>客服及申訴專線</h4><span>02-8780-6767</span>
             <div class="service-time">服務時間:9:00-18:00節假日除外</div>
@@ -49,10 +49,10 @@
           <h4>聚寶盆公眾號</h4><img src="../assets/images/wechat.png" style="margin-top: 16px;">
         </div>
         <div class="service" style="margin-left:0;">
-          <h4>客服傳真</h4><span>02-2722-0283</span>
+          <h4>客服及申訴傳真</h4><span>02-2722-0283</span>
         </div>
 
-          <div class="service" style="margin-left:136px;">
+          <div class="service" style="margin-left:130px;">
             <h4>辦公地址</h4><span>台北市信義區忠孝東路五段68號21樓</span>
             <div class="service-time">21F.,No.68,Sec.5,Zhongxiao E.Rd.,Xinyi Dist.,Taipei City 110,Taiwan (R.O.C)</div>
 
@@ -86,7 +86,7 @@
 
       </p>
       <p class="foot_ba" style="border-top:1px solid #e6e6e6;margin-top:20px;padding-top:20px;">聚寶盆為媒合投資及資金需求的線上平台，提供領先全球的金融支付技術及最安全透明的金融服務，期待與您</p>
-      <p class="foot_ba">共同創造出有信用的機會財富。理財有風險，投資需謹慎。投資前請詳閱風險管理資訊及會員條款相關內容。</p>
+      <p class="foot_ba" style="padding-bottom: 20px;">共同創造出有信用的機會財富。理財有風險，投資需謹慎。投資前請詳閱風險管理資訊及會員條款相關內容。</p>
 
     </div>
 
@@ -137,6 +137,3 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
-</style>

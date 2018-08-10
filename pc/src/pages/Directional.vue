@@ -77,10 +77,10 @@
           <div class="pay-info" v-if="productDetail.status == 11">
             <form action="" method="post" id="payForm" submit="investRule" novalidate="">
               <div class="balance clearfix">
-                <i class="pull-left">賬戶餘額</i>
+                <i class="pull-left">帳戶餘額</i>
                 <div class="account-info" v-if="userInfo.loginResult">
                   <span class="pull-left">{{$fmoney(accountInfo.balanceAmount)}}元</span>
-                  <a class="charge pull-right" href="/recharge" target="_blank">儲值</a>
+                  <a class="charge pull-right" href="/recharge" target="_blank">匯款</a>
                 </div>
                 <div class="account-info" v-if="!userInfo.loginResult">
                   <span class="pull-left"><a :href="loginUrl">登錄</a>後可見</span>
@@ -258,7 +258,7 @@
                 </div>
               </div>
               <div class="intro-group">
-                <div class="intro-text">還款到賬時間</div>
+                <div class="intro-text">還款到帳時間</div>
                 <div class="intro-content">
                   <span>{{repDelayTypeDays(productDetail.valDelayType, productDetail.repDelayType, productDetail.valDelayDays, productDetail.repDelayDays)}}</span>
                 </div>

@@ -4,10 +4,10 @@
       <!--<ol class="breadcrumb">
         <span>您現在的位置：</span>
         <li>
-          <router-link to="/accountOverview">我的賬戶</router-link>
+          <router-link to="/accountOverview">我的帳戶</router-link>
         </li>
         <li>
-          <router-link to="/set">賬戶安全</router-link>
+          <router-link to="/set">帳戶安全</router-link>
         </li>
         <li class="active">支付密碼</li>
       </ol>
@@ -18,7 +18,7 @@
         </ul>
         <form action="" method="post" submit="changePwd" novalidate id="changePwdForm">
           <div class="personal-bar form-group">
-            <h1>支付密碼</h1>
+            <h1 style="width: 100px;">支付密碼</h1>
             <input type="password" v-if="!showPwd" v-model="pwd" minlength="6" maxlength="20"
                    autocomplete="new-password" placeholder="請輸入支付密碼" class="form-control"
                    @focus="pwdTips=true" @blur="pwdTips=false"
@@ -117,7 +117,7 @@
                 show: false,
                 type: 'alert',
                 msg: '支付密碼設置成功',
-                confirmUrl: '/set'
+                confirmUrl: '/mineAccount'
               });
               self.$store.commit('showModal');
             })

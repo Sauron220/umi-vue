@@ -366,6 +366,9 @@ $border: #dbdbdb;
       font-size: 14px;
     }
   }
+  .front-bg{
+    background: #f2f2f2;
+  }
   .front-new-user-box{
     height: 175px;
   }
@@ -750,7 +753,7 @@ $border: #dbdbdb;
         }
 
         .history-list-data {
-          &:nth-child(odd) {
+          &:nth-child(even) {
             background: #fafafa;
           }
           a{
@@ -795,7 +798,7 @@ $border: #dbdbdb;
             .outer {
               width: 120px;
               height: 2px;
-              background: #ffe7b2;
+              background: #e8e8e8;
               position: relative;
               top: -26px;
               .inner {
@@ -1239,6 +1242,7 @@ $border: #dbdbdb;
       }
       .intro-group {
         line-height: 50px;
+        height: 50px;
         &:nth-child(odd) {
           background: #f7f7f7;
         }
@@ -2988,7 +2992,7 @@ $border: #dbdbdb;
   }
 }
 
-/**儲值限额表*/
+/**匯款限额表*/
 .table-tips {
   width: 100%;
   th {

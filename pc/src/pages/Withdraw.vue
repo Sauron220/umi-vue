@@ -3,8 +3,8 @@
     <div class="container">
      <!-- <ol class="breadcrumb">
         <span>您現在的位置：</span>
-        &lt;!&ndash;<li><router-link to="/accountOverview">我的賬戶</router-link></li>&ndash;&gt;
-        <li><router-link to="/accountNew">我的賬戶</router-link></li>
+        &lt;!&ndash;<li><router-link to="/accountOverview">我的帳戶</router-link></li>&ndash;&gt;
+        <li><router-link to="/accountNew">我的帳戶</router-link></li>
         <li class="active">提領</li>
       </ol>-->
       <!--<leftMenu></leftMenu>-->
@@ -51,8 +51,8 @@
           <!--<div class="with-tip">
             <img src="../assets/images/wth-tip.png" style="margin-top: 2px;"><span class="tip-top">溫馨提示</span>
             <p>1、用戶提領暫全程免費</p>
-            <p>2、提領需先開通上海銀行資金存管賬戶</p>
-            <p>3、當天儲值資金24小時後才可提領<br>遇到問題？請撥打客服電話<span>400-600-9976</span>或關註微信公眾號<span>“上海聚寶盆”</span>留言提問</p>
+            <p>2、提領需先開通上海銀行資金存管帳戶</p>
+            <p>3、當天匯款資金24小時後才可提領<br>遇到問題？請撥打客服電話<span>400-600-9976</span>或關註微信公眾號<span>“上海聚寶盆”</span>留言提問</p>
           </div>-->
         </div>
         <div class="rechar-after" v-if="!withdrawBefore">
@@ -61,12 +61,12 @@
           <p class="rechar-status">待支付</p>
           <div class="clearfix"><label>收款方戶名</label><span>{{withdrawInfo.bankAcctName}}</span></div>
           <div class="clearfix"><label>收款方開戶行</label><span>{{withdrawInfo.bankName}}</span></div>
-          <div class="clearfix"><label>收款方賬號</label><span>{{withdrawInfo.bankAccount}}</span></div>
+          <div class="clearfix"><label>收款方帳號</label><span>{{withdrawInfo.bankAccount}}</span></div>
           <div class="clearfix"><label>匯款時備註內容</label><span><i class="set-color">{{withdrawInfo.rechargeCode}}</i>（請務必填寫）</span>
           </div>
           <button type="button" class="btn btn-warning" @click="returnBt();">返回</button>
         </div>
-        <div class="not-card no-balance" id="noCard">您暫未綁定銀行資料，請在儲值時進行綁卡！</div>
+        <div class="not-card no-balance" id="noCard">您暫未綁定銀行資料，請在匯款時進行綁卡！</div>
         <div class="not-card no-balance" id="noBalance">沒有餘額，無法提領！</div>
 
       </div>

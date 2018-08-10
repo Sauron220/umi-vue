@@ -4,7 +4,7 @@
 
       <ol class="breadcrumb">
         <span>您現在的位置：</span>
-        <li><router-link to="/accountOverview">我的賬戶</router-link></li>
+        <li><router-link to="/accountOverview">我的帳戶</router-link></li>
         <li class="active">我的推薦</li>
       </ol>
       <leftMenu></leftMenu>
@@ -114,7 +114,7 @@
               <br />即推薦獎勵總額約33.33元
             </li>
             <li>推薦獎勵按自然月清算，將於每月5號前由系統發放上月推薦獎勵，如遇節假日，則延後至下壹個工作日發放 </li>
-            <li>推薦獎勵將以現金紅包的形式發放至推薦人的註冊賬戶內 </li>
+            <li>推薦獎勵將以現金紅包的形式發放至推薦人的註冊帳戶內 </li>
             <li>活動獎勵及推薦人與被推薦人關系由系統核實為準，不予人工審核 </li>
             <li>該活動規則最終解釋權歸聚寶盆所有</li>
           </ol>

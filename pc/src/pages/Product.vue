@@ -11,15 +11,13 @@
           <router-link to="/">首頁</router-link>
         </li>
         <li>
-          <router-link to="/product-list">定期理財</router-link>
+          <router-link to="">債權/散標</router-link>
         </li>
-        <li v-if="productDetail.prdType">
-          <router-link
-            :to="{ name: 'ProductList', params: { prdType:productDetail.prdType,prdStatus:0,pageAt:1 }}">
-            {{getTypeName(productDetail.prdType)}}
+        <li>
+          <router-link to="">
+            {{productDetail.prdName}}
           </router-link>
         </li>
-        <li class="active">產品詳情</li>
       </ol>
       <h1 class="product-name">
         <span class="title">{{productDetail.prdName}}</span>
@@ -96,13 +94,13 @@
         <div class="pay-info" v-if="productDetail.status == 11 || productDetail.status == 12">
           <form action="" method="post" id="payForm" submit="investRule" novalidate="">
             <div class="balance clearfix">
-              <i class="pull-left">賬戶餘額</i>
+              <i class="pull-left">帳戶餘額</i>
               <div class="account-info" v-if="userInfo.loginResult">
                 <span class="pull-left" style="color:#f05a23;">{{$fmoney(accountInfo.balanceAmount)}}元</span>
                 <a class="charge pull-right" href="/recharge" v-if="custInfo.tpStatus==1 && custInfo.payPwdOK"
-                   target="_blank">儲值</a>
+                   target="_blank">匯款</a>
                 <a class="charge pull-right" href="javascript:;" v-if="custInfo.tpStatus!=1 || !custInfo.payPwdOK"
-                   @click="linkToRealName();">儲值</a>
+                   @click="linkToRealName();">匯款</a>
               </div>
               <div class="account-info" v-if="!userInfo.loginResult">
                 <span class="pull-left" style="color:#f05a23;"><a :href="loginUrl">登錄</a>後可見</span>
@@ -206,7 +204,7 @@
                 <span class="pull-right">已審核<i class="icon-checked"></i></span>
               </li>
               <li>
-                <span class="pull-left">性别:{{dispersion.borGender}}</span>
+                <span class="pull-left">性别:{{dispersion.borGender | gender}}</span>
                 <span class="pull-right">已審核<i class="icon-checked"></i></span>
               </li>
               <li>
@@ -222,7 +220,7 @@
                 <span class="pull-right">已審核<i class="icon-checked"></i></span>
               </li>
               <li>
-                <span class="pull-left">婚否 :{{dispersion.borMaritalStatus}}</span>
+                <span class="pull-left">婚否 :{{dispersion.borMaritalStatus | marStatus}}</span>
                 <span class="pull-right">已審核<i class="icon-checked"></i></span>
               </li>
               <li>
@@ -304,16 +302,16 @@
               </div>
               <div class="intro-group">
                 <div class="intro-text">產品介紹</div>
-                <div class="intro-content">
-                  <p v-html="productDetail.introduction"></p>
+                <div class="intro-content" >
+                  {{productDetail.introduction | removeHtml}}
                 </div>
               </div>
-              <div class="intro-group">
+              <!--<div class="intro-group">
                 <div class="intro-text">投標範圍</div>
                 <div class="intro-content">
                   <span>{{productDetail.prdArea}}</span>
                 </div>
-              </div>
+              </div>-->
               <div class="intro-group">
                 <div class="intro-text">產品金額</div>
                 <div class="intro-content">
@@ -339,7 +337,7 @@
                 </div>
               </div>
               <div class="intro-group">
-                <div class="intro-text">還款到賬時間</div>
+                <div class="intro-text">還款到帳時間</div>
                 <div class="intro-content">
                   <span>{{repDelayTypeDays(productDetail.valDelayType, productDetail.repDelayType, productDetail.valDelayDays, productDetail.repDelayDays)}}</span>
                 </div>
@@ -569,7 +567,8 @@
         if (self.userInfo.loginResult) {
           // self.showOpenFloat();
         }
-        self.TDK.title = self.productDetail.prdName + '-' + self.TDK.title
+        self.TDK.title = self.productDetail.prdName + '-' + self.TDK.title;
+        self.$store.commit('setPrdName', '債權');
         self.setDwipe(self);
       })
       self.getInvestRecord(1);
@@ -746,6 +745,36 @@
         }).then((res) => {
           self.dispersion = res.data.respInfo.product;
         })
+      }
+    },
+    filters:{
+      removeHtml(val) {
+        return val.replace(/<[^>]+>/g,"")
+      },
+      gender(gen) {
+        switch (gen) {
+          case 0:
+            return '男';
+            break;
+          case 1:
+            return '女';
+            break;
+          default:
+        }
+      },
+      marStatus(val) {
+        switch (val) {
+          case 0:
+            return '未婚';
+            break;
+          case 1:
+            return '已婚';
+            break;
+          case 2:
+            return '離異';
+            break;
+          default:
+        }
       }
     }
   }

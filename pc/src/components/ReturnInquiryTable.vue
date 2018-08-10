@@ -70,7 +70,7 @@
               <span class="base6">加息券獎勵(元)</span>
               <span class="base7">剩余本金(元)</span>
               <span class="base8">還款狀態</span>
-              <span class="base9">還款到賬日</span>
+              <span class="base9">還款到帳日</span>
             </div>
             <div class="next-floor">
               <div class="cubicle" v-for="item in prdInfoList" v-if="prdInfoList.length!=0">

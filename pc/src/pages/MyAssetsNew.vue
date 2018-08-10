@@ -1,9 +1,9 @@
 <template>
   <div class="myassets-new">
-    <div class="myassets-new-info">
-      <div class="desc-txt">開通銀行卡資金存管賬戶，保障您的資金安全。</div>
+    <!--<div class="myassets-new-info">
+      <div class="desc-txt">開通銀行卡資金存管帳戶，保障您的資金安全。</div>
       <div class="btn" @click="toRealAuth">立即開啟銀行資金管理</div>
-    </div>
+    </div>-->
     <div class="total-money-warp">
       <div class="total-money-con">
         <div class="num">
@@ -19,13 +19,13 @@
           <span>{{ personalAcc.balanceAmount }}</span>元
         </div>
         <div class="txt">
-          賬戶餘額
+          帳戶餘額
         </div>
       </div>
       <div class="divider-myass"></div>
       <div class="total-money-con final">
         <div class="num" @click="linkToRealName(1)">
-          儲值
+          匯款
         </div>
         <div class="txt" @click="linkToRealName(2)">
           提款
@@ -40,7 +40,7 @@
         <div class="draw-hed-fin">
           <div class="tit" @click="toPage({name: 'MineAccount',query:{comp:'AddBankCard'}})">銀行卡</div>
           <div class="tit" @click="toPage({name: 'ReturnInquirys'})">回帳查詢</div>
-          <div class="tit" @click="toPage({name: 'MonthlyBills'})">月賬單</div>
+          <div class="tit" @click="toPage({name: 'MonthlyBills'})">月帳單</div>
           <div class="tit" @click="toPage({name: 'TransactionRecordNews'})">交易紀錄</div>
         </div>
       </div>
@@ -48,7 +48,7 @@
         <div class="draw-fl">
           <div class="all">
             <!--總資產(元)<br/><span>{{ personalAcc.totalProperties }}</span>-->
-            <p id="totalProperties">資產占比</p>
+            <!--<p id="totalProperties">資產占比</p>-->
             <div class="pie-overview" id="pie-overview"></div>
           </div>
         </div>
@@ -120,122 +120,129 @@
     },
     created() {
       const self = this;
-      const cusCode = JSON.parse(sessionStorage.getItem("currentUser"))['cusCode'];
+      // const cusCode = sessionStorage.getItem("currentUser") && JSON.parse(sessionStorage.getItem("currentUser"))['cusCode'];
+      self.$http.post('/pbap-web/action/customer/query/custAuthInfo', {}).then((res) => {
+         return  res.body.respInfo.custInfo.cusCode;
+      }).then((cusCode) => {
+        self.$http.post('/pbap-web/action/customer/query/tradeReport', {
+          cusCode: cusCode,
+        }).then((res) => {
+          const _proMonthList = res.data.respInfo.tradeList;
+          self.proMonthList = res.data.respInfo.tradeList;
 
-      self.$http.post('/pbap-web/action/customer/query/tradeReport', {
-        cusCode: cusCode,
-      }).then((res) => {
-        const _proMonthList = res.data.respInfo.tradeList;
-        self.proMonthList = res.data.respInfo.tradeList;
-
-        _proMonthList.map((val, index, arr) => {
-          switch (val.prdType) {
-            case '70':
-              self.rateOne = Math.floor(val.holdingRate * 1000) / 100;
-              break;
-            case '7':
-              self.rateTwo = Math.floor(val.holdingRate * 1000) / 100;
-              break;
-            case '8':
-              self.rateThree = Math.floor(val.holdingRate * 1000) / 100;
-              break;
-            case '9':
-              self.rateFoure = Math.floor(val.holdingRate * 1000) / 100;
-              break;
-            case '-':
-              self.rateFive = Math.floor(val.holdingRate * 1000) / 100;
-              break;
-            default:
+          _proMonthList.map((val, index, arr) => {
+            switch (val.prdType) {
+              case '70':
+                self.rateOne = Math.floor(val.holdingRate * 1000) / 100;
+                break;
+              case '7':
+                self.rateTwo = Math.floor(val.holdingRate * 1000) / 100;
+                break;
+              case '8':
+                self.rateThree = Math.floor(val.holdingRate * 1000) / 100;
+                break;
+              case '9':
+                self.rateFoure = Math.floor(val.holdingRate * 1000) / 100;
+                break;
+              case '-':
+                self.rateFive = Math.floor(val.holdingRate * 1000) / 100;
+                break;
+              default:
+            }
+          })
+          if (_proMonthList.length == 0) {
+            self.myChart = Highcharts.chart('pie-overview', {
+              chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                width: 280,
+                height: 280,
+              },
+              title: {
+                text: ''
+              },
+              tooltip: {
+                pointFormat: ''
+              },
+              exporting: {
+                enabled: false
+              },
+              credits: {
+                enabled: false
+              },
+              plotOptions: {
+                pie: {
+                  allowPointSelect: true,
+                  cursor: 'pointer',
+                  size: 240,
+                  innerSize: '180',
+                  colors: ["#d9d9d9"],
+                  dataLabels: {
+                    enabled: false
+                  },
+                }
+              },
+              noData: {},
+              series: [{
+                type: 'pie',
+                name: 'Account overview',
+                data: [['無', 100]]
+              }]
+            });
+          } else{
+            self.myChart = Highcharts.chart('pie-overview', {
+              chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                width: 280,
+                height: 280,
+              },
+              title: {
+                text: '資產占比',
+                align: 'center',
+                verticalAlign: 'middle',
+                y: 10
+              },
+              tooltip: {
+                pointFormat: ''
+              },
+              exporting: {
+                enabled: false
+              },
+              credits: {
+                enabled: false
+              },
+              plotOptions: {
+                pie: {
+                  allowPointSelect: true,
+                  cursor: 'pointer',
+                  size: 240,
+                  innerSize: '180',
+                  colors: ["#f4ae3d", "#428aed", "#f7c748", '#1e5bc9', '#eb2323'],
+                  dataLabels: {
+                    enabled: false
+                  },
+                }
+              },
+              noData: {},
+              series: [{
+                type: 'pie',
+                name: 'Account overview',
+                data: [
+                  ['壹桶金', self.rateOne],
+                  ['聚寶計畫', self.rateTwo],
+                  ['分期投', self.rateThree],
+                  ['月月盈', self.rateFoure],
+                  ['散標', self.rateFive],
+                ]
+              }]
+            });
           }
-        })
-        if (_proMonthList.length == 0) {
-          self.myChart = Highcharts.chart('pie-overview', {
-            chart: {
-              plotBackgroundColor: null,
-              plotBorderWidth: null,
-              plotShadow: false,
-              width: 280,
-              height: 280,
-            },
-            title: {
-              text: ''
-            },
-            tooltip: {
-              pointFormat: ''
-            },
-            exporting: {
-              enabled: false
-            },
-            credits: {
-              enabled: false
-            },
-            plotOptions: {
-              pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                size: 240,
-                innerSize: '180',
-                colors: ["#d9d9d9"],
-                dataLabels: {
-                  enabled: false
-                },
-              }
-            },
-            noData: {},
-            series: [{
-              type: 'pie',
-              name: 'Account overview',
-              data: [['無', 100]]
-            }]
-          });
-        } else{
-          self.myChart = Highcharts.chart('pie-overview', {
-            chart: {
-              plotBackgroundColor: null,
-              plotBorderWidth: null,
-              plotShadow: false,
-              width: 280,
-              height: 280,
-            },
-            title: {
-              text: ''
-            },
-            tooltip: {
-              pointFormat: ''
-            },
-            exporting: {
-              enabled: false
-            },
-            credits: {
-              enabled: false
-            },
-            plotOptions: {
-              pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                size: 240,
-                innerSize: '180',
-                colors: ["#f4ae3d", "#428aed", "#f7c748", '#1e5bc9', '#eb2323'],
-                dataLabels: {
-                  enabled: false
-                },
-              }
-            },
-            noData: {},
-            series: [{
-              type: 'pie',
-              name: 'Account overview',
-              data: [
-                ['壹桶金', self.rateOne],
-                ['聚寶計畫', self.rateTwo],
-                ['分期投', self.rateThree],
-                ['月月盈', self.rateFoure],
-                ['散標', self.rateFive],
-              ]
-            }]
-          });
-        }
-    });
+        });
+      });
+
 
   self.$http.get('/pbap-web/action/customer/query/personalAccount').then((res) => {
     self.personalAcc = res.body.respInfo.personalAccView;
@@ -305,7 +312,7 @@
     },
     isRealUser()
     {
-      // 判斷用戶是否實名&儲值提領按鈕
+      // 判斷用戶是否實名&匯款提領按鈕
       const self = this;
       self.$http.post('/pbap-web/action/customer/query/custAuthInfo', {}).then((res) => {
         self.custInfo = res.body.respInfo.custInfo;

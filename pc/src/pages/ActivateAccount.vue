@@ -2,9 +2,9 @@
   <div class="ActivateAccount" v-TDK="TDK">
     <div class="container">
       <div class="open-account">
-        <div class="account-top">開通上海銀行資金存管賬戶</div>
+        <div class="account-top">開通上海銀行資金存管帳戶</div>
         <div class="account-tip">
-          您的賬戶已升級為上海銀行資金存管賬戶，請激活賬戶
+          您的帳戶已升級為上海銀行資金存管帳戶，請激活帳戶
         </div>
         <div class="account-form">
           <form action="" method="post" submit="activateAccount" novalidate
@@ -76,7 +76,7 @@
         self.$store.commit('setModal',{
           show:false,
           type:'confirm',
-          msg:'您賬戶操作是否已成功？',
+          msg:'您帳戶操作是否已成功？',
           cancelUrl:'/helpCenter#3',
           cancelText:'遇到問題',
           confirmUrl:'/accountOverview',

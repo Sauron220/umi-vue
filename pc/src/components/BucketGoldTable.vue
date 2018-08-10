@@ -122,11 +122,8 @@
           self.lists = res.data.respInfo.investmentList.dataList;
           self.flag = res.data.respInfo.investmentList.dataList.length > 0 ? false : true;
           self.pageNo = res.data.respInfo.investmentList.totalPage;
-          if (self.status == '11') {
-            self.totalCount = res.data.respInfo.investmentList.totalCount;
-          } else {
-            self.totalCount1 = res.data.respInfo.investmentList.totalCount;
-          }
+            self.totalCount = res.data.respInfo.holdingCount;
+            self.totalCount1 = res.data.respInfo.exitCount;
         })
       },
       changeType(val) {

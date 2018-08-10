@@ -12,7 +12,7 @@
         <div class="bucket-top-hed">
           <div class="bucket-top-hed-lf">
             <span class="bucket-top-hed-lf-h">{{productDetail.prdName}} 新手投資</span>
-            <span class="bucket-top-hed-lf-d">使用红包，回报更高</span>
+            <span class="bucket-top-hed-lf-d">使用紅包，回報更高</span>
           </div>
           <div class="bucket-top-hed-ri" @click="toProtocal">
             協議範本
@@ -40,21 +40,21 @@
           </div>
           <div class="bucket-top-con-ri product-intro">
             <form v-if="productDetail.status == 11 || productDetail.status == 12" action="" method="post" id="payForm" submit="investRule" novalidate="" style="width: 300px;">
-              <div class="balance clearfix pay-info" style="line-height: 30px" >
-                <i class="pull-left">賬戶餘額</i>
+              <div class="balance clearfix pay-info" style="line-height: 30px;width: 280px;" >
+                <i class="pull-left">帳戶餘額</i>
                 <div class="account-info" v-if="userInfo.loginResult">
                   <span class="pull-left" style="color:#f05a23;">{{$fmoney(accountInfo.balanceAmount)}}元</span>
                   <a class="charge pull-right" href="/recharge" v-if="custInfo.tpStatus==1 && custInfo.payPwdOK"
-                     target="_blank">儲值</a>
+                     target="_blank">匯款</a>
                   <a class="charge pull-right" href="javascript:;" v-if="custInfo.tpStatus!=1 || !custInfo.payPwdOK"
-                     @click="linkToRealName();">儲值</a>
+                     @click="linkToRealName();">匯款</a>
                 </div>
                 <div class="account-info" v-if="!userInfo.loginResult">
                   <span class="pull-left"><a :href="loginUrl" style="color:#f05a23;">登錄</a>後可見</span>
                 </div>
               </div>
-              <div class="money-warp" style="margin-top: 15px;">
-                <input  type="text" name="invest"
+              <div class="money-warp" style="margin-top: 15px;width: 280px;">
+                <input  type="text" name="invest" style="width: 280px;"
                        maxlength="10"
                        v-model="invest"
                        :placeholder="inputPlaceholder"
@@ -74,12 +74,12 @@
                 <span class="desc-lf">剩餘金額17,620,000 元 </span>
                 <span class="desc-ri"> 加入上限10,000 元</span>
               </div>
-              <div class="bucket-top-btn"
+              <div class="bucket-top-btn" style="width: 280px;"
                    v-if="productDetail.status == 11"
                    @click="investComfirm">加入</div>
               <a
                 :href="userInfo.loginResult ? 'javascript:;':loginUrl"
-                class="bucket-top-btn" style="display: inline-block"
+                class="bucket-top-btn" style="display: inline-block;width: 280px;"
                 v-else>加入</a>
             </form>
             <div class="other-status text-center" v-if="productDetail.status == 20">  <!-- 還款中 -->
@@ -395,6 +395,28 @@
       },
       toProtocal() {
         this.$router.push({name: 'ProtocalText'});
+      },
+      linkToRealName() {
+        let self = this;
+        if (self.custInfo.tpStatus == 1) {
+          if (!self.custInfo.payPwdOK) {
+            this.$store.commit('setModal', {
+              type: 'confirm',
+              msg: '為了您的資金安全，請先設置支付密碼',
+              confirmUrl: '/setPayPwds',
+              confirmText: "立即設置"
+            })
+            this.$store.commit('showModal')
+          }
+        } else {
+          this.$store.commit('setModal', {
+            type: 'confirm',
+            msg: '為了您的資金安全，請先完成實名認證',
+            confirmUrl: '/openAccounts',
+            confirmText: "立即實名"
+          })
+          this.$store.commit('showModal')
+        }
       },
       productRate: Tool.productRate,
       getInvestRecord: Tool.getInvestRecord,

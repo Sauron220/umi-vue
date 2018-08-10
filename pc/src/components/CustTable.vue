@@ -7,9 +7,9 @@
         <tr>
           <th class="rate regular-rate">序號</th>
           <th class="name c-name">出借人</th>
-          <th class="time c-time">加入金额</th>
-          <th class="money c-money">来源</th>
-          <th class="progress c-progress">加入时间</th>
+          <th class="time c-time">加入金額</th>
+          <th class="money c-money">來源</th>
+          <th class="progress c-progress">加入時間</th>
         </tr>
         </thead>
         <tbody class="data-list">

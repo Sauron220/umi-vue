@@ -24,7 +24,7 @@
     <div class="tranaction-new-date-warp">
       <div class="tit">交易類型</div>
       <!--<div class="item" @click="selectType(1)" :class="{'active-select': type == 1}">全部</div>-->
-      <div class="item" @click="selectType(2, 'CO', null)" :class="{'active-select': type == 2}">儲值</div>
+      <div class="item" @click="selectType(2, 'CO', null)" :class="{'active-select': type == 2}">匯款</div>
       <div class="item" @click="selectType(3, 'WD', null)" :class="{'active-select': type == 3}">提現</div>
       <div class="item" @click="selectType(4, null, '70')">
         <dropdown :class="{'cus-menu': type == 4}" :close-on-click="true">
@@ -74,7 +74,7 @@
         <dropdown :class="{'cus-menu': type == 8}" :close-on-click="true">
           <template slot="btn">債權/散標</template>
           <template slot="body">
-            <div class="" :class="{'active-select': type == 8 && statusAr == 0}" @click="selectStatus('0')">全部</div>
+            <div class="" :class="{'active-select': type == 8 && statusAr == 0}" @click="selectStatus('0', '0')">全部</div>
             <div class="" :class="{'active-select': type == 8 && statusAr == 1}" @click="selectStatus('1', 'IV')">投資</div>
             <div class="" :class="{'active-select': type == 8 && statusAr == 2}" @click="selectStatus('2', 'RP')">回款</div>
             <div class="" :class="{'active-select': type == 8 && statusAr == 3}" @click="selectStatus('3', 'RF')">退款</div>
@@ -133,6 +133,7 @@
         this.prdType = prdType;
         this.prdNature = prdNature;
         this.tradeType = type;
+        type && sessionStorage.setItem('trd', type);
       },
       selectDate(v) {
         const self = this;
@@ -159,13 +160,15 @@
       selectStatus(val, tradeType){
         this.statusAr = val;
         this.tradeType = tradeType;
+        if (val == tradeType) sessionStorage.setItem('trd', null);
+        else tradeType && sessionStorage.setItem('trd', tradeType);
       },
       toExecl() {
         const self = this;
         self.$http.get('/pbap-web/action/trade/download/exportTradeMonthList',{
           responseType: 'arraybuffer',
           params:{
-            trdCode: self.tradeType,
+            trdCode: sessionStorage.getItem('trd'),
             prdType: self.prdType,
             prdNature: self.prdNature,
             startTime: self.startTime,
@@ -175,6 +178,9 @@
           res.text().then((val) => {
             var blob = new Blob([res.body], {type: 'application/vnd.ms-excel,charset=UTF-8'}),
               fileName = '交易记录';
+            if (navigator.userAgent.indexOf('Mac OS X') != -1) {
+              fileName = '交易记录.xls';
+            }
             if (window.navigator.msSaveOrOpenBlob) {
               navigator.msSaveBlob(blob, fileName);
             } else {

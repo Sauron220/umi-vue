@@ -1,6 +1,6 @@
 <template>
   <div class="product-list table-p">
-    <div class="desc-info">溫馨提示：該列表僅代表該期計劃可能出借標的，實際出借後可在我的賬戶-該期計劃詳情頁面查詢實際投標情況</div>
+    <div class="desc-info">溫馨提示：該列表僅代表該期計劃可能出借標的，實際出借後可在我的帳戶-該期計劃詳情頁面查詢實際投標情況</div>
     <div class="table">
       <table class="t-caption">
         <thead>

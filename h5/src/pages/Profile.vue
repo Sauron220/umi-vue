@@ -28,7 +28,7 @@
                 <a @click="isOpenAccount('withdraw')" class="btn1">提现</a>
             </div>
             <div class="mui-col-xs-6">
-                <a @click="isOpenAccount('recharge')" class="btn2">儲值</a>
+                <a @click="isOpenAccount('recharge')" class="btn2">匯款</a>
             </div>
         </div>
         <ul class="profile-bar mui-table-view mui-grid-view mui-grid-9">

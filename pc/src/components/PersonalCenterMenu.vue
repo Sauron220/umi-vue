@@ -7,10 +7,10 @@
       <!--<i class="icon-crown icon-location"></i>尊享用戶-->
       <!--</a>-->
       <div class="center-nav" id="center-nav">
-        <router-link to="/accountOverview">賬戶總覽</router-link>
+        <router-link to="/accountOverview">帳戶總覽</router-link>
         <router-link to="/myAssets">我的資產</router-link>
         <router-link to="/transactionRecord">交易記錄</router-link>
-        <router-link to="/set">賬戶安全</router-link>
+        <router-link to="/set">帳戶安全</router-link>
         <a @click="toMyBankCard" v-if="custInfo.tpStatus != 1" style="cursor: pointer;">我的銀行資料</a>
         <router-link :to="hasBankCard"  v-if="custInfo.tpStatus == 1">我的銀行資料</router-link>
         <router-link to="/myCoupon">我的優惠券</router-link>

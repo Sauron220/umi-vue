@@ -7,8 +7,7 @@
       </li>
       <li class="plan-list-item odd">
         <div class="tit">計劃介紹</div>
-        <div class="tit-con">壹桶金是聚宝盆為您提供的本金自動循環出借及到期自動轉讓退出的投標工具，並由系統為您實現分散投標，更好的滿足您多樣化的 出借需求。您出借所獲得的利息可選擇循環出借（到期一次性領取本金和利息）或每月領取利息（到期領取本金），不同的利息處理 方式對應的期待年回報率不同，具體以您在加入時頁面展示的相應期待年回報率為準。期待回報不代表對實際利息回報的承諾，出借 人需自行承擔資金出借的風險與責任；網貸有風險，出借需謹慎
-        </div>
+        <div class="tit-con" v-html="productDetail.introduction"></div>
       </li>
       <li class="plan-list-item odd">
         <div class="tit">投標範圍</div>
@@ -19,30 +18,30 @@
         <div class="tit-con">
           <ul>
             <li>1.循環出借10.00 % </li>
-            <li>2.提取至賬戶10.00 % </li>
+            <li>2.提取至帳戶10.00 % </li>
             <li>* 一經選擇，無法修改</li>
           </ul>
         </div>
       </li>
       <li class="plan-list-item odd">
         <div class="tit">鎖定期</div>
-        <div class="tit-con">1 個月</div>
+        <div class="tit-con">{{productDetail.prdPeriod}} 天</div>
       </li>
       <li class="plan-list-item odd">
         <div class="tit">退出日期</div>
-        <div class="tit-con">2018年07月30日</div>
+        <div class="tit-con">{{moment(productDetail.dueDate).format('YYYY年MM月DD日')}}</div>
       </li>
       <li class="plan-list-item odd">
         <div class="tit">加入條件</div>
-        <div class="tit-con">加入金額1,000 元起，且為1,000 元的整數倍遞增。</div>
+        <div class="tit-con">加入金額{{$fmoney(productDetail.minInvAmt)}}元起，且為{{$fmoney(productDetail.minInvAmt)}}元的整數倍遞增。</div>
       </li>
       <li class="plan-list-item odd">
         <div class="tit">加入上限</div>
-        <div class="tit-con">10,000 元</div>
+        <div class="tit-con">{{productDetail.maxInvAmt ? $fmoney(productDetail.maxInvAmt) + '元': '無上限'}}</div>
       </li>
       <li class="plan-list-item odd">
         <div class="tit">開始加入時間</div>
-        <div class="tit-con">2018年06月28日03:00</div>
+        <div class="tit-con">{{moment(productDetail.colBeginDate).format('YYYY年MM月DD日') || moment(productDetail.colEndTime).format('YYYY年MM月DD日')}}</div>
       </li>
       <li class="plan-list-item odd">
         <div class="tit">到期退出方式</div>
@@ -50,16 +49,16 @@
       </li>
       <li class="plan-list-item odd">
         <div class="tit">提前退出方式</div>
-        <div class="tit-con">鎖定期內支持提前退出，詳情參見 <a href="javascript:" style="color:rgb(60, 100, 160)">服務協議</a></div>
+        <div class="tit-con">鎖定期內支持提前退出，詳情參見 <a href="javascript:;" @click="goAgreement" style="color:rgb(60, 100, 160)">服務協議</a></div>
       </li>
       <li class="plan-list-item odd">
         <div class="tit">費用</div>
         <div class="tit-con">
           <ul>
             <li>加入費用：<span class="tit-con-rate">0.0% </span></li>
-            <li>管理費用：參見<a href="javascript:" style="color:rgb(60, 100, 160)">服務協議</a> </li>
+            <li>管理費用：參見<a href="javascript:;" @click="goAgreement" style="color:rgb(60, 100, 160)">服務協議</a> </li>
             <li>退出費用：<span class="tit-con-rate">0.0%</span></li>
-            <li>提前退出費用：加入金額x <span class="tit-con-rate">2.0 %</span>，詳情參見<a href="javascript:" style="color:rgb(60, 100, 160)">服務協議</a></li>
+            <li>提前退出費用：加入金額x <span class="tit-con-rate">2.0 %</span>，詳情參見<a href="javascript:;" @click="goAgreement" style="color:rgb(60, 100, 160)">服務協議</a></li>
           </ul>
         </div>
       </li>
@@ -73,6 +72,7 @@
 
 <script>
   import Tool from '../util/ProductTool.js'
+  import moment from 'moment'
   export default {
     name: "PlanProgress",
     data () {
@@ -95,8 +95,12 @@
       })
     },
     methods: {
+      moment,
       getProductDetail: Tool.getProductDetail,
-      goAgreement: Tool.goAgreement,
+      goAgreement() {
+        window.open('/static/聚寶盆 P2P 平台服務條款.pdf',
+          '_blank','height=768, width=1100,toolbar=no,scrollbars=yes,menubar=no,status=no')
+      },
     }
   }
 </script>

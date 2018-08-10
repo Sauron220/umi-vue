@@ -4,7 +4,7 @@
       <div class="alert_mas">只有當您購買的產品還款後才會計入累計收益</div>
       <ol class="breadcrumb">
         <span>您現在的位置：</span>
-        <li><router-link to="/accountOverview">我的賬戶</router-link></li>
+        <li><router-link to="/accountOverview">我的帳戶</router-link></li>
         <li class="active">我的資產</li>
       </ol>
       <leftMenu></leftMenu>
@@ -83,7 +83,7 @@
                   <span class="base6">加息券獎勵(元)</span>
                   <span class="base7">剩余本金(元)</span>
                   <span class="base8">還款狀態</span>
-                  <span class="base9">還款到賬日</span>
+                  <span class="base9">還款到帳日</span>
                 </div>
                 <div class="next-floor">
                   <div class="cubicle" v-for="item in prdInfoList" v-if="prdInfoList.length!=0">

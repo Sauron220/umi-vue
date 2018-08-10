@@ -3,7 +3,7 @@
     <div class="container">
       <ol class="breadcrumb">
         <span>您現在的位置：</span>
-        <li><router-link to="/accountOverview">我的賬戶</router-link></li>
+        <li><router-link to="/accountOverview">我的帳戶</router-link></li>
         <li><router-link to="/transactionRecord">交易記錄</router-link></li>
         <li class="active">交易詳情</li>
       </ol>
@@ -40,7 +40,7 @@
               <td id="trdStatus">{{getTrdStatus(tradeInfo.trdStatus,$route.params.tradeType)}}</td>
             </tr>
             <tr class="tr-high" v-if="$route.params.tradeType == 'CO'">
-              <td>儲值验证码</td>
+              <td>匯款验证码</td>
               <td id="verifyCode">{{tradeInfo.verifyCode}}</td>
             </tr>
             <tr class="tr-high">
@@ -118,7 +118,7 @@
       getStatus(dType){
         let tType;
         if (dType == "CO") {
-          tType = "儲值";
+          tType = "匯款";
         } else if (dType == "WD") {
           tType = "提領"
         } else if (dType == "IV") {

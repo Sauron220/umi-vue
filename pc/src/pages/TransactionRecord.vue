@@ -3,7 +3,7 @@
     <div class="container">
       <ol class="breadcrumb">
         <span>您現在的位置：</span>
-        <li><router-link to="/accountOverview">我的賬戶</router-link></li>
+        <li><router-link to="/accountOverview">我的帳戶</router-link></li>
         <li class="active">交易記錄</li>
       </ol>
       <leftMenu></leftMenu>
@@ -21,7 +21,7 @@
           </router-link>
           <router-link  :to="{ name: 'TransactionRecord', params: { tradeType:'CO',pageAt:1 }}"
                         :class="{'active':$route.params.tradeType =='CO'}">
-            儲值
+            匯款
           </router-link>
           <router-link  :to="{ name: 'TransactionRecord', params: { tradeType:'WD',pageAt:1 }}"
                         :class="{'active':$route.params.tradeType =='WD'}">
@@ -162,7 +162,7 @@
       getStatus(dType){
         let tType;
         if (dType == "CO") {
-          tType = "儲值";
+          tType = "匯款";
         } else if (dType == "WD") {
           tType = "提領"
         } else if (dType == "IV") {

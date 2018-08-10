@@ -20,7 +20,7 @@ const store = new Vuex.Store({
       },
     },
     userInfo:{},             // 用戶基本資訊  是否登錄 等
-    accountInfo:{},          // 賬戶基本資訊 資產資訊等
+    accountInfo:{},          // 帳戶基本資訊 資產資訊等
     childInfo:{},            // 親子計劃中的基本資訊
     lastVipPrd:'',
     mevsUrl:'',

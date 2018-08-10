@@ -2,11 +2,11 @@
   <div class="return-inquiry">
     <!--<vue-datepicker-local v-model="time" />-->
     <div class="inquiry-hed">
-      <h4>回賬查詢</h4>
+      <h4>回帳查詢</h4>
       <span>全部待收本息：0.00元</span>
     </div>
     <div class="inquiry-con-warp">
-      <div class="type" @click="selectType(1, '20')" :class="{'active-select': flag == 1}">待收回款</div>
+      <div class="type" style="margin-left: 0px;" @click="selectType(1, '20')" :class="{'active-select': flag == 1}">待收回款</div>
       <div class="type" @click="selectType(2, '30')" :class="{'active-select': flag == 2}">已收回款</div>
     </div>
     <div class="date-select-warp">

@@ -78,6 +78,7 @@ import RiskAssessment from '@/pages/RiskAssessment'
 import BucketGold from '@/pages/BucketGold'
 import JubaoPlan from '@/pages/JubaoPlan'
 import Borrowing from '@/pages/Borrowing'
+import BorrowingInput from '@/pages/BorrowingInput'
 import AccountNew from '@/pages/AccountNew'
 import MyAssetsNew from '@/pages/MyAssetsNew'
 import Coupon from '@/pages/Coupon'
@@ -905,6 +906,16 @@ var appRouter =  new Router({
       }
     },
     {
+      path: '/borrowingInput',
+      name: 'BorrowingInput',
+      components: {
+        content:BorrowingInput,
+        PageNav: PageNav,
+        PageFooter: PageFooter,
+        // RightFloat: RightFloat,
+      }
+    },
+    {
       path: '/returnInquiry',
       name: 'ReturnInquiry',
       components: {
@@ -1092,7 +1103,14 @@ var appRouter =  new Router({
         },
       ]
     },
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  }
 })
 
 appRouter.beforeEach(function (to,from,next) {

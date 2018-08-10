@@ -56,15 +56,15 @@ Validator.extend('investRule', {
     if(args [4]<args [0]){  //輸入金額小於起投金額
       return "最低加入金額為" + args[0] + "元"
     }else {
-      if(args [3]>args[2]){  // 賬戶餘額大於產品剩余金額
+      if(args [3]>args[2]){  // 帳戶餘額大於產品剩余金額
         return "產品剩余金額為" + args[2] + "元"
       }else{
-        return "您的可用餘額不足，請去儲值"
+        return "您的可用餘額不足，請去匯款"
       }
     }
   }else{  //剩余金額小於起投金額
-    if(args [3]<args [2]){  // 賬戶餘額小於起投金額
-      return "您的可用餘額不足，請去儲值"
+    if(args [3]<args [2]){  // 帳戶餘額小於起投金額
+      return "您的可用餘額不足，請去匯款"
     }else{
       return '產品剩余金額為'+args[2]+"元"
     }
@@ -74,18 +74,18 @@ Validator.extend('investRule', {
     if(args [4]<args [0]){  //輸入金額小於起投金額
       return "最低加入金額為" + args[0] + "元"
     }else {
-      //最大加入金額 、剩余金額和賬戶餘額比較
+      //最大加入金額 、剩余金額和帳戶餘額比較
       if(args[1]==Math.min(args[1],args[2],args[3])){        //最大加入金額 三者最小
         return "最高加入金額為" + args[1] + "元"
       }else if(args[2]==Math.min(args[0],args[1],args[2])){  //剩余金額 三者最小
         return "產品剩余金額為" + args[2] + "元"
-      }else if(args[3]==Math.min(args[0],args[1],args[2])){  //賬戶餘額 三者最小
-        return "您的可用餘額不足，請去儲值"
+      }else if(args[3]==Math.min(args[0],args[1],args[2])){  //帳戶餘額 三者最小
+        return "您的可用餘額不足，請去匯款"
       }
     }
   }else{  //剩余金額小於起投金額
-    if(args [3]<args [2]){  // 賬戶餘額小於起投金額
-      return "您的可用餘額不足，請去儲值"
+    if(args [3]<args [2]){  // 帳戶餘額小於起投金額
+      return "您的可用餘額不足，請去匯款"
     }else{
       return '產品剩余金額為'+args[2]+"元"
     }
@@ -95,9 +95,9 @@ Validator.extend('investRule', {
 validate: (value,args) => {
   if(args[1]==0){  //無最大金額限制
     if(args [0]<=args [2]){  //剩余金額大於起投金額
-      // 投資金額小於剩余金額和賬戶餘額  且大於起投金額
+      // 投資金額小於剩余金額和帳戶餘額  且大於起投金額
       return value*1<=Math.min(args[2],args[3]) && value*1>=args[0];
-    }else{  //剩余金額小於起投金額 只能投資剩余金額  且賬戶餘額大於剩余金額
+    }else{  //剩余金額小於起投金額 只能投資剩余金額  且帳戶餘額大於剩余金額
       return value*1==args [2] && args [3]>args [2];
     }
   }else{  //有最大金額限制

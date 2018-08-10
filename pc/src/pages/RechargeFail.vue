@@ -5,8 +5,8 @@
         <img  src="../assets/images/500.png"  style="max-width: 120px;">
       </div>
       <div class="col-md-9 col-xs-3">
-        <h1>儲值失敗啦！</h1>
-        <button type="button" class="btn btn-warning btn-recharge">重新儲值</button>
+        <h1>匯款失敗啦！</h1>
+        <button type="button" class="btn btn-warning btn-recharge">重新匯款</button>
       </div>
     </div>
     <div class="bottom-info">
@@ -22,7 +22,7 @@
       return {
         msg: 'Welcome to Your Vue.js App',
         TDK:{
-          title:'儲值失敗',
+          title:'匯款失敗',
         }
       }
     },

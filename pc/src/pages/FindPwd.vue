@@ -1,5 +1,5 @@
 <template>
-  <div class="findPwd-content" v-TDK="TDK">
+  <div class="findPwd-content" v-TDK="TDK" style="background: #fff;width: 100%;height: 100%;">
     <a href="/"><img src="../assets/images/logo.png" class="logo"></a>
     <div class="form-type" style="text-align: center;">
       <a class="cen" href="javascript:void(0);">找回登錄密碼</a>
@@ -32,8 +32,9 @@
     <form action="" method="post" submit="findPwd" novalidate v-if="pageStatus == 2"
           id="findForm">
       <div class="form-content form-content-back">
-        <div class="form-bar">
-           <input v-model="phone" placeholder="請輸入手機號碼" class="form-control"
+        <div class="form-bar input-group">
+          <div class="input-group-addon bgColor-b">台灣 +886</div>
+           <input v-model="phone" placeholder="請輸入手機號碼" class="form-control bgColor-b"
                   @focus="tips=true;clearError('phone')" @blur="tips=false" autocomplete="off" maxlength="10"
                   v-validate="{rules:{required:true,digits:10,phoneNum:true}}" type="text" name="phone">
            <i class="p-error" v-if="errors.first('phone')"><span class="icon icon-reject-o"></span>{{errors.first('phone')}}</i>
@@ -42,7 +43,7 @@
          </div>
          <div class="form-bar clearfix v-code">
            <div class="input-box">
-             <input v-model="imgCode" autocomplete="off" class="form-control short-inp" type="text"
+             <input v-model="imgCode" autocomplete="off" class="form-control short-inp bgColor-b" type="text"
                     placeholder="驗證碼" maxlength="4" minlength="4" name="imgCode"
                     v-validate="{rules:{required:true,min:4,max:4}}">
              <div class="p-error" v-if="errors.first('imgCode')"><span class="icon icon-reject-o"></span>{{errors.first('imgCode')}}
@@ -58,8 +59,8 @@
          </div>
 
         <div class="form-bar clearfix">
-          <input v-model="smsCode" type="text" placeholder="請輸入短信驗證碼"
-                 @focus="codeTips=true;clearError('smsCode')" @blur="codeTips=false" class="short-inp form-control pull-left"
+          <input v-model="smsCode" type="text" placeholder="請輸入簡訊驗證碼"
+                 @focus="codeTips=true;clearError('smsCode')" @blur="codeTips=false" class="short-inp form-control pull-left bgColor-b"
                  autocomplete="off" minlength="6" maxlength="6" name="smsCode"
                  v-validate="{rules:{hasGetCode:hasGetCode,required:true,digits:6}}">
           <span class="btn btn-warning btn-code vCode" @click="getCode()" v-if="!getCodeFlag">獲取驗證碼</span>
@@ -69,11 +70,11 @@
         </div>
         <div class="form-bar">
           <input type="password" v-if="!showPwd" v-model="pwd" minlength="6" maxlength="20"
-                 autocomplete="new-password" placeholder="請輸入登錄密碼" class="form-control"
+                 autocomplete="new-password" placeholder="請輸入登錄密碼" class="form-control bgColor-b"
                  @focus="pwdTips=true;clearError('pwd')" @blur="pwdTips=false"
                  v-validate="{rules:{required:true,pwd:true}}" name="pwd">
           <input type="text" v-if="showPwd" v-model="pwd" minlength="6" maxlength="20"
-                 autocomplete="new-password" placeholder="請輸入登錄密碼" class="form-control"
+                 autocomplete="new-password" placeholder="請輸入登錄密碼" class="form-control bgColor-b"
                  @focus="pwdTips=true;clearError('pwd')" @blur="pwdTips=false"
                  v-validate="{rules:{required:true,pwd:true}}" name="pwd">
           <span class="icon cipherText" :class="showPwd?'icon-eye-open':'icon-eye-close'"

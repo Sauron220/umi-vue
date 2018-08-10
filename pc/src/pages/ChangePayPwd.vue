@@ -4,10 +4,10 @@
       <!--<ol class="breadcrumb">
         <span>您現在的位置：</span>
         <li>
-          <router-link to="/accountOverview">我的賬戶</router-link>
+          <router-link to="/accountOverview">我的帳戶</router-link>
         </li>
         <li>
-          <router-link to="/set">賬戶安全</router-link>
+          <router-link to="/set">帳戶安全</router-link>
         </li>
         <li class="active">修改支付密碼</li>
       </ol>
@@ -46,7 +46,7 @@
 
           <div class="personal-bar form-group">
             <h1>驗證碼</h1>
-            <input v-model="smsCode" type="text" placeholder="請輸入短信驗證碼"
+            <input v-model="smsCode" type="text" placeholder="請輸入簡訊驗證碼"
                    @focus="codeTips=true;clearError('smsCode')" @blur="codeTips=false" class="short-inp form-control"
                    autocomplete="off" minlength="6" maxlength="6" name="smsCode"
                    v-validate="{rules:{hasGetCode:hasGetCode,required:true,digits:6}}">
@@ -310,7 +310,7 @@
                   show: false,
                   type: 'alert',
                   msg: '支付密碼修改成功',
-                  confirmUrl: '/set'
+                  confirmUrl: '/mineAccount'
                 });
                 self.$store.commit('showModal');
               }
@@ -333,7 +333,7 @@
                 show: false,
                 type: 'alert',
                 msg: '支付密碼修改成功',
-                confirmUrl: '/set'
+                confirmUrl: '/mineAccount'
               });
               self.$store.commit('showModal');
             });

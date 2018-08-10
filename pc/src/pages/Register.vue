@@ -10,8 +10,9 @@
       <form action="" onsubmit="return false">
         <div class="form-content">
           <router-link class="login-res" to="/login" style="border-right:1px solid #e9e9e9;">登錄</router-link><router-link class="login-res" to="/register">註冊</router-link>
-          <div class="form-bar">
-            <input v-model="phone" placeholder="請輸入手機號碼" class="form-control"
+          <div class="form-bar input-group">
+            <div class="input-group-addon bgColor-b">台灣 +886</div>
+            <input v-model="phone" placeholder="請輸入手機號碼" class="form-control bgColor-b"
                    @focus="tips=true;clearError('phone')" @blur="tips=false;" autocomplete="off" maxlength="10"
                    v-validate="{rules:{required:true,digits:10,phoneNum:true}}" type="text" name="phone">
             <!--<i class="p-error tips" v-if="tips && !errors.first('phone')"><span class="icon icon-info-o"></span>中國大陸地區手機號碼</i>-->
@@ -19,7 +20,7 @@
           </div>
           <div class="form-bar clearfix v-code">
             <div class="input-box">
-              <input v-model="imgCode" autocomplete="off" class="form-control short-inp" type="text"
+              <input v-model="imgCode" autocomplete="off" class="form-control short-inp bgColor-b" type="text"
                      placeholder="驗證碼" maxlength="4" minlength="4" name="imgCode"
                      v-validate="{rules:{required:true,min:4,max:4}}">
               <div class="p-error" v-if="errors.first('imgCode')"><span class="icon icon-reject-o"></span>{{errors.first('imgCode')}}
@@ -34,9 +35,9 @@
             </div>
           </div>
           <div class="form-bar clearfix">
-            <input v-model="smsCode" type="text" placeholder="請輸入短信驗證碼"
+            <input v-model="smsCode" type="text" placeholder="請輸入簡訊驗證碼"
                    @focus="codeTips=true;clearError('smsCode')" @blur="codeTips=false"
-                   class="short-inp form-control pull-left"
+                   class="short-inp form-control pull-left bgColor-b"
                    autocomplete="off" minlength="6" maxlength="6" name="smsCode"
                    v-validate="{rules:{hasGetCode:hasGetCode,required:true,digits:6}}">
             <span class="btn btn-warning btn-code" @click="getCode()" v-if="!getCodeFlag">獲取驗證碼</span>
@@ -46,11 +47,11 @@
           </div>
           <div class="form-bar">
             <input type="password" v-if="!showPwd" v-model="pwd" minlength="6" maxlength="20"
-                   autocomplete="new-password" placeholder="請輸入登錄密碼" class="form-control"
+                   autocomplete="new-password" placeholder="請輸入登錄密碼" class="form-control bgColor-b"
                    @focus="pwdTips=true;clearError('pwd')" @blur="pwdTips=false"
                    v-validate="{rules:{required:true,pwd:true}}" name="pwd">
             <input type="text" v-if="showPwd" v-model="pwd" minlength="6" maxlength="20"
-                   autocomplete="new-password" placeholder="請輸入登錄密碼" class="form-control"
+                   autocomplete="new-password" placeholder="請輸入登錄密碼" class="form-control bgColor-b"
                    @focus="pwdTips=true;clearError('pwd')" @blur="pwdTips=false"
                    v-validate="{rules:{required:true,pwd:true}}" name="pwd">
             <span class="icon cipherText" :class="showPwd?'icon-eye-open':'icon-eye-close'"
@@ -65,9 +66,10 @@
           </div>
           <div class="piaochecked clearfix" :class="{'piaochecked-high':hasAccept}">
             <input type="checkbox" v-model="hasAccept" class="input-clear" v-validate="'required'" name="hasAccept">
-            <span>我已閱讀並同意
-                            <a target="_blank" href="/register-agreement">《平臺註冊及服務協議》</a>
-                        </span>
+            <span style="width: 334px;">我已閱讀並同意
+              <a target="_blank" href="/static/聚寶盆 P2P 平台服務條款.pdf">《聚寶盆 P2P 平台服務條款》</a>
+              <a target="_blank" href="/static/聚寶盆 P2P 平台隱私權政策.pdf">《聚寶盆 P2P 平台隱私權政策》</a>
+            </span>
           </div>
           <button class="btn btn-warning btn-register"
                   @click="registerSubmit();" id="registerBtn" :disabled="errors.any() || !isFormDirty">立即註冊
@@ -154,7 +156,7 @@
         hasRequestSmsCode: false,
         TDK: {
           title: '會員註冊-聚寶盆',
-          keyWords: '會員註冊,理財賬戶,個人投資理財,聚寶盆',
+          keyWords: '會員註冊,理財帳戶,個人投資理財,聚寶盆',
           description: '歡迎加入聚寶盆理財平臺，操作便捷，30s即可註冊！新手註冊即領998元紅包！6道風控審核保障，透明穩健的互聯網理財平臺，理財更安全！',
         }
       }

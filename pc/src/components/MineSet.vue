@@ -13,7 +13,7 @@
       <li class="user-info-item">
         <div class="tit">
           <p class="tit-h">
-            銀行賬戶
+            銀行帳戶
           </p>
           <p class="tit-t">
             銀行合作資金存管
@@ -26,7 +26,7 @@
           已開通
         </div>
         <div class="action" v-if = "custInfo.activateStatus != 1">
-          暂未开放
+          暫未開放
         </div>
       </li>
       <li class="user-info-item">
@@ -35,7 +35,7 @@
             實名認證
           </p>
           <p class="tit-t">
-            賬戶更安全出借更放心
+            帳戶更安全出借更放心
           </p>
         </div>
         <div class="desc" v-if="custInfo.idcardStatus != 3">
@@ -57,14 +57,14 @@
             綁定手機
           </p>
           <p class="tit-t">
-            賬戶更安全出借更放心
+            帳戶更安全出借更放心
           </p>
         </div>
         <div class="desc">
           {{custInfo.cusMobile}}
         </div>
         <div class="action">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修改
+          &nbsp;暫未開放
         </div>
       </li>
       <li class="user-info-item">
@@ -73,14 +73,14 @@
             綁定郵箱
           </p>
           <p class="tit-t">
-            及時獲取賬戶資金變動通知和出借訊息
+            及時獲取帳戶資金變動通知和出借訊息
           </p>
         </div>
         <div class="desc">
           未綁定
         </div>
         <div class="action">
-          暂未开放
+          暫未開放
         </div>
       </li>
       <li class="user-info-item">
@@ -89,7 +89,7 @@
             登錄密碼
           </p>
           <p class="tit-t">
-            登錄賬戶時需要填寫密碼
+            登錄帳戶時需要填寫密碼
           </p>
         </div>
         <div class="desc">
@@ -137,7 +137,7 @@
       <li class="user-info-item">
         <div class="tit">
           <p class="tit-h">
-            註銷存管賬戶
+            註銷存管帳戶
           </p>
           <p class="tit-t">
             註銷後您將無法進行出借，請謹慎操作
@@ -147,7 +147,7 @@
           您尚未進行測評
         </div>
         <div class="action">
-          暂未开放
+          暫未開放
         </div>
       </li>
     </ul>
@@ -165,7 +165,7 @@
     },
     created(){
       var self = this;
-      this.riskTest = JSON.parse(sessionStorage.getItem('currentUser'))['riskTest'];
+      this.riskTest = sessionStorage.getItem('currentUser') && JSON.parse(sessionStorage.getItem('currentUser'))['riskTest'];
       self.$http.post('/pbap-web/action/customer/query/custAuthInfo', {}).then((res) => {
         self.custInfo = res.body.respInfo.custInfo;
         console.log('realName',self.custInfo)
