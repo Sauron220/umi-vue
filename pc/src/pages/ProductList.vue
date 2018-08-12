@@ -136,7 +136,8 @@
         </vPagination>
       </div>
       <div v-if="!productList.length" style="margin:50px;text-align: center;">
-        <img src="../assets/images/no_data.png">
+        <!--<img src="../assets/images/no_data.png">-->
+        暫無數據
       </div>
       <!-- <div class="product-result">
           <ul class="list-unstyled" id="productList">

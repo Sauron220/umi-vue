@@ -124,14 +124,17 @@
             了解風險承受能力，減少出借損失
           </p>
         </div>
-        <div class="desc">
-          {{riskTest == 1 ? '已完成測評' : '您尚未進行測評'}}
+        <div class="desc" style="width: 125px;" v-if="riskTest > 0">
+          {{riskTest > 0 ? '已完成測評' : '您尚未進行測評'}}
         </div>
-        <div class="action" @click="toRisk" v-if="riskTest != 1">
-          {{riskTest == 1 ? '已完成測評' : '去評測'}}
+        <div class="desc" v-else>
+          {{riskTest > 0 ? '已完成測評' : '您尚未進行測評'}}
         </div>
-        <div class="action" v-else>
-          {{riskTest == 1 ? '已完成' : '去評測'}}
+        <div class="action" @click="toRisk" v-if="riskTest == 0">
+          {{riskTest | formatType}}
+        </div>
+        <div class="action" v-else style="width: 144px;">
+          {{riskTest | formatType}}
         </div>
       </li>
       <li class="user-info-item">
@@ -160,14 +163,14 @@
     data(){
       return {
         custInfo:{},
-        riskTest:'',
+        riskTest:30,
       }
     },
     created(){
       var self = this;
-      this.riskTest = sessionStorage.getItem('currentUser') && JSON.parse(sessionStorage.getItem('currentUser'))['riskTest'];
       self.$http.post('/pbap-web/action/customer/query/custAuthInfo', {}).then((res) => {
         self.custInfo = res.body.respInfo.custInfo;
+        self.riskTest = res.body.respInfo.custInfo.riskTest;
         console.log('realName',self.custInfo)
         if (self.custInfo.idcardStatus != 3) {
           self.isOpen = '/openAccount';
@@ -196,6 +199,19 @@
           this.$router.push('/setPayPwds')
         } else {
           this.$router.push('/changePayPwds')
+        }
+      }
+    },
+    filters: {
+      formatType (val) {
+        if (val < 28) {
+          return '您屬於:保守型的投资者'
+        } else if (val >= 28 && val < 39) {
+          return  '您屬於:稳健型的投资者'
+        } else if (val >= 39) {
+          return '您屬於:积极的投资者'
+        } else if (val == 0) {
+          return '去評測'
         }
       }
     }

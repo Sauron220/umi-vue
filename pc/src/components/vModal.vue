@@ -6,17 +6,17 @@
         <div class="content">{{vModalOption.msg}}</div>
         <div class="handle-btn modal-alert" v-if="vModalOption.type=='alert'">
           <a class="item light" :href="vModalOption.confirmUrl || 'javascript:;'"
-             @click="vModalOption.confirmDo || closeModal()">
+             @click="custClick(vModalOption.confirmDo) || closeModal()">
             {{vModalOption.confirmText || '確定'}}
           </a>
         </div>
         <div class="handle-btn modal-confirm" v-if="vModalOption.type=='confirm'">
           <a class="item" :href="vModalOption.cancelUrl || 'javascript:;'"
-             @click="vModalOption.cancelDo || closeModal()">
+             @click="custClick(vModalOption.cancelDo) || closeModal()">
             {{vModalOption.cancelText || '取消'}}
           </a>
           <a class="item light" :href="vModalOption.confirmUrl || 'javascript:;'"
-             @click="vModalOption.confirmDo || closeModal()">
+             @click="custClick(vModalOption.confirmDo) || closeModal()">
             {{vModalOption.confirmText || '確定'}}
           </a>
         </div>
@@ -58,6 +58,9 @@
     methods:{
       closeModal(){
         this.$store.commit('hideModal')
+      },
+      custClick(call) {
+        call && call();
       }
     }
   }

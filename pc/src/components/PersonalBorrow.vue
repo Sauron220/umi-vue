@@ -46,7 +46,7 @@
       <div class="form-group personal-item">
         <label for="money" class="col-sm-3 control-label">借款金額</label>
         <div class="col-sm-8">
-          <input type="text" autocomplete="off" v-model="money" class="form-control" id="money" placeholder="請填寫借款金額">
+          <input type="number" autocomplete="off" v-model="money" class="form-control" id="money" placeholder="請填寫借款金額">
         </div>
       </div>
       <div class="form-group personal-item">
@@ -157,7 +157,7 @@
               if (res.body.errorInfo.errorCode == '0000') {
                 this.$store.commit('setModal', {
                   type: 'alert',
-                  msg: '您的申請已經發送，請耐心等待，專職客服稍後會與您聯繫！',
+                  msg: '您的申請已經發送，請耐心等待，客服專員稍後會與您聯繫！',
                 })
                 self.$store.commit('showModal');
                 self.name='';

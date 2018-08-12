@@ -653,10 +653,18 @@
           self.riskTest = res.body.respInfo.custInfo.riskTest;
           let riskTest = res.body.respInfo.custInfo.riskTest;
           self.$store.commit('setCurrentUserInfo', res.body.respInfo.custInfo)
-          if (riskTest == 1) {
+          var _str = '';
+          if (riskTest > 0) {
+            if (riskTest < 28) {
+              _str = '保守型的投资者'
+            } else if (riskTest >= 28 && riskTest < 39) {
+              _str = '稳健型的投资者'
+            } else if (riskTest >= 39) {
+              _str = '积极的投资者'
+            }
             this.$store.commit('setModal', {
               type: 'alert',
-              msg: '已完成评测',
+              msg: '根據風險評測結果，您屬於:'+_str,
               confirmText: '我知道了'
             });
             this.$store.commit('showModal');

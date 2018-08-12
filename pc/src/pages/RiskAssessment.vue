@@ -143,7 +143,11 @@
     },
     methods:{
       skipRisk() {
-        this.$router.go(-1);
+        this.$http.post('/pbap-web/action/risk/save', {
+          ids:'201104,202101,203101,204101,205101,206104,207104,208101,209101,210101',
+        }).then((res) => {
+          this.$router.go(-1);
+        })
       },
       changeRisk() {
         const self = this;
@@ -165,7 +169,7 @@
           ids_str = _ids.join(',');
           self.$http.post('/pbap-web/action/risk/save', {
             ids:ids_str,
-          }).then((val) => {
+          }).then((res) => {
             const _getVal = res.body.respInfo.sum;
             var _str = '';
             if (_getVal < 28) {
@@ -180,6 +184,7 @@
               msg: '根據風險評測結果，您屬於:'+_str,
               confirmText: '我知道了',
               confirmDo: function () {
+                self.$store.commit('hideModal');
                 self.$router.go(-1);
               }
             });

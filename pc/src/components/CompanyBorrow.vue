@@ -26,10 +26,9 @@
         <label for="idCard" class="col-sm-3 control-label">身份證號</label>
         <div class="col-sm-8">
           <input type="text"
-                 v-model="phone" @focus="tips=true;clearError('idCard')"
-                 @blur="tips=false;" autocomplete="off"  name="idCard"
-                 v-validate="{rules:{required:true,idNumber:true}}"
-                 class="form-control" id="idCard" placeholder="請填寫正確手機號碼">
+                 v-model="idCard"
+                 class="form-control"
+                 id="idCard" placeholder="請填寫正確身份證號">
         </div>
         <i class="p-error" style="top: 36px;left: 142px;" v-if="errors.first('idCard')"><span class="icon icon-reject-o"></span>{{errors.first('idCard')}}</i>
       </div>
@@ -92,7 +91,7 @@
       <div class="form-group personal-item">
         <label for="money" class="col-sm-3 control-label">借款金額</label>
         <div class="col-sm-8">
-          <input type="text" v-model="money" class="form-control" id="money" placeholder="請填寫借款金額">
+          <input type="number" v-model="money" class="form-control" id="money" placeholder="請填寫借款金額">
         </div>
       </div>
       <div class="form-group personal-item">
@@ -104,7 +103,7 @@
       <div class="form-group personal-item">
         <label for="cause" class="col-sm-3 control-label" style="visibility: hidden;">借款事由</label>
         <div class="col-sm-8">
-          <button type="button" class="btn btn-danger col-sm-12"
+          <button type="button" class="btn btn-danger col-sm-12" @click="submitMes"
                   style="background: #f26921;outline: none;border: none;padding: 10px 0;">發送</button>
         </div>
       </div>

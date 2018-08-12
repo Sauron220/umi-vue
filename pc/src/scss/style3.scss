@@ -3252,8 +3252,12 @@ input:-webkit-autofill:focus {
   -webkit-text-fill-color: #333;
 }
 .BorrowingInput{
+  background: url(/static/img/borrw-bg.png) no-repeat -100px;background-size: cover;
+  @media (min-width:900px) and (max-width: 1340px) {
+    background: url(/static/img/borrw-bg.png) no-repeat -200px;background-size: cover;
+  }
   .bg-color{
-    background: #f25826;
+    //background: #f25826;
     padding: 87px 207px;
     display: flex;
     align-items: center;
@@ -3360,6 +3364,11 @@ input:-webkit-autofill:focus {
         }
       }
     }
+  }
+  .input-warp{
+    height: 730.6px;
+    position: relative;
+    left: 320px;
   }
 }
 .personal-warp{

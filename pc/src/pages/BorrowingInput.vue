@@ -1,7 +1,7 @@
 <template>
-  <div class="BorrowingInput">
+  <div class="BorrowingInput" >
     <div class="bg-color">
-      <div class="borrowinginput-left">
+      <!--<div class="borrowinginput-left">
         <div class="borrowinginput-left-t">
           <img src="/static/img/logo-n.png" alt="" style="width: 76px;height: 76px;">
           <div class="borrowinginput-tit">聚寶盆</div>
@@ -13,8 +13,8 @@
           <img src="/static/img/personC.png" alt="" class="img-g">
         </div>
         <p class="borrowing-info-p"><span>3步快速申請</span><span>最快十分鐘審核</span><span>最快一小時到賬</span></p>
-      </div>
-      <div style="height: 730.6px;">
+      </div>-->
+      <div class="input-warp">
         <div class="borrowinginput-ri">
           <div class="borrowinginput-ri-t">
             <p class="borrowinginput-ri-t-h">填寫借款資料</p>
