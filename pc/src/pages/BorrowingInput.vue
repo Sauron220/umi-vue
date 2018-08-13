@@ -18,7 +18,7 @@
         <div class="borrowinginput-ri">
           <div class="borrowinginput-ri-t">
             <p class="borrowinginput-ri-t-h">填寫借款資料</p>
-            <p class="borrowinginput-ri-t-d">填寫訊息，客服專員會與您取得聯係</p>
+            <p class="borrowinginput-ri-t-d">填寫訊息，客服專員會盡快與您取得聯繫</p>
             <div class="tab-warp">
               <span :class="{'active-select': flag == 1}" @click="changeTab(1, 'PersonalBorrow')">個人借款</span>
               <span :class="{'active-select': flag == 2}" @click="changeTab(2, 'CompanyBorrow')">企業借款</span>

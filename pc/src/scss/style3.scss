@@ -1647,13 +1647,14 @@ body {
   align-items: center;
   justify-content: space-between;
   height: 230px;
+  width: 100%;
   .plan-case-item{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     background: #fff;
-    height: 100%;
+    height: 230px;
     padding: 20px;
     width: 33%;
     padding-bottom: 0;
@@ -3252,9 +3253,9 @@ input:-webkit-autofill:focus {
   -webkit-text-fill-color: #333;
 }
 .BorrowingInput{
-  background: url(/static/img/borrw-bg.png) no-repeat -100px;background-size: cover;
+  background: url(/static/img/borrw-nbg.png) no-repeat -100px;background-size: cover;
   @media (min-width:900px) and (max-width: 1340px) {
-    background: url(/static/img/borrw-bg.png) no-repeat -200px;background-size: cover;
+    background: url(/static/img/borrw-nbg.png) no-repeat -200px;background-size: cover;
   }
   .bg-color{
     //background: #f25826;
@@ -3327,11 +3328,12 @@ input:-webkit-autofill:focus {
         text-align: center;
         .borrowinginput-ri-t-h{
           font-size: 24px;
-          color: #ef5a20;
+          color: #ff6633;
         }
         .borrowinginput-ri-t-d{
-          color: #d36264;
-          margin: 18px 0;
+          color: #ff6633;
+          margin-top: 10px;
+          margin-bottom: 38px;
         }
         .tab-warp{
           display: flex;
@@ -3351,13 +3353,13 @@ input:-webkit-autofill:focus {
           &::after {
             content: '';
             position: absolute;
-            border-bottom: #e85d26;
+            border-bottom: #ff6633;
             width: 100%;
             transform: scaleX(1);
             height: 4px;
             left: 0;
             bottom: -2px;
-            background-color: #e85d26;
+            background-color: #ff6633;
             transform-origin: bottom right;
             transition: transform 0.25s ease-out;
           }

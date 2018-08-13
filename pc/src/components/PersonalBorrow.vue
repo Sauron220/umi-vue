@@ -52,14 +52,14 @@
       <div class="form-group personal-item">
         <label for="cause" class="col-sm-3 control-label">借款事由</label>
         <div class="col-sm-8">
-          <input type="text" autocomplete="off" v-model="cause" class="form-control" id="cause" placeholder="請填借款事由">
+          <input type="text" autocomplete="off" v-model="cause" class="form-control" id="cause" placeholder="請填寫借款事由">
         </div>
       </div>
       <div class="form-group personal-item">
         <label for="cause" class="col-sm-3 control-label" style="visibility: hidden;">借款事由</label>
         <div class="col-sm-8">
           <button type="button" class="btn btn-danger col-sm-12" @click="submitMes"
-                  style="background: #f26921;outline: none;border: none;padding: 10px 0;">發送</button>
+                  style="background: #ff6633;outline: none;border: none;padding: 10px 0;">發送</button>
         </div>
       </div>
     </form>

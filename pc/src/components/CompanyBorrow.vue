@@ -67,13 +67,13 @@
       <div class="form-group personal-item">
         <label for="address" class="col-sm-3 control-label">公司地址</label>
         <div class="col-sm-8">
-          <input type="text" v-model="address" class="form-control" id="address" placeholder="請填寫正確戶籍地址">
+          <input type="text" v-model="address" class="form-control" id="address" placeholder="請填寫正確公司地址">
         </div>
       </div>
       <div class="form-group personal-item">
-        <label for="companyNo" class="col-sm-3 control-label" style="padding: 0;width: 148px;">公司統一編號</label>
+        <label for="companyNo" class="col-sm-3 control-label" style="padding: 0;width: 148px;padding-top: 7px;">公司統一編號</label>
         <div class="col-sm-8" style="padding-left: 0;width: 64%;">
-          <input type="text" v-model="companyNo" class="form-control" id="companyNo" placeholder="請填寫組織機構代碼">
+          <input type="text" v-model="companyNo" class="form-control" id="companyNo" placeholder="請填寫公司統一編號">
         </div>
       </div>
       <!--<div class="form-group personal-item">
@@ -97,14 +97,14 @@
       <div class="form-group personal-item">
         <label for="cause" class="col-sm-3 control-label">借款用途</label>
         <div class="col-sm-8">
-          <input type="text" v-model="cause" class="form-control" id="cause" placeholder="請填借款事由">
+          <input type="text" v-model="cause" class="form-control" id="cause" placeholder="請填寫借款用途">
         </div>
       </div>
       <div class="form-group personal-item">
         <label for="cause" class="col-sm-3 control-label" style="visibility: hidden;">借款事由</label>
         <div class="col-sm-8">
           <button type="button" class="btn btn-danger col-sm-12" @click="submitMes"
-                  style="background: #f26921;outline: none;border: none;padding: 10px 0;">發送</button>
+                  style="background: #ff6633;outline: none;border: none;padding: 10px 0;">發送</button>
         </div>
       </div>
     </form>
