@@ -93,7 +93,7 @@
             <a href="/product-list/10/11/1" :class="{'active':$route.fullPath == '/product-list/10/11/1' || isJai}">債權/散標</a>
           </li>
           <li>
-            <a href="/borrowingInput" :class="{'active':$route.fullPath == '/borrowingInput'}">我要借款/還款</a>
+            <a href="/borrowing" :class="{'active':$route.fullPath == '/borrowing'}">我要借款/還款</a>
           </li>
          <!-- <li class="relative product-link">
             <router-link to="/product-list">定期理財<i class="icon icon-angle-down"></i></router-link>
