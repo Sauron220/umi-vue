@@ -31,7 +31,8 @@
               </div>
               <p>1000元見面禮</p>
               <p class="product-noviceArea-desc" style="text-align: left;">註冊即獲得總值1000元現金券，可用於抵扣相應面值的出借金額。</p>
-              <a class="front-new-user-reg new-user-active front-new-novice-reg" @click="isLogin" href="javascript:;">注冊領取</a>
+              <a class="front-new-user-reg new-user-active front-new-novice-reg" style="background: #f05a23;color: #fff;" v-if="isloging"  href="/coupon">查看禮券</a>
+              <a class="front-new-user-reg new-user-active front-new-novice-reg" v-else @click="isLogin" href="javascript:;">註冊領取</a>
             </div>
             <div class="col-xs-4">
               <div class="front-new-user">
@@ -58,7 +59,7 @@
 
       <div class="noviceArea-parper">
         <div class="novice-img">
-          <img src="/static/img/gonggao.png" alt="">
+          <img src="/static/img/notice.svg" alt="" style="width:36px;height:32.8px;margin-right:10px;">
         </div>
         <div class="noviceArea-tit">聚寶快報</div>
         <div class="noviceArea-desc">聚寶盆發起「理財，我是保守派」，倡導積極健康財富觀</div>
@@ -94,6 +95,11 @@
           keyWords:'聚寶盆收益,聚寶盆收費標準,聚寶盆利息,聚寶盆提領',
           description:'聚寶盆會員幫助中心幫您解決登錄註冊、帳戶資訊、匯款提領、產品介紹等壹系列問題‘，有問題找幫助中心，希望給您的預訂疑問提供幫助! 服務熱線 02-8780-6767 。',
         }
+      }
+    },
+    computed:{
+      isloging() {
+        return sessionStorage.getItem('currentUser') && JSON.parse(sessionStorage.getItem('currentUser'))['cusMobile'] != null ? true : false;
       }
     },
     created(){

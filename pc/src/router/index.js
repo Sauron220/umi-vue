@@ -899,7 +899,7 @@ var appRouter =  new Router({
       path: '/borrowing',
       name: 'Borrowing',
       components: {
-        content:Borrowing,
+        content:BorrowingInput,
         PageNav: PageNav,
         PageFooter: PageFooter,
         // RightFloat: RightFloat,

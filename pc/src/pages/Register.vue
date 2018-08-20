@@ -212,7 +212,7 @@
                 self.$store.commit('setModal', {
                   show: false,
                   type: 'alert',
-                  msg: '手機號已被占用'
+                  msg: '手機號已被註冊'
                 });
                 self.$store.commit('showModal');
               } else {

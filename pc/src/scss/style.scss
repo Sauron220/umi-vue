@@ -52,7 +52,7 @@ $border: #dbdbdb;
     line-height: 24px;
     font-size: 12px;
     .title {
-      width: 66px;
+      width: 33px;
       //border-right: 1px solid #f3f3f7;
       margin-right: 30px;
       line-height: 28px;
@@ -63,6 +63,8 @@ $border: #dbdbdb;
     .notice-content {
       float: left;
       width: 720px;
+      line-height: 33px;
+      font-size: 16px;
       ul {
         margin-bottom: 0;
       }
@@ -3286,6 +3288,7 @@ $border: #dbdbdb;
   }
 
   .bottom {
+    color: #4f4f4f;
     .left_info {
       float: left;
       width: 500px;

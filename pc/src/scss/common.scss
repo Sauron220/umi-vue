@@ -217,9 +217,9 @@ i {
       }
     }
     a {
-      color: #da7825;
+      color: #6c6c6c;
       &:hover {
-        color: $base;
+        color: #4f4f4f;
       }
     }
     i {
@@ -231,7 +231,7 @@ i {
     //margin-left: 532px;
     margin-bottom: 22px;
     a {
-      color: #b2b2b2;
+      color: #6c6c6c;
       display: inline-block;
       font-size: 16px;
       line-height: 20px;
@@ -239,7 +239,7 @@ i {
       padding-left: 10px;
       border-right: 1px solid #b2b2b2;
       &:hover {
-        color: $base;
+        color: #4f4f4f;
       }
       &:last-child{
         border-right:none;

@@ -131,7 +131,7 @@
           {{riskTest > 0 ? '已完成測評' : '您尚未進行測評'}}
         </div>
         <div class="action" @click="toRisk" v-if="riskTest == 0">
-          {{riskTest | formatType}}
+          去評測
         </div>
         <div class="action" v-else style="width: 144px;">
           {{riskTest | formatType}}

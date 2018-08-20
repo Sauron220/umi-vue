@@ -59,9 +59,9 @@
           <div class="info info3"><i class="icon icon-service"></i>貼心服務 便捷流程</div>-->
         </div>
       </div>
-      <div class="info-notice" style="width: 1080px !important;margin: 0 auto;">
+      <div class="info-notice" style="width: 1080px !important;margin: 0 auto;padding-left: 0px;">
         <div class="pull-left title">
-          <img src="/static/img/gonggao.png">
+          <img src="/static/img/notice.svg" style="width:36px;height: 32.8px;">
           <!--<span>平臺公告</span>-->
         </div>
         <div class="notice-content">
@@ -106,7 +106,7 @@
               </div>
               <p>註冊領1%加息券見面禮</p>
               <p class="product-noviceArea-desc" style="text-align: left;">註冊即可領取1%加息券，可為您獲取更高的投資回報。 </p>
-              <a class="front-new-user-reg new-user-active front-new-novice-reg" style="background: #f2f2f2;" v-if="isloging" href="javascript:;">已經領取</a>
+              <a class="front-new-user-reg new-user-active front-new-novice-reg" style="background: #f05a23;color: #fff;" v-if="isloging"  href="/coupon">查看禮券</a>
               <a class="front-new-user-reg new-user-active front-new-novice-reg" v-else @click="isLogin" href="javascript:;">註冊領取</a>
             </div>
             <div class="col-xs-4">
@@ -115,7 +115,6 @@
               </div>
               <p>測評送積分</p>
               <p class="product-noviceArea-desc">完成風險測評，享受安心出借。</p>
-              <p class="product-noviceArea-desc" style="visibility: hidden;">完成風險測評，享受安心出借。 </p>
               <a @click="toRisk" class="front-new-user-reg new-user-active front-new-novice-reg" href="javascript:;">完成評測</a>
             </div>
             <div class="col-xs-4" style="border: none">
