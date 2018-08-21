@@ -13,7 +13,7 @@
           聚寶盆總資產
         </div>
       </div>
-      <div class="divider-myass"></div>
+      <!--<div class="divider-myass"></div>
       <div class="total-money-con">
         <div class="num">
           <span>{{ personalAcc.balanceAmount }}</span>元
@@ -30,7 +30,7 @@
         <div class="txt" @click="linkToRealName(2)">
           提款
         </div>
-      </div>
+      </div>-->
     </div>
     <div class="draw-warp">
       <div class="draw-hed">

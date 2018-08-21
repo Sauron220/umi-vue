@@ -40,7 +40,7 @@
           </div>
           <div class="bucket-top-con-ri product-intro">
             <form v-if="productDetail.status == 11 || productDetail.status == 12" action="" method="post" id="payForm" submit="investRule" novalidate="" style="width: 300px;">
-              <div class="balance clearfix pay-info" style="line-height: 30px;width: 280px;" >
+              <!--<div class="balance clearfix pay-info" style="line-height: 30px;width: 280px;" >
                 <i class="pull-left">帳戶餘額</i>
                 <div class="account-info" v-if="userInfo.loginResult">
                   <span class="pull-left" style="color:#f05a23;">{{$fmoney(accountInfo.balanceAmount)}}元</span>
@@ -52,8 +52,8 @@
                 <div class="account-info" v-if="!userInfo.loginResult">
                   <span class="pull-left"><a :href="loginUrl" style="color:#f05a23;">登錄</a>後可見</span>
                 </div>
-              </div>
-              <div class="money-warp" style="margin-top: 15px;width: 280px;">
+              </div>-->
+              <div class="money-warp" style="margin-top: 10px;width: 280px;">
                 <input  type="text" name="invest" style="width: 280px;"
                        maxlength="10"
                        v-model="invest"
