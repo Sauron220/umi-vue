@@ -15,7 +15,7 @@
         <a href="#1" class="help_list">登入註冊</a>
         <a href="#2" class="help_list">帳戶密碼</a>
         <a href="#3" class="help_list" id="realNameAuth">開帳戶</a>
-        <a href="#4" class="help_list">綁銀行卡</a>
+        <a href="#4" class="help_list">綁定銀行帳戶</a>
         <a href="#5" class="help_list" id="recharge">匯款</a>
         <a href="#6" class="help_list" id="withdraw">提領</a>
         <a href="#7" class="help_list">紅包</a>
@@ -158,18 +158,18 @@
         <div class="help_inner">
           <div class="help_bar">
             <div class="top clearfix">
-              <span>1、如何完成銀行卡綁卡操作？</span>
+              <span>1、如何完成銀行帳戶綁定操作？</span>
 
             </div>
-            <div class="bottom">用戶需填寫銀行資料號、開戶銀行、填寫完成後，等待系統反饋綁卡處理結果。</div>
+            <div class="bottom">用戶需填寫銀行資料號、開戶銀行、填寫完成後，等待系統反饋綁定處理結果。</div>
           </div>
           <div class="help_bar">
             <div class="top clearfix">
-              <span>2、用戶可以綁定幾張銀行卡？</span>
+              <span>2、用戶可以綁定幾個銀行帳戶?</span>
 
             </div>
             <div class="bottom">
-              每個用戶只能綁定一張有效的銀行資料，可在我的銀行資料頁面進行換綁銀行資料。
+              每個用戶只能綁定一個有效的銀行資料，可在我的銀行資料頁面進行換綁銀行資料。
             </div>
           </div>
           <div class="help_bar">
@@ -391,7 +391,7 @@
 
             </div>
             <div class="bottom">
-              年滿18週歲，具有完全民事權利能力和民事行為能力，可以在聚寶盆網站上進行註冊、綁訂銀行卡，成為理財人。用戶在聚寶盆網站選擇的理財產品所適用的法律法規、監管規定對用戶的資格有其他要求的，還應當符合相應要求。
+              年滿18週歲，具有完全民事權利能力和民事行為能力，可以在聚寶盆網站上進行註冊、綁定銀行帳戶，成為理財人。用戶在聚寶盆網站選擇的理財產品所適用的法律法規、監管規定對用戶的資格有其他要求的，還應當符合相應要求。
             </div>
           </div>
           <div class="help_bar">

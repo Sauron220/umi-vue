@@ -679,17 +679,7 @@
         this.$router.push({path: 'bucketGold'});
       },
       isLogin(){
-        const _isLogin = JSON.parse(sessionStorage.getItem('currentUser'))['cusMobile'];
-        if (_isLogin) {
-          this.$store.commit('setModal', {
-            type: 'alert',
-            msg: '已登入',
-            confirmText: '我知道了'
-          });
-          this.$store.commit('showModal');
-        } else {
-          this.$router.push('/register')
-        }
+        this.$router.push('/register')
       }
     }
   }

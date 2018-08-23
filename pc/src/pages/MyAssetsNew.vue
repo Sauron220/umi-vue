@@ -38,7 +38,7 @@
           聚寶盆資產
         </div>
         <div class="draw-hed-fin">
-          <div class="tit" @click="toPage({name: 'MineAccount',query:{comp:'AddBankCard'}})">銀行卡</div>
+          <div class="tit" @click="toPage({name: 'MineAccount',query:{comp:'AddBankCard'}})">銀行帳戶</div>
           <div class="tit" @click="toPage({name: 'ReturnInquirys'})">回帳查詢</div>
           <div class="tit" @click="toPage({name: 'MonthlyBills'})">月帳單</div>
           <div class="tit" @click="toPage({name: 'TransactionRecordNews'})">交易紀錄</div>
