@@ -63,6 +63,7 @@ import RegisterSuccess from '@/pages/RegisterSuccess'
 import Login from '@/pages/Login'
 import Register from '@/pages/Register'
 import download from '@/pages/download'
+import Activity from '@/pages/Activity'
 
 Vue.use(Router)
 
@@ -83,6 +84,14 @@ var appRouter =  new Router({
       name: 'download',
       components: {
         content:download,
+        //PageFooter: PageFooter,
+      }
+    },
+    {
+      path: '/activity',
+      name: 'Activity',
+      components: {
+        content:Activity,
         //PageFooter: PageFooter,
       }
     },
