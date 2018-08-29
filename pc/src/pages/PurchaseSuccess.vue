@@ -6,7 +6,7 @@
       </div>
       <div class="col-md-9 col-xs-3">
         <h1>恭喜您購買成功！</h1>
-        <a :href="productUrl($route.query.prdType)+$route.query.prdCode" type="button" class="btn btn-warning btn-recharge">繼續投資</a>
+        <a @click="Repurchase($route.query.prdCode)"  type="button" class="btn btn-warning btn-recharge">繼續投資</a>
         <a href="/accountNew/" type="button" class="btn btn-warning btn-withdrawals">查看已投項目</a>
       </div>
     </div>
@@ -37,7 +37,10 @@
 
     },
     methods: {
-
+      Repurchase (code) {
+        sessionStorage.setItem('proCode', code);
+        this.$router.replace({path: '/bucketGold'});
+      }
     }
   }
 </script>

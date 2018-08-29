@@ -7,7 +7,7 @@
       <div class="col-md-9 col-xs-3">
         <h1>抱歉，購買失敗啦！</h1>
         <p id="errorInfo" v-if="$route.query.errorInfo" style="color: #ff0000;">{{$route.query.errorInfo}}</p>
-        <a :href="productUrl($route.query.prdType)+$route.query.prdCode" type="button" class="btn btn-warning btn-recharge">重新購買</a>
+        <a @click="Repurchase($route.query.prdCode)" type="button" class="btn btn-warning btn-recharge">重新購買</a>
         <a href="/product-list" type="button" class="btn btn-warning btn-withdrawals">瀏覽其它產品</a>
       </div>
     </div>
@@ -34,7 +34,10 @@
 
     },
     methods: {
-
+      Repurchase (code) {
+        sessionStorage.setItem('proCode', code);
+        this.$router.replace({path: '/bucketGold'});
+      }
     }
   }
 </script>

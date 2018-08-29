@@ -194,9 +194,9 @@
       logOut() {
         var self = this;
         self.$http.post('/pbap-web/action/user/query/logout', {}).then((res) => {
+          sessionStorage.removeItem('currentUser');
           location.href = '/'
         })
-        sessionStorage.removeItem('currentUser');
       },
       fetchNewProduct () {
         const self = this;

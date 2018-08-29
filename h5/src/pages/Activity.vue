@@ -15,7 +15,7 @@
           <p class="desc">預期年化收益</p>
         </div>
         <div class="bucket-gold-date">
-          <p class="date">鎖定期{{productInfo.prdPeriod}}天</p>
+          <p class="date">鎖定期{{productInfo.prdPeriod}}個月</p>
           <p class="desc">使用紅包，回報更高</p>
         </div>
       </div>
@@ -24,18 +24,18 @@
           <span class="bucket-tit"><span>HOT</span></span><span class="tit">聚寶計畫</span>
         </div>
       </div>
-      <div class="bucket-gold-con" v-for="(item, index) in LastHomePrdList" :key="index">
+      <div class="bucket-gold-con" style="border: none;" v-for="(item, index) in LastHomePrdList" :key="index">
         <div class="bucket-gold-rate">
           <p class="rate">{{productRate(item.defaultRate)}}</p>
           <p class="desc">預期年化收益</p>
         </div>
         <div class="bucket-gold-date">
-          <p class="date">鎖定期{{item.prdPeriod}}天</p>
+          <p class="date">鎖定期{{item.prdPeriod}}個月</p>
           <p class="desc">使用紅包，回報更高</p>
         </div>
       </div>
     </div>
-    <div class="activity-content-warp margintop">
+    <div class="activity-content-warp margintop" style="padding-bottom: 0.8rem;">
       <div class="activity-person">
         <img src="/static/img/person.svg" alt="">
         <span class="line"></span>
@@ -65,8 +65,7 @@
       </div>
     </div>
     <div class="activity-content-warp dectop">
-      聚寶盆為媒合投資及資金需求的缐上平台，提供領先全球的金融支付技術及最安全透明的金融服務，期待與您共同創造出有信用的機會
-      財富。理財有風險，投資需謹慎。投資前請詳閲風險管理資訊及會員條款相關内容。
+      聚寶盆為媒合投資及資金需求的缐上平台，提供領先全球的金融支付技術及最安全透明的金融服務，期待與您共同創造出有信用的機會財富。理財有風險，投資需謹慎。投資前請詳閲風險管理資訊及會員條款相關内容。
     </div>
     <div class="btn-warp" @click="toDownload">
       下載APP注冊領取1%加息券
@@ -91,14 +90,20 @@
     name: "activity",
     data () {
       return {
-        LastHomePrdList: [],
-        productInfo: {},
+        LastHomePrdList: [{
+          defaultRate: 0.08,
+          prdPeriod: '12'
+        }],
+        productInfo: {
+          defaultRate: 0.06,
+          prdPeriod: '1'
+        },
         flag: false
       }
     },
     created() {
-      this.getProductNew();
-      this.getLastHomePrd();
+      // this.getProductNew();
+      // this.getLastHomePrd();
     },
     methods: {
       productRate: Tool.productRate,

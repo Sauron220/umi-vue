@@ -29,8 +29,8 @@
               <div class="front-new-user">
                 <img src="/static/img/people.png" alt="" style="width: 70px;">
               </div>
-              <p>1000元見面禮</p>
-              <p class="product-noviceArea-desc" style="text-align: left;">註冊即獲得總值1000元現金券，可用於抵扣相應面值的出借金額。</p>
+              <p>註冊領1%加息券見面禮</p>
+              <p class="product-noviceArea-desc" style="text-align: left;">註冊即可領取1%加息券，可為您獲取更高的投資回報。</p>
               <a class="front-new-user-reg new-user-active front-new-novice-reg" style="background: #f05a23;color: #fff;" v-if="isloging"  href="/coupon">查看禮券</a>
               <a class="front-new-user-reg new-user-active front-new-novice-reg" v-else @click="isLogin" href="javascript:;">註冊領取</a>
             </div>
@@ -99,7 +99,7 @@
     },
     computed:{
       isloging() {
-        return sessionStorage.getItem('currentUser') && JSON.parse(sessionStorage.getItem('currentUser'))['cusMobile'] != null ? true : false;
+        return sessionStorage.getItem('currentUser') && JSON.parse(sessionStorage.getItem('currentUser'))['cusMobile'] != null && this.$store.state.accountInfo.cusMobile ? true : false;
       }
     },
     created(){
