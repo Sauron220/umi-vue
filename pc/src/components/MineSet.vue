@@ -38,17 +38,26 @@
             帳戶更安全出借更放心
           </p>
         </div>
-        <div class="desc" v-if="custInfo.idcardStatus != 3">
-          未認證
+        <div class="desc" v-if="custInfo.idcardStatus == 0">
+          未上傳
         </div>
-        <div class="desc" v-else>
-          已認證
+        <div class="desc" v-else-if="custInfo.idcardStatus == 1">
+          已上傳認證中
         </div>
-        <div class="action" @click="toNextSet" v-if="custInfo.idcardStatus != 3">
+        <div class="desc" v-else-if="custInfo.idcardStatus == 3">
+          通過
+        </div>
+        <div class="desc" v-else-if="custInfo.idcardStatus == 4">
+          拒絕
+        </div>
+        <div class="action" @click="toNextSet" v-if="custInfo.idcardStatus != 3 && custInfo.idcardStatus != 1">
           立即認證
         </div>
-        <div class="action" v-else>
+        <div class="action" v-else-if="custInfo.idcardStatus == 3">
           已實名
+        </div>
+        <div class="action" v-else-if="custInfo.idcardStatus == 1">
+          認證中
         </div>
       </li>
       <li class="user-info-item">

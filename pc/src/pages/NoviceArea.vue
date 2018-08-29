@@ -40,7 +40,7 @@
               </div>
               <p>測評送積分</p>
               <p class="product-noviceArea-desc">完成風險測評，享受安心出借。</p>
-              <a class="front-new-user-reg new-user-active front-new-novice-reg" href="/riskAssessment">完成評測</a>
+              <a class="front-new-user-reg new-user-active front-new-novice-reg" @click="getCurrentInfoMes" href="javascript:;">完成評測</a>
             </div>
             <div class="col-xs-4" style="border: none">
               <div class="front-new-user">
@@ -133,7 +133,7 @@
         this.$router.push({path: 'bucketGold'});
       },
       isLogin(){
-        const _isLogin = JSON.parse(sessionStorage.getItem('currentUser'))['cusMobile'];
+        const _isLogin = sessionStorage.getItem('currentUser') && JSON.parse(sessionStorage.getItem('currentUser'))['cusMobile'];
         if (_isLogin) {
           this.$store.commit('setModal', {
             type: 'alert',
@@ -144,6 +144,32 @@
         } else {
           this.$router.push('/register')
         }
+      },
+      getCurrentInfoMes () {
+        const self = this;
+        this.$http.post('/pbap-web/action/customer/query/custAuthInfo',{}).then((res) => {
+          self.riskTest = res.body.respInfo.custInfo.riskTest;
+          let riskTest = res.body.respInfo.custInfo.riskTest;
+          self.$store.commit('setCurrentUserInfo', res.body.respInfo.custInfo)
+          var _str = '';
+          if (riskTest > 0) {
+            if (riskTest < 28) {
+              _str = '保守型的投资者'
+            } else if (riskTest >= 28 && riskTest < 39) {
+              _str = '稳健型的投资者'
+            } else if (riskTest >= 39) {
+              _str = '积极的投资者'
+            }
+            this.$store.commit('setModal', {
+              type: 'alert',
+              msg: '根據風險評測結果，您屬於:'+_str,
+              confirmText: '我知道了'
+            });
+            this.$store.commit('showModal');
+          } else if (riskTest == 0) {
+            self.$router.push({path:'riskAssessment'});
+          }
+        })
       },
     }
   }

@@ -66,7 +66,7 @@
     <div class="v-modal modal-warning" v-if="floatModal">
       <div class="modal-backdrop fade in" style="z-index: 1060;"></div>
       <div class="popup">
-        <div class="content">是否删除银行卡</div>
+        <div class="content">是否删除銀行帳戶</div>
         <div class="handle-btn modal-confirm">
           <a class="item" href="javascript:void (0);"
              @click="closeModal()">
