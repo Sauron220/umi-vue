@@ -108,6 +108,15 @@
           'pwd': this.pwd,
           'pwdNew': this.pwdNew
         }).then((result) => {
+          if (this.pwd != this.pwdNew) {
+            self.$store.commit('setModal', {
+              show: false,
+              type: 'alert',
+              msg: '支付密碼设置不一致',
+            });
+            self.$store.commit('showModal');
+            return
+          }
           if (result) {
             self.$http.post('/pbap-web/action/user/savePayPwd', {
               "payPwd": self.pwd

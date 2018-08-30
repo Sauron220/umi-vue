@@ -1644,28 +1644,32 @@ body {
   }
 }
 .plan-container{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  //display: flex;
+  //align-items: center;
+  //justify-content: space-between;
   height: 230px;
-  width: 100%;
+  width: 1080px;
   .plan-case-item{
+    float: left;
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-direction: column;
+    -webkit-flex-direction: column;
+    -webkit-justify-content: center;
     background: #fff;
     height: 230px;
     padding: 20px;
     width: 33%;
     padding-bottom: 0;
+    margin: 0 1px;
     .plan-case-item-t{
       display: flex;
       align-items: center;
       justify-content: space-around;
-      width: 100%;
+      //width: 100%;
       border-bottom: 1px solid #ccc;
       padding-bottom: 30px;
+      background: #fff;
       .rate{
         color: #f15a24;
         font-size: 24px;
@@ -1691,7 +1695,8 @@ body {
     .plan-case-item-b{
       text-align: center;
       margin-top: 20px;
-      width: 100%;
+      //width: 100%;
+      background: #fff;
       color: #f15a24;
       cursor: pointer;
     }
