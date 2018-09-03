@@ -1,6 +1,6 @@
 <template>
   <div id="PersonalCenter" class="rw-content OpenAccount changePwd-content profile clearfix">
-    <UpLoadImage ref="UpLoadImage"></UpLoadImage>
+    <UpLoadImage ref="UpLoadImage" :title="title"></UpLoadImage>
     <div class="container">
       <!--<ol class="breadcrumb">
         <span>您現在的位置：</span>
@@ -86,7 +86,8 @@
         imgUrl1: '',
         imgUrl2: '',
         imgUrl3: '',
-        btnText: '提交認證'
+        btnText: '提交認證',
+        title: ''
       }
     },
     components: {
@@ -152,6 +153,18 @@
         });
       },
       showUploadBabyAvatar(index) {
+        switch (index) {
+          case 1:
+            this.title = '手持本人身份證正面照';
+            break;
+          case 2:
+            this.title = '本人身份證正面照';
+            break;
+          case 3:
+            this.title = '本人身份證背面照';
+            break;
+          default:
+        }
         this.$store.commit('seturlIndex', index);
         this.$refs.UpLoadImage.showUploadBabyAvatar();
       },

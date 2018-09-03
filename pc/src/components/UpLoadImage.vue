@@ -5,7 +5,7 @@
     <div id="uploadImg" class="avatar-set-modal upload-img" v-if="uploadBabyAvatar">
       <div class="modal-backdrop fade in"></div>
       <div class="modal-dialog">
-        <div class="modal-header">請選擇圖片3
+        <div class="modal-header">{{title}}
           <a href="javascript:;" @click="uploadBabyAvatar=!uploadBabyAvatar" class="close">×</a>
         </div>
         <div class="modal-body form-horizontal">
@@ -61,6 +61,9 @@
 
   export default {
     name: 'UploadImage',
+    props:{
+      title: String
+    },
     data() {
       return {
         isLoding:false,

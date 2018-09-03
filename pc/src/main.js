@@ -27,6 +27,7 @@ Vue.config.productionTip = false
 // 設置請求頭
 var timer;  // 通過setTImeout來標識並記錄錯誤處理  在進行壹個新的錯誤處理的時候幹掉上壹個錯誤處理  避免多個錯誤出現
 Vue.http.interceptors.push((request, next) => {
+  // request.url = 'http://74.207.251.145:3580'+request.url
   next((response) => {
   if(response.body.errorInfo && response.body.errorInfo.errorCode){ // 請求正常
     if(response.body.errorInfo.errorCode == '9998'){                //if 登錄失效,
