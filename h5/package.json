@@ -16,7 +16,7 @@
   "dependencies": {
     "cropperjs": "1.0.0",
     "highcharts": "5.0.14",
-    "jquery": "1.12.4",
+    "jquery": "3.5.0",
     "lib-flexible": "^0.3.2",
     "mint-ui": "2.2.9",
     "mui": "0.0.1",
