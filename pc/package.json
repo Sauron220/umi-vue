@@ -18,7 +18,7 @@
     "cropper": "^3.1.6",
     "cropperjs": "^1.0.0-rc.3",
     "highcharts": "5.0.12",
-    "jquery": "1.12.4",
+    "jquery": "3.5.0",
     "mark.js": "github:julmot/mark.js",
     "swiper": "2.7.6",
     "v-distpicker": "^1.0.1",
